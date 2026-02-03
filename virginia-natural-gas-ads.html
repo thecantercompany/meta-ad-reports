@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virginia Natural Gas Ads — Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue-deep: #1e3a5f;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber-deep: #92400e;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple-deep: #4c1d95;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --teal-deep: #115e59;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .header-meta .sep { color: var(--border); }
+
+  .top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    padding: 24px 22px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .chart-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 48px;
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 170px;
+    padding-top: 16px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .bar {
+    width: 100%;
+    max-width: 48px;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    min-height: 2px;
+  }
+
+  .bar:hover { opacity: 0.8; }
+
+  .bar-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--navy);
+    color: #fff;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .bar-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--navy);
+  }
+
+  .bar:hover .bar-tooltip { display: block; }
+
+  .bar-label {
+    font-size: 9px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    height: 48px;
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    justify-content: flex-end;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+  }
+
+  .adv-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .adv-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 0 6px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .adv-table td {
+    padding: 10px 6px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+  }
+
+  .adv-table tr:last-child td { border-bottom: none; }
+
+  .adv-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 13px;
+  }
+
+  .adv-funder-table {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .stance-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .stance-anti { background: var(--red-light); color: var(--red-deep); }
+  .stance-pro { background: var(--green-light); color: var(--green-deep); }
+  .stance-neutral { background: var(--bg-warm); color: var(--stone); }
+  .stance-issue { background: var(--purple-light); color: var(--purple-deep); }
+  .stance-edu { background: var(--teal-light); color: var(--teal-deep); }
+
+  .msg-category { margin-bottom: 20px; }
+  .msg-category:last-child { margin-bottom: 0; }
+
+  .msg-category-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .msg-item {
+    padding: 10px 14px;
+    background: var(--bg-warm);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.6;
+    border-left: 3px solid var(--border);
+  }
+
+  .msg-item.pro-msg { border-left-color: var(--green); }
+  .msg-item.anti-msg { border-left-color: var(--red); }
+  .msg-item.edu-msg { border-left-color: var(--teal); }
+  .msg-item.issue-msg { border-left-color: var(--purple); }
+
+  .msg-source {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 12px;
+  }
+
+  .demo-section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .demo-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .demo-label {
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-secondary);
+    min-width: 48px;
+  }
+
+  .demo-bar-track {
+    flex: 1;
+    height: 16px;
+    background: var(--bg-warm);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .demo-bar-inner {
+    height: 100%;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .insight-box {
+    margin-top: 24px;
+    padding: 16px 18px;
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.65;
+  }
+
+  .insight-box strong {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .texas-ads { margin-bottom: 48px; }
+
+  .ad-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--border);
+  }
+
+  .ad-card.anti { border-left-color: var(--red); }
+  .ad-card.pro { border-left-color: var(--green); }
+  .ad-card.edu { border-left-color: var(--teal); }
+  .ad-card.issue { border-left-color: var(--purple); }
+
+  .ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .ad-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--navy);
+  }
+
+  .ad-funder {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .ad-text {
+    font-size: 13.5px;
+    color: var(--text-body);
+    line-height: 1.7;
+    font-style: italic;
+    padding: 10px 16px;
+    background: var(--bg-warm);
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+
+  .ad-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .ad-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--blue);
+    text-decoration: none;
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--bg);
+    transition: all 0.15s;
+  }
+
+  .ad-links a:hover {
+    background: var(--blue-light);
+    border-color: var(--blue);
+  }
+
+  .ad-links a::before {
+    content: '\2197';
+    font-size: 11px;
+  }
+
+  .takeaway {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .takeaway::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--navy);
+    border-radius: 10px 0 0 10px;
+  }
+
+  .takeaway-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .takeaway p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-body);
+    margin-bottom: 12px;
+  }
+
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway p strong { color: var(--navy); }
+  .takeaway p em { font-style: italic; color: var(--red-deep); }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .footer-left { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.5px; }
+
+  @media (max-width: 800px) {
+    .top-stats { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .demo-grid { grid-template-columns: 1fr; }
+    .container { padding: 24px 16px 48px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .container { padding: 20px; }
+    .bar-tooltip { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">Competitive Intelligence Brief &middot; Meta Ad Library</div>
+    <h1>Natural Gas Political Ads in Virginia<span>Landscape Analysis Since Jan 14, 2025</span></h1>
+    <div class="header-meta">
+      <span>Jan 14, 2025 &ndash; Feb 2, 2026</span>
+      <span class="sep">&middot;</span>
+      <span>Political, Social &amp; Issue Ads</span>
+      <span class="sep">&middot;</span>
+      <span>Geo-filtered: Virginia</span>
+    </div>
+  </div>
+
+  <!-- TOP STATS -->
+  <div class="top-stats">
+    <div class="stat-card">
+      <div class="stat-label">Virginia-Focused Ads</div>
+      <div class="stat-value">117</div>
+      <div class="stat-sub">mentioning natural gas + Virginia</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Top VA Spender</div>
+      <div class="stat-value">CCAN</div>
+      <div class="stat-sub">$46K&ndash;$64K (Chesapeake Climate)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Nat'l Ads Reaching VA</div>
+      <div class="stat-value">593</div>
+      <div class="stat-sub">of 5,000+ national "natural gas" ads</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">VA-Specific Orgs</div>
+      <div class="stat-value">4</div>
+      <div class="stat-sub">CCAN, Dogwood, VA Clean Energy, TJI</div>
+    </div>
+  </div>
+
+  <!-- VOLUME CHART -->
+  <div class="section-title">Weekly Ad Volume &mdash; "Natural Gas Virginia" (Since Jan 2025)</div>
+  <div class="chart-container">
+    <div class="bar-chart" id="volumeChart"></div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background: var(--navy);"></div>Ad count</div>
+      <div class="legend-item"><div class="legend-dot" style="background: var(--amber);"></div>Spend spike (&gt;$5K)</div>
+    </div>
+  </div>
+
+  <!-- TWO COLUMN -->
+  <div class="two-col">
+
+    <!-- ADVERTISERS TABLE -->
+    <div class="card">
+      <div class="section-title">Advertisers by Spend (Reaching VA)</div>
+      <table class="adv-table">
+        <thead>
+          <tr>
+            <th>Advertiser</th>
+            <th>Ads</th>
+            <th style="text-align: right;">Spend Est.</th>
+            <th>Angle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="adv-name">Energy Citizens</div><div class="adv-funder-table">American Petroleum Institute</div></td>
+            <td>2,408</td>
+            <td style="text-align: right;">$635K&ndash;$986K</td>
+            <td><span class="stance-tag stance-pro">Pro-Gas</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">NRDC</div><div class="adv-funder-table">Natural Resources Defense Council</div></td>
+            <td>291</td>
+            <td style="text-align: right;">$245K&ndash;$320K</td>
+            <td><span class="stance-tag stance-anti">Anti-Gas</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">NRDC Action Fund</div></td>
+            <td>119</td>
+            <td style="text-align: right;">$107K&ndash;$138K</td>
+            <td><span class="stance-tag stance-anti">Anti-Gas</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Chesapeake Climate Action</div><div class="adv-funder-table">CCAN &middot; VA's top local spender</div></td>
+            <td>94</td>
+            <td style="text-align: right;">$46K&ndash;$64K</td>
+            <td><span class="stance-tag stance-anti">Anti-Gas</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Williams Companies</div></td>
+            <td>49</td>
+            <td style="text-align: right;">$35K&ndash;$45K</td>
+            <td><span class="stance-tag stance-pro">Pro-Gas</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Natural Allies</div><div class="adv-funder-table">Natural Allies, Inc.</div></td>
+            <td>135</td>
+            <td style="text-align: right;">$27K&ndash;$43K</td>
+            <td><span class="stance-tag stance-pro">Pro-Gas</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Dogwood</div><div class="adv-funder-table">Virginia-focused clean energy org</div></td>
+            <td>33</td>
+            <td style="text-align: right;">$21K&ndash;$28K</td>
+            <td><span class="stance-tag stance-edu">Education</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Virginians for Clean Energy</div><div class="adv-funder-table">270 Strategies</div></td>
+            <td>177</td>
+            <td style="text-align: right;">$0&ndash;$18K</td>
+            <td><span class="stance-tag stance-anti">Anti-Gas</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Thomas Jefferson Institute</div></td>
+            <td>51</td>
+            <td style="text-align: right;">$200&ndash;$5K</td>
+            <td><span class="stance-tag stance-neutral">Neutral</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- KEY MESSAGING -->
+    <div class="card">
+      <div class="section-title">Key Messaging Themes</div>
+
+      <div class="msg-category">
+        <div class="msg-category-label" style="color: var(--red-deep);">Anti-Gas / Pro-Solar (Dominant)</div>
+        <div class="msg-item anti-msg">
+          "Energy demand is increasing costs in Virginia. The solution: Solar. Solar power is abundant, cheap, and fast to build. And in Virginia we can turn sunlight into savings at the speed of light!"
+          <div class="msg-source">&mdash; Chesapeake Climate Action Network ($15K&ndash;$20K on this ad alone)</div>
+        </div>
+        <div class="msg-item anti-msg">
+          "Virginia utilities share the blame for relying too much on natural gas and high-priced electricity imported from other PJM states."
+          <div class="msg-source">&mdash; Virginians for Clean Energy</div>
+        </div>
+        <div class="msg-item anti-msg">
+          "Utilities across the Southeast are reviving dirty coal and gas plants instead of investing in clean, affordable energy."
+          <div class="msg-source">&mdash; NRDC (national, reaching VA)</div>
+        </div>
+      </div>
+
+      <div class="msg-category">
+        <div class="msg-category-label" style="color: var(--green-deep);">Pro-Gas / Energy Security</div>
+        <div class="msg-item pro-msg">
+          "Oil and Natural Gas are essential to the economy, yet Washington stalls domestic energy production. Things need to change."
+          <div class="msg-source">&mdash; Energy Citizens (American Petroleum Institute)</div>
+        </div>
+        <div class="msg-item pro-msg">
+          "68% of voters back a balanced plan of more renewables and more natural gas, including 87% of Democrats."
+          <div class="msg-source">&mdash; Natural Allies for a Clean Energy Future</div>
+        </div>
+      </div>
+
+      <div class="msg-category">
+        <div class="msg-category-label" style="color: var(--teal-deep);">Clean Energy Education</div>
+        <div class="msg-item edu-msg">
+          "Did you know the answer to rising electricity costs? Clean energy. Here are three facts you can use to win any debate about it."
+          <div class="msg-source">&mdash; Dogwood ($4K&ndash;$4.5K, 400K+ impressions)</div>
+        </div>
+      </div>
+
+      <div class="msg-category">
+        <div class="msg-category-label" style="color: var(--stone);">Policy / Neutral</div>
+        <div class="msg-item">
+          "Approval of Gas Generation Plant Divides Two Big Donors Who Helped Democrats Win."
+          <div class="msg-source">&mdash; Thomas Jefferson Institute for Public Policy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMOGRAPHICS -->
+  <div class="section-title">Audience Demographics (National "Natural Gas" Ads)</div>
+  <div class="card" style="margin-bottom: 48px;">
+    <div class="demo-grid">
+      <div>
+        <div class="demo-section-label">By Age</div>
+        <div class="demo-bar-row">
+          <span class="demo-label">65+</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 50%; background: var(--navy);">50%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">55&ndash;64</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 20%; background: var(--navy-mid);">20%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">45&ndash;54</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 10%; background: var(--slate);">10%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">35&ndash;44</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 10%; background: var(--slate);">10%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">25&ndash;34</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 10%; background: var(--stone);">10%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">18&ndash;24</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 0%; background: var(--stone);"></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="demo-section-label">By Gender</div>
+        <div class="demo-bar-row">
+          <span class="demo-label">Male</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 60%; background: var(--navy);">60%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">Female</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 40%; background: var(--slate);">40%</div></div>
+        </div>
+        <div class="insight-box">
+          <strong>Note</strong>
+          National "natural gas" ads skew toward males 55+ &mdash; driven largely by Energy Citizens (API) and industry advocacy campaigns. Virginia-specific anti-gas ads from CCAN and Dogwood likely reach a broader, younger demographic given their solar/cost-savings framing.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIRGINIA-SPECIFIC ADS -->
+  <div class="section-title">Virginia-Specific Advertisers &amp; Ads</div>
+  <div class="texas-ads">
+
+    <div class="ad-card anti">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Chesapeake Climate Action Network</div>
+          <div class="ad-funder">Funded by: CCAN, Inc &middot; 94 total ads &middot; $46K&ndash;$64K spend &middot; Virginia's top local spender</div>
+        </div>
+        <span class="stance-tag stance-anti">Anti-Gas</span>
+      </div>
+      <div class="ad-text">"Energy demand is increasing costs in Virginia. The solution: Solar. Solar power is abundant, cheap, and fast to build. And in Virginia we can turn sunlight into savings at the speed of light!"</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=1183731643838475" target="_blank">VA solar vs gas ($15K&ndash;$20K)</a>
+        <a href="https://www.facebook.com/ads/library/?id=881945627629929" target="_blank">VA solar vs gas ($10K&ndash;$15K)</a>
+        <a href="https://www.facebook.com/ads/library/?id=2067476247420650" target="_blank">VA solar variant ($600&ndash;$699)</a>
+        <a href="https://www.facebook.com/ads/library/?id=1286490646854230" target="_blank">VA solar variant ($300&ndash;$399)</a>
+        <a href="https://www.facebook.com/ads/library/?id=1461124812347157" target="_blank">Data center reform coalition ($300&ndash;$399)</a>
+        <a href="https://www.facebook.com/ads/library/?id=744781571549480" target="_blank">79.4% think solar lowers costs ($400&ndash;$499)</a>
+        <a href="https://www.facebook.com/ads/library/?id=2329857997523664" target="_blank">Dominion rate hike / rooftop solar ($100&ndash;$199)</a>
+      </div>
+    </div>
+
+    <div class="ad-card edu">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Dogwood</div>
+          <div class="ad-funder">Funded by: Dogwood &middot; 33 ads &middot; $21K&ndash;$28K spend &middot; Virginia clean energy education</div>
+        </div>
+        <span class="stance-tag stance-edu">Education</span>
+      </div>
+      <div class="ad-text">"Did you know the answer to rising electricity costs? Clean energy. Here are three facts you can use to win any debate about it."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=823637177379002" target="_blank">Clean energy debate facts ($4K&ndash;$4.5K, 400K impr.)</a>
+        <a href="https://www.facebook.com/ads/library/?id=1158305339469641" target="_blank">Fossil fuel distance ($1.5K&ndash;$2K)</a>
+        <a href="https://www.facebook.com/ads/library/?id=1142540201142487" target="_blank">Clean energy Q&A ($700&ndash;$799)</a>
+        <a href="https://www.facebook.com/ads/library/?id=887646677583379" target="_blank">Clean energy basics ($800&ndash;$899)</a>
+        <a href="https://www.facebook.com/ads/library/?id=3160896734089291" target="_blank">Clean energy explainer ($600&ndash;$699)</a>
+      </div>
+    </div>
+
+    <div class="ad-card anti">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Virginians for Clean Energy</div>
+          <div class="ad-funder">Funded by: 270 Strategies &middot; 177 ads &middot; $0&ndash;$18K spend</div>
+        </div>
+        <span class="stance-tag stance-anti">Anti-Gas</span>
+      </div>
+      <div class="ad-text">"Virginia utilities share the blame for relying too much on natural gas and high-priced electricity imported from other PJM states. Grid operator PJM is to blame for failing to approve enough new generation, including wind and solar facilities."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=25449882601343260" target="_blank">PJM / utility blame for gas reliance</a>
+        <a href="https://www.facebook.com/ads/library/?id=861587669893550" target="_blank">"Do you think natural gas is clean energy?"</a>
+        <a href="https://www.facebook.com/ads/library/?id=731823173029475" target="_blank">2026 legislative session / affordability</a>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Thomas Jefferson Institute</div>
+          <div class="ad-funder">Funded by: TJI for Public Policy &middot; 51 ads &middot; $200&ndash;$5K spend</div>
+        </div>
+        <span class="stance-tag stance-neutral">Neutral</span>
+      </div>
+      <div class="ad-text">"Approval of Gas Generation Plant Divides Two Big Donors Who Helped Democrats Win."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=3940962169534943" target="_blank">Gas plant approval / donor divide</a>
+      </div>
+    </div>
+
+    <div class="ad-card pro">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Energy Citizens</div>
+          <div class="ad-funder">Funded by: American Petroleum Institute &middot; 2,408 ads &middot; $635K&ndash;$986K spend (national, reaching VA)</div>
+        </div>
+        <span class="stance-tag stance-pro">Pro-Gas</span>
+      </div>
+      <div class="ad-text">"Oil and Natural Gas are essential to the economy, yet Washington stalls domestic energy production. Things need to change."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=894454376591704" target="_blank">Essential to economy ($0&ndash;$99)</a>
+        <a href="https://www.facebook.com/ads/library/?id=3758205484488294" target="_blank">Washington stalls production ($100&ndash;$199)</a>
+        <a href="https://www.facebook.com/ads/library/?id=1558737898715918" target="_blank">LLWS parade / reliable energy</a>
+        <a href="https://www.facebook.com/ads/library/?id=911922024716739" target="_blank">Energy debates grassroots</a>
+      </div>
+    </div>
+
+    <div class="ad-card pro">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Natural Allies for a Clean Energy Future</div>
+          <div class="ad-funder">Funded by: Natural Allies, Inc. &middot; 135 ads &middot; $27K&ndash;$43K spend (national, reaching VA)</div>
+        </div>
+        <span class="stance-tag stance-pro">Pro-Gas</span>
+      </div>
+      <div class="ad-text">"68% of voters back a balanced plan of more renewables and more natural gas, including 87% of Democrats, with energy affordability top of mind heading into the midterms."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=1883943765531813" target="_blank">Colorado poll / balanced energy ($500&ndash;$599)</a>
+        <a href="https://www.facebook.com/ads/library/?id=1309174054344792" target="_blank">Poll highlights ($700&ndash;$799)</a>
+        <a href="https://www.facebook.com/ads/library/?id=823036647305871" target="_blank">Video ad ($1.5K&ndash;$2K, 200K impr.)</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STRATEGIC TAKEAWAY -->
+  <div class="takeaway">
+    <div class="takeaway-label">Strategic Takeaway</div>
+    <p>
+      The Virginia natural gas ad landscape is <strong>overwhelmingly shaped by anti-gas, pro-solar messaging</strong>. The Chesapeake Climate Action Network is the dominant Virginia-specific spender at $46K&ndash;$64K, running a sustained "solar is the solution to rising costs" campaign with single ads exceeding $15K in spend. Dogwood reinforces this with educational content, and Virginians for Clean Energy adds legislative accountability framing &mdash; blaming utilities and PJM for over-reliance on gas.
+    </p>
+    <p>
+      On the pro-gas side, <strong>no Virginia-specific organization is running advocacy ads</strong>. The pro-gas narrative in Virginia is entirely carried by national campaigns from Energy Citizens (API) at $635K&ndash;$986K and Natural Allies at $27K&ndash;$43K. While API's spend dwarfs all others, its messaging is generic ("essential to the economy") and not tailored to Virginia issues like data center demand, Dominion rate cases, or the 2026 legislative session.
+    </p>
+    <p>
+      The <em>critical gap</em>: Virginia-specific pro-gas voices are absent from Meta advertising. CCAN is framing the energy cost debate around solar vs. gas with Virginia-specific data ("79.4% of Virginians think solar will lower costs"), while the pro-gas side has no localized counter-narrative. The Thomas Jefferson Institute provides neutral policy coverage but isn't running advocacy. This asymmetry means <strong>the Virginia-specific political narrative around natural gas is being defined almost entirely by its opponents</strong>.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">Source: Meta Ad Library API &middot; Retrieved Feb 2, 2026</div>
+    <div>Political, social &amp; issue ads only &middot; Geo-filtered to Virginia</div>
+  </div>
+
+</div>
+
+<script>
+const weeklyData = [
+  { label: 'Jan 13', ads: 2, spend: 99, spike: false },
+  { label: 'Jan 20', ads: 2, spend: 199, spike: false },
+  { label: 'Jan 27', ads: 2, spend: 199, spike: false },
+  { label: 'Feb 10', ads: 2, spend: 399, spike: false },
+  { label: 'Feb 17', ads: 9, spend: 20746, spike: true },
+  { label: 'Mar 10', ads: 3, spend: 349, spike: false },
+  { label: 'Mar 17', ads: 1, spend: 47500, spike: true },
+  { label: 'Mar 24', ads: 5, spend: 348, spike: false },
+  { label: 'Mar 31', ads: 1, spend: 750, spike: false },
+  { label: 'Apr 14', ads: 2, spend: 99, spike: false },
+  { label: 'May 5', ads: 2, spend: 999, spike: false },
+  { label: 'May 12', ads: 3, spend: 2049, spike: false },
+  { label: 'May 19', ads: 3, spend: 8549, spike: true },
+  { label: 'Jun 2', ads: 4, spend: 898, spike: false },
+  { label: 'Jun 9', ads: 3, spend: 549, spike: false },
+  { label: 'Jun 23', ads: 2, spend: 299, spike: false },
+  { label: 'Jun 30', ads: 3, spend: 449, spike: false },
+  { label: 'Jul 7', ads: 4, spend: 598, spike: false },
+  { label: 'Sep 29', ads: 3, spend: 249, spike: false },
+  { label: 'Oct 6', ads: 3, spend: 349, spike: false },
+  { label: 'Oct 20', ads: 9, spend: 3946, spike: false },
+  { label: 'Oct 27', ads: 3, spend: 149, spike: false },
+  { label: 'Dec 1', ads: 3, spend: 849, spike: false },
+  { label: 'Dec 15', ads: 6, spend: 31097, spike: true },
+  { label: 'Jan 5', ads: 4, spend: 198, spike: false },
+  { label: 'Jan 19', ads: 9, spend: 7146, spike: true },
+  { label: 'Jan 26', ads: 6, spend: 2397, spike: false },
+];
+
+const maxAds = Math.max(...weeklyData.map(d => d.ads));
+const chart = document.getElementById('volumeChart');
+
+weeklyData.forEach(d => {
+  const group = document.createElement('div');
+  group.className = 'bar-group';
+
+  const bar = document.createElement('div');
+  bar.className = 'bar';
+  const height = (d.ads / maxAds) * 100;
+  bar.style.height = height + '%';
+  bar.style.background = d.spike ? '#b45309' : '#1a2332';
+
+  const tooltip = document.createElement('div');
+  tooltip.className = 'bar-tooltip';
+  tooltip.innerHTML = d.ads + ' ads &middot; $' + (d.spend/1000).toFixed(1) + 'K spend';
+  bar.appendChild(tooltip);
+
+  const label = document.createElement('div');
+  label.className = 'bar-label';
+  label.textContent = d.label;
+
+  group.appendChild(bar);
+  group.appendChild(label);
+  chart.appendChild(group);
+});
+</script>
+</body>
+</html>
