@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Data Center Ads — Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue-deep: #1e3a5f;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber-deep: #92400e;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple-deep: #4c1d95;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .header-meta .sep {
+    color: var(--border);
+  }
+
+  /* ── TOP STATS ── */
+  .top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    padding: 24px 22px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── CHART ── */
+  .chart-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 48px;
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 170px;
+    padding-top: 16px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .bar {
+    width: 100%;
+    max-width: 48px;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    min-height: 2px;
+  }
+
+  .bar:hover { opacity: 0.8; }
+
+  .bar-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--navy);
+    color: #fff;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .bar-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--navy);
+  }
+
+  .bar:hover .bar-tooltip { display: block; }
+
+  .bar-label {
+    font-size: 9px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    height: 48px;
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    justify-content: flex-end;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  /* ── TWO COLUMN ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+  }
+
+  /* ── ADVERTISER TABLE ── */
+  .adv-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .adv-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 0 6px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .adv-table td {
+    padding: 10px 6px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+  }
+
+  .adv-table tr:last-child td { border-bottom: none; }
+
+  .adv-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 13px;
+  }
+
+  .adv-funder-table {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .stance-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .stance-anti { background: var(--red-light); color: var(--red-deep); }
+  .stance-pro { background: var(--green-light); color: var(--green-deep); }
+  .stance-invest { background: var(--amber-light); color: var(--amber-deep); }
+  .stance-neutral { background: var(--bg-warm); color: var(--stone); }
+  .stance-issue { background: var(--purple-light); color: var(--purple-deep); }
+
+  /* ── THEME BARS ── */
+  .theme-group-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 0;
+    margin-bottom: 6px;
+    margin-top: 18px;
+  }
+
+  .theme-group-label:first-child { margin-top: 0; }
+
+  .theme-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+  }
+
+  .theme-word {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 95px;
+    color: var(--text-primary);
+  }
+
+  .theme-bar-container {
+    flex: 1;
+    height: 7px;
+    background: var(--bg-warm);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .theme-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  .theme-count {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    min-width: 28px;
+    text-align: right;
+  }
+
+  /* ── DEMOGRAPHICS ── */
+  .demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 12px;
+  }
+
+  .demo-section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .demo-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .demo-label {
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-secondary);
+    min-width: 48px;
+  }
+
+  .demo-bar-track {
+    flex: 1;
+    height: 16px;
+    background: var(--bg-warm);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .demo-bar-inner {
+    height: 100%;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .insight-box {
+    margin-top: 24px;
+    padding: 16px 18px;
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.65;
+  }
+
+  .insight-box strong {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ── AD CARDS ── */
+  .texas-ads { margin-bottom: 48px; }
+
+  .ad-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--border);
+  }
+
+  .ad-card.anti { border-left-color: var(--red); }
+  .ad-card.pro { border-left-color: var(--green); }
+  .ad-card.invest { border-left-color: var(--amber); }
+  .ad-card.issue { border-left-color: var(--purple); }
+
+  .ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .ad-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--navy);
+  }
+
+  .ad-funder {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .ad-text {
+    font-size: 13.5px;
+    color: var(--text-body);
+    line-height: 1.7;
+    font-style: italic;
+    padding: 10px 16px;
+    background: var(--bg-warm);
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+
+  .ad-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .ad-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--blue);
+    text-decoration: none;
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--bg);
+    transition: all 0.15s;
+  }
+
+  .ad-links a:hover {
+    background: var(--blue-light);
+    border-color: var(--blue);
+  }
+
+  .ad-links a::before {
+    content: '↗';
+    font-size: 11px;
+  }
+
+  /* ── STRATEGIC TAKEAWAY ── */
+  .takeaway {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .takeaway::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--navy);
+    border-radius: 10px 0 0 10px;
+  }
+
+  .takeaway-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .takeaway p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-body);
+  }
+
+  .takeaway p strong { color: var(--navy); }
+  .takeaway p em { font-style: italic; color: var(--red-deep); }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .footer-left { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.5px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    .top-stats { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .demo-grid { grid-template-columns: 1fr; }
+    .container { padding: 24px 16px 48px; }
+  }
+
+  /* Print-friendly */
+  @media print {
+    body { background: #fff; }
+    .container { padding: 20px; }
+    .bar-tooltip { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">Competitive Intelligence Brief · Meta Ad Library</div>
+    <h1>Data Center Political Ads in Texas<span>90-Day Landscape Analysis</span></h1>
+    <div class="header-meta">
+      <span>Nov 4, 2025 – Feb 2, 2026</span>
+      <span class="sep">·</span>
+      <span>Political, Social & Issue Ads</span>
+      <span class="sep">·</span>
+      <span>Geo-filtered: Texas</span>
+    </div>
+  </div>
+
+  <!-- TOP STATS -->
+  <div class="top-stats">
+    <div class="stat-card">
+      <div class="stat-label">Total Ads</div>
+      <div class="stat-value">464</div>
+      <div class="stat-sub">reaching Texas audiences</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Unique Advertisers</div>
+      <div class="stat-value">112</div>
+      <div class="stat-sub">12 are Texas-specific</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Est. Spend (Upper)</div>
+      <div class="stat-value">$485K+</div>
+      <div class="stat-sub">combined upper bound</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Texas-Only Ads</div>
+      <div class="stat-value">22</div>
+      <div class="stat-sub">explicitly about Texas issues</div>
+    </div>
+  </div>
+
+  <!-- VOLUME CHART -->
+  <div class="section-title">Weekly Ad Volume</div>
+  <div class="chart-container">
+    <div class="bar-chart" id="volumeChart"></div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background: var(--navy);"></div>Ad count</div>
+      <div class="legend-item"><div class="legend-dot" style="background: var(--amber);"></div>Spend spike (>$80K)</div>
+    </div>
+  </div>
+
+  <!-- TWO COLUMN -->
+  <div class="two-col">
+
+    <!-- TOP ADVERTISERS -->
+    <div class="card">
+      <div class="section-title">Top Advertisers by Spend</div>
+      <table class="adv-table">
+        <thead>
+          <tr>
+            <th>Advertiser</th>
+            <th>Ads</th>
+            <th style="text-align: right;">Spend Est.</th>
+            <th>Angle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="adv-name">Market News Now</div><div class="adv-funder-table">Banyan Hill Publishing</div></td>
+            <td>102</td>
+            <td style="text-align: right;">$216K–$293K</td>
+            <td><span class="stance-tag stance-invest">Invest</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Money & Markets</div></td>
+            <td>19</td>
+            <td style="text-align: right;">$70K–$91K</td>
+            <td><span class="stance-tag stance-invest">Invest</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Clean Jobs for PA</div></td>
+            <td>2</td>
+            <td style="text-align: right;">$14K–$19K</td>
+            <td><span class="stance-tag stance-issue">Issue</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Stand.earth</div></td>
+            <td>77</td>
+            <td style="text-align: right;">$6K–$14K</td>
+            <td><span class="stance-tag stance-anti">Anti</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Upward New Mexico</div></td>
+            <td>27</td>
+            <td style="text-align: right;">$7K–$10K</td>
+            <td><span class="stance-tag stance-pro">Pro</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Amer. Conservation Coalition</div></td>
+            <td>2</td>
+            <td style="text-align: right;">$6K–$7.5K</td>
+            <td><span class="stance-tag stance-pro">Pro</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">GZERO Media</div></td>
+            <td>24</td>
+            <td style="text-align: right;">$4K–$7K</td>
+            <td><span class="stance-tag stance-neutral">Neutral</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Williams Companies</div></td>
+            <td>6</td>
+            <td style="text-align: right;">$3K–$4.6K</td>
+            <td><span class="stance-tag stance-pro">Pro</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">The Years Project</div></td>
+            <td>7</td>
+            <td style="text-align: right;">$2K–$3.3K</td>
+            <td><span class="stance-tag stance-anti">Anti</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Amer. Potential (AFP)</div><div class="adv-funder-table">Americans for Prosperity</div></td>
+            <td>2</td>
+            <td style="text-align: right;">$2.5K–$3.1K</td>
+            <td><span class="stance-tag stance-pro">Pro</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">TX Oil & Gas Assoc.</div></td>
+            <td>5</td>
+            <td style="text-align: right;">$1.2K–$1.7K</td>
+            <td><span class="stance-tag stance-pro">Pro</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MESSAGING THEMES -->
+    <div class="card">
+      <div class="section-title">Key Messaging Themes</div>
+
+      <div class="theme-group-label" style="color: var(--amber-deep);">Energy & Costs</div>
+      <div class="theme-row">
+        <span class="theme-word">energy</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 100%; background: var(--amber);"></div></div>
+        <span class="theme-count">251</span>
+      </div>
+      <div class="theme-row">
+        <span class="theme-word">bills</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 93%; background: var(--amber);"></div></div>
+        <span class="theme-count">233</span>
+      </div>
+      <div class="theme-row">
+        <span class="theme-word">power</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 39%; background: var(--amber);"></div></div>
+        <span class="theme-count">99</span>
+      </div>
+
+      <div class="theme-group-label" style="color: var(--green-deep);">Economic Development</div>
+      <div class="theme-row">
+        <span class="theme-word">communities</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 53%; background: var(--green);"></div></div>
+        <span class="theme-count">134</span>
+      </div>
+      <div class="theme-row">
+        <span class="theme-word">jobs</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 53%; background: var(--green);"></div></div>
+        <span class="theme-count">132</span>
+      </div>
+      <div class="theme-row">
+        <span class="theme-word">families</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 48%; background: var(--green);"></div></div>
+        <span class="theme-count">120</span>
+      </div>
+      <div class="theme-row">
+        <span class="theme-word">infrastructure</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 28%; background: var(--green);"></div></div>
+        <span class="theme-count">71</span>
+      </div>
+      <div class="theme-row">
+        <span class="theme-word">tax</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 28%; background: var(--green);"></div></div>
+        <span class="theme-count">70</span>
+      </div>
+
+      <div class="theme-group-label" style="color: var(--red-deep);">Environmental / Opposition</div>
+      <div class="theme-row">
+        <span class="theme-word">water</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 37%; background: var(--red);"></div></div>
+        <span class="theme-count">94</span>
+      </div>
+
+      <div class="theme-group-label" style="color: var(--purple-deep);">Tech & Political</div>
+      <div class="theme-row">
+        <span class="theme-word">vote</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 32%; background: var(--purple);"></div></div>
+        <span class="theme-count">81</span>
+      </div>
+      <div class="theme-row">
+        <span class="theme-word">tech</span>
+        <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 30%; background: var(--purple);"></div></div>
+        <span class="theme-count">75</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMOGRAPHICS -->
+  <div class="section-title">Audience Demographics</div>
+  <div class="card" style="margin-bottom: 48px;">
+    <div class="demo-grid">
+      <div>
+        <div class="demo-section-label">By Age</div>
+        <div class="demo-bar-row">
+          <span class="demo-label">65+</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 30%; background: var(--navy);">30%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">55–64</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 20%; background: var(--navy-mid);">20%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">45–54</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 14%; background: var(--slate);">14%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">35–44</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 14%; background: var(--slate);">14%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">25–34</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 12%; background: var(--stone);">12%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">18–24</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 10%; background: var(--stone);">10%</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="demo-section-label">By Gender</div>
+        <div class="demo-bar-row">
+          <span class="demo-label">Male</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 60%; background: var(--navy);">60%</div></div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-label">Female</span>
+          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 40%; background: var(--slate);">40%</div></div>
+        </div>
+        <div class="insight-box">
+          <strong>Note</strong>
+          These ads skew heavily toward 55+ males — the investment-angle ads from Market News Now and Money & Markets drive much of this. Texas-specific issue ads likely reach a broader demographic.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEXAS-SPECIFIC ADS -->
+  <div class="section-title">Texas-Specific Advertisers & Messaging</div>
+
+  <div class="texas-ads">
+
+    <div class="ad-card pro">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Texas Oil & Gas Association</div>
+          <div class="ad-funder">Funded by: Texas Oil & Gas Association · 5 ads · $1.2K–$1.7K spend</div>
+        </div>
+        <span class="stance-tag stance-pro">Pro-Development</span>
+      </div>
+      <div class="ad-text">"Texas natural gas powers the data centers driving our digital economy."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=2326467967794891" target="_blank">Ad #1 — Natural gas / digital economy</a>
+        <a href="https://www.facebook.com/ads/library/?id=2189979271495782" target="_blank">Ad #2 — Natural gas / digital economy</a>
+        <a href="https://www.facebook.com/ads/library/?id=1484169539294917" target="_blank">Ad #3 — Data centers demand massive energy</a>
+        <a href="https://www.facebook.com/ads/library/?id=1385529913303096" target="_blank">Ad #4 — LNG exports / competitors</a>
+        <a href="https://www.facebook.com/ads/library/?id=701685498888239" target="_blank">Ad #5 — TXOGA Talks podcast: LNG + data centers</a>
+      </div>
+    </div>
+
+    <div class="ad-card anti">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Clayton Tucker</div>
+          <div class="ad-funder">Funded by: Tucker for Texas · 5 ads · $0–$495 spend</div>
+        </div>
+        <span class="stance-tag stance-anti">Anti</span>
+      </div>
+      <div class="ad-text">"Data centers are coming to mess with Texas. With them will come higher water and power bills, dry water wells, and no real jobs."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=2122493374821603" target="_blank">Ad #1 — Corpus Christi water / aquifers dropping</a>
+        <a href="https://www.facebook.com/ads/library/?id=1490089425885005" target="_blank">Ad #2 — AI bubble / power-water prices rising</a>
+        <a href="https://www.facebook.com/ads/library/?id=898038692685799" target="_blank">Ad #3 — Petition: higher bills, dry wells, no jobs</a>
+        <a href="https://www.facebook.com/ads/library/?id=891231946737359" target="_blank">Ad #4 — Petition variant</a>
+        <a href="https://www.facebook.com/ads/library/?id=1225100426212489" target="_blank">Ad #5 — Wall Street vs Main Street framing</a>
+      </div>
+    </div>
+
+    <div class="ad-card anti">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Ben Bius For Texas</div>
+          <div class="ad-funder">Funded by: BEN4CONGRESS · 2 ads · $0–$198 spend</div>
+        </div>
+        <span class="stance-tag stance-anti">Anti</span>
+      </div>
+      <div class="ad-text">"Just like high-speed rail, here they come again to Californicate Texas — taking our water, straining our grid, and selling our rural way of life to data centers and tech billionaires."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=902189962205315" target="_blank">Ad #1 — "Californicate Texas" / water + grid</a>
+        <a href="https://www.facebook.com/ads/library/?id=1599026011522386" target="_blank">Ad #2 — "Not the AI tech titans' lawyer"</a>
+      </div>
+    </div>
+
+    <div class="ad-card issue">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Chris Gober</div>
+          <div class="ad-funder">Funded by: Chris Gober for Texas · 1 ad · $100–$199 spend</div>
+        </div>
+        <span class="stance-tag stance-issue">Issue</span>
+      </div>
+      <div class="ad-text">"Investing in AI & ensuring US dominance is critical, BUT NOT AT THE EXPENSE OF FAMILIES…especially here in TX-10! My message is simple: If you want to build a data center, build your own power plant."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=879871054754305" target="_blank">View ad — "Build your own power plant" / TX-10</a>
+      </div>
+    </div>
+
+    <div class="ad-card issue">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Rob Altman</div>
+          <div class="ad-funder">Funded by: Altman for Texas · 2 ads · $200–$398 spend</div>
+        </div>
+        <span class="stance-tag stance-issue">Issue</span>
+      </div>
+      <div class="ad-text">"Protect What Makes Texas, Texas — Our land, water, and energy are not negotiable." Running for TX-10 with resource-protection messaging.</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=1001721359682094" target="_blank">Ad #1 — "Protect What Makes Texas, Texas"</a>
+        <a href="https://www.facebook.com/ads/library/?id=1529207878137988" target="_blank">Ad #2 — Constituent service / TX-10</a>
+      </div>
+    </div>
+
+    <div class="ad-card issue">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Mayes Middleton</div>
+          <div class="ad-funder">Funded by: Mayes Middleton Campaign · 1 ad · $1K–$1.5K spend</div>
+        </div>
+        <span class="stance-tag stance-issue">Issue</span>
+      </div>
+      <div class="ad-text">AG candidate responding to voter questions about "investigating foreign businesses from building data centers in Texas."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=854938107167529" target="_blank">View ad — AG campaign / foreign data center investigation</a>
+      </div>
+    </div>
+
+    <div class="ad-card anti">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Change.org</div>
+          <div class="ad-funder">Funded by: Change.org · 1 ad · $0–$99 spend</div>
+        </div>
+        <span class="stance-tag stance-anti">Anti</span>
+      </div>
+      <div class="ad-text">"Big Tech wants cheap energy, leaving Texans to pay the price. Sign to hold data centers accountable and protect our state."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=1400032684937618" target="_blank">View ad — Petition: hold data centers accountable</a>
+      </div>
+    </div>
+
+    <div class="ad-card issue">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Public Citizen Texas</div>
+          <div class="ad-funder">Funded by: Public Citizen Inc · 1 ad · $0–$99 spend</div>
+        </div>
+        <span class="stance-tag stance-issue">Issue</span>
+      </div>
+      <div class="ad-text">"Data centers, often large warehouses full of computers, are proliferating across Texas thanks to the artificial intelligence boom, raising concerns about high electricity and water consumption."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=855545673973878" target="_blank">View ad — AI boom / electricity + water concerns</a>
+      </div>
+    </div>
+
+    <div class="ad-card issue">
+      <div class="ad-header">
+        <div>
+          <div class="ad-name">Environmental Defense Fund</div>
+          <div class="ad-funder">Funded by: EDF · 1 ad · $200–$299 spend</div>
+        </div>
+        <span class="stance-tag stance-issue">Issue</span>
+      </div>
+      <div class="ad-text">"In arid Texas, where the population is growing and water-intensive industries – including data centers – continue to surge, voters moved decisively to preserve their water supply."</div>
+      <div class="ad-links">
+        <a href="https://www.facebook.com/ads/library/?id=1389338209210252" target="_blank">View ad — Arid Texas / water supply preservation</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STRATEGIC TAKEAWAY -->
+  <div class="takeaway">
+    <div class="takeaway-label">Strategic Takeaway</div>
+    <p>
+      The Texas data center ad landscape is <strong>dominated by opposition messaging</strong>. Of the 12 Texas-specific advertisers, only TXOGA is running pro-development creative — and at just $1.2K–$1.7K in spend, that's vastly outmatched by the combined volume from Clayton Tucker (5 ads), Ben Bius (2 ads), Chris Gober, Rob Altman, Public Citizen, EDF, and Change.org. Three TX-10 congressional candidates are using data centers as a campaign issue. The opposition frame — <em>water, grid strain, rising bills, no real jobs</em> — is cohesive and gaining traction. Meanwhile, the largest spenders reaching Texas (Market News Now, Money & Markets) are running investment-angle ads, not advocacy, meaning the political narrative is largely being shaped by opponents.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">Source: Meta Ad Library API · Retrieved Feb 2, 2026</div>
+    <div>Political, social & issue ads only · Geo-filtered to Texas</div>
+  </div>
+
+</div>
+
+<script>
+const weeklyData = [
+  { label: 'Oct 20', ads: 35, spend: 31865, spike: false },
+  { label: 'Oct 27', ads: 92, spend: 37808, spike: false },
+  { label: 'Nov 3', ads: 63, spend: 39537, spike: false },
+  { label: 'Nov 10', ads: 90, spend: 144010, spike: true },
+  { label: 'Nov 17', ads: 95, spend: 80605, spike: true },
+  { label: 'Nov 24', ads: 51, spend: 96749, spike: true },
+  { label: 'Dec 1', ads: 35, spend: 33165, spike: false },
+  { label: 'Dec 8', ads: 41, spend: 28259, spike: false },
+  { label: 'Dec 15', ads: 104, spend: 146196, spike: true },
+  { label: 'Dec 22', ads: 32, spend: 13768, spike: false },
+  { label: 'Dec 29', ads: 38, spend: 37662, spike: false },
+  { label: 'Jan 5', ads: 122, spend: 74978, spike: false },
+  { label: 'Jan 12', ads: 104, spend: 45396, spike: false },
+  { label: 'Jan 19', ads: 71, spend: 81229, spike: true },
+  { label: 'Jan 26', ads: 134, spend: 28966, spike: false },
+];
+
+const maxAds = Math.max(...weeklyData.map(d => d.ads));
+const chart = document.getElementById('volumeChart');
+
+weeklyData.forEach(d => {
+  const group = document.createElement('div');
+  group.className = 'bar-group';
+
+  const bar = document.createElement('div');
+  bar.className = 'bar';
+  const height = (d.ads / maxAds) * 100;
+  bar.style.height = height + '%';
+  bar.style.background = d.spike ? '#b45309' : '#1a2332';
+
+  const tooltip = document.createElement('div');
+  tooltip.className = 'bar-tooltip';
+  tooltip.innerHTML = d.ads + ' ads · $' + (d.spend/1000).toFixed(0) + 'K spend';
+  bar.appendChild(tooltip);
+
+  const label = document.createElement('div');
+  label.className = 'bar-label';
+  label.textContent = d.label;
+
+  group.appendChild(bar);
+  group.appendChild(label);
+  chart.appendChild(group);
+});
+</script>
+</body>
+</html>
