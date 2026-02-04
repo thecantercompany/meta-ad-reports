@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Data Center Development — Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue-deep: #1e3a5f;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber-deep: #92400e;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple-deep: #4c1d95;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --teal-deep: #115e59;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+    --orange-deep: #c2410c;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* HEADER */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .header-meta .sep { color: var(--border); }
+
+  /* TOP STATS */
+  .top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    padding: 24px 22px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-heading {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .section-intro {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+
+  /* CHART */
+  .chart-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 48px;
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 170px;
+    padding-top: 16px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .bar {
+    width: 100%;
+    max-width: 64px;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    min-height: 2px;
+  }
+
+  .bar:hover { opacity: 0.8; }
+
+  .bar-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--navy);
+    color: #fff;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .bar-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--navy);
+  }
+
+  .bar:hover .bar-tooltip { display: block; }
+
+  .bar-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: center;
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    justify-content: flex-end;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  /* TWO COLUMN */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+  }
+
+  /* FULL WIDTH CARD */
+  .full-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 48px;
+  }
+
+  /* ADVERTISER TABLE */
+  .adv-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .adv-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 0 6px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .adv-table td {
+    padding: 10px 6px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+  }
+
+  .adv-table tr:last-child td { border-bottom: none; }
+
+  .adv-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 13px;
+  }
+
+  .adv-funder-table {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .stance-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .stance-anti { background: var(--red-light); color: var(--red-deep); }
+  .stance-pro { background: var(--green-light); color: var(--green-deep); }
+  .stance-neutral { background: var(--bg-warm); color: var(--stone); }
+  .stance-issue { background: var(--purple-light); color: var(--purple-deep); }
+  .stance-edu { background: var(--teal-light); color: var(--teal-deep); }
+  .stance-energy { background: var(--orange-light); color: var(--orange-deep); }
+
+  /* MESSAGING THEMES */
+  .msg-category { margin-bottom: 20px; }
+  .msg-category:last-child { margin-bottom: 0; }
+
+  .msg-category-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .msg-item {
+    padding: 10px 14px;
+    background: var(--bg-warm);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.6;
+    border-left: 3px solid var(--border);
+  }
+
+  .msg-item.pro-msg { border-left-color: var(--green); }
+  .msg-item.anti-msg { border-left-color: var(--red); }
+  .msg-item.edu-msg { border-left-color: var(--teal); }
+  .msg-item.issue-msg { border-left-color: var(--purple); }
+  .msg-item.energy-msg { border-left-color: var(--orange); }
+
+  .msg-source {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* INSIGHT BOX */
+  .insight-box {
+    margin-top: 24px;
+    padding: 16px 18px;
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.65;
+  }
+
+  .insight-box strong {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* AD CARDS */
+  .ad-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--border);
+  }
+
+  .ad-card.anti { border-left-color: var(--red); }
+  .ad-card.pro { border-left-color: var(--green); }
+  .ad-card.edu { border-left-color: var(--teal); }
+  .ad-card.issue { border-left-color: var(--purple); }
+  .ad-card.energy { border-left-color: var(--orange); }
+
+  .ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .ad-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--navy);
+  }
+
+  .ad-funder {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .ad-meta-row {
+    display: flex;
+    gap: 16px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ad-text {
+    font-size: 13.5px;
+    color: var(--text-body);
+    line-height: 1.7;
+    font-style: italic;
+    padding: 10px 16px;
+    background: var(--bg-warm);
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+
+  .ad-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .ad-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--blue);
+    text-decoration: none;
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--bg);
+    transition: all 0.15s;
+  }
+
+  .ad-links a:hover {
+    background: var(--blue-light);
+    border-color: var(--blue);
+  }
+
+  .ad-links a::before {
+    content: '\2197';
+    font-size: 11px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+    margin: 20px 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 8px;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--bg-card);
+  }
+
+  .timeline-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .timeline-text {
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.6;
+  }
+
+  /* ENERGY SECTION */
+  .energy-callout {
+    background: linear-gradient(135deg, #1a2332 0%, #2d3a4a 100%);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 48px;
+    color: #e2e0dc;
+  }
+
+  .energy-callout .section-title {
+    color: #9ca3af;
+    border-bottom-color: rgba(255,255,255,0.15);
+  }
+
+  .energy-callout .section-heading {
+    color: #fff;
+  }
+
+  .energy-callout .section-intro {
+    color: #c5c3bf;
+  }
+
+  .energy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .energy-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .energy-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #9ca3af;
+    margin-bottom: 8px;
+  }
+
+  .energy-card-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .energy-card-sub {
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
+  .energy-project {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+  }
+
+  .energy-project-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .energy-project-detail {
+    font-size: 12px;
+    color: #9ca3af;
+    line-height: 1.6;
+  }
+
+  .energy-project-capacity {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--amber);
+    font-weight: 500;
+    margin-top: 6px;
+  }
+
+  /* STRATEGIC TAKEAWAY */
+  .takeaway {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .takeaway::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--navy);
+    border-radius: 10px 0 0 10px;
+  }
+
+  .takeaway-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .takeaway p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-body);
+    margin-bottom: 12px;
+  }
+
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway p strong { color: var(--navy); }
+
+  /* METHODOLOGY */
+  .methodology {
+    background: var(--bg-warm);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .methodology p { margin-bottom: 8px; }
+  .methodology p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-left { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.5px; }
+  .footer a { color: var(--text-muted); text-decoration: none; }
+  .footer a:hover { color: var(--text-body); }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .top-stats { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .energy-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .container { padding: 24px 16px 48px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .container { padding: 20px; }
+    .bar-tooltip { display: none !important; }
+    .energy-callout { background: #1a2332 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">Competitive Intelligence Brief &middot; Meta Ad Library</div>
+    <h1>Data Center Development in Texas<span>Political Advertising Landscape &amp; Energy Generation Analysis</span></h1>
+    <div class="header-meta">
+      <span>Aug 1, 2025 &ndash; Feb 4, 2026</span>
+      <span class="sep">&middot;</span>
+      <span>Political, Social &amp; Issue Ads</span>
+      <span class="sep">&middot;</span>
+      <span>Focus: Texas + National</span>
+    </div>
+  </div>
+
+  <!-- TOP STATS -->
+  <div class="top-stats">
+    <div class="stat-card">
+      <div class="stat-label">Ads Analyzed</div>
+      <div class="stat-value">5,000+</div>
+      <div class="stat-sub">matching "data center" keywords nationally</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Top Spender</div>
+      <div class="stat-value">NRDC</div>
+      <div class="stat-sub">$675K&ndash;$912K &middot; 1,150 ads</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Peak Month</div>
+      <div class="stat-value">Jan '26</div>
+      <div class="stat-sub">3,348 ads &middot; 120 unique pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">TX-Specific Advertisers</div>
+      <div class="stat-value">3</div>
+      <div class="stat-sub">directly referencing Texas data centers</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT SECTION -->
+  <div class="full-card">
+    <div class="section-title">The Landscape</div>
+    <div class="section-heading">Texas Is Ground Zero for America's Data Center Boom</div>
+    <div class="section-intro">
+      Texas is poised to overtake Northern Virginia as the nation's top data center market. ERCOT projects 70.5 GW of new load requests by 2028, primarily from data centers. The state saw 58 GW of new gas power projects announced in 2025 alone&mdash;more capacity than California's entire peak demand. Amid this explosive growth, communities are pushing back over water consumption, grid strain, emissions, and housing displacement, while the Texas Legislature enacted Senate Bill 6 (the "Kill Switch Bill") requiring data centers to pay their own interconnection costs and submit to emergency disconnection.
+    </div>
+
+    <div class="section-title" style="margin-top: 28px;">Key Events Timeline</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">June 2025</div>
+        <div class="timeline-text"><strong>Senate Bill 6 signed into law.</strong> Requires data centers over 75 MW to pay interconnection costs, enables ERCOT to disconnect them during emergencies, and mandates backup generation. Industry calls it the "Kill Switch Bill."</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">August 2025</div>
+        <div class="timeline-text"><strong>Fermi America files air permits</strong> for 6 GW of gas power at Project Matador near Amarillo. Community opposition begins to organize.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">September 2025</div>
+        <div class="timeline-text"><strong>Stargate opens first data center in Abilene.</strong> OpenAI, Oracle, and SoftBank announce five more facilities. Abilene begins experiencing a housing crisis as rents double.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">October 2025</div>
+        <div class="timeline-text"><strong>Chevron announces first-ever power plant</strong> for AI data centers in West Texas&mdash;2.5 GW initial phase. VoltaGrid signs 2.3 GW deal with Oracle.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">November 2025</div>
+        <div class="timeline-text"><strong>Google announces $40B Texas investment</strong>&mdash;three new data centers in West Texas and the Panhandle. College Station unanimously rejects a 600 MW data center proposal.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">December 2025</div>
+        <div class="timeline-text"><strong>Project Matador public hearing draws 279+ comments,</strong> mostly in opposition. Sierra Club labels the project a pollution threat. $1.4B in new Texas data center filings in December alone.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">January 2026</div>
+        <div class="timeline-text"><strong>ERCOT considers revisiting approved data center grid connections.</strong> Bloomberg reports the grid operator may need to re-evaluate projects given the magnitude of load growth.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">February 2026</div>
+        <div class="timeline-text"><strong>GW Ranch receives the nation's largest air pollution permit</strong>&mdash;7.65 GW of gas-fired power in the Permian Basin, authorized to emit 33 million tons/year of greenhouse gases (5% of Canada's total).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD VOLUME CHART -->
+  <div class="section-title">Monthly Ad Volume &mdash; "Data Center" Keywords (National, Reaching US)</div>
+  <div class="chart-container">
+    <div class="bar-chart">
+      <div class="bar-group">
+        <div class="bar" style="height: 12%; background: var(--navy);">
+          <div class="bar-tooltip">Oct 2025: 763 ads &middot; $17K&ndash;$94K</div>
+        </div>
+        <div class="bar-label">Oct '25</div>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="height: 10%; background: var(--navy);">
+          <div class="bar-tooltip">Nov 2025: 680 ads &middot; $117K&ndash;$215K</div>
+        </div>
+        <div class="bar-label">Nov '25</div>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="height: 3%; background: var(--navy);">
+          <div class="bar-tooltip">Dec 2025: 169 ads &middot; $80K&ndash;$120K</div>
+        </div>
+        <div class="bar-label">Dec '25</div>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="height: 100%; background: var(--amber);">
+          <div class="bar-tooltip">Jan 2026: 3,348 ads &middot; $80K&ndash;$425K &middot; PEAK</div>
+        </div>
+        <div class="bar-label">Jan '26</div>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="height: 1%; background: var(--navy); min-height: 4px;">
+          <div class="bar-tooltip">Feb 2026: 40 ads (partial month)</div>
+        </div>
+        <div class="bar-label">Feb '26</div>
+      </div>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background: var(--navy);"></div>Normal volume</div>
+      <div class="legend-item"><div class="legend-dot" style="background: var(--amber);"></div>Volume spike</div>
+    </div>
+    <div class="insight-box" style="margin-top: 20px;">
+      <strong>Volume Analysis</strong>
+      January 2026 saw a 20x spike in data center ad volume compared to the preceding month. This surge coincided with the start of state legislative sessions across the US, ERCOT's announcement about revisiting grid approvals, and growing national media coverage of data center community impacts. The January spike brought 120 unique advertisers into the space&mdash;a 40% increase over November's 87.
+    </div>
+  </div>
+
+  <!-- ADVERTISER LANDSCAPE -->
+  <div class="two-col">
+
+    <!-- KEY ADVERTISERS TABLE -->
+    <div class="card">
+      <div class="section-title">Key Advertisers by Spend</div>
+      <table class="adv-table">
+        <thead>
+          <tr>
+            <th>Advertiser</th>
+            <th>Ads</th>
+            <th style="text-align: right;">Spend Est.</th>
+            <th>Stance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="adv-name">NRDC</div><div class="adv-funder-table">Natural Resources Defense Council</div></td>
+            <td>1,150</td>
+            <td style="text-align: right;">$675K&ndash;$912K</td>
+            <td><span class="stance-tag stance-anti">Anti</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Nuclear Matters</div><div class="adv-funder-table">Nuclear Matters</div></td>
+            <td>287</td>
+            <td style="text-align: right;">$78K&ndash;$113K</td>
+            <td><span class="stance-tag stance-energy">Energy</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Virginians for a Smarter Digital Future</div><div class="adv-funder-table">Piedmont Environmental Council</div></td>
+            <td>104</td>
+            <td style="text-align: right;">$64K&ndash;$84K</td>
+            <td><span class="stance-tag stance-anti">Anti</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">CCAN Action Fund</div><div class="adv-funder-table">Chesapeake Climate Action Network</div></td>
+            <td>65</td>
+            <td style="text-align: right;">$47K&ndash;$60K</td>
+            <td><span class="stance-tag stance-anti">Anti</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Missourians for Data &amp; Technology Advancement</div></td>
+            <td>65</td>
+            <td style="text-align: right;">$17K&ndash;$27K</td>
+            <td><span class="stance-tag stance-pro">Pro</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Ben Bius For Texas</div><div class="adv-funder-table">BEN4CONGRESS</div></td>
+            <td>25</td>
+            <td style="text-align: right;">$9K&ndash;$12K</td>
+            <td><span class="stance-tag stance-anti">Anti-DC</span></td>
+          </tr>
+          <tr>
+            <td><div class="adv-name">Oil and Gas Watch</div><div class="adv-funder-table">Environmental Integrity Project</div></td>
+            <td>22</td>
+            <td style="text-align: right;">$1.8K&ndash;$4K</td>
+            <td><span class="stance-tag stance-issue">Watchdog</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MESSAGING THEMES -->
+    <div class="card">
+      <div class="section-title">Dominant Messaging Themes</div>
+
+      <div class="msg-category">
+        <div class="msg-category-label" style="color: var(--red-deep);">Opposition Narratives</div>
+        <div class="msg-item anti-msg">Water consumption and drought risk&mdash;"taking our water" in arid regions</div>
+        <div class="msg-item anti-msg">Grid strain and electricity rate hikes for residential ratepayers</div>
+        <div class="msg-item anti-msg">Minimal long-term job creation relative to resource consumption</div>
+        <div class="msg-item anti-msg">Corporate welfare through tax incentives and public subsidies</div>
+        <div class="msg-item anti-msg">Housing displacement and rent increases in host communities</div>
+      </div>
+
+      <div class="msg-category">
+        <div class="msg-category-label" style="color: var(--green-deep);">Pro-Industry Narratives</div>
+        <div class="msg-item pro-msg">Tax revenue for schools, roads, and first responders</div>
+        <div class="msg-item pro-msg">National competitiveness&mdash;"keeping jobs in the heartland"</div>
+        <div class="msg-item pro-msg">Independent water supply systems with no impact on local utilities</div>
+        <div class="msg-item pro-msg">Energy independence and grid investment</div>
+      </div>
+
+      <div class="msg-category">
+        <div class="msg-category-label" style="color: var(--orange-deep);">Energy Narratives</div>
+        <div class="msg-item energy-msg">Nuclear as clean, reliable baseload for AI demand</div>
+        <div class="msg-item energy-msg">Gas-fired generation as "bridge power" for near-term needs</div>
+        <div class="msg-item energy-msg">Environmental impact of behind-the-meter fossil fuel plants</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEXAS-SPECIFIC ADS SECTION -->
+  <div class="section-title">Texas-Specific Data Center Ads</div>
+  <div class="section-intro">These ads directly reference Texas data center development, Texas resources, or Texas-specific policy debates. While the national data center ad landscape is vast, Texas-targeted advertising is concentrated among a small number of voices&mdash;a notable gap given the scale of development underway.</div>
+
+  <div class="ad-card anti">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Ben Bius For Texas</div>
+        <div class="ad-funder">Paid for by BEN4CONGRESS</div>
+      </div>
+      <span class="stance-tag stance-anti">Anti-DC</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Feb 2, 2026</span>
+      <span>Spend: $0&ndash;$99</span>
+      <span>Impressions: 2K&ndash;3K</span>
+    </div>
+    <div class="ad-text">"Just like high-speed rail, here they come again to Californicate Texas &mdash; taking our water, straining our grid, and selling our rural way of life to data centers and tech billionaires. Ben Bius stands for Texas: protect our water, defend our grid, restore our lakes and rivers, and make Washington respect our land."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=902189962205315" target="_blank">View in Ad Library</a>
+    </div>
+  </div>
+
+  <div class="ad-card anti">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Ben Bius For Texas</div>
+        <div class="ad-funder">Paid for by BEN4CONGRESS</div>
+      </div>
+      <span class="stance-tag stance-anti">Anti-DC</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Jan 26, 2026</span>
+      <span>Spend: $100&ndash;$199</span>
+      <span>Impressions: N/A</span>
+    </div>
+    <div class="ad-text">"Just like High Speed Rail, here they come again! Ben will fight for our land, water, electricity and way of life. #nodatacenters"</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1018933487960159" target="_blank">View in Ad Library</a>
+    </div>
+  </div>
+
+  <div class="ad-card anti">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Ben Bius For Texas</div>
+        <div class="ad-funder">Paid for by BEN4CONGRESS</div>
+      </div>
+      <span class="stance-tag stance-anti">Anti-DC</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Jan 4, 2026</span>
+      <span>Spend: $0&ndash;$99</span>
+      <span>Impressions: N/A</span>
+    </div>
+    <div class="ad-text">"PUBLIC NOTICE&mdash;Ben Bius will stand up for Texas and its ability to limit massive takings of Texas' resources. Unlike some candidates, Ben is not beholden to data center billionaires..."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1599026011522386" target="_blank">View in Ad Library</a>
+    </div>
+  </div>
+
+  <div class="ad-card issue">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Oil and Gas Watch</div>
+        <div class="ad-funder">Paid for by Environmental Integrity Project</div>
+      </div>
+      <span class="stance-tag stance-issue">Watchdog</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Sep 22 &ndash; Oct 7, 2025</span>
+      <span>Spend: $200&ndash;$299</span>
+      <span>Impressions: 25K&ndash;30K</span>
+    </div>
+    <div class="ad-text">"Texas company plans massive power plants to fuel 'intelligence campus' named after Trump. In the panhandle of Texas, a company is planning to build a massive gas-fired power plant and four nuclear reactors to supply energy for a data center complex &ndash; all dubbed the 'President Donald J. Trump Advanced Energy and Intelligence Campus.'"</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=24851893457769932" target="_blank">View in Ad Library</a>
+    </div>
+  </div>
+
+  <div class="ad-card edu">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Virginians for Clean Energy</div>
+        <div class="ad-funder">Paid for by 270 Strategies</div>
+      </div>
+      <span class="stance-tag stance-edu">Context</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Jan 26&ndash;30, 2026</span>
+      <span>Spend: $0&ndash;$99</span>
+      <span>Impressions: &lt;1K</span>
+    </div>
+    <div class="ad-text">"From California to Texas to Virginia, blue, red, and purple states alike are turning to solar + storage to ensure that they can meet rapidly rising energy demand affordably."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1247640817258784" target="_blank">View in Ad Library</a>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <strong>Silence as Signal</strong>
+    The most striking finding in the Texas-specific data is who <em>isn't</em> advertising. Despite $500B+ in announced data center investment in Texas, not a single hyperscaler&mdash;Meta, Google, Microsoft, Oracle, OpenAI&mdash;is running political issue ads defending their Texas projects on Meta's platform. The only Texas-specific congressional candidate making data centers a campaign issue is Ben Bius (TX-10), running on a populist anti-data-center platform. No pro-industry advocacy group has mounted a Texas-specific persuasion campaign on Meta, even as communities from Abilene to Amarillo to College Station organize in opposition.
+  </div>
+
+  <!-- NATIONAL CONTEXT ADS -->
+  <div class="section-title" style="margin-top: 48px;">National Data Center Ads with Texas Relevance</div>
+  <div class="section-intro">While not Texas-specific, these national campaigns shape the broader narrative environment around data center development and energy policy that directly affects Texas debates.</div>
+
+  <div class="ad-card anti">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">NRDC</div>
+        <div class="ad-funder">Paid for by Natural Resources Defense Council</div>
+      </div>
+      <span class="stance-tag stance-anti">Anti</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Ongoing &middot; Multiple variants</span>
+      <span>Total spend: $675K&ndash;$912K</span>
+      <span>Impressions: 44M&ndash;47M</span>
+    </div>
+    <div class="ad-text">"Data centers are swallowing millions of gallons of water a day, pulling more power than nuclear reactors, and pushing utilities back toward fossil fuels. We deserve clean energy, clean water, and clean air &mdash; not a future built on shortcuts and smokestacks."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=927526629754689" target="_blank">View in Ad Library</a>
+    </div>
+  </div>
+
+  <div class="ad-card anti">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">NRDC</div>
+        <div class="ad-funder">Paid for by Natural Resources Defense Council</div>
+      </div>
+      <span class="stance-tag stance-anti">Anti</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Feb 1&ndash;2, 2026</span>
+      <span>Spend: $0&ndash;$99</span>
+      <span>Impressions: &lt;1K</span>
+    </div>
+    <div class="ad-text">"AI places an incredible demand on our energy grid. I've teamed up with @nrdc_org for a PSA all about this... According to the International Energy Agency, a typical AI data center uses as much energy as 100,000 households. That wouldn't be a problem if fossil fuel interests weren't exploiting this..."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=3277756795735003" target="_blank">View in Ad Library</a>
+    </div>
+  </div>
+
+  <div class="ad-card anti">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Virginians For a Smarter Digital Future</div>
+        <div class="ad-funder">Paid for by Piedmont Environmental Council</div>
+      </div>
+      <span class="stance-tag stance-anti">Anti</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Ongoing since Aug 2025</span>
+      <span>Total spend: $64K&ndash;$84K</span>
+      <span>Impressions: 10.9M&ndash;11.7M</span>
+    </div>
+    <div class="ad-text">"Millions of Americans' energy bills are rising, especially in VA. Why aren't data centers seeing the same spike?" / "We are in a data center crisis because there is no state oversight to support smart growth of the industry."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1372489708224142" target="_blank">View in Ad Library</a>
+      <a href="https://www.facebook.com/ads/library/?id=1629798728149794" target="_blank">View variant</a>
+    </div>
+  </div>
+
+  <div class="ad-card pro">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Missourians for Data &amp; Technology Advancement</div>
+        <div class="ad-funder">Paid for by Missourians for Data and Technology Advancement</div>
+      </div>
+      <span class="stance-tag stance-pro">Pro</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>Nov 2025 &ndash; Jan 2026</span>
+      <span>Total spend: $17K&ndash;$27K</span>
+      <span>Impressions: 1.1M&ndash;1.3M</span>
+    </div>
+    <div class="ad-text">"U.S. data centers keep America competitive and secure &mdash; powering innovation, protecting our future, and keeping jobs right here in the heartland." / "Will AWS' facilities in Montgomery County impact drinking water? No! AWS will use deep on-site wells, completely independent from the existing local water system."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1174843107520336" target="_blank">View in Ad Library</a>
+      <a href="https://www.facebook.com/ads/library/?id=837316495680024" target="_blank">View variant</a>
+    </div>
+  </div>
+
+  <div class="ad-card energy">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Nuclear Matters</div>
+        <div class="ad-funder">Paid for by Nuclear Matters</div>
+      </div>
+      <span class="stance-tag stance-energy">Energy</span>
+    </div>
+    <div class="ad-meta-row">
+      <span>May 2025 &ndash; Jan 2026</span>
+      <span>Total spend: $78K&ndash;$113K</span>
+      <span>Impressions: 8.2M&ndash;9.8M</span>
+    </div>
+    <div class="ad-text">"As global demand for energy grows, so does the need for a secure energy grid &mdash; and nuclear energy is ready to meet those demands. Nuclear power delivers clean, reliable, and always-on energy, strengthening national security, economic stability and energy independence."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=699625342482543" target="_blank">View in Ad Library</a>
+    </div>
+  </div>
+
+  <!-- ENERGY GENERATION SPECIAL SECTION -->
+  <div class="energy-callout">
+    <div class="section-title">Special Section</div>
+    <div class="section-heading">Powering the Boom: Energy Generation for Texas Data Centers</div>
+    <div class="section-intro">
+      Data centers are not just consuming electricity&mdash;they are building their own power plants at a scale that dwarfs most utility companies. Texas is the epicenter of this trend, driven by ERCOT's deregulated market, abundant natural gas, and Senate Bill 6's requirement that large loads "pay their own way." The result is a parallel energy infrastructure emerging outside the traditional grid.
+    </div>
+
+    <div class="energy-grid">
+      <div class="energy-card">
+        <div class="energy-card-label">New Gas Capacity Announced</div>
+        <div class="energy-card-value">58 GW</div>
+        <div class="energy-card-sub">In Texas alone in 2025&mdash;exceeds California's peak demand</div>
+      </div>
+      <div class="energy-card">
+        <div class="energy-card-label">Nuclear Capacity Planned</div>
+        <div class="energy-card-value">~8 GW</div>
+        <div class="energy-card-sub">Across AP1000 reactors and SMR projects</div>
+      </div>
+      <div class="energy-card">
+        <div class="energy-card-label">Projected DC Grid Load</div>
+        <div class="energy-card-value">40+ GW</div>
+        <div class="energy-card-sub">ERCOT projection by 2028</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px;">
+      <div class="energy-card-label" style="margin-bottom: 14px;">Major Texas Power Projects for Data Centers</div>
+
+      <div class="energy-project">
+        <div class="energy-project-name">GW Ranch &mdash; Pacifico Energy</div>
+        <div class="energy-project-detail">Permian Basin, Pecos County. Off-grid complex using natural gas turbines, solar, and battery storage. Received the nation's largest air pollution permit in February 2026. Could emit 33 million tons/year of greenhouse gases.</div>
+        <div class="energy-project-capacity">7.65 GW &middot; Gas + Solar + Storage &middot; Permit approved Feb 2026</div>
+      </div>
+
+      <div class="energy-project">
+        <div class="energy-project-name">Project Matador &mdash; Fermi America</div>
+        <div class="energy-project-detail">Texas Panhandle near Amarillo. 5,769-acre campus dubbed the "President Donald J. Trump Advanced Energy and Intelligence Campus." Plans include 93 gas-fired turbines near-term plus four Westinghouse AP1000 nuclear reactors. First nuclear unit targeted for 2031.</div>
+        <div class="energy-project-capacity">~5 GW gas + 4.4 GW nuclear &middot; Construction starts 2026</div>
+      </div>
+
+      <div class="energy-project">
+        <div class="energy-project-name">Chevron West Texas</div>
+        <div class="energy-project-detail">Chevron's first-ever power generation facility, located near the Permian Basin oil fields, targeting AI data center customers. Part of a five-year strategy to enter the data center power market.</div>
+        <div class="energy-project-capacity">2.5 GW initial phase &middot; Announced Oct 2025</div>
+      </div>
+
+      <div class="energy-project">
+        <div class="energy-project-name">VoltaGrid / Oracle</div>
+        <div class="energy-project-detail">Modular, ultra-low-emissions natural gas generation deployed across Oracle Cloud Infrastructure data centers. Supplied by Energy Transfer's pipeline network. Creating 750+ jobs in Dallas and Houston.</div>
+        <div class="energy-project-capacity">2.3 GW modular gas fleet &middot; Announced Oct 2025</div>
+      </div>
+
+      <div class="energy-project">
+        <div class="energy-project-name">Crusoe / Lancium Clean Campus</div>
+        <div class="energy-project-detail">Outside Abilene, TX. Crusoe building 200 MW initial data center with plans to expand. Lancium campus designed to scale to 1.2 GW. Also powering the Stargate installation.</div>
+        <div class="energy-project-capacity">1.2 GW planned &middot; First phase energized 2025</div>
+      </div>
+
+      <div class="energy-project">
+        <div class="energy-project-name">Texas A&amp;M SMR Hub</div>
+        <div class="energy-project-detail">Four startups&mdash;Kairos Power, Natura Resources, Terrestrial Energy, and Aalo Atomics&mdash;developing small modular reactors at the 2,400-acre RELLIS campus in Bryan, TX. NRC Early Site Permit application initiated.</div>
+        <div class="energy-project-capacity">Multiple SMRs planned &middot; Timeline: early 2030s</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 16px 18px; background: rgba(255,255,255,0.06); border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--amber); margin-bottom: 4px;">Ad Landscape Gap</div>
+      <div style="font-size: 13px; line-height: 1.65; color: #c5c3bf;">
+        Despite $100B+ in announced energy infrastructure spending in Texas for data centers, the political advertising footprint on Meta for these projects is virtually nonexistent. No energy company&mdash;Pacifico, Fermi, Chevron, VoltaGrid, Crusoe, or Lancium&mdash;is running issue ads on Meta to build community support or manage public perception. The only ad directly referencing Texas energy-for-data-centers came from the <strong style="color: #fff;">Environmental Integrity Project</strong> (Oil and Gas Watch), an opposition watchdog. This advertising vacuum is a strategic vulnerability: opposition groups and media coverage are defining the narrative around these projects without organized industry rebuttal on social platforms.
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMOGRAPHICS -->
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title">Audience Demographics</div>
+      <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Who is seeing data center political ads (Meta's aggregated delivery data)</div>
+
+      <div class="msg-category-label" style="color: var(--text-muted);">By Age</div>
+      <div style="margin-bottom: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+          <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">65+</div>
+          <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+            <div style="height: 100%; width: 100%; background: var(--navy); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">Highest reach</div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+          <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">55&ndash;64</div>
+          <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+            <div style="height: 100%; width: 72%; background: var(--navy-mid); border-radius: 3px;"></div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+          <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">45&ndash;54</div>
+          <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+            <div style="height: 100%; width: 48%; background: var(--slate); border-radius: 3px;"></div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+          <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">35&ndash;44</div>
+          <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+            <div style="height: 100%; width: 36%; background: var(--stone); border-radius: 3px;"></div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+          <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">25&ndash;34</div>
+          <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+            <div style="height: 100%; width: 24%; background: var(--stone); border-radius: 3px;"></div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">18&ndash;24</div>
+          <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+            <div style="height: 100%; width: 10%; background: var(--stone); border-radius: 3px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="msg-category-label" style="color: var(--text-muted); margin-top: 20px;">By Gender</div>
+      <div style="display: flex; gap: 16px;">
+        <div style="flex: 1; text-align: center; padding: 12px; background: var(--bg-warm); border-radius: 6px;">
+          <div style="font-family: 'Source Serif 4', serif; font-size: 24px; font-weight: 700; color: var(--navy);">50%</div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Female</div>
+        </div>
+        <div style="flex: 1; text-align: center; padding: 12px; background: var(--bg-warm); border-radius: 6px;">
+          <div style="font-family: 'Source Serif 4', serif; font-size: 24px; font-weight: 700; color: var(--navy);">50%</div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Male</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Geographic Reach</div>
+      <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Top states where data center political ads are delivered</div>
+
+      <div style="margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">TX</div>
+        <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: 100%; background: var(--amber); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">324 ads</div>
+          </div>
+      </div>
+      <div style="margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">VA</div>
+        <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: 98%; background: var(--navy); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">332 ads</div>
+          </div>
+      </div>
+      <div style="margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">MI</div>
+        <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: 96%; background: var(--slate); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">318 ads</div>
+        </div>
+      </div>
+      <div style="margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">FL</div>
+        <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: 95%; background: var(--stone); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">317 ads</div>
+        </div>
+      </div>
+      <div style="margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">IL</div>
+        <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: 95%; background: var(--stone); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">317 ads</div>
+        </div>
+      </div>
+      <div style="margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">CA</div>
+        <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: 93%; background: var(--stone); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">313 ads</div>
+        </div>
+      </div>
+      <div style="margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">GA</div>
+        <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: 91%; background: var(--stone); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">311 ads</div>
+        </div>
+      </div>
+      <div style="margin-bottom: 6px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-size: 12px; font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); min-width: 48px;">PA</div>
+        <div style="flex: 1; height: 16px; background: var(--bg-warm); border-radius: 3px; overflow: hidden;">
+          <div style="height: 100%; width: 94%; background: var(--stone); border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: white; font-family: 'IBM Plex Mono', monospace;">314 ads</div>
+        </div>
+      </div>
+
+      <div class="insight-box" style="margin-top: 20px;">
+        <strong>Geographic Insight</strong>
+        Texas and Virginia are nearly tied as the top states for data center ad delivery, reflecting both being ground zero for hyperscale development. The relatively flat distribution across other states indicates most ads are running national campaigns rather than geo-targeted persuasion efforts. South Dakota's unexpectedly high reach (185 ads) may reflect data center development interest in the Mount Rushmore State.
+      </div>
+    </div>
+  </div>
+
+  <!-- STRATEGIC TAKEAWAY -->
+  <div class="takeaway">
+    <div class="takeaway-label">Strategic Takeaway</div>
+    <p><strong>The data center political advertising landscape in Texas is defined by a paradox: the state hosting the largest buildout in American history has almost no organized persuasion campaign defending it.</strong></p>
+    <p>Opposition forces&mdash;led nationally by the NRDC ($675K&ndash;$912K in spend) and regionally by groups like the Piedmont Environmental Council and CCAN Action Fund&mdash;have developed sophisticated, well-funded messaging campaigns that frame data centers as water-guzzling, grid-straining, community-displacing threats. The NRDC alone has generated 44&ndash;47 million impressions with this framing. Meanwhile, the only pro-industry data center advertiser of any scale, "Missourians for Data and Technology Advancement," is running a defensive campaign in Missouri focused on AWS water-use concerns&mdash;not Texas.</p>
+    <p>The energy generation dimension deepens this asymmetry. Texas is about to host the nation's largest gas-fired power plants (GW Ranch at 7.65 GW), its most ambitious nuclear data center complex (Project Matador), and behind-the-meter gas fleets from Chevron, VoltaGrid, and Crusoe totaling tens of gigawatts. Yet the only Meta ad referencing Texas data center energy came from the Environmental Integrity Project, a watchdog organization. No energy company or data center developer is running ads to build community support for these projects.</p>
+    <p><strong>This narrative vacuum matters.</strong> As Ben Bius's congressional campaign demonstrates, data center opposition is becoming a viable political platform in Texas. His "don't Californicate Texas" messaging&mdash;linking data centers to out-of-state tech billionaires taking Texas resources&mdash;resonates with rural conservative voters who feel bypassed by the AI boom. With ERCOT reconsidering approved grid connections, state legislators returning to session, and communities from Abilene to Amarillo organizing, the absence of pro-development advertising on Meta means opposition voices are shaping public sentiment without meaningful counterweight on social platforms.</p>
+    <p>For industry stakeholders, the implication is clear: the political advertising battlefield in Texas is uncontested, and the opposition is winning by default.</p>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="methodology">
+    <div class="section-title">Methodology &amp; Limitations</div>
+    <p><strong>Data source:</strong> Meta Ad Library API. All ads classified as political, social, or issue advertising on Facebook, Instagram, Messenger, and Audience Network.</p>
+    <p><strong>Date range:</strong> August 1, 2025 &ndash; February 4, 2026.</p>
+    <p><strong>Search parameters:</strong> Keywords included "data center," "data centres," "hyperscale," "Stargate," "Project Matador," "nuclear power data center," "data center water," "ERCOT data center," "Crusoe," "Lancium," "Fermi America," "Pacifico Energy," "GW Ranch," and variations. Page-level analysis conducted for all advertisers with relevant ad activity.</p>
+    <p><strong>Limitations:</strong> Meta reports spend as ranges, not exact values. Keyword searches may miss ads using different terminology. Regional delivery percentages are rounded and may not reflect precise geographic targeting. Demographics reflect who <em>saw</em> the ads (algorithmic delivery), not necessarily who was <em>targeted</em>. This analysis covers Meta platforms only; advertisers may be running parallel campaigns on Google, YouTube, programmatic display, direct mail, or broadcast media not captured here.</p>
+    <p><strong>Retrieval date:</strong> February 4, 2026.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">Data: Meta Ad Library &middot; Retrieved Feb 4, 2026</div>
+    <div>Built by The Canter Company &middot; <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a></div>
+  </div>
+
+</div>
+</body>
+</html>
