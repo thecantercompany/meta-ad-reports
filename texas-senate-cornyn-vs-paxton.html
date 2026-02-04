@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cornyn vs. Paxton — Texas GOP Senate Primary Ad Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --cornyn: #1e3a5f;
+    --cornyn-light: #e8f0fe;
+    --cornyn-mid: #3b6da1;
+    --paxton: #7c2d12;
+    --paxton-light: #fff1e6;
+    --paxton-mid: #c2410c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .header-meta strong { color: var(--text-body); font-weight: 600; }
+
+  /* ── VS BANNER ── */
+  .vs-banner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .vs-candidate {
+    padding: 32px 36px;
+    text-align: center;
+  }
+
+  .vs-candidate.cornyn { background: linear-gradient(135deg, var(--cornyn-light), #f0f6ff); }
+  .vs-candidate.paxton { background: linear-gradient(135deg, var(--paxton-light), #fff5ed); }
+
+  .vs-candidate .name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .vs-candidate.cornyn .name { color: var(--cornyn); }
+  .vs-candidate.paxton .name { color: var(--paxton); }
+
+  .vs-candidate .role {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .vs-divider {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    margin-top: -12px;
+  }
+
+  /* ── STAT COMPARISON GRID ── */
+  .stat-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .stat-card .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 12px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+  }
+
+  .stat-row + .stat-row {
+    border-top: 1px solid var(--border-light);
+  }
+
+  .stat-row .candidate-label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .stat-row .candidate-label.cornyn { color: var(--cornyn); }
+  .stat-row .candidate-label.paxton { color: var(--paxton); }
+
+  .stat-row .stat-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .stat-row .stat-value.highlight-cornyn { color: var(--cornyn); }
+  .stat-row .stat-value.highlight-paxton { color: var(--paxton); }
+
+  /* ── SPEND BAR ── */
+  .spend-bar-section {
+    margin-bottom: 48px;
+  }
+
+  .spend-bar-row {
+    margin-bottom: 16px;
+  }
+
+  .spend-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .spend-bar-name {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .spend-bar-name.cornyn { color: var(--cornyn); }
+  .spend-bar-name.paxton { color: var(--paxton); }
+  .spend-bar-name.attack { color: var(--red); }
+
+  .spend-bar-amount {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .spend-bar-track {
+    height: 28px;
+    background: var(--bg-warm);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .spend-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.8s ease;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .spend-bar-fill.cornyn { background: linear-gradient(90deg, var(--cornyn), var(--cornyn-mid)); }
+  .spend-bar-fill.paxton { background: linear-gradient(90deg, var(--paxton), var(--paxton-mid)); }
+  .spend-bar-fill.attack { background: linear-gradient(90deg, #991b1b, #dc2626); }
+
+  /* ── WEEKLY CHART ── */
+  .chart-section {
+    margin-bottom: 48px;
+  }
+
+  .dual-chart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .chart-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .chart-panel-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .chart-panel-title.cornyn { color: var(--cornyn); }
+  .chart-panel-title.paxton { color: var(--paxton); }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 140px;
+    padding-top: 8px;
+  }
+
+  .bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .bar {
+    width: 100%;
+    min-height: 2px;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    cursor: default;
+  }
+
+  .bar.cornyn-bar { background: var(--cornyn-mid); }
+  .bar.paxton-bar { background: var(--paxton-mid); }
+
+  .bar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .bar-tooltip {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--navy);
+    color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  .bar-col:hover .bar-tooltip { opacity: 1; }
+
+  /* ── MESSAGING SECTION ── */
+  .messaging-section {
+    margin-bottom: 48px;
+  }
+
+  .msg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .msg-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .msg-panel-header {
+    padding: 16px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .msg-panel-header.cornyn {
+    background: var(--cornyn-light);
+    color: var(--cornyn);
+  }
+
+  .msg-panel-header.paxton {
+    background: var(--paxton-light);
+    color: var(--paxton);
+  }
+
+  .msg-panel-header.attack {
+    background: var(--red-light);
+    color: var(--red-deep);
+  }
+
+  .msg-panel-body { padding: 20px; }
+
+  .theme-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+  }
+
+  .theme-word {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 90px;
+    color: var(--text-body);
+  }
+
+  .theme-bar-container {
+    flex: 1;
+    height: 14px;
+    background: var(--bg-warm);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .theme-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+
+  .theme-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    min-width: 20px;
+    text-align: right;
+  }
+
+  /* ── AD QUOTES ── */
+  .ad-quote {
+    background: var(--bg-warm);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-body);
+    border-left: 3px solid var(--border);
+    position: relative;
+  }
+
+  .ad-quote.cornyn-quote { border-left-color: var(--cornyn-mid); }
+  .ad-quote.paxton-quote { border-left-color: var(--paxton-mid); }
+  .ad-quote.attack-quote { border-left-color: var(--red); }
+
+  .ad-quote .quote-source {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .ad-quote .quote-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .ad-quote .ad-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .ad-quote .ad-link:hover { text-decoration: underline; }
+
+  /* ── DEMOGRAPHICS ── */
+  .demo-section {
+    margin-bottom: 48px;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .demo-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .demo-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-body);
+    margin-bottom: 16px;
+  }
+
+  .demo-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .demo-bar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+    min-width: 42px;
+  }
+
+  .demo-bar-track {
+    flex: 1;
+    height: 18px;
+    background: var(--bg-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .demo-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: white;
+    font-weight: 500;
+  }
+
+  .demo-bar-fill.cornyn-demo { background: var(--cornyn-mid); }
+  .demo-bar-fill.paxton-demo { background: var(--paxton-mid); }
+
+  .demo-legend {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+
+  .demo-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .demo-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .demo-legend-dot.cornyn-dot { background: var(--cornyn-mid); }
+  .demo-legend-dot.paxton-dot { background: var(--paxton-mid); }
+
+  /* ── TAKEAWAY ── */
+  .takeaway {
+    background: var(--bg-card);
+    border: 2px solid var(--navy);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 48px;
+  }
+
+  .takeaway-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .takeaway p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-body);
+    margin-bottom: 12px;
+  }
+
+  .takeaway p:last-child { margin-bottom: 0; }
+
+  .takeaway strong { color: var(--text-primary); }
+
+  /* ── INSIGHT BOX ── */
+  .insight-box {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.6;
+  }
+
+  .insight-box strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .footer a:hover { text-decoration: underline; }
+
+  .footer .attribution {
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .footer .attribution a { color: var(--stone); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    .container { padding: 28px 16px 60px; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .vs-banner { grid-template-columns: 1fr; }
+    .vs-divider { margin: -12px auto; }
+    .stat-compare { grid-template-columns: 1fr; }
+    .dual-chart { grid-template-columns: 1fr; }
+    .msg-grid { grid-template-columns: 1fr; }
+    .demo-grid { grid-template-columns: 1fr; }
+    .header-meta { flex-direction: column; gap: 4px; }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .container { padding: 20px; max-width: 100%; }
+    .bar-tooltip { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-eyebrow">Meta Ad Library Intelligence Brief</div>
+    <h1>Cornyn vs. Paxton<span>Texas Republican Senate Primary — Ad Spending Comparison</span></h1>
+    <div class="header-meta">
+      <span><strong>Election:</strong> March 3, 2026 Primary</span>
+      <span><strong>Data Range:</strong> Oct 2025 &ndash; Feb 2026</span>
+      <span><strong>Ad Type:</strong> Political / Issue</span>
+      <span><strong>Geography:</strong> United States (TX-focused)</span>
+    </div>
+  </header>
+
+  <!-- VS BANNER -->
+  <div class="vs-banner">
+    <div class="vs-candidate cornyn">
+      <div class="name">John Cornyn</div>
+      <div class="role">Incumbent U.S. Senator</div>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-candidate paxton">
+      <div class="name">Ken Paxton</div>
+      <div class="role">Texas Attorney General</div>
+    </div>
+  </div>
+
+  <!-- TOP-LINE STATS -->
+  <h2 class="section-title">Head-to-Head: By the Numbers</h2>
+  <p class="section-subtitle">Combining each candidate's official page and affiliated committee spending since October 2025.</p>
+
+  <div class="stat-compare">
+    <div class="stat-card">
+      <div class="stat-label">Total Ads (Official Page)</div>
+      <div class="stat-row">
+        <span class="candidate-label cornyn">Cornyn</span>
+        <span class="stat-value highlight-cornyn">59</span>
+      </div>
+      <div class="stat-row">
+        <span class="candidate-label paxton">Paxton</span>
+        <span class="stat-value highlight-paxton">7</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Estimated Ad Spend</div>
+      <div class="stat-row">
+        <span class="candidate-label cornyn">Cornyn</span>
+        <span class="stat-value highlight-cornyn">$89K&ndash;$111K</span>
+      </div>
+      <div class="stat-row">
+        <span class="candidate-label paxton">Paxton</span>
+        <span class="stat-value highlight-paxton">$4.5K&ndash;$5.6K</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Estimated Impressions</div>
+      <div class="stat-row">
+        <span class="candidate-label cornyn">Cornyn</span>
+        <span class="stat-value highlight-cornyn">~5.3M</span>
+      </div>
+      <div class="stat-row">
+        <span class="candidate-label paxton">Paxton</span>
+        <span class="stat-value highlight-paxton">~350K</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Attack Ads (via "Crooked Ken" page)</div>
+      <div class="stat-row">
+        <span class="candidate-label cornyn" style="color: var(--red);">Cornyn &rarr; Paxton</span>
+        <span class="stat-value" style="color: var(--red);">5 ads / $35K&ndash;$43K</span>
+      </div>
+      <div class="stat-row">
+        <span class="candidate-label paxton">Paxton &rarr; Cornyn</span>
+        <span class="stat-value">Organic only</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPEND COMPARISON BARS -->
+  <h2 class="section-title">Spending Breakdown by Source</h2>
+  <p class="section-subtitle">Cornyn's Meta spend includes his official page and the "Crooked Ken" attack page, both funded by TEXANS FOR SENATOR JOHN CORNYN INC.</p>
+
+  <div class="spend-bar-section">
+    <div class="spend-bar-row">
+      <div class="spend-bar-header">
+        <span class="spend-bar-name cornyn">John Cornyn (Official Page)</span>
+        <span class="spend-bar-amount">$89,400 &ndash; $111,041</span>
+      </div>
+      <div class="spend-bar-track">
+        <div class="spend-bar-fill cornyn" style="width: 100%;">59 ads</div>
+      </div>
+    </div>
+    <div class="spend-bar-row">
+      <div class="spend-bar-header">
+        <span class="spend-bar-name attack">"Crooked Ken" (Cornyn-funded attack page)</span>
+        <span class="spend-bar-amount">$35,000 &ndash; $42,995</span>
+      </div>
+      <div class="spend-bar-track">
+        <div class="spend-bar-fill attack" style="width: 38%;">5 ads</div>
+      </div>
+    </div>
+    <div class="spend-bar-row">
+      <div class="spend-bar-header">
+        <span class="spend-bar-name cornyn">Cornyn Combined Total</span>
+        <span class="spend-bar-amount">$124,400 &ndash; $154,036</span>
+      </div>
+      <div class="spend-bar-track">
+        <div class="spend-bar-fill cornyn" style="width: 100%; background: linear-gradient(90deg, var(--cornyn), var(--red) 70%);">64 ads total</div>
+      </div>
+    </div>
+    <div style="height: 12px;"></div>
+    <div class="spend-bar-row">
+      <div class="spend-bar-header">
+        <span class="spend-bar-name paxton">Ken Paxton (Official Page)</span>
+        <span class="spend-bar-amount">$4,500 &ndash; $5,593</span>
+      </div>
+      <div class="spend-bar-track">
+        <div class="spend-bar-fill paxton" style="width: 4%;">7 ads</div>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <strong>Spending gap:</strong> Cornyn's combined Meta ad spend is roughly <strong>25&times;</strong> that of Paxton's. When including the "Crooked Ken" attack page, Cornyn's operation has generated approximately <strong>7.1 million impressions</strong> vs. Paxton's <strong>350,000</strong> &mdash; a 20:1 impressions advantage.
+    </div>
+  </div>
+
+  <!-- WEEKLY VOLUME CHART -->
+  <h2 class="section-title">Weekly Ad Volume</h2>
+  <p class="section-subtitle">Number of new ads launched per week. Cornyn has maintained a steady drumbeat; Paxton has been sporadic.</p>
+
+  <div class="dual-chart">
+    <div class="chart-panel">
+      <div class="chart-panel-title cornyn">John Cornyn</div>
+      <div class="bar-chart" id="cornynChart"></div>
+    </div>
+    <div class="chart-panel">
+      <div class="chart-panel-title paxton">Ken Paxton</div>
+      <div class="bar-chart" id="paxtonChart"></div>
+    </div>
+  </div>
+
+  <!-- MESSAGING THEMES -->
+  <div class="messaging-section" style="margin-top: 48px;">
+    <h2 class="section-title">Messaging Strategy Comparison</h2>
+    <p class="section-subtitle">Top keywords from each candidate's ad copy, showing how they've framed their campaigns.</p>
+
+    <div class="msg-grid">
+      <div class="msg-panel">
+        <div class="msg-panel-header cornyn">Cornyn: Key Themes</div>
+        <div class="msg-panel-body">
+          <div class="theme-row">
+            <span class="theme-word">Trump</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 70%; background: var(--cornyn-mid);"></div></div>
+            <span class="theme-count">33</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">border</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 66%; background: var(--cornyn-mid);"></div></div>
+            <span class="theme-count">31</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">president</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 96%; background: var(--cornyn-mid);"></div></div>
+            <span class="theme-count">45</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">conservative</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 26%; background: var(--cornyn-mid);"></div></div>
+            <span class="theme-count">12</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">secure</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 40%; background: var(--cornyn-mid);"></div></div>
+            <span class="theme-count">19</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">patrol</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 21%; background: var(--cornyn-mid);"></div></div>
+            <span class="theme-count">10</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">elections</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 15%; background: var(--cornyn-mid);"></div></div>
+            <span class="theme-count">7</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">fight</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 15%; background: var(--cornyn-mid);"></div></div>
+            <span class="theme-count">7</span>
+          </div>
+        </div>
+      </div>
+      <div class="msg-panel">
+        <div class="msg-panel-header paxton">Paxton: Key Themes</div>
+        <div class="msg-panel-body">
+          <div class="theme-row">
+            <span class="theme-word">primary</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 50%; background: var(--paxton-mid);"></div></div>
+            <span class="theme-count">4</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">join / team</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 50%; background: var(--paxton-mid);"></div></div>
+            <span class="theme-count">4</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">Republican</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 38%; background: var(--paxton-mid);"></div></div>
+            <span class="theme-count">3</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">retire</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 25%; background: var(--paxton-mid);"></div></div>
+            <span class="theme-count">2</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">fake</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 25%; background: var(--paxton-mid);"></div></div>
+            <span class="theme-count">2</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">far-left</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 25%; background: var(--paxton-mid);"></div></div>
+            <span class="theme-count">2</span>
+          </div>
+          <div style="margin-top: 16px; padding: 12px; background: var(--bg-warm); border-radius: 6px; font-size: 12px; color: var(--text-secondary);">
+            <strong>Note:</strong> Paxton's Meta ad volume is very low (7 ads total). His messaging strategy is primarily focused on fundraising appeals and attacking Cornyn as a "Fake Republican."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATTACK AD SPOTLIGHT -->
+  <div class="messaging-section">
+    <h2 class="section-title">Attack Ad Spotlight: "Crooked Ken" Page</h2>
+    <p class="section-subtitle">Cornyn's campaign operates a dedicated attack page generating $35K&ndash;$43K in spend and 1.8&ndash;2.1M impressions. Here are the attacks:</p>
+
+    <div class="msg-grid" style="grid-template-columns: 1fr;">
+      <div class="msg-panel" style="max-width: 100%;">
+        <div class="msg-panel-header attack">Funded by: TEXANS FOR SENATOR JOHN CORNYN INC.</div>
+        <div class="msg-panel-body">
+          <div class="ad-quote attack-quote">
+            "Crooked Ken Paxton talks tough &mdash; but his record tells a different story. Same lawyer. Radical EPIC City. Sharia law accusations. And $2.5 million sent to resettle Afghan refugees in Texas. Ken Paxton is soft on radical Islam."
+            <div class="quote-meta">
+              <span>Jan 27 &ndash; Feb 3, 2026 &bull; $9K&ndash;$10K &bull; 700K&ndash;800K impressions</span>
+              <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1685309539500764" target="_blank">View in Ad Library &rarr;</a>
+            </div>
+          </div>
+          <div class="ad-quote attack-quote">
+            "Ken Paxton turned his own impeachment into a $$$ business deal. He paid Tony Buzbee millions for his defense&hellip; then gave him a STATE CONTRACT in return. This is real pay-to-play."
+            <div class="quote-meta">
+              <span>Nov 18 &ndash; Nov 26, 2025 &bull; $10K&ndash;$15K &bull; 400K&ndash;450K impressions</span>
+              <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1174189000797871" target="_blank">View in Ad Library &rarr;</a>
+            </div>
+          </div>
+          <div class="ad-quote attack-quote">
+            "He called it a blind trust. But the only thing blind was the truth. Texts show Ken Paxton's 'trustee' was feeding him stock tips and updates the whole time while millions sat hidden inside. Not blind. Not honest. Just Crooked."
+            <div class="quote-meta">
+              <span>Nov 18 &ndash; Nov 27, 2025 &bull; $9K&ndash;$10K &bull; 350K&ndash;400K impressions</span>
+              <a class="ad-link" href="https://www.facebook.com/ads/library/?id=842774858614702" target="_blank">View in Ad Library &rarr;</a>
+            </div>
+          </div>
+          <div class="ad-quote attack-quote">
+            "$897,206 was given by Crooked Ken Paxton's office to a group that funds drag shows for children. He says he's protecting kids, so why is he funding the left?"
+            <div class="quote-meta">
+              <span>Nov 12 &ndash; Nov 27, 2025 &bull; $4K&ndash;$4.5K &bull; 200K&ndash;250K impressions</span>
+              <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1543923049958369" target="_blank">View in Ad Library &rarr;</a>
+            </div>
+          </div>
+          <div class="ad-quote attack-quote">
+            "Character isn't what you say on the campaign trail. It's what you do when no one's watching."
+            <div class="quote-meta">
+              <span>Nov 12 &ndash; Nov 27, 2025 &bull; $3K&ndash;$3.5K &bull; 175K&ndash;200K impressions</span>
+              <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1401203121368549" target="_blank">View in Ad Library &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box" style="margin-top: 20px;">
+      <strong>Attack themes:</strong> Cornyn's attacks focus on Paxton's ethics (impeachment, "pay-to-play" contracts, blind trust deception), cultural issues (funding for groups linked to drag shows, Afghan refugee resettlement), and overall character ("Crooked Ken" branding). Each ad averages $7K&ndash;$8.6K in spend with high impression volume.
+    </div>
+  </div>
+
+  <!-- SAMPLE ADS COMPARISON -->
+  <div class="messaging-section">
+    <h2 class="section-title">Sample Ads: Side by Side</h2>
+    <p class="section-subtitle">Representative ad creative from each candidate's official page.</p>
+
+    <div class="msg-grid">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-weight: 600; color: var(--cornyn); font-size: 14px; margin-bottom: 2px;">Cornyn Campaign Ads</div>
+        <div class="ad-quote cornyn-quote">
+          "365 days. Straight results. The border was secured. A tax hike was stopped. American strength was restored. President Trump delivered, and I helped make it law."
+          <div class="quote-meta">
+            <span>Jan 22, 2026 &bull; $15K&ndash;$20K</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1226871046253509" target="_blank">View &rarr;</a>
+          </div>
+        </div>
+        <div class="ad-quote cornyn-quote">
+          "The National Border Patrol Council proudly backs Senator John Cornyn! Our border patrol agents have seen firsthand that Senator Cornyn is the real deal."
+          <div class="quote-meta">
+            <span>Jan 12, 2026 &bull; $5K&ndash;$6K</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1575562563686464" target="_blank">View &rarr;</a>
+          </div>
+        </div>
+        <div class="ad-quote cornyn-quote">
+          "Senator John Cornyn stands shoulder to shoulder with President Trump, voting with him over 99% of the time."
+          <div class="quote-meta">
+            <span>Nov 18, 2025 &bull; $2K&ndash;$2.5K</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=692435810606215" target="_blank">View &rarr;</a>
+          </div>
+        </div>
+        <div class="ad-quote cornyn-quote">
+          "The Lord tells us plainly in Matthew 7:16, 'By their fruit you will recognize them.' That's the standard I hold myself and my opponents to."
+          <div class="quote-meta">
+            <span>Dec 22, 2025 &bull; $9K&ndash;$10K</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1379336136995537" target="_blank">View &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-weight: 600; color: var(--paxton); font-size: 14px; margin-bottom: 2px;">Paxton Campaign Ads</div>
+        <div class="ad-quote paxton-quote">
+          "Help Ken Paxton retire Fake Republican John Cornyn and his far-left partner right now >>"
+          <div class="quote-meta">
+            <span>Jan 16 &ndash; Jan 21, 2026 &bull; $200&ndash;$300</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1393116452276383" target="_blank">View &rarr;</a>
+          </div>
+        </div>
+        <div class="ad-quote paxton-quote">
+          "Please rush a special donation right now to help get our message out to every Texas Republican we can before Primary Day. Thank you!"
+          <div class="quote-meta">
+            <span>Jan 16 &ndash; Jan 22, 2026 &bull; $200&ndash;$300</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=25474023602266675" target="_blank">View &rarr;</a>
+          </div>
+        </div>
+        <div class="ad-quote paxton-quote">
+          "URGENT: SENATE PRIMARY UPDATE"
+          <div class="quote-meta">
+            <span>Nov 12, 2025 &ndash; Jan 1, 2026 &bull; $2.5K&ndash;$3K</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=839785715410102" target="_blank">View &rarr;</a>
+          </div>
+        </div>
+        <div class="ad-quote paxton-quote">
+          "TEXAS! KEN PAXTON NEEDS YOU &mdash; SIGN-UP TO JOIN TEAM PAXTON"
+          <div class="quote-meta">
+            <span>Dec 11, 2025 &bull; $400&ndash;$500</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1512661556457028" target="_blank">View &rarr;</a>
+          </div>
+        </div>
+        <div style="padding: 16px; background: var(--bg-warm); border-radius: 8px; font-size: 13px; color: var(--text-secondary); margin-top: 4px;">
+          Paxton's Meta ads are almost exclusively fundraising appeals with minimal policy messaging. His campaign appears to be investing in other channels (email, direct mail, rallies) rather than Meta advertising.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMOGRAPHICS -->
+  <div class="demo-section">
+    <h2 class="section-title">Audience Demographics</h2>
+    <p class="section-subtitle">Average age and gender distribution of users who saw each candidate's ads.</p>
+
+    <div class="demo-grid">
+      <div class="demo-card">
+        <div class="demo-card-title">Age Distribution</div>
+        <div class="demo-legend">
+          <div class="demo-legend-item"><div class="demo-legend-dot cornyn-dot"></div> Cornyn</div>
+          <div class="demo-legend-item"><div class="demo-legend-dot paxton-dot"></div> Paxton</div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-bar-label">65+</span>
+          <div class="demo-bar-track">
+            <div class="demo-bar-fill cornyn-demo" style="width: 60%;">60%</div>
+          </div>
+          <div class="demo-bar-track" style="margin-left: 4px;">
+            <div class="demo-bar-fill paxton-demo" style="width: 60%;">60%</div>
+          </div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-bar-label">55-64</span>
+          <div class="demo-bar-track">
+            <div class="demo-bar-fill cornyn-demo" style="width: 20%;">20%</div>
+          </div>
+          <div class="demo-bar-track" style="margin-left: 4px;">
+            <div class="demo-bar-fill paxton-demo" style="width: 30%;">30%</div>
+          </div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-bar-label">45-54</span>
+          <div class="demo-bar-track">
+            <div class="demo-bar-fill cornyn-demo" style="width: 10%;">10%</div>
+          </div>
+          <div class="demo-bar-track" style="margin-left: 4px;">
+            <div class="demo-bar-fill paxton-demo" style="width: 10%;">10%</div>
+          </div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-bar-label">35-44</span>
+          <div class="demo-bar-track">
+            <div class="demo-bar-fill cornyn-demo" style="width: 7%;">7%</div>
+          </div>
+          <div class="demo-bar-track" style="margin-left: 4px;">
+            <div class="demo-bar-fill paxton-demo" style="width: 3%;"></div>
+          </div>
+        </div>
+        <div class="demo-bar-row">
+          <span class="demo-bar-label">18-34</span>
+          <div class="demo-bar-track">
+            <div class="demo-bar-fill cornyn-demo" style="width: 3%;"></div>
+          </div>
+          <div class="demo-bar-track" style="margin-left: 4px;">
+            <div class="demo-bar-fill paxton-demo" style="width: 1%;"></div>
+          </div>
+        </div>
+        <div class="insight-box">
+          <strong>Similar age skew:</strong> Both candidates' ads overwhelmingly reach voters 55+. This is consistent with the older-skewing Republican primary electorate in Texas. Paxton's audience skews slightly more male (60% vs. 50% for Cornyn).
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-card-title">Gender Distribution</div>
+        <div class="demo-legend">
+          <div class="demo-legend-item"><div class="demo-legend-dot cornyn-dot"></div> Cornyn</div>
+          <div class="demo-legend-item"><div class="demo-legend-dot paxton-dot"></div> Paxton</div>
+        </div>
+        <div style="display: flex; gap: 24px; margin-top: 12px;">
+          <div style="flex: 1; text-align: center;">
+            <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Male</div>
+            <div style="display: flex; gap: 8px; justify-content: center; align-items: flex-end; height: 100px;">
+              <div style="width: 48px; background: var(--cornyn-mid); border-radius: 4px 4px 0 0; height: 50%;"></div>
+              <div style="width: 48px; background: var(--paxton-mid); border-radius: 4px 4px 0 0; height: 60%;"></div>
+            </div>
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 4px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--cornyn);">50%</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--paxton);">60%</span>
+            </div>
+          </div>
+          <div style="flex: 1; text-align: center;">
+            <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Female</div>
+            <div style="display: flex; gap: 8px; justify-content: center; align-items: flex-end; height: 100px;">
+              <div style="width: 48px; background: var(--cornyn-mid); border-radius: 4px 4px 0 0; height: 50%;"></div>
+              <div style="width: 48px; background: var(--paxton-mid); border-radius: 4px 4px 0 0; height: 40%;"></div>
+            </div>
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 4px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--cornyn);">50%</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--paxton);">40%</span>
+            </div>
+          </div>
+        </div>
+        <div class="insight-box">
+          <strong>Gender note:</strong> Cornyn's ads reach a perfectly even male/female split, likely reflecting broader targeting. Paxton's ads skew male, consistent with a smaller, more ideologically-driven audience segment.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRATEGIC TAKEAWAY -->
+  <div class="takeaway">
+    <div class="takeaway-title">Strategic Takeaway</div>
+    <p>
+      The Meta ad data reveals a <strong>dramatic asymmetry</strong> in how these two candidates are approaching digital advertising for the March 3rd primary. Cornyn is running a well-funded, multi-pronged Meta operation &mdash; 59 official ads plus a dedicated 5-ad attack page &mdash; with a combined estimated spend of <strong>$124K&ndash;$154K</strong> generating over <strong>7 million impressions</strong>. Paxton, by contrast, has spent just <strong>$4.5K&ndash;$5.6K</strong> on 7 modest ads on Meta.
+    </p>
+    <p>
+      <strong>Cornyn's strategy</strong> is built around three pillars: (1) tight alignment with President Trump ("99% voting record," Laken Riley Act, border security), (2) endorsement validation from the National Border Patrol Council, Rick Perry, and Texas Federation of Republican Women, and (3) aggressive character attacks on Paxton via the "Crooked Ken" page targeting his impeachment, business dealings, and cultural credibility gaps.
+    </p>
+    <p>
+      <strong>Paxton's Meta presence</strong> is minimal and almost entirely fundraising-focused. His ads label Cornyn a "Fake Republican" with a "far-left partner" but lack the volume or spend to compete on impressions. This suggests Paxton is either investing heavily in other channels (direct mail, email, earned media, rallies) or running a lower-budget campaign overall. His strength likely comes from grassroots name recognition as AG and alignment with the MAGA base, rather than paid digital reach.
+    </p>
+    <p>
+      The most revealing detail: <strong>Cornyn is spending more on attacking Paxton ($35K&ndash;$43K via "Crooked Ken") than Paxton is spending on his entire Meta ad campaign ($4.5K&ndash;$5.6K)</strong>. This indicates Cornyn views Paxton as a serious threat despite the spending gap, and is investing heavily in defining Paxton negatively before Paxton can define himself.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>Data sourced from the <a href="https://www.facebook.com/ads/library/" target="_blank">Meta Ad Library</a> &bull; Retrieved Feb 3, 2026</div>
+    <div>Filters: Political/issue ads &bull; United States &bull; Oct 2025 &ndash; Feb 2026</div>
+    <div class="attribution">
+      Built by The Canter Company &bull; <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// Weekly chart data
+const cornynWeekly = [
+  { label: 'Sep 15', ads: 2, spend: 9000 },
+  { label: 'Oct 13', ads: 4, spend: 2700 },
+  { label: 'Oct 27', ads: 4, spend: 2700 },
+  { label: 'Nov 3', ads: 5, spend: 1500 },
+  { label: 'Nov 10', ads: 8, spend: 3500 },
+  { label: 'Nov 17', ads: 9, spend: 9300 },
+  { label: 'Nov 24', ads: 4, spend: 13700 },
+  { label: 'Dec 8', ads: 4, spend: 9000 },
+  { label: 'Dec 15', ads: 2, spend: 500 },
+  { label: 'Dec 22', ads: 5, spend: 12600 },
+  { label: 'Jan 5', ads: 1, spend: 450 },
+  { label: 'Jan 12', ads: 6, spend: 12400 },
+  { label: 'Jan 19', ads: 2, spend: 21700 },
+  { label: 'Jan 26', ads: 3, spend: 750 },
+];
+
+const paxtonWeekly = [
+  { label: 'Sep 15', ads: 0 },
+  { label: 'Oct 13', ads: 0 },
+  { label: 'Oct 27', ads: 0 },
+  { label: 'Nov 3', ads: 0 },
+  { label: 'Nov 10', ads: 2, spend: 3400 },
+  { label: 'Nov 17', ads: 1, spend: 350 },
+  { label: 'Nov 24', ads: 0 },
+  { label: 'Dec 8', ads: 2, spend: 800 },
+  { label: 'Dec 15', ads: 0 },
+  { label: 'Dec 22', ads: 0 },
+  { label: 'Jan 5', ads: 0 },
+  { label: 'Jan 12', ads: 2, spend: 500 },
+  { label: 'Jan 19', ads: 0 },
+  { label: 'Jan 26', ads: 0 },
+];
+
+function renderChart(containerId, data, barClass) {
+  const maxAds = Math.max(...data.map(d => d.ads), 1);
+  const chart = document.getElementById(containerId);
+  data.forEach(d => {
+    const col = document.createElement('div');
+    col.className = 'bar-col';
+    const pct = d.ads > 0 ? Math.max((d.ads / maxAds) * 100, 4) : 0;
+    const bar = document.createElement('div');
+    bar.className = `bar ${barClass}`;
+    bar.style.height = pct + '%';
+    if (d.ads === 0) {
+      bar.style.height = '2px';
+      bar.style.background = '#ddd';
+    }
+    const tooltip = document.createElement('div');
+    tooltip.className = 'bar-tooltip';
+    tooltip.textContent = d.ads + ' ads' + (d.spend ? ' · $' + d.spend.toLocaleString() : '');
+    bar.appendChild(tooltip);
+    const label = document.createElement('div');
+    label.className = 'bar-label';
+    label.textContent = d.label;
+    col.appendChild(bar);
+    col.appendChild(label);
+    chart.appendChild(col);
+  });
+}
+
+renderChart('cornynChart', cornynWeekly, 'cornyn-bar');
+renderChart('paxtonChart', paxtonWeekly, 'paxton-bar');
+</script>
+</body>
+</html>
