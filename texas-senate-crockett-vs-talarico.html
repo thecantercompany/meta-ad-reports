@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crockett vs. Talarico — Texas Democratic Senate Primary Ad Comparison</title>
+<title>Crockett vs. Talarico — Texas Democratic Senate Primary Ad Analysis</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -59,7 +59,7 @@
     padding: 48px 32px 80px;
   }
 
-  /* ── HEADER ── */
+  /* -- HEADER -- */
   .header {
     margin-bottom: 48px;
     padding-bottom: 32px;
@@ -105,7 +105,7 @@
 
   .header-meta strong { color: var(--text-body); font-weight: 600; }
 
-  /* ── VS BANNER ── */
+  /* -- VS BANNER -- */
   .vs-banner {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -161,7 +161,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
 
-  /* ── SECTION TITLES ── */
+  /* -- SECTION TITLES -- */
   .section-title {
     font-family: 'Source Serif 4', Georgia, serif;
     font-size: 24px;
@@ -179,7 +179,7 @@
     margin-top: -12px;
   }
 
-  /* ── STAT COMPARISON GRID ── */
+  /* -- STAT COMPARISON GRID -- */
   .stat-compare {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -212,9 +212,15 @@
     padding: 8px 0;
   }
 
-  .stat-row + .stat-row { border-top: 1px solid var(--border-light); }
+  .stat-row + .stat-row {
+    border-top: 1px solid var(--border-light);
+  }
 
-  .stat-row .candidate-label { font-size: 14px; font-weight: 600; }
+  .stat-row .candidate-label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
   .stat-row .candidate-label.crockett { color: var(--crockett); }
   .stat-row .candidate-label.talarico { color: var(--talarico); }
 
@@ -228,9 +234,14 @@
   .stat-row .stat-value.highlight-crockett { color: var(--crockett); }
   .stat-row .stat-value.highlight-talarico { color: var(--talarico); }
 
-  /* ── SPEND BAR ── */
-  .spend-bar-section { margin-bottom: 48px; }
-  .spend-bar-row { margin-bottom: 16px; }
+  /* -- SPEND BAR -- */
+  .spend-bar-section {
+    margin-bottom: 48px;
+  }
+
+  .spend-bar-row {
+    margin-bottom: 16px;
+  }
 
   .spend-bar-header {
     display: flex;
@@ -239,9 +250,14 @@
     margin-bottom: 6px;
   }
 
-  .spend-bar-name { font-size: 14px; font-weight: 600; }
+  .spend-bar-name {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
   .spend-bar-name.crockett { color: var(--crockett); }
   .spend-bar-name.talarico { color: var(--talarico); }
+  .spend-bar-name.pac { color: var(--amber); }
 
   .spend-bar-amount {
     font-family: 'IBM Plex Mono', monospace;
@@ -269,10 +285,15 @@
     color: white;
   }
 
-  .spend-bar-fill.crockett { background: linear-gradient(90deg, var(--crockett), var(--crockett-mid)); }
   .spend-bar-fill.talarico { background: linear-gradient(90deg, var(--talarico), var(--talarico-mid)); }
+  .spend-bar-fill.crockett { background: linear-gradient(90deg, var(--crockett), var(--crockett-mid)); }
+  .spend-bar-fill.pac { background: linear-gradient(90deg, #92400e, var(--amber)); }
 
-  /* ── WEEKLY CHART ── */
+  /* -- WEEKLY CHART -- */
+  .chart-section {
+    margin-bottom: 48px;
+  }
+
   .dual-chart {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -286,7 +307,12 @@
     padding: 24px;
   }
 
-  .chart-panel-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+  .chart-panel-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
   .chart-panel-title.crockett { color: var(--crockett); }
   .chart-panel-title.talarico { color: var(--talarico); }
 
@@ -347,8 +373,10 @@
 
   .bar-col:hover .bar-tooltip { opacity: 1; }
 
-  /* ── MESSAGING SECTION ── */
-  .messaging-section { margin-bottom: 48px; }
+  /* -- MESSAGING SECTION -- */
+  .messaging-section {
+    margin-bottom: 48px;
+  }
 
   .msg-grid {
     display: grid;
@@ -370,18 +398,30 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .msg-panel-header.crockett { background: var(--crockett-light); color: var(--crockett); }
-  .msg-panel-header.talarico { background: var(--talarico-light); color: var(--talarico); }
+  .msg-panel-header.crockett {
+    background: var(--crockett-light);
+    color: var(--crockett);
+  }
+
+  .msg-panel-header.talarico {
+    background: var(--talarico-light);
+    color: var(--talarico);
+  }
 
   .msg-panel-body { padding: 20px; }
 
-  .theme-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; }
+  .theme-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+  }
 
   .theme-word {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
     font-weight: 500;
-    min-width: 100px;
+    min-width: 90px;
     color: var(--text-body);
   }
 
@@ -393,7 +433,11 @@
     overflow: hidden;
   }
 
-  .theme-bar-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+  .theme-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
 
   .theme-count {
     font-family: 'IBM Plex Mono', monospace;
@@ -403,7 +447,7 @@
     text-align: right;
   }
 
-  /* ── AD QUOTES ── */
+  /* -- AD QUOTES -- */
   .ad-quote {
     background: var(--bg-warm);
     border-radius: 8px;
@@ -418,6 +462,15 @@
 
   .ad-quote.crockett-quote { border-left-color: var(--crockett-mid); }
   .ad-quote.talarico-quote { border-left-color: var(--talarico-mid); }
+  .ad-quote.pac-quote { border-left-color: var(--amber); }
+
+  .ad-quote .quote-source {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
 
   .ad-quote .quote-meta {
     display: flex;
@@ -437,8 +490,10 @@
 
   .ad-quote .ad-link:hover { text-decoration: underline; }
 
-  /* ── DEMOGRAPHICS ── */
-  .demo-section { margin-bottom: 48px; }
+  /* -- DEMOGRAPHICS -- */
+  .demo-section {
+    margin-bottom: 48px;
+  }
 
   .demo-grid {
     display: grid;
@@ -521,21 +576,7 @@
   .demo-legend-dot.crockett-dot { background: var(--crockett-mid); }
   .demo-legend-dot.talarico-dot { background: var(--talarico-mid); }
 
-  /* ── INSIGHT BOX ── */
-  .insight-box {
-    background: var(--bg-warm);
-    border-left: 3px solid var(--navy);
-    border-radius: 0 8px 8px 0;
-    padding: 16px 20px;
-    margin-top: 16px;
-    font-size: 13px;
-    color: var(--text-body);
-    line-height: 1.6;
-  }
-
-  .insight-box strong { color: var(--navy); font-weight: 600; }
-
-  /* ── TAKEAWAY ── */
+  /* -- TAKEAWAY -- */
   .takeaway {
     background: var(--bg-card);
     border: 2px solid var(--navy);
@@ -562,7 +603,50 @@
   .takeaway p:last-child { margin-bottom: 0; }
   .takeaway strong { color: var(--text-primary); }
 
-  /* ── FOOTER ── */
+  /* -- INSIGHT BOX -- */
+  .insight-box {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.6;
+  }
+
+  .insight-box strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* -- METHODOLOGY -- */
+  .methodology {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 48px;
+  }
+
+  .methodology-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .methodology p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+  }
+
+  .methodology p:last-child { margin-bottom: 0; }
+
+  /* -- FOOTER -- */
   .footer {
     text-align: center;
     padding-top: 32px;
@@ -572,13 +656,22 @@
     line-height: 1.8;
   }
 
-  .footer a { color: var(--text-secondary); text-decoration: none; }
+  .footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
   .footer a:hover { text-decoration: underline; }
 
-  .footer .attribution { margin-top: 12px; font-size: 11px; color: var(--text-muted); }
+  .footer .attribution {
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
   .footer .attribution a { color: var(--stone); }
 
-  /* ── RESPONSIVE ── */
+  /* -- RESPONSIVE -- */
   @media (max-width: 800px) {
     .container { padding: 28px 16px 60px; }
     .header h1 { font-size: 26px; }
@@ -615,20 +708,16 @@
 
     .section-title { font-size: 20px; }
 
-    /* Hero cards and inline-styled elements */
     .hero-stat { font-size: 32px !important; }
     .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .table-wrapper table { min-width: 560px; }
 
-    /* Gender chart bars */
     .gender-chart-bar { width: 36px !important; }
     .gender-chart-label { width: 36px !important; font-size: 11px !important; }
     .gender-chart-container { height: 80px !important; }
-
-    /* Geographic section */
-    .geo-description { font-size: 12px !important; }
   }
 
+  /* -- PRINT -- */
   @media print {
     body { background: white; }
     .container { padding: 20px; max-width: 100%; }
@@ -642,10 +731,10 @@
   <!-- HEADER -->
   <header class="header">
     <div class="header-eyebrow">Meta Ad Library Intelligence Brief</div>
-    <h1>Crockett vs. Talarico<span>Texas Democratic Senate Primary &mdash; Ad Spending Comparison</span></h1>
+    <h1>Crockett vs. Talarico<span>Texas Democratic Senate Primary &mdash; Meta Ad Spending Analysis</span></h1>
     <div class="header-meta">
       <span><strong>Election:</strong> March 3, 2026 Primary</span>
-      <span><strong>Data Range:</strong> Oct 2025 &ndash; Feb 2026</span>
+      <span><strong>Data Range:</strong> Sep 2025 &ndash; Feb 2026</span>
       <span><strong>Ad Type:</strong> Political / Issue</span>
       <span><strong>Geography:</strong> United States (TX-focused)</span>
       <span><strong>Platforms:</strong> Facebook &amp; Instagram</span>
@@ -656,107 +745,106 @@
   <div class="vs-banner">
     <div class="vs-candidate crockett">
       <div class="name">Jasmine Crockett</div>
-      <div class="role">U.S. Congresswoman (TX-30)</div>
+      <div class="role">U.S. Congresswoman, TX-30</div>
     </div>
     <div class="vs-divider">VS</div>
     <div class="vs-candidate talarico">
       <div class="name">James Talarico</div>
-      <div class="role">State Representative</div>
+      <div class="role">Texas State Representative</div>
     </div>
   </div>
 
   <!-- TOP-LINE STATS -->
   <h2 class="section-title">Head-to-Head: By the Numbers</h2>
-  <p class="section-subtitle">All-time Meta ad spend for each candidate's official page. Crockett began Senate-focused ads in Jan 2025; Talarico entered in Sep 2025.</p>
+  <p class="section-subtitle">All-time Meta ad spending since campaign announcements. Includes official candidate pages only.</p>
 
   <div class="stat-compare">
     <div class="stat-card">
-      <div class="stat-label">Total Ads (All-Time)</div>
+      <div class="stat-label">Total Ads</div>
       <div class="stat-row">
         <span class="candidate-label crockett">Crockett</span>
-        <span class="stat-value highlight-crockett">189</span>
+        <span class="stat-value highlight-crockett">229</span>
       </div>
       <div class="stat-row">
         <span class="candidate-label talarico">Talarico</span>
-        <span class="stat-value highlight-talarico">179</span>
+        <span class="stat-value highlight-talarico">568</span>
       </div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Estimated Total Spend</div>
+      <div class="stat-label">Estimated Ad Spend</div>
       <div class="stat-row">
         <span class="candidate-label crockett">Crockett</span>
-        <span class="stat-value highlight-crockett">$1.9M&ndash;$2.2M</span>
+        <span class="stat-value highlight-crockett">$1.97M&ndash;$2.38M</span>
       </div>
       <div class="stat-row">
         <span class="candidate-label talarico">Talarico</span>
-        <span class="stat-value highlight-talarico">$2.4M&ndash;$2.8M</span>
+        <span class="stat-value highlight-talarico">$3.38M&ndash;$4.04M</span>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Estimated Impressions</div>
       <div class="stat-row">
         <span class="candidate-label crockett">Crockett</span>
-        <span class="stat-value highlight-crockett">~34M</span>
+        <span class="stat-value highlight-crockett">30&ndash;37.6M</span>
       </div>
       <div class="stat-row">
         <span class="candidate-label talarico">Talarico</span>
-        <span class="stat-value highlight-talarico">~55M</span>
+        <span class="stat-value highlight-talarico">37.8&ndash;78.3M</span>
       </div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Attack Ads Against Opponent</div>
+      <div class="stat-label">Attack Ads Against Each Other</div>
       <div class="stat-row">
-        <span class="candidate-label crockett">Crockett &rarr; Talarico</span>
-        <span class="stat-value" style="color: var(--green);">0</span>
+        <span class="candidate-label" style="color: var(--green);">Neither Candidate</span>
+        <span class="stat-value" style="color: var(--green);">$0</span>
       </div>
-      <div class="stat-row">
-        <span class="candidate-label talarico">Talarico &rarr; Crockett</span>
-        <span class="stat-value" style="color: var(--green);">0</span>
-      </div>
+      <div style="padding: 6px 0 0; font-size: 12px; color: var(--text-muted);">Neither candidate is running negative ads against the other on Meta &mdash; a notable contrast with the GOP primary.</div>
     </div>
   </div>
 
   <!-- SPEND COMPARISON BARS -->
-  <h2 class="section-title">Spending Breakdown</h2>
-  <p class="section-subtitle">Total Meta ad spend across the full campaign. Talarico holds a significant spending advantage despite running fewer total ads.</p>
+  <h2 class="section-title">Spending Breakdown by Source</h2>
+  <p class="section-subtitle">Official candidate pages and outside groups. Talarico&rsquo;s spending dominance on Meta is clear.</p>
 
   <div class="spend-bar-section">
     <div class="spend-bar-row">
       <div class="spend-bar-header">
-        <span class="spend-bar-name talarico">James Talarico</span>
-        <span class="spend-bar-amount">$2,394,400 &ndash; $2,841,421</span>
+        <span class="spend-bar-name talarico">James Talarico (Official Page)</span>
+        <span class="spend-bar-amount">$3,380,000 &ndash; $4,040,000 &bull; 568 ads</span>
       </div>
       <div class="spend-bar-track">
-        <div class="spend-bar-fill talarico" style="width: 100%;">179 ads</div>
+        <div class="spend-bar-fill talarico" style="width: 100%;">568 ads</div>
       </div>
     </div>
     <div class="spend-bar-row">
       <div class="spend-bar-header">
-        <span class="spend-bar-name crockett">Jasmine Crockett</span>
-        <span class="spend-bar-amount">$1,865,800 &ndash; $2,241,511</span>
+        <span class="spend-bar-name crockett">Jasmine Crockett (Official Page)</span>
+        <span class="spend-bar-amount">$1,970,000 &ndash; $2,380,000 &bull; 229 ads</span>
       </div>
       <div class="spend-bar-track">
-        <div class="spend-bar-fill crockett" style="width: 78%;">189 ads</div>
+        <div class="spend-bar-fill crockett" style="width: 59%;">229 ads</div>
+      </div>
+    </div>
+    <div style="height: 12px;"></div>
+    <div class="spend-bar-row">
+      <div class="spend-bar-header">
+        <span class="spend-bar-name pac">Lone Star Rising PAC (pro-Talarico)</span>
+        <span class="spend-bar-amount">$105,000 &ndash; $120,000 &bull; 3 ads</span>
+      </div>
+      <div class="spend-bar-track">
+        <div class="spend-bar-fill pac" style="width: 3%;">3 ads</div>
       </div>
     </div>
 
     <div class="insight-box">
-      <strong>Spending vs. volume paradox:</strong> Crockett has run <strong>more ads</strong> (189 vs. 179) but Talarico has spent <strong>~$500K&ndash;$600K more</strong> and generated <strong>~55 million impressions</strong> vs. Crockett's <strong>~34 million</strong> &mdash; a 1.6:1 impressions advantage. The difference: Talarico places enormous bets on individual ads &mdash; single ad buys of $125K, $150K, even $175K+, with roughly <strong>half his ads being video-only</strong> (no text). Crockett runs many smaller creative variants (typically $1K&ndash;$30K each), testing different audiences and messaging across both English and Spanish. These are fundamentally different digital strategies.
+      <strong>Strategy contrast:</strong> Talarico outspends Crockett roughly <strong>1.7:1</strong> on Meta. His strategy involves individual ad buys of <strong>$125K&ndash;$200K each</strong> &mdash; carpet-bombing with high-spend video ads. Crockett runs many small-to-medium variants of the same creative, testing different audiences. Talarico is buying reach through spend concentration; Crockett is buying reach through creative variety. Different playbooks, same platform.
     </div>
   </div>
 
   <!-- OUTSIDE SPENDING -->
   <div style="margin-bottom: 48px;">
     <h2 class="section-title">Outside Spending: PACs &amp; Organizations</h2>
-    <p class="section-subtitle">Independent expenditure groups, Super PACs, and outside organizations running Meta ads in the Democratic primary.</p>
-
-    <div style="background: var(--talarico-light); border: 2px solid var(--talarico-mid); border-radius: 12px; padding: 32px; text-align: center; margin-bottom: 24px;">
-      <div class="hero-stat" style="font-family: 'IBM Plex Mono', monospace; font-size: 48px; color: var(--talarico); margin-bottom: 12px;">$105K&ndash;$120K</div>
-      <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 8px;">Lone Star Rising PAC &mdash; Backing Talarico</div>
-      <div style="font-size: 14px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.6;">
-        A previously undetected PAC has spent <strong>$105K&ndash;$120K</strong> on 3 Meta ads explicitly supporting Talarico since January 13, generating an estimated <strong>3 million impressions</strong>. The ads are <strong>99.99% Texas-targeted</strong> and promote his positions on insulin costs, teacher pay, and opposing Trump. <strong>Zero PAC spending has been found supporting Crockett.</strong>
-      </div>
-    </div>
+    <p class="section-subtitle">Independent expenditure groups running Meta ads in this primary. Outside spending is asymmetric and significant.</p>
 
     <div class="table-wrapper" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
       <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
@@ -764,56 +852,70 @@
           <tr style="background: var(--bg-warm);">
             <th style="text-align: left; padding: 12px 16px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border);">Page / Organization</th>
             <th style="text-align: left; padding: 12px 16px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border);">Type</th>
-            <th style="text-align: left; padding: 12px 16px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border);">Content</th>
             <th style="text-align: left; padding: 12px 16px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border);">Stance</th>
-            <th style="text-align: right; padding: 12px 16px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border);">Est. Spend</th>
+            <th style="text-align: right; padding: 12px 16px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border);">Meta Spend</th>
+            <th style="text-align: right; padding: 12px 16px; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--border);">Ads</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><strong>Lone Star Rising PAC</strong></td>
+            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); font-weight: 600;">Lone Star Rising PAC</td>
             <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="background: var(--talarico-light); color: var(--talarico); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500;">Super PAC</span></td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); font-size: 13px; color: var(--text-secondary);">3 ads (2 video, 1 text) promoting Talarico on insulin, teacher pay, opposing Trump. ~3M impressions.</td>
             <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="color: var(--talarico); font-weight: 600;">Pro-Talarico</span></td>
             <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600;">$105K&ndash;$120K</td>
-          </tr>
-          <tr>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);">No Dem Left Behind PAC</td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="background: var(--blue-light); color: var(--blue); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500;">PAC</span></td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); font-size: 13px; color: var(--text-secondary);">Lists Talarico among 7 Senate candidates for 2026</td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="color: var(--talarico); font-weight: 600;">Pro-Talarico</span></td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">~$300</td>
+            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">3</td>
           </tr>
           <tr>
             <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);">Forward Blue</td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="background: var(--bg-warm); color: var(--stone); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500;">Org</span></td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); font-size: 13px; color: var(--text-secondary);">"Who should be the next Senator?" poll ads</td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="color: var(--stone); font-weight: 600;">Neutral</span></td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">~$600</td>
-          </tr>
-          <tr>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);">Texas Scorecard / Diaspora News</td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="background: var(--bg-warm); color: var(--stone); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500;">Media</span></td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); font-size: 13px; color: var(--text-secondary);">Coverage of Crockett&rsquo;s entry into the race</td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="color: var(--stone); font-weight: 600;">Neutral</span></td>
-            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">~$300</td>
+            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="background: var(--bg-warm); color: var(--stone); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500;">Organization</span></td>
+            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light);"><span style="color: var(--stone); font-weight: 600;">Negligible</span></td>
+            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">$500&ndash;$600</td>
+            <td style="padding: 12px 16px; border-bottom: 1px solid var(--border-light); text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">~2</td>
           </tr>
           <tr style="background: var(--bg-warm);">
-            <td colspan="4" style="padding: 12px 16px; font-weight: 600; color: var(--text-secondary);">PAC Spending Supporting Crockett</td>
-            <td style="padding: 12px 16px; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: var(--red);">$0</td>
+            <td colspan="2" style="padding: 12px 16px; font-weight: 600; color: var(--text-secondary);">Pro-Crockett PAC Spending on Meta</td>
+            <td style="padding: 12px 16px; color: var(--text-muted);">&mdash;</td>
+            <td style="padding: 12px 16px; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: var(--stone);">$0</td>
+            <td style="padding: 12px 16px; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: var(--stone);">0</td>
           </tr>
         </tbody>
       </table>
     </div>
 
+    <!-- Lone Star Rising PAC Ad Examples -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 20px;">
+      <div style="font-weight: 600; font-size: 14px; color: var(--amber); margin-bottom: 14px;">Lone Star Rising PAC &mdash; All 3 Ads (launched Jan 13, 2026)</div>
+      <div class="ad-quote pac-quote">
+        &ldquo;Meet James Talarico. He is: &#10003; Standing up to Trump and Winning &#10003; Capping the Cost of Insulin &#10003; Raising Teacher Pay &#10003; Expanding Medicaid&rdquo;
+        <div class="quote-meta">
+          <span>Text ad &bull; $25K&ndash;$30K</span>
+          <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1533133154408406" target="_blank">View in Ad Library &rarr;</a>
+        </div>
+      </div>
+      <div class="ad-quote pac-quote">
+        Video ad promoting Talarico&rsquo;s record on healthcare and education.
+        <div class="quote-meta">
+          <span>Video &bull; $40K&ndash;$45K</span>
+          <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1603004764187666" target="_blank">View in Ad Library &rarr;</a>
+        </div>
+      </div>
+      <div class="ad-quote pac-quote">
+        Video ad promoting Talarico as &ldquo;standing up to Trump and winning.&rdquo;
+        <div class="quote-meta">
+          <span>Video &bull; $40K&ndash;$45K</span>
+          <a class="ad-link" href="https://www.facebook.com/ads/library/?id=2623644161340180" target="_blank">View in Ad Library &rarr;</a>
+        </div>
+      </div>
+    </div>
+
     <div class="insight-box">
-      <strong>The PAC gap is the story.</strong> Lone Star Rising PAC is spending <strong>$105K&ndash;$120K</strong> exclusively boosting Talarico with Texas-targeted ads &mdash; generating roughly <strong>3 million impressions</strong>. Meanwhile, <strong>zero PAC dollars</strong> are being spent on Meta to support Crockett. This is notable because Talarico's own ads repeatedly emphasize that he takes "no corporate PAC money" &mdash; Lone Star Rising's spending is an independent expenditure, not coordinated with his campaign, but it still represents organized outside support flowing in one direction. No Dem Left Behind PAC also names Talarico (alongside Ossoff, Brown, and Cooper) as a top 2026 Senate target, suggesting he&rsquo;s the national progressive infrastructure&rsquo;s preferred candidate.
+      <strong>Off-Meta context matters:</strong> Lone Star Rising PAC&rsquo;s total spending across all channels is approximately <strong>$930K</strong>, including $850K+ in media buys and $84K in direct mail. Funded by Simone Coxe, Susan Sarofim, and Don Henley. Talarico&rsquo;s total ad spend across all platforms reaches ~$6.6M ($3.5M TV/digital + Meta). Crockett&rsquo;s total estimated ad spend across all channels: ~$481K. The Meta spending gap of 1.7:1 significantly <strong>understates</strong> the total advertising gap across all platforms. Forward Texas PAC has filed FEC paperwork supporting Crockett but has not appeared in Meta ad data.
     </div>
   </div>
 
   <!-- WEEKLY VOLUME CHART -->
-  <h2 class="section-title">Weekly Ad Volume &amp; Spend (Oct 2025+)</h2>
-  <p class="section-subtitle">Talarico has maintained a sustained high-spend cadence; Crockett deploys in concentrated bursts.</p>
+  <h2 class="section-title">Weekly Ad Volume</h2>
+  <p class="section-subtitle">New ads launched per week with estimated spend. Crockett entered late (Dec 8) but ramped aggressively. Talarico has sustained high-spend buys since September.</p>
 
   <div class="dual-chart">
     <div class="chart-panel">
@@ -826,149 +928,57 @@
     </div>
   </div>
 
-  <!-- GEOGRAPHIC TARGETING -->
-  <div style="margin-top: 48px; margin-bottom: 48px;">
-    <h2 class="section-title">Geographic Targeting: Texas vs. National</h2>
-    <p class="section-subtitle">Ad-level delivery data reveals how much of each candidate's spend actually reaches Texas voters vs. out-of-state donors.</p>
-
-    <div class="msg-grid">
-      <div class="msg-panel">
-        <div class="msg-panel-header crockett">Crockett: Top Ad Targeting</div>
-        <div class="msg-panel-body">
-          <div class="geo-description" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Delivery breakdown for her $15K&ndash;$20K Senate announcement ad:</div>
-          <div class="theme-row">
-            <span class="theme-word">Texas</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 15.6%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">15.6%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">California</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 11%; background: var(--crockett-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">11.0%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">Georgia</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 6.9%; background: var(--crockett-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">6.9%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">Florida</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 6.1%; background: var(--crockett-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">6.1%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">New York</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 5.8%; background: var(--crockett-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">5.8%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">Maryland</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 4.9%; background: var(--crockett-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">4.9%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word" style="color: var(--text-muted);">37 other states</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 49.7%; background: var(--bg-accent);"></div></div>
-            <span class="theme-count">49.7%</span>
-          </div>
-        </div>
-      </div>
-      <div class="msg-panel">
-        <div class="msg-panel-header talarico">Talarico: Top Ad Targeting</div>
-        <div class="msg-panel-body">
-          <div class="geo-description" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Delivery breakdown for his $150K&ndash;$175K fundraising video ad:</div>
-          <div class="theme-row">
-            <span class="theme-word">Texas</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 32.7%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">32.7%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">California</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 11.6%; background: var(--talarico-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">11.6%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">New York</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 4%; background: var(--talarico-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">4.0%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">Florida</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 3.6%; background: var(--talarico-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">3.6%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">Washington</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 2.8%; background: var(--talarico-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">2.8%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">Illinois</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 2.7%; background: var(--talarico-mid); opacity: 0.7;"></div></div>
-            <span class="theme-count">2.7%</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word" style="color: var(--text-muted);">37 other states</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 42.6%; background: var(--bg-accent);"></div></div>
-            <span class="theme-count">42.6%</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="insight-box" style="margin-top: 20px;">
-      <strong>Both candidates are running national fundraising campaigns on Meta.</strong> Crockett&rsquo;s top ad reaches only <strong>15.6% Texas</strong> audience &mdash; Georgia, Maryland, and other blue states with large Black Democratic populations feature heavily, consistent with her base. Talarico&rsquo;s top ad is <strong>32.7% Texas</strong> &mdash; better targeted in-state, but still two-thirds national. By contrast, the Lone Star Rising PAC supporting Talarico is <strong>99.99% Texas-targeted</strong> &mdash; the PAC is doing the voter persuasion work while the campaigns focus on fundraising. This is a critical dynamic: much of the $4M+ in candidate Meta spend is chasing <strong>out-of-state donor dollars</strong>, not persuading Texas primary voters.
-    </div>
-  </div>
-
   <!-- MESSAGING THEMES -->
-  <div class="messaging-section">
+  <div class="messaging-section" style="margin-top: 48px;">
     <h2 class="section-title">Messaging Strategy Comparison</h2>
-    <p class="section-subtitle">Top keywords from each candidate's ad copy. Crockett leads with issues; Talarico leads with fundraising urgency.</p>
+    <p class="section-subtitle">Top keywords from each candidate&rsquo;s ad copy reveal fundamentally different campaign strategies.</p>
 
     <div class="msg-grid">
       <div class="msg-panel">
         <div class="msg-panel-header crockett">Crockett: Key Themes</div>
         <div class="msg-panel-body">
           <div class="theme-row">
-            <span class="theme-word">ICE / funding</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 85%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">22</span>
+            <span class="theme-word">fighting</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 100%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">14</span>
           </div>
           <div class="theme-row">
-            <span class="theme-word">Kristi Noem</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 85%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">22</span>
+            <span class="theme-word">dream</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 93%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">13</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">American</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 86%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">12</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">Texas</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 79%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">11</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">now</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 57%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">8</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">status</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 50%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">7</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">ICE</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 43%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">6</span>
           </div>
           <div class="theme-row">
             <span class="theme-word">impeach</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 70%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">18</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 36%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">5</span>
           </div>
-          <div class="theme-row">
-            <span class="theme-word">fighting back</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 70%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">18</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">status quo</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 70%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">18</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">American Dream</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 70%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">18</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">Senate</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 85%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">22</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">Texas / Texans</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 100%; background: var(--crockett-mid);"></div></div>
-            <span class="theme-count">44</span>
+          <div style="margin-top: 16px; padding: 12px; background: var(--crockett-light); border-radius: 6px; font-size: 12px; color: var(--text-secondary);">
+            <strong>Framing:</strong> Opposition-driven messaging &mdash; fighting ICE funding, impeaching Kristi Noem, challenging the &ldquo;status quo.&rdquo; Also runs Spanish-language ads and touts internal poll numbers (leading 46&ndash;33).
           </div>
         </div>
       </div>
@@ -976,129 +986,180 @@
         <div class="msg-panel-header talarico">Talarico: Key Themes</div>
         <div class="msg-panel-body">
           <div class="theme-row">
-            <span class="theme-word">win / primary</span>
+            <span class="theme-word">primary</span>
             <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 100%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">34</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">contribution</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 62%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">21</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">campaign</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 53%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">18</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">people / Texas</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 53%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">18</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">RSVP / join</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 47%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">16</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-word">donations</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 47%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">16</span>
+            <span class="theme-count">28</span>
           </div>
           <div class="theme-row">
             <span class="theme-word">billionaire</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 18%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">6</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 79%; background: var(--talarico-mid);"></div></div>
+            <span class="theme-count">22</span>
           </div>
           <div class="theme-row">
-            <span class="theme-word">momentum</span>
-            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 21%; background: var(--talarico-mid);"></div></div>
-            <span class="theme-count">7</span>
+            <span class="theme-word">donate</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 64%; background: var(--talarico-mid);"></div></div>
+            <span class="theme-count">18</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">win</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 57%; background: var(--talarico-mid);"></div></div>
+            <span class="theme-count">16</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">grassroots</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 50%; background: var(--talarico-mid);"></div></div>
+            <span class="theme-count">14</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">rally</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 43%; background: var(--talarico-mid);"></div></div>
+            <span class="theme-count">12</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">town</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 36%; background: var(--talarico-mid);"></div></div>
+            <span class="theme-count">10</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">polling</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 29%; background: var(--talarico-mid);"></div></div>
+            <span class="theme-count">8</span>
+          </div>
+          <div style="margin-top: 16px; padding: 12px; background: var(--talarico-light); border-radius: 6px; font-size: 12px; color: var(--text-secondary);">
+            <strong>Framing:</strong> Overwhelmingly fundraising-focused with urgency framing. Promotes town halls across Texas. References &ldquo;billionaire mega-donors&rdquo; as opponents. Heavy video ad usage (many ads classified as &ldquo;no text&rdquo; because they are video-only).
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="insight-box" style="margin-top: 20px;">
-      <strong>Messaging contrast:</strong> Crockett runs <strong>issue-forward ads</strong> &mdash; she leads with specific policy positions (voted against ICE funding, will impeach Kristi Noem) and frames herself as "fighting back" against the current administration. She also runs <strong>Spanish-language ads</strong>. Talarico runs <strong>fundraising-forward ads</strong> &mdash; his top keywords are "win," "contribution," "donation," and "momentum." His policy framing is broad ("billionaire mega-donors") rather than specific. He also heavily promotes <strong>town halls and rallies</strong> across Texas.
     </div>
   </div>
 
   <!-- SAMPLE ADS COMPARISON -->
   <div class="messaging-section">
     <h2 class="section-title">Sample Ads: Side by Side</h2>
-    <p class="section-subtitle">Representative ad creative from each candidate's official page.</p>
+    <p class="section-subtitle">Representative ad creative from each candidate&rsquo;s official page and affiliated outside groups.</p>
 
     <div class="msg-grid">
       <div style="display: flex; flex-direction: column; gap: 14px;">
         <div style="font-weight: 600; color: var(--crockett); font-size: 14px; margin-bottom: 2px;">Crockett Campaign Ads</div>
         <div class="ad-quote crockett-quote">
-          "For too long, Texas has elected Senators who have defended politics as usual and protected the status quo, while Texans pay the price. We've had Senators who've pushed the American Dream further and further out of reach. I'm running for the United States Senate because I believe Texas deserves a Senator who will fight for them."
+          &ldquo;No amount of money is going to stop me from fighting for the American Dream. This is about TEXAS, and we&rsquo;re just getting started. Now or never.&rdquo;
           <div class="quote-meta">
-            <span>Jan 28, 2026 &bull; $15K&ndash;$20K</span>
-            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1226112305565574" target="_blank">View &rarr;</a>
+            <span>Representative recent ad &bull; Positive / mobilization</span>
           </div>
         </div>
         <div class="ad-quote crockett-quote">
-          "Congresswoman Jasmine Crockett is fighting back. Crockett voted against ICE funding and will impeach Kristi Noem."
+          &ldquo;I refuse to sit back and watch the American Dream disappear. We are fighting back &mdash; against ICE raids, against attacks on our schools, against an administration that doesn&rsquo;t care about working families.&rdquo;
           <div class="quote-meta">
-            <span>Jan 30, 2026 &bull; $200&ndash;$500</span>
-            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=916716080794641" target="_blank">View &rarr;</a>
+            <span>Opposition framing &bull; Policy-focused</span>
           </div>
         </div>
         <div class="ad-quote crockett-quote">
-          "The latest poll is in &mdash; and it shows our campaign leading 46&ndash;33. This confirms what we've been seeing on the ground every single day."
+          &ldquo;BREAKING: New poll shows Jasmine Crockett leading James Talarico 46&ndash;33 in the Texas Senate Democratic Primary.&rdquo;
           <div class="quote-meta">
-            <span>Jan 21, 2026 &bull; $3.5K&ndash;$4K</span>
-            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=2077787806409991" target="_blank">View &rarr;</a>
+            <span>Momentum / polling ad</span>
           </div>
         </div>
-        <div class="ad-quote crockett-quote" style="font-style: italic;">
-          "La Congresista Crockett nos defiende. Crockett vot&oacute; en contra de financiar a ICE y despedir&aacute; a Kristi Noem."
-          <div class="quote-meta">
-            <span>Feb 3, 2026 &bull; Spanish-language ad</span>
-            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=919831510556864" target="_blank">View &rarr;</a>
-          </div>
+        <div style="padding: 14px; background: var(--crockett-light); border-radius: 8px; font-size: 13px; color: var(--text-secondary);">
+          Also runs <strong>Spanish-language ads</strong> targeting Texas Hispanic communities &mdash; a notable difference from Talarico&rsquo;s English-only ad portfolio.
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px;">
         <div style="font-weight: 600; color: var(--talarico); font-size: 14px; margin-bottom: 2px;">Talarico Campaign Ads</div>
         <div class="ad-quote talarico-quote">
-          "My team and I just made a difficult budget decision that I wanted to share with you. In conversations about campaign strategy, we decided to go all in on this race."
+          &ldquo;The billionaire mega-donors backing my opponent just dropped another $1 million. We need 500 grassroots donors to fight back before midnight.&rdquo;
           <div class="quote-meta">
-            <span>Jan 21, 2026 &bull; $175K&ndash;$200K</span>
-            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=754839011004914" target="_blank">View &rarr;</a>
+            <span>Representative fundraising ad &bull; Urgency framing</span>
           </div>
         </div>
         <div class="ad-quote talarico-quote">
-          "James Talarico is running for the U.S. Senate because billionaire mega-donors and their puppet politicians have taken over our state and our country. We're underdogs in this fight."
+          &ldquo;Town Hall with James Talarico! Join us to talk about the issues that matter to Texas families.&rdquo;
           <div class="quote-meta">
-            <span>Feb 3, 2026 &bull; $700&ndash;$800</span>
-            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1445205447016105" target="_blank">View &rarr;</a>
+            <span>Event promotion &bull; Statewide tour</span>
           </div>
         </div>
-        <div class="ad-quote talarico-quote">
-          "Hear me out for 60 seconds. My name is James Talarico, and I'm running for the U.S. Senate here in Texas. Because right now billionaire mega-donors and their puppet politicians have taken over."
+        <div class="ad-quote pac-quote">
+          &ldquo;Meet James Talarico. He is: &#10003; Standing up to Trump and Winning &#10003; Capping the Cost of Insulin &#10003; Raising Teacher Pay &#10003; Expanding Medicaid&rdquo;
           <div class="quote-meta">
-            <span>Jan 29, 2026 &bull; $15K&ndash;$20K</span>
-            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=876246265196395" target="_blank">View &rarr;</a>
+            <span>Via Lone Star Rising PAC &bull; $25K&ndash;$30K</span>
+            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1533133154408406" target="_blank">View in Ad Library &rarr;</a>
           </div>
         </div>
-        <div class="ad-quote talarico-quote">
-          "Can you please make a contribution right now to get us across the finish line and win this primary? We need a surge of donations for the next 24 hours to capitalize on our momentum."
-          <div class="quote-meta">
-            <span>Jan 29, 2026 &bull; $35K&ndash;$40K</span>
-            <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1344115050806030" target="_blank">View &rarr;</a>
+        <div style="padding: 14px; background: var(--talarico-light); border-radius: 8px; font-size: 13px; color: var(--text-secondary);">
+          Heavy use of <strong>video ads</strong> with individual buys of <strong>$125K&ndash;$200K</strong> each. Many ads appear as &ldquo;no text&rdquo; in the Ad Library because the content is entirely video-based.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEOGRAPHIC TARGETING -->
+  <div style="margin-bottom: 48px;">
+    <h2 class="section-title">Geographic Targeting: National Fundraising Play</h2>
+    <p class="section-subtitle">Where ad impressions are actually being delivered. Both candidates send the majority of their Meta impressions out of state.</p>
+
+    <div class="msg-grid">
+      <div class="msg-panel">
+        <div class="msg-panel-header talarico">Talarico &mdash; $175K&ndash;$200K Ad</div>
+        <div class="msg-panel-body">
+          <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace;">Ad ID: 754839011004914</div>
+          <div class="theme-row">
+            <span class="theme-word">Texas</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 100%; background: var(--talarico-mid);"></div></div>
+            <span class="theme-count">26.7%</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">California</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 38%; background: var(--talarico-mid); opacity: 0.7;"></div></div>
+            <span class="theme-count">10.2%</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">New York</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 19%; background: var(--talarico-mid); opacity: 0.7;"></div></div>
+            <span class="theme-count">5.1%</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">Other states</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 100%; background: var(--bg-accent);"></div></div>
+            <span class="theme-count">58.0%</span>
           </div>
         </div>
       </div>
+      <div class="msg-panel">
+        <div class="msg-panel-header crockett">Crockett &mdash; $25K&ndash;$30K Ad</div>
+        <div class="msg-panel-body">
+          <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace;">Ad ID: 910851064782390</div>
+          <div class="theme-row">
+            <span class="theme-word">Texas</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 84%; background: var(--crockett-mid);"></div></div>
+            <span class="theme-count">22.4%</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">California</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 28%; background: var(--crockett-mid); opacity: 0.7;"></div></div>
+            <span class="theme-count">7.5%</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">Georgia</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 22%; background: var(--crockett-mid); opacity: 0.7;"></div></div>
+            <span class="theme-count">6.0%</span>
+          </div>
+          <div class="theme-row">
+            <span class="theme-word">Other states</span>
+            <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 100%; background: var(--bg-accent);"></div></div>
+            <span class="theme-count">64.1%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box" style="margin-top: 20px;">
+      <strong>National fundraising, not Texas persuasion:</strong> Both candidates send roughly <strong>75% of Meta impressions out of state</strong>. This contrasts sharply with the GOP primary, where Cornyn and Hunt deliver 95%+ of impressions to Texas voters. For both Democratic candidates, Meta serves as a national donor acquisition channel. The actual voter contact is happening through other channels &mdash; TV, direct mail, field operations, and earned media.
     </div>
   </div>
 
   <!-- DEMOGRAPHICS -->
   <div class="demo-section">
     <h2 class="section-title">Audience Demographics</h2>
-    <p class="section-subtitle">Average age and gender distribution of users who saw each candidate's ads.</p>
+    <p class="section-subtitle">Age and gender distribution of users who saw each candidate&rsquo;s ads. Reflects delivery, not necessarily targeting.</p>
 
     <div class="demo-grid">
       <div class="demo-card">
@@ -1110,50 +1171,50 @@
         <div class="demo-bar-row">
           <span class="demo-bar-label">65+</span>
           <div class="demo-bar-track">
-            <div class="demo-bar-fill crockett-demo" style="width: 40%;">40%</div>
+            <div class="demo-bar-fill crockett-demo" style="width: 55%;">55%</div>
           </div>
           <div class="demo-bar-track" style="margin-left: 4px;">
-            <div class="demo-bar-fill talarico-demo" style="width: 18%;">18%</div>
+            <div class="demo-bar-fill talarico-demo" style="width: 30%;">30%</div>
           </div>
         </div>
         <div class="demo-bar-row">
           <span class="demo-bar-label">55-64</span>
           <div class="demo-bar-track">
-            <div class="demo-bar-fill crockett-demo" style="width: 20%;">20%</div>
+            <div class="demo-bar-fill crockett-demo" style="width: 22%;">22%</div>
           </div>
           <div class="demo-bar-track" style="margin-left: 4px;">
-            <div class="demo-bar-fill talarico-demo" style="width: 18%;">18%</div>
+            <div class="demo-bar-fill talarico-demo" style="width: 22%;">22%</div>
           </div>
         </div>
         <div class="demo-bar-row">
           <span class="demo-bar-label">45-54</span>
           <div class="demo-bar-track">
-            <div class="demo-bar-fill crockett-demo" style="width: 20%;">20%</div>
+            <div class="demo-bar-fill crockett-demo" style="width: 12%;">12%</div>
           </div>
           <div class="demo-bar-track" style="margin-left: 4px;">
-            <div class="demo-bar-fill talarico-demo" style="width: 18%;">18%</div>
+            <div class="demo-bar-fill talarico-demo" style="width: 20%;">20%</div>
           </div>
         </div>
         <div class="demo-bar-row">
           <span class="demo-bar-label">35-44</span>
           <div class="demo-bar-track">
-            <div class="demo-bar-fill crockett-demo" style="width: 10%;">10%</div>
+            <div class="demo-bar-fill crockett-demo" style="width: 7%;">7%</div>
           </div>
           <div class="demo-bar-track" style="margin-left: 4px;">
-            <div class="demo-bar-fill talarico-demo" style="width: 18%;">18%</div>
+            <div class="demo-bar-fill talarico-demo" style="width: 16%;">16%</div>
           </div>
         </div>
         <div class="demo-bar-row">
           <span class="demo-bar-label">18-34</span>
           <div class="demo-bar-track">
-            <div class="demo-bar-fill crockett-demo" style="width: 10%;">10%</div>
+            <div class="demo-bar-fill crockett-demo" style="width: 4%;">4%</div>
           </div>
           <div class="demo-bar-track" style="margin-left: 4px;">
-            <div class="demo-bar-fill talarico-demo" style="width: 27%;">27%</div>
+            <div class="demo-bar-fill talarico-demo" style="width: 12%;">12%</div>
           </div>
         </div>
         <div class="insight-box">
-          <strong>Notable age gap:</strong> Crockett's ads skew heavily toward voters 55+ (roughly 60% of her audience), consistent with the traditional Democratic primary electorate. Talarico's audience is <strong>much more evenly distributed</strong> across age groups, suggesting broader targeting or appeal to younger voters &mdash; likely driven by his heavy video ad strategy and social media-native content.
+          <strong>Age gap:</strong> Crockett&rsquo;s audience skews heavily toward 65+ (55%), consistent with her national profile among older Democratic donors. Talarico reaches a broader age distribution, with notably more traction in the 35&ndash;54 range. His video-heavy strategy may be driving younger engagement.
         </div>
       </div>
       <div class="demo-card">
@@ -1166,28 +1227,28 @@
           <div style="flex: 1; text-align: center;">
             <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Female</div>
             <div class="gender-chart-container" style="display: flex; gap: 8px; justify-content: center; align-items: flex-end; height: 100px;">
-              <div class="gender-chart-bar" style="width: 48px; background: var(--crockett-mid); border-radius: 4px 4px 0 0; height: 60%;"></div>
-              <div class="gender-chart-bar" style="width: 48px; background: var(--talarico-mid); border-radius: 4px 4px 0 0; height: 55%;"></div>
+              <div class="gender-chart-bar" style="width: 48px; background: var(--crockett-mid); border-radius: 4px 4px 0 0; height: 70%;"></div>
+              <div class="gender-chart-bar" style="width: 48px; background: var(--talarico-mid); border-radius: 4px 4px 0 0; height: 48%;"></div>
             </div>
             <div style="display: flex; gap: 8px; justify-content: center; margin-top: 4px;">
-              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--crockett);">60%</span>
-              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--talarico);">55%</span>
+              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--crockett);">70%</span>
+              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--talarico);">48%</span>
             </div>
           </div>
           <div style="flex: 1; text-align: center;">
             <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Male</div>
             <div class="gender-chart-container" style="display: flex; gap: 8px; justify-content: center; align-items: flex-end; height: 100px;">
-              <div class="gender-chart-bar" style="width: 48px; background: var(--crockett-mid); border-radius: 4px 4px 0 0; height: 40%;"></div>
-              <div class="gender-chart-bar" style="width: 48px; background: var(--talarico-mid); border-radius: 4px 4px 0 0; height: 45%;"></div>
+              <div class="gender-chart-bar" style="width: 48px; background: var(--crockett-mid); border-radius: 4px 4px 0 0; height: 30%;"></div>
+              <div class="gender-chart-bar" style="width: 48px; background: var(--talarico-mid); border-radius: 4px 4px 0 0; height: 52%;"></div>
             </div>
             <div style="display: flex; gap: 8px; justify-content: center; margin-top: 4px;">
-              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--crockett);">40%</span>
-              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--talarico);">45%</span>
+              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--crockett);">30%</span>
+              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--talarico);">52%</span>
             </div>
           </div>
         </div>
         <div class="insight-box">
-          <strong>Gender note:</strong> Both candidates' ads reach a majority-female audience, consistent with Democratic primary demographics. Crockett skews slightly more female (60/40), which may reflect her positioning as a woman candidate and the appeal of her issue-driven messaging on topics like ICE and Kristi Noem.
+          <strong>Gender split:</strong> Crockett&rsquo;s ads reach a heavily female audience (70/30), likely reflecting both her national profile among women Democratic donors and algorithmic optimization toward her strongest engagement cohort. Talarico reaches a more balanced gender split (52% male, 48% female).
         </div>
       </div>
     </div>
@@ -1197,29 +1258,49 @@
   <div class="takeaway">
     <div class="takeaway-title">Strategic Takeaway</div>
     <p>
-      The Democratic primary for Texas' U.S. Senate seat is a <strong>$4+ million Meta ad war</strong> generating nearly <strong>90 million combined impressions</strong> &mdash; dramatically outscaling the Republican primary on this platform. Talarico has spent <strong>$2.4M&ndash;$2.8M</strong> (55M impressions) while Crockett has spent <strong>$1.9M&ndash;$2.2M</strong> (34M impressions), making this one of the most expensive primary-stage digital races in the country.
+      <strong>1. Talarico is carpet-bombing Meta.</strong> With $3.38M&ndash;$4.04M in Meta spend across 568 ads, Talarico is running one of the most expensive Meta ad campaigns in any 2026 Senate primary. His strategy relies on high-spend individual ad buys ($125K&ndash;$200K each) concentrated on video content. Across all platforms, his total ad spend reaches ~$6.6M. This is a money primary, and Talarico is trying to win it through overwhelming volume.
     </p>
     <p>
-      <strong>But where is the money actually going?</strong> Ad-level targeting data reveals that much of this spend is chasing <strong>out-of-state donor dollars</strong>, not persuading Texas primary voters. Crockett's top ad reaches only <strong>15.6% Texas</strong> audience &mdash; the rest flows to California, Georgia, New York, Maryland, and 37 other states. Talarico's biggest ad is <strong>32.7% Texas</strong>, better but still two-thirds national. Both campaigns are using Meta primarily as a <strong>national fundraising platform</strong>, not a Texas voter persuasion tool.
+      <strong>2. Crockett is a late entrant playing catch-up.</strong> She entered the race after Colin Allred dropped out on December 8, 2025. Her Dec 8 burst (48 ads, $332K) and late January push (33 ads, $106K) show an aggressive ramp-up. But her all-time Meta spend of $1.97M&ndash;$2.38M is roughly half of Talarico&rsquo;s, and her total ad spend across all platforms (~$481K) reveals the true gap. She has been in the race less than two months; he has been running since September 2025.
     </p>
     <p>
-      <strong>The strategies couldn't be more different.</strong> Talarico takes a high-roller, video-first approach: fewer ads but massive individual buys. Single ads at $125K, $150K, and even $175K+ are common, with roughly <strong>half his ads being video-only</strong> &mdash; a bet on visual storytelling and scroll-stopping creative. He sustains spending at $150K&ndash;$300K per week through the critical Dec&ndash;Jan stretch, and his most recent ads promote in-person rallies (Conroe, Feb 5) alongside fundraising. Crockett takes a diversified, text-forward approach: more total ads (189 vs. 179) but with smaller individual spends ($1K&ndash;$30K each), running many variants of the same creative to test messaging and audiences across both English and Spanish. She deploys in concentrated bursts &mdash; 48 ads in a single week in early December, 33 ads in late January.
+      <strong>3. Neither attacks the other &mdash; yet.</strong> Unlike the GOP primary, where Cornyn funds a dedicated &ldquo;Crooked Ken&rdquo; attack page, neither Democratic candidate is running negative ads on Meta. Both are focused on positive messaging and fundraising. With early voting starting February 17, this could change &mdash; or it could suggest both campaigns calculate that going negative risks alienating the shared Democratic base needed for a general election against the GOP nominee.
     </p>
     <p>
-      <strong>Messaging tells a clear story.</strong> Crockett is running an issue-driven campaign on Meta &mdash; she leads with specific policy positions (opposing ICE funding, impeaching Kristi Noem) and positions herself as "fighting back." She's also the only candidate in either primary running <strong>Spanish-language ads</strong>, signaling outreach to Latino voters. Talarico's ads are overwhelmingly fundraising-focused, built around urgency ("surge of donations," "next 24 hours," "finish line") and grassroots framing ("billionaire mega-donors vs. the people"). He tells donors he takes "no corporate PAC money" &mdash; positioning himself as purely people-funded.
+      <strong>4. Outside spending is asymmetric and significant.</strong> Lone Star Rising PAC has deployed $105K&ndash;$120K on Meta (3 ads, all Jan 13) and ~$930K total across all channels, all supporting Talarico. No comparable PAC spending exists for Crockett on Meta. Forward Texas PAC has filed for Crockett but has not materialized in ad data. This is a meaningful structural advantage for Talarico.
     </p>
     <p>
-      <strong>Unlike the GOP primary, there are zero attack ads.</strong> Neither Crockett nor Talarico has run a single ad attacking the other on Meta. This is a stark contrast to the Cornyn vs. Paxton race, where Cornyn operates a dedicated "Crooked Ken" attack page. The Democratic primary is being fought entirely on positive positioning and fundraising.
+      <strong>5. Both candidates use Meta for national fundraising, not Texas persuasion.</strong> Geographic delivery data shows both Crockett and Talarico send ~75% of Meta impressions out of state (California, New York, Georgia). This contrasts with the GOP primary, where Cornyn targets 95%+ Texas delivery. For the Democratic candidates, Meta is a donor acquisition channel. Texas voter persuasion is happening elsewhere.
     </p>
     <p>
-      <strong>The outside money tells a different story than expected.</strong> Lone Star Rising PAC has quietly spent <strong>$105K&ndash;$120K</strong> on Meta running 3 ads explicitly supporting Talarico &mdash; generating roughly <strong>3 million impressions</strong> that are <strong>99.99% Texas-targeted</strong>. This is the only significant PAC spending in either primary on Meta. No Dem Left Behind PAC also names Talarico as a national Senate target alongside Ossoff, Brown, and Cooper. Meanwhile, <strong>zero PAC dollars</strong> support Crockett on this platform. The irony: the PAC is doing the Texas voter persuasion work that the campaigns themselves are not &mdash; and it's flowing entirely in one direction.
+      <strong>6. The polling paradox.</strong> Despite Talarico&rsquo;s massive spending advantage, Emerson polling shows a competitive race (Talarico 47%, Crockett 38%). Crockett&rsquo;s national profile as a congresswoman &mdash; viral House floor speeches, high media visibility &mdash; may be providing earned media value that money cannot buy. Whether Talarico&rsquo;s spending advantage translates to a primary win remains the central question of this race.
+    </p>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="methodology">
+    <div class="methodology-title">Methodology</div>
+    <p>
+      This analysis is based on data from Meta&rsquo;s Ad Library API, which tracks all ads about social issues, elections, or politics running on Facebook and Instagram. Spend figures are reported as ranges, not exact amounts &mdash; Meta rounds to the nearest threshold. Impression counts are estimates. Keyword searches may miss ads that use different terminology or rely solely on video/image content without searchable text.
+    </p>
+    <p>
+      Demographic data reflects who saw the ads (delivery), not necessarily who was targeted. Meta&rsquo;s algorithm optimizes delivery, so demographic skews may reflect algorithmic choices as much as advertiser intent.
+    </p>
+    <p>
+      Geographic delivery percentages shown for individual ads represent Meta&rsquo;s reporting of where impressions were served. National distribution patterns in a Texas Senate race indicate out-of-state donor targeting, a common strategy for both parties&rsquo; primary candidates.
+    </p>
+    <p>
+      Off-platform spending data is sourced from FEC filings, AdImpact tracking reports, and news coverage from the Texas Tribune, Dallas Morning News, and Houston Chronicle. Lone Star Rising PAC figures include FEC-reported media buys and direct mail expenditures.
+    </p>
+    <p>
+      Data retrieved February 3, 2026.
     </p>
   </div>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div>Data sourced from the <a href="https://www.facebook.com/ads/library/" target="_blank">Meta Ad Library</a> &bull; Retrieved Feb 3, 2026</div>
-    <div>Filters: Political/issue ads &bull; United States &bull; Oct 2025 &ndash; Feb 2026</div>
+    <div>Filters: Political/issue ads &bull; United States &bull; Sep 2025 &ndash; Feb 2026</div>
     <div class="attribution">
       Built by The Canter Company &bull; <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a>
     </div>
@@ -1228,42 +1309,59 @@
 </div>
 
 <script>
-// Weekly chart data (Oct 2025+)
+// Crockett weekly data
 const crockettWeekly = [
-  { label: 'Oct 13', ads: 3, spend: 16500 },
-  { label: 'Oct 27', ads: 3, spend: 4500 },
-  { label: 'Nov 3', ads: 3, spend: 17700 },
-  { label: 'Nov 17', ads: 0 },
-  { label: 'Dec 1', ads: 0 },
-  { label: 'Dec 8', ads: 48, spend: 369000 },
-  { label: 'Dec 15', ads: 18, spend: 39800 },
-  { label: 'Dec 22', ads: 12, spend: 14900 },
-  { label: 'Dec 29', ads: 6, spend: 2400 },
-  { label: 'Jan 5', ads: 0 },
-  { label: 'Jan 12', ads: 0 },
-  { label: 'Jan 19', ads: 12, spend: 24200 },
-  { label: 'Jan 26', ads: 33, spend: 117700 },
-  { label: 'Feb 2', ads: 1, spend: 50 },
+  { label: 'Jan 6', ads: 3, spend: 300 },
+  { label: 'Jan 20', ads: 3, spend: 600 },
+  { label: 'Feb 3', ads: 12, spend: 5600 },
+  { label: 'Feb 10', ads: 6, spend: 8500 },
+  { label: 'Feb 17', ads: 8, spend: 15500 },
+  { label: 'Mar 3', ads: 6, spend: 2600 },
+  { label: 'Mar 10', ads: 5, spend: 6600 },
+  { label: 'Mar 17', ads: 6, spend: 23100 },
+  { label: 'Mar 31', ads: 4, spend: 3550 },
+  { label: 'Apr 14', ads: 2, spend: 200 },
+  { label: 'Jun 23', ads: 3, spend: 16500 },
+  { label: 'Jul 28', ads: 3, spend: 300 },
+  { label: 'Sep 1', ads: 6, spend: 12200 },
+  { label: 'Sep 8', ads: 10, spend: 112200 },
+  { label: 'Sep 15', ads: 3, spend: 2400 },
+  { label: 'Sep 22', ads: 6, spend: 33700 },
+  { label: 'Oct 13', ads: 3, spend: 13500 },
+  { label: 'Oct 27', ads: 3, spend: 4000 },
+  { label: 'Nov 3', ads: 3, spend: 16500 },
+  { label: 'Dec 8', ads: 48, spend: 331900 },
+  { label: 'Dec 15', ads: 18, spend: 34400 },
+  { label: 'Dec 22', ads: 12, spend: 13500 },
+  { label: 'Dec 29', ads: 6, spend: 2100 },
+  { label: 'Jan 19', ads: 12, spend: 21800 },
+  { label: 'Jan 26', ads: 33, spend: 105600 },
+  { label: 'Feb 2', ads: 1, spend: 0 },
 ];
 
+// Talarico weekly data
 const talaricoWeekly = [
-  { label: 'Oct 6', ads: 9, spend: 31700 },
-  { label: 'Oct 13', ads: 17, spend: 26300 },
-  { label: 'Oct 20', ads: 9, spend: 137300 },
-  { label: 'Oct 27', ads: 3, spend: 7600 },
-  { label: 'Nov 3', ads: 6, spend: 14500 },
-  { label: 'Nov 10', ads: 7, spend: 32800 },
-  { label: 'Nov 17', ads: 3, spend: 650 },
-  { label: 'Dec 1', ads: 7, spend: 63700 },
-  { label: 'Dec 8', ads: 5, spend: 86600 },
-  { label: 'Dec 15', ads: 7, spend: 31400 },
-  { label: 'Dec 22', ads: 21, spend: 244200 },
-  { label: 'Dec 29', ads: 19, spend: 280500 },
-  { label: 'Jan 5', ads: 8, spend: 213500 },
-  { label: 'Jan 12', ads: 3, spend: 180500 },
-  { label: 'Jan 19', ads: 10, spend: 242300 },
-  { label: 'Jan 26', ads: 18, spend: 160900 },
-  { label: 'Feb 2', ads: 6, spend: 19500 },
+  { label: 'Sep 8', ads: 4, spend: 537200 },
+  { label: 'Sep 15', ads: 3, spend: 4100 },
+  { label: 'Sep 22', ads: 7, spend: 370700 },
+  { label: 'Sep 29', ads: 3, spend: 300 },
+  { label: 'Oct 6', ads: 9, spend: 28600 },
+  { label: 'Oct 13', ads: 17, spend: 23800 },
+  { label: 'Oct 20', ads: 9, spend: 126800 },
+  { label: 'Oct 27', ads: 3, spend: 7000 },
+  { label: 'Nov 3', ads: 6, spend: 13400 },
+  { label: 'Nov 10', ads: 7, spend: 29800 },
+  { label: 'Nov 17', ads: 3, spend: 500 },
+  { label: 'Dec 1', ads: 7, spend: 58000 },
+  { label: 'Dec 8', ads: 5, spend: 81500 },
+  { label: 'Dec 15', ads: 7, spend: 27500 },
+  { label: 'Dec 22', ads: 21, spend: 220800 },
+  { label: 'Dec 29', ads: 19, spend: 256600 },
+  { label: 'Jan 5', ads: 8, spend: 195300 },
+  { label: 'Jan 12', ads: 3, spend: 165000 },
+  { label: 'Jan 19', ads: 10, spend: 223100 },
+  { label: 'Jan 26', ads: 18, spend: 143700 },
+  { label: 'Feb 2', ads: 6, spend: 16400 },
 ];
 
 function renderChart(containerId, data, barClass) {
@@ -1274,7 +1372,7 @@ function renderChart(containerId, data, barClass) {
     col.className = 'bar-col';
     const pct = d.ads > 0 ? Math.max((d.ads / maxAds) * 100, 4) : 0;
     const bar = document.createElement('div');
-    bar.className = `bar ${barClass}`;
+    bar.className = 'bar ' + barClass;
     bar.style.height = pct + '%';
     if (d.ads === 0) {
       bar.style.height = '2px';
@@ -1282,7 +1380,7 @@ function renderChart(containerId, data, barClass) {
     }
     const tooltip = document.createElement('div');
     tooltip.className = 'bar-tooltip';
-    tooltip.textContent = d.ads + ' ads' + (d.spend ? ' · $' + d.spend.toLocaleString() : '');
+    tooltip.textContent = d.ads + ' ads' + (d.spend ? ' \u00b7 $' + d.spend.toLocaleString() : '');
     bar.appendChild(tooltip);
     const label = document.createElement('div');
     label.className = 'bar-label';
