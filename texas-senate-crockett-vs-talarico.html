@@ -50,6 +50,7 @@
     line-height: 1.65;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   .container {
@@ -580,15 +581,52 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 800px) {
     .container { padding: 28px 16px 60px; }
-    .header h1 { font-size: 28px; }
-    .header h1 span { font-size: 20px; }
-    .vs-banner { grid-template-columns: 1fr; }
-    .vs-divider { margin: -12px auto; }
-    .stat-compare { grid-template-columns: 1fr; }
-    .dual-chart { grid-template-columns: 1fr; }
-    .msg-grid { grid-template-columns: 1fr; }
-    .demo-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 26px; }
+    .header h1 span { font-size: 18px; }
     .header-meta { flex-direction: column; gap: 4px; }
+
+    .vs-banner { grid-template-columns: 1fr; }
+    .vs-candidate { padding: 20px 16px; }
+    .vs-candidate .name { font-size: 22px; }
+    .vs-divider { margin: -12px auto; }
+
+    .stat-compare { grid-template-columns: 1fr; }
+    .stat-card { padding: 16px; }
+    .stat-row .stat-value { font-size: 16px; }
+    .stat-row .candidate-label { font-size: 13px; }
+
+    .spend-bar-header { flex-direction: column; gap: 2px; }
+    .spend-bar-amount { font-size: 12px; }
+
+    .dual-chart { grid-template-columns: 1fr; }
+    .chart-panel { padding: 16px; }
+    .bar-chart { height: 120px; gap: 2px; }
+    .bar-label { font-size: 8px; }
+
+    .msg-grid { grid-template-columns: 1fr; }
+    .theme-word { min-width: 70px; font-size: 11px; }
+
+    .demo-grid { grid-template-columns: 1fr; }
+    .demo-card { padding: 16px; }
+
+    .takeaway { padding: 20px; }
+    .takeaway-title { font-size: 18px; }
+    .takeaway p { font-size: 14px; }
+
+    .section-title { font-size: 20px; }
+
+    /* Hero cards and inline-styled elements */
+    .hero-stat { font-size: 32px !important; }
+    .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table-wrapper table { min-width: 560px; }
+
+    /* Gender chart bars */
+    .gender-chart-bar { width: 36px !important; }
+    .gender-chart-label { width: 36px !important; font-size: 11px !important; }
+    .gender-chart-container { height: 80px !important; }
+
+    /* Geographic section */
+    .geo-description { font-size: 12px !important; }
   }
 
   @media print {
@@ -713,14 +751,14 @@
     <p class="section-subtitle">Independent expenditure groups, Super PACs, and outside organizations running Meta ads in the Democratic primary.</p>
 
     <div style="background: var(--talarico-light); border: 2px solid var(--talarico-mid); border-radius: 12px; padding: 32px; text-align: center; margin-bottom: 24px;">
-      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 48px; color: var(--talarico); margin-bottom: 12px;">$105K&ndash;$120K</div>
+      <div class="hero-stat" style="font-family: 'IBM Plex Mono', monospace; font-size: 48px; color: var(--talarico); margin-bottom: 12px;">$105K&ndash;$120K</div>
       <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 8px;">Lone Star Rising PAC &mdash; Backing Talarico</div>
       <div style="font-size: 14px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.6;">
         A previously undetected PAC has spent <strong>$105K&ndash;$120K</strong> on 3 Meta ads explicitly supporting Talarico since January 13, generating an estimated <strong>3 million impressions</strong>. The ads are <strong>99.99% Texas-targeted</strong> and promote his positions on insulin costs, teacher pay, and opposing Trump. <strong>Zero PAC spending has been found supporting Crockett.</strong>
       </div>
     </div>
 
-    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+    <div class="table-wrapper" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
       <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
         <thead>
           <tr style="background: var(--bg-warm);">
@@ -797,7 +835,7 @@
       <div class="msg-panel">
         <div class="msg-panel-header crockett">Crockett: Top Ad Targeting</div>
         <div class="msg-panel-body">
-          <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Delivery breakdown for her $15K&ndash;$20K Senate announcement ad:</div>
+          <div class="geo-description" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Delivery breakdown for her $15K&ndash;$20K Senate announcement ad:</div>
           <div class="theme-row">
             <span class="theme-word">Texas</span>
             <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 15.6%; background: var(--crockett-mid);"></div></div>
@@ -838,7 +876,7 @@
       <div class="msg-panel">
         <div class="msg-panel-header talarico">Talarico: Top Ad Targeting</div>
         <div class="msg-panel-body">
-          <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Delivery breakdown for his $150K&ndash;$175K fundraising video ad:</div>
+          <div class="geo-description" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Delivery breakdown for his $150K&ndash;$175K fundraising video ad:</div>
           <div class="theme-row">
             <span class="theme-word">Texas</span>
             <div class="theme-bar-container"><div class="theme-bar-fill" style="width: 32.7%; background: var(--talarico-mid);"></div></div>
@@ -1127,24 +1165,24 @@
         <div style="display: flex; gap: 24px; margin-top: 12px;">
           <div style="flex: 1; text-align: center;">
             <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Female</div>
-            <div style="display: flex; gap: 8px; justify-content: center; align-items: flex-end; height: 100px;">
-              <div style="width: 48px; background: var(--crockett-mid); border-radius: 4px 4px 0 0; height: 60%;"></div>
-              <div style="width: 48px; background: var(--talarico-mid); border-radius: 4px 4px 0 0; height: 55%;"></div>
+            <div class="gender-chart-container" style="display: flex; gap: 8px; justify-content: center; align-items: flex-end; height: 100px;">
+              <div class="gender-chart-bar" style="width: 48px; background: var(--crockett-mid); border-radius: 4px 4px 0 0; height: 60%;"></div>
+              <div class="gender-chart-bar" style="width: 48px; background: var(--talarico-mid); border-radius: 4px 4px 0 0; height: 55%;"></div>
             </div>
             <div style="display: flex; gap: 8px; justify-content: center; margin-top: 4px;">
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--crockett);">60%</span>
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--talarico);">55%</span>
+              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--crockett);">60%</span>
+              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--talarico);">55%</span>
             </div>
           </div>
           <div style="flex: 1; text-align: center;">
             <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Male</div>
-            <div style="display: flex; gap: 8px; justify-content: center; align-items: flex-end; height: 100px;">
-              <div style="width: 48px; background: var(--crockett-mid); border-radius: 4px 4px 0 0; height: 40%;"></div>
-              <div style="width: 48px; background: var(--talarico-mid); border-radius: 4px 4px 0 0; height: 45%;"></div>
+            <div class="gender-chart-container" style="display: flex; gap: 8px; justify-content: center; align-items: flex-end; height: 100px;">
+              <div class="gender-chart-bar" style="width: 48px; background: var(--crockett-mid); border-radius: 4px 4px 0 0; height: 40%;"></div>
+              <div class="gender-chart-bar" style="width: 48px; background: var(--talarico-mid); border-radius: 4px 4px 0 0; height: 45%;"></div>
             </div>
             <div style="display: flex; gap: 8px; justify-content: center; margin-top: 4px;">
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--crockett);">40%</span>
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--talarico);">45%</span>
+              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--crockett);">40%</span>
+              <span class="gender-chart-label" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 48px; text-align: center; color: var(--talarico);">45%</span>
             </div>
           </div>
         </div>
