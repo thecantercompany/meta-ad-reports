@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consumer Energy Alliance — Advertiser Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue-deep: #1e3a5f;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber-deep: #92400e;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple-deep: #4c1d95;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --teal-deep: #115e59;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+    --orange-deep: #9a3412;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .header-meta .sep { color: var(--border); }
+
+  /* Top Stats */
+  .top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    padding: 24px 22px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    margin-top: 56px;
+  }
+
+  h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin-bottom: 10px;
+    margin-top: 28px;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 14px; }
+
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Key Finding Card */
+  .key-finding {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .key-finding-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+
+  .key-finding p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.93);
+    margin-bottom: 0;
+  }
+
+  /* Org Profile Card */
+  .org-profile {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+
+  .org-profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .org-detail-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .org-detail-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  /* Controversy Box */
+  .controversy-box {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .controversy-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--red-deep);
+    margin-bottom: 8px;
+  }
+
+  .controversy-box p {
+    font-size: 13.5px;
+    color: var(--red-deep);
+    margin-bottom: 8px;
+  }
+
+  .controversy-box p:last-child { margin-bottom: 0; }
+
+  /* Campaign Cards */
+  .campaign-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .campaign-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .campaign-state {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .campaign-state.michigan { background: var(--blue-light); color: var(--blue-deep); }
+  .campaign-state.colorado { background: var(--purple-light); color: var(--purple-deep); }
+  .campaign-state.virginia { background: var(--green-light); color: var(--green-deep); }
+  .campaign-state.connecticut { background: var(--amber-light); color: var(--amber-deep); }
+  .campaign-state.newmexico { background: var(--teal-light); color: var(--teal-deep); }
+  .campaign-state.national { background: var(--orange-light); color: var(--orange-deep); }
+
+  .campaign-dates {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .campaign-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .campaign-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .campaign-metric-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+
+  .campaign-metric-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+
+  /* Timeline */
+  .timeline-chart {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 32px;
+    overflow-x: auto;
+  }
+
+  .timeline-chart h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+
+  .bar-label {
+    width: 70px;
+    text-align: right;
+    padding-right: 10px;
+    color: var(--text-secondary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 18px;
+    background: var(--bg-warm);
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--navy);
+    min-width: 2px;
+    position: relative;
+  }
+
+  .bar-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    width: 90px;
+    padding-left: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Region Table */
+  .region-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  .region-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+    font-weight: 500;
+  }
+
+  .region-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-body);
+  }
+
+  .region-table tr:last-child td { border-bottom: none; }
+  .region-table td:nth-child(2), .region-table th:nth-child(2),
+  .region-table td:nth-child(3), .region-table th:nth-child(3) {
+    text-align: right;
+  }
+
+  /* Ad Example */
+  .ad-example {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .ad-example-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ad-text {
+    color: var(--text-primary);
+    font-style: italic;
+  }
+
+  /* Insight Box */
+  .insight-box {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .insight-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+  }
+
+  .insight-box p {
+    font-size: 13.5px;
+    color: var(--blue-deep);
+    margin-bottom: 0;
+  }
+
+  /* Methodology */
+  .methodology {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-top: 48px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .methodology h3 {
+    font-size: 16px;
+    margin-top: 0;
+    color: var(--text-body);
+  }
+
+  .methodology ul {
+    margin: 10px 0 10px 20px;
+  }
+
+  .methodology li {
+    margin-bottom: 4px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+
+  .footer a { color: var(--text-secondary); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container { padding: 28px 18px 60px; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .top-stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-value { font-size: 26px; }
+    .org-profile-grid { grid-template-columns: 1fr; }
+    .campaign-metrics { grid-template-columns: 1fr; }
+    .campaign-header { flex-direction: column; }
+    h2 { font-size: 22px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .container { padding: 20px; max-width: none; }
+    .key-finding { background: #1a2332 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Advertiser Intelligence Brief</div>
+  <h1>Consumer Energy Alliance
+    <span>A Fossil Fuel Industry Front Group's Meta Ad Operations</span>
+  </h1>
+  <div class="header-meta">
+    <span>Page ID: 49560242814</span>
+    <span class="sep">|</span>
+    <span>October 2019 &ndash; February 2026</span>
+    <span class="sep">|</span>
+    <span>Data retrieved: February 5, 2026</span>
+  </div>
+</div>
+
+<!-- TOP STATS -->
+<div class="top-stats">
+  <div class="stat-card">
+    <div class="stat-label">Total Ads</div>
+    <div class="stat-value">968</div>
+    <div class="stat-sub">classified as political/issue</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Est. Total Spend</div>
+    <div class="stat-value">$258K&ndash;$395K</div>
+    <div class="stat-sub">upper bound across all periods</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Active Period</div>
+    <div class="stat-value">6+ Years</div>
+    <div class="stat-sub">Oct 2019 &ndash; Jan 2026</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">States Targeted</div>
+    <div class="stat-value">10+</div>
+    <div class="stat-sub">state-specific campaigns</div>
+  </div>
+</div>
+
+<!-- KEY FINDING -->
+<div class="key-finding">
+  <div class="key-finding-label">Strategic Takeaway</div>
+  <p>Consumer Energy Alliance&mdash;a 501(c)(4) operated by Houston PR firm HBW Resources on behalf of the American Petroleum Institute and major oil companies&mdash;runs precision-targeted Meta ad campaigns designed to look like grassroots consumer advocacy. Its $258K&ndash;$395K in Meta political ad spending across 968 ads serves a single strategic purpose: manufacturing the appearance of public support for fossil fuel infrastructure while opposing clean energy regulations. The organization has been repeatedly caught submitting fraudulent public comments using real people's identities&mdash;including a 9-year-old child&mdash;making its Facebook ad operations part of a broader pattern of astroturf tactics.</p>
+</div>
+
+<!-- ORGANIZATION PROFILE -->
+<div class="section-title">Organization Profile</div>
+<h2>Who Is Consumer Energy Alliance?</h2>
+
+<div class="org-profile">
+  <p style="font-size: 15px; color: var(--text-primary); margin-bottom: 16px; font-weight: 500;">
+    Despite branding itself as "the voice of the energy consumer," CEA is an industry-funded advocacy operation designed to give fossil fuel interests the appearance of broad-based public support.
+  </p>
+  <div class="org-profile-grid">
+    <div>
+      <div class="org-detail-label">Founded</div>
+      <div class="org-detail-value">2006, with founding board members from Shell and Hess Corporation. Co-founded by Michael Whatley (now RNC Chair) with backing from BP, Chevron, ExxonMobil, Marathon, Shell, and Statoil.</div>
+    </div>
+    <div>
+      <div class="org-detail-label">Tax Status</div>
+      <div class="org-detail-value">501(c)(4) civic league / social welfare organization. Not required to disclose donors.</div>
+    </div>
+    <div>
+      <div class="org-detail-label">Operated By</div>
+      <div class="org-detail-value">HBW Resources, a Houston-based PR and lobbying firm headed by David Holt and Andrew Browning. CEA has allocated $9.1 million (43% of revenue) to HBW since 2010.</div>
+    </div>
+    <div>
+      <div class="org-detail-label">Revenue</div>
+      <div class="org-detail-value">$21.1 million+ since 2010. Regular funding from the American Petroleum Institute and American Natural Gas Alliance (2008&ndash;2012 documented).</div>
+    </div>
+    <div>
+      <div class="org-detail-label">President</div>
+      <div class="org-detail-value">David Holt (since 2006), who simultaneously serves as Managing Partner of HBW Resources&mdash;the firm paid to run CEA.</div>
+    </div>
+    <div>
+      <div class="org-detail-label">Lobbying</div>
+      <div class="org-detail-value">$90,000 spent on federal lobbying in 2025 YTD. $200,000 in 2022. Advocates for offshore drilling, pipeline projects, refinery expansion, and permitting acceleration.</div>
+    </div>
+  </div>
+</div>
+
+<div class="controversy-box">
+  <h4>Documented Fraud &amp; Astroturfing</h4>
+  <p><strong>Wisconsin (2014):</strong> Submitted a fraudulent petition attacking net metering with 2,500 names of utility customers who didn't authorize it.</p>
+  <p><strong>Ohio (2016):</strong> Sent 347 letters to FERC supporting a Nexus Gas pipeline using names of local residents&mdash;including a man who had been dead since 1998.</p>
+  <p><strong>South Carolina (2018):</strong> Sent fraudulent emails to state legislators bearing names and addresses of residents who said they were impersonated.</p>
+  <p><strong>Ohio (2023):</strong> Over 1,000 pro-fracking public comments traced to CEA; 137 people said they didn't knowingly agree. One letter bore the name of a 9-year-old child. The Washington Post reported the comments stemmed from "misleading" Facebook ads. Ohio AG Dave Yost issued subpoenas.</p>
+</div>
+
+<!-- AD SPENDING TIMELINE -->
+<div class="section-title">Spending Timeline</div>
+<h2>Monthly Ad Spend: October 2019 &ndash; January 2026</h2>
+<p>CEA's spending is episodic and campaign-driven, with sharp spikes corresponding to specific state-level policy fights. The pattern is consistent with an organization that activates on behalf of clients around legislative deadlines, permitting decisions, and pipeline controversies.</p>
+
+<div class="timeline-chart">
+  <h3>Monthly Spend (Upper Bound)</h3>
+  <div class="bar-row"><div class="bar-label">Oct '19</div><div class="bar-track"><div class="bar-fill" style="width:100%; background: var(--navy);"></div></div><div class="bar-value">$74,980</div></div>
+  <div class="bar-row"><div class="bar-label">Dec '19</div><div class="bar-track"><div class="bar-fill" style="width:8.2%; background: var(--slate);"></div></div><div class="bar-value">$6,172</div></div>
+  <div class="bar-row"><div class="bar-label">Feb '20</div><div class="bar-track"><div class="bar-fill" style="width:2.5%; background: var(--slate);"></div></div><div class="bar-value">$1,890</div></div>
+  <div class="bar-row"><div class="bar-label">Jul '20</div><div class="bar-track"><div class="bar-fill" style="width:57.7%; background: var(--navy);"></div></div><div class="bar-value">$43,272</div></div>
+  <div class="bar-row"><div class="bar-label">Aug '20</div><div class="bar-track"><div class="bar-fill" style="width:13.1%; background: var(--slate);"></div></div><div class="bar-value">$9,815</div></div>
+  <div class="bar-row"><div class="bar-label">Sep '20</div><div class="bar-track"><div class="bar-fill" style="width:22%; background: var(--slate);"></div></div><div class="bar-value">$16,520</div></div>
+  <div class="bar-row"><div class="bar-label">Oct '20</div><div class="bar-track"><div class="bar-fill" style="width:16.4%; background: var(--slate);"></div></div><div class="bar-value">$12,263</div></div>
+  <div class="bar-row"><div class="bar-label">Mar '21</div><div class="bar-track"><div class="bar-fill" style="width:84.1%; background: var(--navy);"></div></div><div class="bar-value">$63,082</div></div>
+  <div class="bar-row"><div class="bar-label">May '21</div><div class="bar-track"><div class="bar-fill" style="width:7%; background: var(--slate);"></div></div><div class="bar-value">$5,270</div></div>
+  <div class="bar-row"><div class="bar-label">Jun '21</div><div class="bar-track"><div class="bar-fill" style="width:12.9%; background: var(--slate);"></div></div><div class="bar-value">$9,660</div></div>
+  <div class="bar-row"><div class="bar-label">Oct '21</div><div class="bar-track"><div class="bar-fill" style="width:11.3%; background: var(--slate);"></div></div><div class="bar-value">$8,450</div></div>
+  <div class="bar-row"><div class="bar-label">Feb '22</div><div class="bar-track"><div class="bar-fill" style="width:39.8%; background: var(--navy);"></div></div><div class="bar-value">$29,842</div></div>
+  <div class="bar-row"><div class="bar-label">May '22</div><div class="bar-track"><div class="bar-fill" style="width:44.1%; background: var(--navy);"></div></div><div class="bar-value">$33,043</div></div>
+  <div class="bar-row"><div class="bar-label">Sep '22</div><div class="bar-track"><div class="bar-fill" style="width:10.8%; background: var(--slate);"></div></div><div class="bar-value">$8,094</div></div>
+  <div class="bar-row"><div class="bar-label">Apr '23</div><div class="bar-track"><div class="bar-fill" style="width:15.3%; background: var(--slate);"></div></div><div class="bar-value">$11,450</div></div>
+  <div class="bar-row"><div class="bar-label">Jul '23</div><div class="bar-track"><div class="bar-fill" style="width:3.8%; background: var(--slate);"></div></div><div class="bar-value">$2,876</div></div>
+  <div class="bar-row"><div class="bar-label">Apr '24</div><div class="bar-track"><div class="bar-fill" style="width:3.2%; background: var(--slate);"></div></div><div class="bar-value">$2,387</div></div>
+  <div class="bar-row"><div class="bar-label">Aug '24</div><div class="bar-track"><div class="bar-fill" style="width:3.3%; background: var(--slate);"></div></div><div class="bar-value">$2,492</div></div>
+  <div class="bar-row"><div class="bar-label">Mar '25</div><div class="bar-track"><div class="bar-fill" style="width:4.7%; background: var(--slate);"></div></div><div class="bar-value">$3,493</div></div>
+  <div class="bar-row"><div class="bar-label">Apr '25</div><div class="bar-track"><div class="bar-fill" style="width:5.7%; background: var(--slate);"></div></div><div class="bar-value">$4,294</div></div>
+  <div class="bar-row"><div class="bar-label">May '25</div><div class="bar-track"><div class="bar-fill" style="width:8.8%; background: var(--navy);"></div></div><div class="bar-value">$6,594</div></div>
+  <div class="bar-row"><div class="bar-label">Jul '25</div><div class="bar-track"><div class="bar-fill" style="width:3.3%; background: var(--slate);"></div></div><div class="bar-value">$2,481</div></div>
+  <div class="bar-row"><div class="bar-label">Aug '25</div><div class="bar-track"><div class="bar-fill" style="width:4.1%; background: var(--slate);"></div></div><div class="bar-value">$3,081</div></div>
+  <div class="bar-row"><div class="bar-label">Nov '25</div><div class="bar-track"><div class="bar-fill" style="width:3.3%; background: var(--slate);"></div></div><div class="bar-value">$2,485</div></div>
+  <div class="bar-row"><div class="bar-label">Jan '26</div><div class="bar-track"><div class="bar-fill" style="width:20.2%; background: var(--navy);"></div></div><div class="bar-value">$15,180</div></div>
+</div>
+
+<div class="insight-box">
+  <h4>Spending Pattern Analysis</h4>
+  <p>CEA's three highest-spend months&mdash;October 2019 ($75K), March 2021 ($63K), and May 2022 ($33K)&mdash;each correlate with specific policy battles: the 2019 Colorado natural gas defense, the 2021 Virginia gas ban opposition, and the 2022 Michigan Line 5 pipeline campaign. The organization's January 2026 spike ($15K) signals a new activation cycle tied to national energy policy under the current administration.</p>
+</div>
+
+<!-- STATE-LEVEL CAMPAIGNS -->
+<div class="section-title">State-Level Campaign Analysis</div>
+<h2>CEA's State-by-State Operations</h2>
+<p>CEA runs geographically precise campaigns, geo-targeting ads to individual states where energy policy is being debated. Each campaign follows a consistent playbook: frame fossil fuel interests as consumer protection, cite proprietary cost estimates for energy transitions, and mobilize public comments through petition-style call-to-action links.</p>
+
+<!-- MICHIGAN -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-state michigan">Michigan</span>
+      <h3 style="margin-top: 12px;">Line 5 Pipeline Defense</h3>
+    </div>
+    <div class="campaign-dates">Feb 2022 &ndash; May 2022</div>
+  </div>
+  <p>CEA's single highest-spend campaign focused entirely on opposing Governor Whitmer's effort to shut down Enbridge's Line 5 pipeline through the Straits of Mackinac. The pipeline, which has spilled 33 times since 1968, carries crude oil from Canada through ecologically sensitive Great Lakes waters. CEA framed the shutdown as a cost-of-living issue during a period of high gas prices and inflation.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">"In smaller towns across Michigan, families have existed for generations, creating pride in their homes and communities where they continue to pass down their legacy and traditions to future generations... As energy costs creep into everything for farmers and small-town residents it makes it harder and harder for this traditional way of life."</div>
+    <div class="ad-example-meta">
+      <span>Spend: $10,000&ndash;$14,999 &bull; Impressions: 450K&ndash;500K</span>
+      <a href="https://www.facebook.com/ads/library/?id=1120472795381706" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="ad-example">
+    <div class="ad-text">"As two women, running a business in a male-dominated field is hard enough. Add in energy fluctuations and you're not only responsible for your employees, but you're also responsible for the impacts to your neighbors and your community."</div>
+    <div class="ad-example-meta">
+      <span>Spend: $7,000&ndash;$7,999 &bull; Impressions: 300K&ndash;350K</span>
+      <a href="https://www.facebook.com/ads/library/?id=295738496062101" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="ad-example">
+    <div class="ad-text">"High energy costs are already driving inflation, why would we want to raise fuel prices more? Demand has increased 4% this year, and we're still going to need fuel for years to come. Let's insulate from these prices now."</div>
+    <div class="ad-example-meta">
+      <span>Spend: $3,500&ndash;$3,999 &bull; Impressions: 200K&ndash;250K</span>
+      <a href="https://www.facebook.com/ads/library/?id=3274685842804484" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Peak Spend</div>
+      <div class="campaign-metric-value">$63K+</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Ad Variants</div>
+      <div class="campaign-metric-value">120+</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Geo-Target</div>
+      <div class="campaign-metric-value">99.6% MI</div>
+    </div>
+  </div>
+</div>
+
+<!-- COLORADO -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-state colorado">Colorado</span>
+      <h3 style="margin-top: 12px;">Natural Gas Defense &amp; Anti-Regulation</h3>
+    </div>
+    <div class="campaign-dates">Oct 2019 &ndash; Present</div>
+  </div>
+  <p>Colorado is CEA's most sustained campaign, spanning multiple years and legislative sessions. The October 2019 spike ($75K) represents CEA's single highest-spend month on Meta. Campaigns have promoted natural gas as affordable ("Colorado households save $1,100/year"), opposed specific legislation like HB-1294, and framed energy transition costs as threats to families. CEA maintains a dedicated "Powering Progress in Colorado" initiative and has connected its messaging to AI data centers and manufacturing.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">"🚨 CALLING ALL COLORADANS: HB-1294 is a harmful bill that adds unnecessary regulations and raises energy costs for you and your family. Even the state's Department of Public Health opposes HB-1294, as it doesn't improve air quality and negatively impacts local businesses."</div>
+    <div class="ad-example-meta">
+      <span>Spend: $1,500&ndash;$1,999 &bull; Impressions: 100K&ndash;125K &bull; 100% CO delivery</span>
+      <a href="https://www.facebook.com/ads/library/?id=754001326198400" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="ad-example">
+    <div class="ad-text">"💰 Real Savings for Colorado Families &mdash; Colorado households save an average of $1,100 every year by using natural gas for heating, cooking, and hot water."</div>
+    <div class="ad-example-meta">
+      <span>Multiple variants at $0&ndash;$99 each &bull; Deployed as A/B testing battery</span>
+      <a href="https://www.facebook.com/ads/library/?id=1350662279841696" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Peak Spend</div>
+      <div class="campaign-metric-value">$75K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Duration</div>
+      <div class="campaign-metric-value">6+ Years</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Geo-Target</div>
+      <div class="campaign-metric-value">100% CO</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIRGINIA -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-state virginia">Virginia</span>
+      <h3 style="margin-top: 12px;">Natural Gas Ban Opposition</h3>
+    </div>
+    <div class="campaign-dates">Mar 2021 &ndash; Jun 2021</div>
+  </div>
+  <p>CEA deployed a high-volume ad campaign opposing potential natural gas bans in Virginia, using cost-shock messaging to frame the transition as unaffordable. The campaign ran 50+ ad variants with nearly identical text, varying only creative assets&mdash;a classic A/B testing approach to optimize engagement. CEA published a proprietary cost estimate claiming gas bans would cost Virginia households "$26,132" or "$42,500" in retrofit costs.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">"Do you have an extra $26,132 laying around? That's how much it would cost YOU if the General Assembly banned natural gas in Virginia."</div>
+    <div class="ad-example-meta">
+      <span>20+ ad variants &bull; $0&ndash;$99 each &bull; High-volume A/B deployment</span>
+      <a href="https://www.facebook.com/ads/library/?id=301027715427429" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Peak Month</div>
+      <div class="campaign-metric-value">$63K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Ad Variants</div>
+      <div class="campaign-metric-value">50+</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Tactic</div>
+      <div class="campaign-metric-value">Cost-Shock</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONNECTICUT -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-state connecticut">Connecticut</span>
+      <h3 style="margin-top: 12px;">PURA &amp; Public Benefits Charge Attack</h3>
+    </div>
+    <div class="campaign-dates">Mar 2025 &ndash; Jun 2025</div>
+  </div>
+  <p>A recent campaign targeting Connecticut's Public Utilities Regulatory Authority (PURA) and the Public Benefits Charge on electric bills. CEA exploited public anger over rising electric bills&mdash;a legitimate issue where CT ratepayers pay over $1 billion/year in public benefits charges&mdash;to advance an anti-clean-energy narrative. The messaging attacks state funding for renewable energy programs as "unproven energy startups" and "subsidies."</p>
+
+  <div class="ad-example">
+    <div class="ad-text">"Our elected leaders and PURA said the Public Benefits Charge would go down. It didn't. Instead, you're still paying sky-high electric bills&mdash;while your money goes out of state to fund unproven energy startups. If this is the 'benefit,' we'll pass. #CTPowerGrab #RatepayerAlert #StopTheSubsidy"</div>
+    <div class="ad-example-meta">
+      <span>Spend: $3,000&ndash;$3,499 &bull; Impressions: 250K&ndash;300K &bull; 100% CT delivery</span>
+      <a href="https://www.facebook.com/ads/library/?id=1129702999171358" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Spend Range</div>
+      <div class="campaign-metric-value">$14K+</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Period</div>
+      <div class="campaign-metric-value">4 months</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Geo-Target</div>
+      <div class="campaign-metric-value">100% CT</div>
+    </div>
+  </div>
+</div>
+
+<!-- NEW MEXICO -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-state newmexico">New Mexico</span>
+      <h3 style="margin-top: 12px;">Small Business Energy Narratives</h3>
+    </div>
+    <div class="campaign-dates">Jul 2025 &ndash; Present</div>
+  </div>
+  <p>CEA's most recent active campaign profiles New Mexico small businesses&mdash;a brewery, a chile producer, a roadside tourist stop&mdash;to frame energy dependence as community identity. Unlike the more aggressive Michigan or Connecticut campaigns, the New Mexico messaging takes an "awareness" approach: humanize fossil fuel reliance through local business storytelling rather than opposing specific legislation.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">"Ever wonder what keeps your favorite local beer flowing? For local businesses like Icebox Brewing Company in Las Cruces, energy is part of every step&mdash;from brewing and cooling to bottling and delivery..."</div>
+    <div class="ad-example-meta">
+      <span>Multiple variants &bull; $0&ndash;$99 each &bull; Storytelling format</span>
+      <a href="https://www.facebook.com/ads/library/?id=1236151631991332" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Objective</div>
+      <div class="campaign-metric-value">Awareness</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Status</div>
+      <div class="campaign-metric-value">Active</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Tactic</div>
+      <div class="campaign-metric-value">Storytelling</div>
+    </div>
+  </div>
+</div>
+
+<!-- NATIONAL / TEXAS -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-state national">National / Texas</span>
+      <h3 style="margin-top: 12px;">American Energy &amp; Infrastructure</h3>
+    </div>
+    <div class="campaign-dates">Jan 2026</div>
+  </div>
+  <p>The most recent ad activity, launched January 21, 2026&mdash;the day after a presidential inauguration&mdash;pushes a pro-domestic-energy message targeted at Texas. The timing is not coincidental: CEA is positioning itself to support the incoming administration's energy agenda.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">"America's energy system is being asked to do more than ever&mdash;powering homes, businesses, and a growing economy. Meeting that demand requires reliable, affordable energy made here at home. Support American energy solutions that keep the lights on, costs in check, and consumers in control."</div>
+    <div class="ad-example-meta">
+      <span>Spend: $1,000&ndash;$1,499 &bull; Impressions: 25K&ndash;30K &bull; 100% TX delivery</span>
+      <a href="https://www.facebook.com/ads/library/?id=1279342397586541" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Jan '26 Spend</div>
+      <div class="campaign-metric-value">$15K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Ads</div>
+      <div class="campaign-metric-value">20</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Signal</div>
+      <div class="campaign-metric-value">Ramp-Up</div>
+    </div>
+  </div>
+</div>
+
+<!-- GEOGRAPHIC TARGETING -->
+<div class="section-title">Geographic Targeting</div>
+<h2>Ad Delivery by State</h2>
+<p>CEA geo-targets with precision. Individual campaigns are delivered almost exclusively to their target state (typically 99.6%&ndash;100% in-state delivery), confirming these are not national awareness campaigns but state-level persuasion operations timed to policy debates.</p>
+
+<div class="timeline-chart">
+  <table class="region-table">
+    <thead>
+      <tr><th>State</th><th>Ads Reaching</th><th>Primary Campaign</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pennsylvania</td><td>165</td><td>Natural gas ban opposition, cost estimates</td></tr>
+      <tr><td>New Jersey</td><td>143</td><td>Energy cost / infrastructure messaging</td></tr>
+      <tr><td>Virginia</td><td>138</td><td>Gas ban opposition ($26K&ndash;$42K cost claims)</td></tr>
+      <tr><td>New York</td><td>120</td><td>Energy cost awareness</td></tr>
+      <tr><td>New Mexico</td><td>119</td><td>Small business storytelling (active)</td></tr>
+      <tr><td>Washington, D.C.</td><td>119</td><td>Federal policy / gas prices</td></tr>
+      <tr><td>Michigan</td><td>118</td><td>Line 5 pipeline defense</td></tr>
+      <tr><td>Texas</td><td>112</td><td>American energy / infrastructure</td></tr>
+      <tr><td>Minnesota</td><td>111</td><td>Energy cost / pipeline support</td></tr>
+      <tr><td>Colorado</td><td>106</td><td>Natural gas defense, HB-1294 opposition</td></tr>
+      <tr><td>Florida</td><td>83</td><td>Energy cost awareness</td></tr>
+      <tr><td>Louisiana</td><td>79</td><td>Offshore drilling / LNG exports</td></tr>
+      <tr><td>Arizona</td><td>77</td><td>Energy cost awareness</td></tr>
+      <tr><td>Nevada</td><td>71</td><td>Energy cost awareness</td></tr>
+      <tr><td>Connecticut</td><td>58</td><td>PURA / Public Benefits Charge attack</td></tr>
+      <tr><td>Ohio</td><td>50</td><td>Fracking support / pipeline advocacy</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="insight-box">
+  <h4>Targeting Pattern</h4>
+  <p>CEA's heaviest ad deployment concentrates in Northeastern and Midwestern states where natural gas ban legislation is being considered (PA, NJ, VA, NY), in pipeline-dependent states where infrastructure fights are active (MI, MN), and in fossil fuel-producing states for base-building (TX, LA, CO, NM). D.C. targeting (119 ads) reflects federal lobbying support&mdash;running ads to policymakers and Hill staff while simultaneously lobbying them.</p>
+</div>
+
+<!-- MESSAGING ANALYSIS -->
+<div class="section-title">Messaging Analysis</div>
+<h2>The CEA Playbook</h2>
+<p>Analysis of 100 sampled ads reveals a consistent vocabulary engineered to reframe fossil fuel industry interests as consumer protection. The word frequency data exposes the messaging architecture.</p>
+
+<div class="timeline-chart">
+  <h3>Top Message Themes by Word Frequency</h3>
+  <div class="bar-row"><div class="bar-label" style="width:110px">energy</div><div class="bar-track"><div class="bar-fill" style="width:100%; background: #1e3a5f;"></div></div><div class="bar-value">176 mentions</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">gas</div><div class="bar-track"><div class="bar-fill" style="width:79%; background: #2d3a4a;"></div></div><div class="bar-value">139</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">natural</div><div class="bar-track"><div class="bar-fill" style="width:70%; background: #2d3a4a;"></div></div><div class="bar-value">124</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">families</div><div class="bar-track"><div class="bar-fill" style="width:59%; background: #475569;"></div></div><div class="bar-value">104</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">local</div><div class="bar-track"><div class="bar-fill" style="width:40%; background: #475569;"></div></div><div class="bar-value">70</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">businesses</div><div class="bar-track"><div class="bar-fill" style="width:32%; background: #64748b;"></div></div><div class="bar-value">56</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">affordable</div><div class="bar-track"><div class="bar-fill" style="width:23%; background: #64748b;"></div></div><div class="bar-value">40</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">communities</div><div class="bar-track"><div class="bar-fill" style="width:21%; background: #64748b;"></div></div><div class="bar-value">37</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">reliable</div><div class="bar-track"><div class="bar-fill" style="width:21%; background: #64748b;"></div></div><div class="bar-value">37</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">oil</div><div class="bar-track"><div class="bar-fill" style="width:21%; background: #64748b;"></div></div><div class="bar-value">37</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">costs</div><div class="bar-track"><div class="bar-fill" style="width:18%; background: #94a3b8;"></div></div><div class="bar-value">31</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">billion</div><div class="bar-track"><div class="bar-fill" style="width:19%; background: #94a3b8;"></div></div><div class="bar-value">33</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">jobs</div><div class="bar-track"><div class="bar-fill" style="width:16%; background: #94a3b8;"></div></div><div class="bar-value">28</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:110px">homes</div><div class="bar-track"><div class="bar-fill" style="width:16%; background: #94a3b8;"></div></div><div class="bar-value">28</div></div>
+</div>
+
+<h3>Five Messaging Strategies</h3>
+
+<div class="campaign-card" style="border-left: 4px solid var(--blue);">
+  <h3 style="margin-top: 0; color: var(--blue-deep);">1. Cost-Shock Framing</h3>
+  <p>The most aggressive tactic. CEA publishes proprietary "reports" claiming energy transitions will cost households $26,000&ndash;$102,000, then runs ads citing those figures as authoritative. The reports are produced by or for HBW Resources&mdash;the same firm that operates CEA&mdash;creating a self-referential credibility loop. These figures are not independently verified and are significantly higher than peer estimates.</p>
+</div>
+
+<div class="campaign-card" style="border-left: 4px solid var(--green);">
+  <h3 style="margin-top: 0; color: var(--green-deep);">2. Small-Town Storytelling</h3>
+  <p>CEA profiles real local businesses&mdash;breweries, chile producers, landscaping companies&mdash;to humanize fossil fuel dependence. The Michigan Line 5 campaign featured women-owned businesses and generational farming families. The New Mexico campaign profiles local restaurants and tourism businesses. This is the most sophisticated tactic: real people providing authentic emotional resonance for industry-authored messaging.</p>
+</div>
+
+<div class="campaign-card" style="border-left: 4px solid var(--amber);">
+  <h3 style="margin-top: 0; color: var(--amber-deep);">3. Legislative Mobilization</h3>
+  <p>During active legislative fights, CEA shifts to direct call-to-action ads urging constituents to contact legislators. The Colorado HB-1294 campaign and the D.C. gas price campaign both used "ACT NOW" language with petition-style sign-up forms. This tactic has been directly linked to the fraudulent public comment incidents in Ohio, Wisconsin, and South Carolina.</p>
+</div>
+
+<div class="campaign-card" style="border-left: 4px solid var(--purple);">
+  <h3 style="margin-top: 0; color: var(--purple-deep);">4. Populist Anti-Government</h3>
+  <p>The Connecticut PURA campaign exemplifies this approach: attacking government agencies for rate increases while omitting that the utility companies CEA's funders represent are the primary beneficiaries of deregulation. Language like "#CTPowerGrab" and "#StopTheSubsidy" positions clean energy investment as government overreach.</p>
+</div>
+
+<div class="campaign-card" style="border-left: 4px solid var(--teal);">
+  <h3 style="margin-top: 0; color: var(--teal-deep);">5. Patriotic Energy Independence</h3>
+  <p>The January 2026 ads deploy national security framing: "American energy made here at home." This messaging intensifies around federal policy shifts and is particularly concentrated in Texas, where it serves as base-building for CEA's corporate members. The link title "America Can't Afford a 1970s Playbook for 2025 Energy Needs" positions clean energy regulation as outdated thinking.</p>
+</div>
+
+<!-- TACTICAL ANALYSIS -->
+<div class="section-title">Tactical Analysis</div>
+<h2>How CEA Uses Meta Ads</h2>
+
+<h3>A/B Testing at Scale</h3>
+<p>CEA routinely deploys 10&ndash;50 ad variants with identical or near-identical text but different creative assets. The Virginia gas ban campaign ran 20+ variants of the same "$26,132" message. The Colorado "$1,100 savings" campaign ran 10+ identical text variants. This is a systematic A/B testing operation&mdash;not casual posting&mdash;indicating professional media buying with performance optimization.</p>
+
+<h3>Low-Spend, High-Volume Deployment</h3>
+<p>The vast majority of individual ads spend under $100 each. Only 14% exceed $100, and fewer than 3% exceed $1,000. CEA's strategy is many small bets rather than a few large placements, allowing rapid testing and optimization before concentrating spend on winners.</p>
+
+<h3>Facebook + Instagram Only</h3>
+<p>All ads run on Facebook and Instagram. No evidence of Audience Network or other Meta placement expansion, suggesting a deliberate strategy to reach engaged users in news feed environments where the content mimics organic posts.</p>
+
+<h3>Demographics Reached</h3>
+<p>The demographic breakdown shows a roughly 50/50 male-female split across the overall portfolio, though individual campaigns skew significantly. The Michigan Line 5 campaign over-indexed on 55&ndash;65+ audiences (core homeowner demographics), while the Connecticut PURA campaign reached a younger 18&ndash;34 audience. The Colorado HB-1294 campaign skewed dramatically older: 69% of reach went to 55+ audiences.</p>
+
+<!-- CROSS-PLATFORM CONTEXT -->
+<div class="section-title">Cross-Platform Context</div>
+<h2>Beyond Meta: CEA's Broader Operations</h2>
+
+<p>Meta ads are one channel in a multi-pronged influence operation. CEA's broader toolkit includes:</p>
+
+<div class="campaign-card">
+  <p><strong>Federal Lobbying:</strong> $90K in 2025, $200K in 2022. Lobbying targets include offshore drilling, pipeline permitting, and LNG export approvals. The D.C.-targeted Facebook ads run simultaneously with lobbying activity, creating a pincer strategy: lobby officials directly while manufacturing constituent pressure through ads.</p>
+  <p><strong>Proprietary Reports:</strong> CEA publishes state-specific "cost reports" on energy transitions, then cites them in ads. Reports are produced by HBW Resources, creating a closed loop of self-referencing credibility.</p>
+  <p><strong>Public Comment Campaigns:</strong> Facebook ads drive users to petition-style forms. CEA has been caught converting these sign-ups into public comments to regulatory bodies without adequate informed consent&mdash;and in some cases, fabricating comments entirely.</p>
+  <p><strong>Regional Chapters:</strong> CEA Mid-Atlantic, CEA Colorado, and other regional brands give a local appearance to the Houston-based operation.</p>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="methodology">
+  <h3>Methodology &amp; Data Limitations</h3>
+  <p>This report analyzes Consumer Energy Alliance's political and issue ad activity on Meta platforms (Facebook and Instagram) from the Meta Ad Library, which archives ads classified as political, electoral, or issue-related. Data was retrieved on February 5, 2026.</p>
+  <ul>
+    <li><strong>Spend figures are ranges, not exact amounts.</strong> Meta reports spend in brackets (e.g., "$1,000&ndash;$1,499"). Totals represent the sum of upper-bound estimates across all tracked periods.</li>
+    <li><strong>Ad count (968) includes all variants.</strong> Many "unique" ads share identical or near-identical text with different creative assets, inflating the raw count. Distinct messaging campaigns number approximately 15&ndash;20.</li>
+    <li><strong>Demographic data reflects delivery, not targeting.</strong> The age and gender breakdowns show who Meta's algorithm served the ads to, which may differ from the advertiser's explicit targeting settings.</li>
+    <li><strong>Keyword searches may miss ads.</strong> Ads that don't reference energy, gas, or related terms in their text may not appear in keyword-based searches. This report uses page-based retrieval for completeness.</li>
+    <li><strong>Background research draws from public records,</strong> including IRS 990 filings, OpenSecrets lobbying data, investigative reporting from the Washington Post, Nexus Media News, Energy and Policy Institute, and DeSmog, and CEA's own website and press releases.</li>
+  </ul>
+  <p style="margin-bottom: 0;">Data source: <a href="https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=US&view_all_page_id=49560242814" target="_blank">Meta Ad Library &mdash; Consumer Energy Alliance</a></p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Built by The Canter Company &bull; <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a></p>
+</div>
+
+</div>
+</body>
+</html>
