@@ -13,11 +13,13 @@
             --accent-red: #c53030;
             --accent-green: #2f855a;
             --accent-blue: #3182ce;
+            --accent-purple: #805ad5;
             --text: #2d3748;
             --text-light: #718096;
             --bg: #f7fafc;
             --card-bg: #ffffff;
             --border: #e2e8f0;
+            --hoover-red: #8c1515;
         }
 
         * {
@@ -247,6 +249,11 @@
             color: #4a5568;
         }
 
+        .stance.labor {
+            background: #bee3f8;
+            color: #2b6cb0;
+        }
+
         .advertiser-card .spend {
             font-size: 1.4rem;
             font-weight: 700;
@@ -274,6 +281,86 @@
             border-radius: 15px;
             font-size: 0.75rem;
             color: var(--text-light);
+        }
+
+        /* Deep Dive Section */
+        .deep-dive {
+            background: linear-gradient(135deg, #fef9f9 0%, #fff5f5 100%);
+            border: 2px solid var(--hoover-red);
+        }
+
+        .deep-dive h2 {
+            color: var(--hoover-red);
+            border-bottom-color: var(--hoover-red);
+        }
+
+        .hoover-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .hoover-stat {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #fecaca;
+        }
+
+        .hoover-stat .num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--hoover-red);
+        }
+
+        .hoover-stat .lbl {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .content-category {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid var(--hoover-red);
+        }
+
+        .content-category h4 {
+            color: var(--hoover-red);
+            margin-bottom: 10px;
+        }
+
+        .ad-sample {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid var(--border);
+        }
+
+        .ad-sample p {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .ad-sample .meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .ad-sample a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .ad-sample a:hover {
+            text-decoration: underline;
         }
 
         /* Timeline */
@@ -471,6 +558,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .hoover-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             table {
                 font-size: 0.85rem;
             }
@@ -498,28 +589,28 @@
         <div class="executive-summary">
             <h2>Executive Summary</h2>
             <div class="key-finding">
-                <p>Higher education has become a major political battleground, with over $2 million spent on Meta political ads in the past year. The dominant narrative is being shaped by conservative institutions and advocacy groups, who outspend progressive voices by roughly 3-to-1 on campus-focused messaging—while teachers' unions lead overall education spending with a focus on K-12 issues that increasingly intersect with higher ed policy.</p>
+                <p>Conservative institutions and advocacy groups dominate political advertising about higher education on Meta platforms, outspending all other voices combined. Traditional universities are almost entirely absent from this space, leaving the public narrative about colleges to be defined by ideological combatants—primarily critics.</p>
             </div>
 
             <p style="margin: 20px 0; color: var(--text-light);">
-                This intelligence brief analyzes political advertising from higher education institutions, faculty unions, advocacy groups, and think tanks on Meta platforms (Facebook and Instagram). The landscape reveals a fragmented ecosystem where traditional universities are largely absent from political advertising, ceding the narrative space to ideological advocacy organizations on both sides—though conservative voices hold a commanding lead in spend and volume.
+                This intelligence brief analyzes political advertising from higher education institutions, faculty/staff unions, advocacy groups, and think tanks on Meta platforms (Facebook and Instagram). The landscape reveals a lopsided ecosystem where Hillsdale College—a small private institution with 1,600 students—spends more on political ads than all public university systems combined. The Hoover Institution, operating from Stanford's campus, runs a sophisticated multi-platform content operation that reaches nearly 20 million impressions annually. Faculty unions have minimal presence, and progressive voices defending higher education are largely absent.
             </p>
 
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="number">$2.1M+</div>
+                    <div class="number">$1.3M+</div>
                     <div class="label">Total Estimated Spend</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">3,000+</div>
+                    <div class="number">900+</div>
                     <div class="label">Ads Analyzed</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">150M+</div>
+                    <div class="number">75M+</div>
                     <div class="label">Total Impressions</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">50+</div>
+                    <div class="number">40+</div>
                     <div class="label">Active Advertisers</div>
                 </div>
             </div>
@@ -528,17 +619,17 @@
         <section>
             <h2>Strategic Takeaway</h2>
             <p style="font-size: 1.1rem; line-height: 1.8;">
-                <strong>The absence of mainstream universities from political advertising is itself a strategic position</strong>—one that leaves the public narrative about higher education to be defined by ideological combatants. Hillsdale College, a small private institution in Michigan, has spent more on Meta political ads than all public university systems combined. This asymmetry means that when Americans encounter political messaging about colleges on social media, they're overwhelmingly seeing conservative critiques rather than institutional defenses.
+                <strong>The absence of mainstream universities from political advertising is itself a strategic position</strong>—one that leaves the public narrative about higher education to be defined by critics. Hillsdale College, the Hoover Institution, and Do No Harm Medicine collectively spend more than 50x what faculty unions and progressive defenders of higher education invest in Meta advertising.
             </p>
             <p style="margin-top: 15px; color: var(--text-light);">
-                The teachers' unions (NEA, AFT) represent the most significant progressive counterweight, but their messaging focuses primarily on K-12 educator pay and working conditions—not on defending higher education institutions themselves. This creates a narrative vacuum that conservative organizations have effectively filled with messaging about DEI, campus protests, and ideological "indoctrination."
+                When Americans encounter political messaging about colleges on social media, they overwhelmingly see conservative critiques of DEI, "woke ideology," and campus culture—not institutional defenses or progressive counterarguments. Faculty unions like UPTE-CWA (University of California) focus narrowly on labor disputes rather than broader advocacy, leaving a massive narrative vacuum that conservative organizations have filled.
             </p>
         </section>
 
         <section>
-            <h2>Top Advertisers by Spend</h2>
+            <h2>Top 20 Advertisers by Spend</h2>
             <p style="margin-bottom: 20px; color: var(--text-light);">
-                The top 10 spenders on higher education-related political ads reveal a landscape dominated by advocacy organizations rather than educational institutions themselves.
+                The top spenders on higher education-related political ads are dominated by conservative think tanks and advocacy organizations, with almost no representation from actual universities or faculty groups.
             </p>
 
             <div class="table-container">
@@ -555,81 +646,255 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><strong>NEA Today</strong> (National Education Association)</td>
-                            <td><span class="spend-bar" style="width: 100%;"></span>$747K - $945K</td>
-                            <td>Educator pay, union advocacy, anti-voucher</td>
-                            <td><span class="stance progressive">Progressive</span></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
                             <td><strong>FIRE</strong> (Foundation for Individual Rights and Expression)</td>
-                            <td><span class="spend-bar" style="width: 55%;"></span>$437K - $535K</td>
+                            <td><span class="spend-bar" style="width: 100%;"></span>$437K - $535K</td>
                             <td>Campus free speech, student rights</td>
                             <td><span class="stance neutral">Non-partisan</span></td>
                         </tr>
                         <tr>
-                            <td>3</td>
-                            <td><strong>Hoover Institution</strong> (Stanford)</td>
-                            <td><span class="spend-bar" style="width: 42%;"></span>$325K - $422K</td>
-                            <td>Conservative policy, "woke" critique</td>
+                            <td>2</td>
+                            <td><strong>Hoover Institution + PolicyEd</strong></td>
+                            <td><span class="spend-bar" style="width: 85%;"></span>$349K - $456K</td>
+                            <td>Conservative policy, campus culture critique</td>
                             <td><span class="stance conservative">Conservative</span></td>
                         </tr>
                         <tr>
-                            <td>4</td>
+                            <td>3</td>
                             <td><strong>Do No Harm Medicine</strong></td>
-                            <td><span class="spend-bar" style="width: 30%;"></span>$222K - $301K</td>
+                            <td><span class="spend-bar" style="width: 55%;"></span>$222K - $301K</td>
                             <td>Anti-DEI in medical schools</td>
                             <td><span class="stance conservative">Conservative</span></td>
                         </tr>
                         <tr>
-                            <td>5</td>
+                            <td>4</td>
                             <td><strong>Hillsdale College</strong></td>
-                            <td><span class="spend-bar" style="width: 22%;"></span>$172K - $231K</td>
+                            <td><span class="spend-bar" style="width: 43%;"></span>$172K - $231K</td>
                             <td>Conservative education, CRT critique, liberty</td>
                             <td><span class="stance conservative">Conservative</span></td>
                         </tr>
                         <tr>
-                            <td>6</td>
+                            <td>5</td>
                             <td><strong>ACLU</strong></td>
-                            <td><span class="spend-bar" style="width: 7%;"></span>$50K - $60K</td>
+                            <td><span class="spend-bar" style="width: 12%;"></span>$50K - $60K</td>
                             <td>Student free speech during protests</td>
                             <td><span class="stance progressive">Progressive</span></td>
                         </tr>
                         <tr>
-                            <td>7</td>
+                            <td>6</td>
                             <td><strong>The Fund for American Studies</strong></td>
-                            <td><span class="spend-bar" style="width: 6%;"></span>$46K - $59K</td>
+                            <td><span class="spend-bar" style="width: 11%;"></span>$46K - $59K</td>
                             <td>"Marxist indoctrination" in colleges</td>
                             <td><span class="stance conservative">Conservative</span></td>
                         </tr>
                         <tr>
-                            <td>8</td>
+                            <td>7</td>
                             <td><strong>ADL</strong></td>
-                            <td><span class="spend-bar" style="width: 5%;"></span>$34K - $41K</td>
+                            <td><span class="spend-bar" style="width: 8%;"></span>$34K - $41K</td>
+                            <td>Campus antisemitism</td>
+                            <td><span class="stance neutral">Non-partisan</span></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><strong>Stand Up to Jewish Hate</strong></td>
+                            <td><span class="spend-bar" style="width: 7%;"></span>$29K - $37K</td>
                             <td>Campus antisemitism</td>
                             <td><span class="stance neutral">Non-partisan</span></td>
                         </tr>
                         <tr>
                             <td>9</td>
-                            <td><strong>Stand Up to Jewish Hate</strong></td>
-                            <td><span class="spend-bar" style="width: 4%;"></span>$29K - $37K</td>
-                            <td>Campus antisemitism</td>
-                            <td><span class="stance neutral">Non-partisan</span></td>
+                            <td><strong>Walden University</strong></td>
+                            <td><span class="spend-bar" style="width: 6%;"></span>$25K - $32K</td>
+                            <td>Enrollment marketing (for-profit)</td>
+                            <td><span class="stance neutral">Commercial</span></td>
                         </tr>
                         <tr>
                             <td>10</td>
-                            <td><strong>Walden University</strong></td>
-                            <td><span class="spend-bar" style="width: 3%;"></span>$25K - $32K</td>
-                            <td>Enrollment marketing (for-profit)</td>
-                            <td><span class="stance neutral">Commercial</span></td>
+                            <td><strong>PragerU</strong></td>
+                            <td><span class="spend-bar" style="width: 5%;"></span>$12K - $23K</td>
+                            <td>Conservative youth education</td>
+                            <td><span class="stance conservative">Conservative</span></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td><strong>TPUSA Events</strong> (Turning Point USA)</td>
+                            <td><span class="spend-bar" style="width: 4%;"></span>$11K - $15K</td>
+                            <td>Conservative campus activism</td>
+                            <td><span class="stance conservative">Conservative</span></td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td><strong>University of California</strong></td>
+                            <td><span class="spend-bar" style="width: 3%;"></span>$6K - $14K</td>
+                            <td>Institutional announcements</td>
+                            <td><span class="stance neutral">Institutional</span></td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td><strong>Hillel International</strong></td>
+                            <td><span class="spend-bar" style="width: 3%;"></span>$8K - $13K</td>
+                            <td>Jewish campus life</td>
+                            <td><span class="stance neutral">Non-partisan</span></td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td><strong>Stand Together</strong></td>
+                            <td><span class="spend-bar" style="width: 3%;"></span>$8K - $12K</td>
+                            <td>Free market education policy</td>
+                            <td><span class="stance conservative">Conservative</span></td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td><strong>Slingshot - Combatting Antisemitism</strong></td>
+                            <td><span class="spend-bar" style="width: 2%;"></span>$4K - $10K</td>
+                            <td>Campus antisemitism response</td>
+                            <td><span class="stance neutral">Non-partisan</span></td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td><strong>Alliance Defending Freedom</strong></td>
+                            <td><span class="spend-bar" style="width: 2%;"></span>$5K - $8K</td>
+                            <td>Religious liberty on campus</td>
+                            <td><span class="stance conservative">Conservative</span></td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td><strong>Leadership Institute</strong></td>
+                            <td><span class="spend-bar" style="width: 2%;"></span>$4K - $7K</td>
+                            <td>Conservative campus organizing training</td>
+                            <td><span class="stance conservative">Conservative</span></td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td><strong>UPTE-CWA</strong> (UC Workers Union)</td>
+                            <td><span class="spend-bar" style="width: 1%;"></span>$700 - $6K</td>
+                            <td>UC labor disputes, UCSF strike</td>
+                            <td><span class="stance labor">Labor</span></td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td><strong>Americans for Prosperity</strong></td>
+                            <td><span class="spend-bar" style="width: 1%;"></span>$2K - $5K</td>
+                            <td>Higher ed policy commentary</td>
+                            <td><span class="stance conservative">Conservative</span></td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td><strong>Texas AFT</strong> (Higher Ed Division)</td>
+                            <td><span class="spend-bar" style="width: 1%;"></span>$200 - $400</td>
+                            <td>Faculty burnout, legislative overreach</td>
+                            <td><span class="stance labor">Labor</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="callout insight">
-                <h4>Analysis Note</h4>
-                <p>Traditional public universities are notably absent from the top spenders. The University of California system, the largest public university in the nation, spent only $6K-$14K on political ads—primarily around labor negotiations and campus announcements rather than defending higher education's value or responding to political attacks.</p>
+                <h4>The Spending Gap</h4>
+                <p>Conservative-aligned organizations occupy 12 of the top 20 spots, representing over 80% of total spend. Labor unions representing faculty and staff (UPTE-CWA, Texas AFT) account for less than 1% of the total. The University of California system—280,000+ students—spent less than Do No Harm Medicine spends in a single month.</p>
+            </div>
+        </section>
+
+        <section class="deep-dive">
+            <h2>🔎 Deep Dive: Hoover Institution & PolicyEd</h2>
+            <p style="margin-bottom: 20px;">
+                The Hoover Institution, a conservative think tank housed at Stanford University, operates one of the most sophisticated political advertising operations in the higher education space. Through its main account and its PolicyEd educational platform, Hoover combines academic credibility with aggressive digital marketing.
+            </p>
+
+            <div class="hoover-stats">
+                <div class="hoover-stat">
+                    <div class="num">$349K-$456K</div>
+                    <div class="lbl">Combined Spend</div>
+                </div>
+                <div class="hoover-stat">
+                    <div class="num">352</div>
+                    <div class="lbl">Total Ads</div>
+                </div>
+                <div class="hoover-stat">
+                    <div class="num">22.6M+</div>
+                    <div class="lbl">Impressions</div>
+                </div>
+                <div class="hoover-stat">
+                    <div class="num">2</div>
+                    <div class="lbl">Ad Platforms</div>
+                </div>
+            </div>
+
+            <h3>Two-Pronged Strategy</h3>
+            <p style="margin: 15px 0; color: var(--text-light);">
+                Hoover operates two complementary advertising channels: its main institutional account focuses on donor cultivation and publication distribution, while PolicyEd delivers ideological content targeting younger audiences interested in policy issues.
+            </p>
+
+            <div class="content-category">
+                <h4>📚 Hoover Institution (Main Account) — $326K-$423K</h4>
+                <p style="margin-bottom: 15px; color: var(--text-light);">
+                    Heavy focus on free eBook distribution featuring conservative economists and scholars. Messaging emphasizes "freedom," "capitalism vs. socialism," and critiques of government intervention. Primary goal appears to be donor acquisition and email list building.
+                </p>
+                <p style="font-weight: 600; margin-bottom: 10px;">Key Content Themes:</p>
+                <ul style="margin-left: 20px; color: var(--text-light);">
+                    <li><strong>Thomas Sowell eBooks</strong> — Tax policy, economic fallacies ($15K-$20K in single ads)</li>
+                    <li><strong>Socialism vs. Capitalism</strong> — Historical comparisons, warnings about collectivism</li>
+                    <li><strong>National Security</strong> — China threat, Iran, Russia, defense policy</li>
+                    <li><strong>Hoover Digest</strong> — Quarterly journal promotion featuring Victor Davis Hanson</li>
+                    <li><strong>Year-End Fundraising</strong> — "Challenges to freedom" messaging</li>
+                </ul>
+
+                <div class="ad-sample">
+                    <p>"Our world is facing unparalleled challenges to freedom, both at home and abroad. Over the past year, we have witnessed: A border crisis. Inflationary pressures. Chinese aggression..."</p>
+                    <div class="meta">Spend: $600-$699 | <a href="https://www.facebook.com/ads/library/?id=1090577242351257" target="_blank">View ad →</a></div>
+                </div>
+
+                <div class="ad-sample">
+                    <p>"The sudden rise of populist movements has been a singular phenomenon in American political history—but it's nothing new in the larger history of democracy..."</p>
+                    <div class="meta">Spend: $15K-$20K | <a href="https://www.facebook.com/ads/library/?id=590103830126751" target="_blank">View ad →</a></div>
+                </div>
+            </div>
+
+            <div class="content-category">
+                <h4>🎓 PolicyEd — $24K-$33K</h4>
+                <p style="margin-bottom: 15px; color: var(--text-light);">
+                    PolicyEd functions as Hoover's educational content arm, producing video content that directly critiques campus culture and progressive ideology. This is where the "woke" and academic freedom messaging is most explicit.
+                </p>
+                <p style="font-weight: 600; margin-bottom: 10px;">Key Content Themes:</p>
+                <ul style="margin-left: 20px; color: var(--text-light);">
+                    <li><strong>Campus Culture Critique</strong> — Victor Davis Hanson on "woke ideology"</li>
+                    <li><strong>Free Speech</strong> — Censorship concerns, "political division on college campuses"</li>
+                    <li><strong>China/Foreign Policy</strong> — Belt & Road, Xi Jinping, great power competition</li>
+                    <li><strong>Iran Regime</strong> — Terrorism, hostage trading, nuclear program</li>
+                    <li><strong>Policy Boot Camp</strong> — Gen. Mattis, Stephen Kotkin sessions</li>
+                </ul>
+
+                <div class="ad-sample">
+                    <p>"The rise of woke ideology in academia, coupled with the decline of classical education and critical thinking has encouraged students to abandon nuanced thinking. Consequently, universities produce more opinionated yet ill-informed students."</p>
+                    <div class="meta">Spend: $100-$199 | <a href="https://www.facebook.com/ads/library/?id=477778018194927" target="_blank">View ad →</a></div>
+                </div>
+
+                <div class="ad-sample">
+                    <p>"Victor Davis Hanson cautions students against the 'good' and 'evil' dichotomy promoted by woke ideology, insisting for a more nuanced approach that acknowledges the complexity of human beings and their actions."</p>
+                    <div class="meta">Spend: $200-$299 | <a href="https://www.facebook.com/ads/library/?id=392181603974305" target="_blank">View ad →</a></div>
+                </div>
+
+                <div class="ad-sample">
+                    <p>"With the rise of censorship and heightened political division on college campuses, the freedom of speech – especially for controversial or even hateful views – has become more crucial than ever for fostering intellectual growth and societal progress."</p>
+                    <div class="meta">Spend: $1,000-$1,499 | <a href="https://www.facebook.com/ads/library/?id=1887652031658911" target="_blank">View ad →</a></div>
+                </div>
+            </div>
+
+            <h3>Featured Scholars</h3>
+            <p style="margin: 15px 0; color: var(--text-light);">
+                Hoover leverages its roster of high-profile conservative intellectuals as brand ambassadors:
+            </p>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li><strong>Victor Davis Hanson</strong> — Classical historian, "woke" critique, campus culture commentary</li>
+                <li><strong>Thomas Sowell</strong> — Economics, tax policy, free eBooks (primary lead generation)</li>
+                <li><strong>H.R. McMaster</strong> — National security, foreign policy education</li>
+                <li><strong>Elizabeth Economy</strong> — China policy, Xi Jinping analysis</li>
+                <li><strong>Gen. Jim Mattis</strong> — Policy Boot Camp sessions with students</li>
+                <li><strong>Ayaan Hirsi Ali</strong> — Capitalism vs. socialism content</li>
+            </ul>
+
+            <div class="callout warning">
+                <h4>Stanford Connection</h4>
+                <p>While physically located on Stanford's campus and technically part of the university, the Hoover Institution operates with significant editorial and fundraising independence. Its political advertising would be prohibited by most universities' institutional neutrality policies—but Hoover's unique governance structure allows it to function as both an academic institution and an ideological advocacy organization. Stanford itself runs essentially no political advertising.</p>
             </div>
         </section>
 
@@ -641,14 +906,14 @@
                     <h4>Hillsdale College <span class="stance conservative">Conservative</span></h4>
                     <div class="spend">$172K - $231K</div>
                     <p class="description">
-                        A small private college in Michigan (1,600 students) that refuses federal funding and has become the flagship institution of conservative higher education. Their advertising emphasizes independence from government, classical liberal arts education, and opposition to "woke" ideology.
+                        A small private college in Michigan (1,600 students) that refuses federal funding and has become the flagship institution of conservative higher education. Their advertising emphasizes independence from government, classical liberal arts education, and opposition to "woke" ideology. Heavy focus on free online courses and fundraising from older conservative donors.
                     </p>
                     <div class="themes">
                         <span class="theme-tag">Critical Race Theory</span>
                         <span class="theme-tag">Liberty</span>
                         <span class="theme-tag">Founding Principles</span>
                         <span class="theme-tag">Free Online Courses</span>
-                        <span class="theme-tag">Fundraising</span>
+                        <span class="theme-tag">Donor Cultivation</span>
                     </div>
                 </div>
 
@@ -656,27 +921,13 @@
                     <h4>Do No Harm Medicine <span class="stance conservative">Conservative</span></h4>
                     <div class="spend">$222K - $301K</div>
                     <p class="description">
-                        A physician-led advocacy group opposing DEI initiatives in medical education and healthcare. Claims 15,000+ members. Their ads celebrate Trump's executive orders ending DEI and target specific medical schools over race-conscious policies.
+                        A physician-led advocacy group opposing DEI initiatives in medical education and healthcare. Claims 15,000+ members. Their ads celebrate Trump's executive orders ending DEI, target specific medical schools over race-conscious policies, and name individual hospital board members. Recent "victory" messaging following January 2025 executive orders.
                     </p>
                     <div class="themes">
                         <span class="theme-tag">Anti-DEI</span>
                         <span class="theme-tag">Medical Schools</span>
-                        <span class="theme-tag">Merit-Based</span>
+                        <span class="theme-tag">Merit-Based Admissions</span>
                         <span class="theme-tag">Gender Ideology</span>
-                    </div>
-                </div>
-
-                <div class="advertiser-card">
-                    <h4>NEA Today <span class="stance progressive">Progressive</span></h4>
-                    <div class="spend">$747K - $945K</div>
-                    <p class="description">
-                        The National Education Association's media arm. While focused primarily on K-12 issues, their messaging increasingly addresses higher education through opposition to school vouchers, advocacy for educator pay (including higher ed), and defense of public education systems.
-                    </p>
-                    <div class="themes">
-                        <span class="theme-tag">Educator Pay</span>
-                        <span class="theme-tag">Anti-Voucher</span>
-                        <span class="theme-tag">Mental Health</span>
-                        <span class="theme-tag">Union Organizing</span>
                     </div>
                 </div>
 
@@ -684,7 +935,7 @@
                     <h4>FIRE <span class="stance neutral">Non-partisan</span></h4>
                     <div class="spend">$437K - $535K</div>
                     <p class="description">
-                        Foundation for Individual Rights and Expression—the leading campus free speech organization. Active during the 2024 Gaza protests, defending students' right to protest while opposing university speech restrictions. Recruits student advocates through campus programs.
+                        Foundation for Individual Rights and Expression—the leading campus free speech organization. Active during the 2024 Gaza protests, defending students' right to protest while opposing university speech restrictions. Recruits student advocates through summer conferences and campus programs. Positioned as non-partisan but draws support from across the political spectrum.
                     </p>
                     <div class="themes">
                         <span class="theme-tag">Free Speech</span>
@@ -695,55 +946,138 @@
                 </div>
 
                 <div class="advertiser-card">
-                    <h4>Hoover Institution <span class="stance conservative">Conservative</span></h4>
-                    <div class="spend">$325K - $422K</div>
+                    <h4>The Fund for American Studies <span class="stance conservative">Conservative</span></h4>
+                    <div class="spend">$46K - $59K</div>
                     <p class="description">
-                        Stanford University's conservative think tank. Features prominent scholars like Victor Davis Hanson critiquing "woke ideology" in academia. Their PolicyEd platform produces educational videos challenging progressive campus orthodoxy.
+                        Focused on pre-college and undergraduate education, TFAS explicitly frames its mission as countering "Marxist indoctrination" in colleges. Their ads target high school students with economics education before they reach college, positioning free-market principles as the antidote to campus progressivism.
                     </p>
                     <div class="themes">
-                        <span class="theme-tag">Policy Education</span>
-                        <span class="theme-tag">Anti-Woke</span>
-                        <span class="theme-tag">Free Markets</span>
-                        <span class="theme-tag">National Security</span>
+                        <span class="theme-tag">Anti-Marxism</span>
+                        <span class="theme-tag">Economics Education</span>
+                        <span class="theme-tag">High School Outreach</span>
+                        <span class="theme-tag">Pre-College Intervention</span>
                     </div>
                 </div>
 
                 <div class="advertiser-card">
-                    <h4>The Fund for American Studies <span class="stance conservative">Conservative</span></h4>
-                    <div class="spend">$46K - $59K</div>
+                    <h4>UPTE-CWA <span class="stance labor">Labor</span></h4>
+                    <div class="spend">$700 - $6K</div>
                     <p class="description">
-                        Focused on youth education, TFAS explicitly frames its mission as countering "Marxist indoctrination" in colleges. Their ads target high school students with economics education before they reach college.
+                        University Professional & Technical Employees (CWA Local 9119) represents 16,000 UC system workers. Their ads focus narrowly on labor disputes—specifically the November 2024 UCSF strike over unfair labor practices, staffing, and retention. Notable for being one of the few faculty/staff union voices in the space, but messaging is defensive and work-condition focused rather than broadly advocating for higher education.
                     </p>
                     <div class="themes">
-                        <span class="theme-tag">Anti-Marxism</span>
-                        <span class="theme-tag">Economics</span>
-                        <span class="theme-tag">High School Outreach</span>
-                        <span class="theme-tag">Pre-College</span>
+                        <span class="theme-tag">UC System</span>
+                        <span class="theme-tag">Strike Actions</span>
+                        <span class="theme-tag">Unfair Labor Practices</span>
+                        <span class="theme-tag">Staffing Crisis</span>
+                    </div>
+                </div>
+
+                <div class="advertiser-card">
+                    <h4>Texas AFT (Higher Ed) <span class="stance labor">Labor</span></h4>
+                    <div class="spend">$200 - $400</div>
+                    <p class="description">
+                        The Texas American Federation of Teachers runs modest higher education-specific advertising highlighting faculty burnout and the impact of state legislative actions on university employees. Unique among advertisers for directly naming "legislative overreach" as a cause of workforce problems.
+                    </p>
+                    <div class="themes">
+                        <span class="theme-tag">Faculty Burnout</span>
+                        <span class="theme-tag">Legislative Overreach</span>
+                        <span class="theme-tag">Working Conditions</span>
+                        <span class="theme-tag">Retention Crisis</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section>
+            <h2>Faculty & Staff Unions: A Missing Voice</h2>
+            <p style="margin-bottom: 20px; color: var(--text-light);">
+                Despite representing millions of higher education workers, faculty and staff unions have almost no presence in Meta political advertising. The few exceptions focus narrowly on labor disputes rather than defending higher education's broader value.
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Union</th>
+                            <th>Spend Range</th>
+                            <th>Ads</th>
+                            <th>Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>UPTE-CWA</strong> (UC Professional & Technical Employees)</td>
+                            <td>$700 - $6,046</td>
+                            <td>54</td>
+                            <td>UCSF strike, labor practices, staffing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Texas AFT</strong> (Higher Ed Division)</td>
+                            <td>$200 - $400</td>
+                            <td>4</td>
+                            <td>Legislative overreach, faculty burnout</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AAUP</strong> (American Association of University Professors)</td>
+                            <td>$0</td>
+                            <td>0</td>
+                            <td>No political ads found</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEIU Higher Ed Locals</strong></td>
+                            <td>< $100</td>
+                            <td>3</td>
+                            <td>Local organizing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout warning">
+                <h4>The Advocacy Gap</h4>
+                <p>The AAUP—the national organization representing faculty and defending academic freedom since 1915—has no political advertising presence on Meta. While state legislatures pass laws restricting tenure, banning DEI, and restructuring university governance, the primary professional association for faculty is not present in the social media conversation. This absence leaves individual faculty without organized messaging support when facing political attacks.</p>
+            </div>
+
+            <h3>UPTE-CWA: A Case Study in Narrow Focus</h3>
+            <p style="margin: 15px 0; color: var(--text-light);">
+                UPTE-CWA's 54 ads over the past year focused almost exclusively on the November 2024 UCSF strike. Sample messaging:
+            </p>
+
+            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-blue); margin: 15px 0;">
+                <p style="font-style: italic; margin-bottom: 10px;">
+                    "UC isn't just rejecting our proposals—they are refusing to acknowledge our experiences with unsafe staffing, turnover, a lack of career progression, and more. We don't want to strike, but if that's what it takes to protect our patients, research, and students—or force UC to live up to their legal obligations—then strike we will."
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-light);">
+                    <a href="https://www.facebook.com/ads/library/?id=879633254093644" target="_blank">View ad →</a>
+                </p>
+            </div>
+
+            <p style="margin: 15px 0; color: var(--text-light);">
+                While effective for labor organizing, this messaging doesn't address broader attacks on higher education, tenure, or academic freedom—leaving those narratives to be shaped entirely by critics.
+            </p>
+        </section>
+
+        <section>
             <h2>Ad Volume Over Time</h2>
             <p style="margin-bottom: 15px; color: var(--text-light);">
-                Ad activity peaked during key moments: the spring 2024 campus protests, back-to-school season, and the November elections.
+                Ad activity peaked during the spring 2024 campus protests and again around the November 2024 elections. January 2025 saw renewed activity following Trump's DEI executive orders.
             </p>
 
             <div class="timeline-chart">
                 <div class="timeline-bar">
-                    <div class="bar" style="height: 20%;" title="Feb 2024: 26 ads"></div>
-                    <div class="bar" style="height: 8%;" title="Mar 2024: 9 ads"></div>
-                    <div class="bar" style="height: 18%;" title="Apr 2024: 22 ads"></div>
-                    <div class="bar" style="height: 32%;" title="May 2024: 39 ads - Peak (Gaza Protests)"></div>
-                    <div class="bar" style="height: 24%;" title="Jun 2024: 29 ads"></div>
-                    <div class="bar" style="height: 13%;" title="Jul 2024: 16 ads"></div>
-                    <div class="bar" style="height: 26%;" title="Aug 2024: 31 ads"></div>
-                    <div class="bar" style="height: 22%;" title="Sep 2024: 26 ads"></div>
-                    <div class="bar" style="height: 17%;" title="Oct 2024: 21 ads"></div>
-                    <div class="bar" style="height: 15%;" title="Nov 2024: 18 ads"></div>
-                    <div class="bar" style="height: 8%;" title="Dec 2024: 10 ads"></div>
-                    <div class="bar" style="height: 11%;" title="Jan 2025: 13 ads"></div>
+                    <div class="bar" style="height: 25%;" title="Feb 2024"></div>
+                    <div class="bar" style="height: 12%;" title="Mar 2024"></div>
+                    <div class="bar" style="height: 30%;" title="Apr 2024"></div>
+                    <div class="bar" style="height: 100%;" title="May 2024 - Peak (Gaza Protests)"></div>
+                    <div class="bar" style="height: 45%;" title="Jun 2024"></div>
+                    <div class="bar" style="height: 35%;" title="Jul 2024"></div>
+                    <div class="bar" style="height: 50%;" title="Aug 2024"></div>
+                    <div class="bar" style="height: 55%;" title="Sep 2024"></div>
+                    <div class="bar" style="height: 60%;" title="Oct 2024"></div>
+                    <div class="bar" style="height: 80%;" title="Nov 2024 - UC Strike, Election, Hoover Year-End"></div>
+                    <div class="bar" style="height: 45%;" title="Dec 2024"></div>
+                    <div class="bar" style="height: 55%;" title="Jan 2025 - DEI EOs"></div>
                 </div>
                 <div class="timeline-labels">
                     <span>Feb</span>
@@ -764,10 +1098,11 @@
             <div class="callout warning">
                 <h4>Key Event Correlations</h4>
                 <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li><strong>April-May 2024:</strong> Campus protests over Gaza prompted ACLU, FIRE, and Jewish advocacy groups to increase spending</li>
-                    <li><strong>August-September 2024:</strong> Back-to-school messaging, particularly from conservative organizations</li>
-                    <li><strong>October-November 2024:</strong> School choice ballot measures (Colorado Amendment 80, Kentucky Amendment 2) drove voucher-related ads</li>
-                    <li><strong>January 2025:</strong> Trump executive orders on DEI triggered Do No Harm victory messaging</li>
+                    <li><strong>April-May 2024:</strong> Campus protests over Gaza prompted heavy spending from ACLU, FIRE, ADL, and Jewish advocacy groups</li>
+                    <li><strong>July 2024:</strong> PolicyEd's Victor Davis Hanson "woke ideology" content series</li>
+                    <li><strong>September-October 2024:</strong> UPTE-CWA ramped up strike authorization messaging ahead of November action</li>
+                    <li><strong>November 2024:</strong> Hoover's year-end fundraising surge ($50K+ in single month), UCSF strike, election aftermath</li>
+                    <li><strong>January 2025:</strong> Trump executive orders on DEI triggered Do No Harm "victory" messaging</li>
                 </ul>
             </div>
         </section>
@@ -778,15 +1113,15 @@
             <div class="theme-breakdown">
                 <div class="theme-card">
                     <h4>🎓 DEI & "Woke" Ideology</h4>
-                    <p>The single most prevalent theme across conservative advertisers. Messaging frames DEI programs as discriminatory, ideologically driven, and harmful to merit-based systems.</p>
+                    <p>The single most prevalent theme across conservative advertisers. Messaging frames DEI programs as discriminatory, ideologically driven, and harmful to merit-based systems in higher education.</p>
                     <div class="examples">
-                        <strong>Key advertisers:</strong> Do No Harm, Hillsdale College, Hoover Institution, Texas Scorecard
+                        <strong>Key advertisers:</strong> Do No Harm, Hillsdale College, Hoover/PolicyEd, TFAS
                     </div>
                 </div>
 
                 <div class="theme-card">
                     <h4>🗣️ Campus Free Speech</h4>
-                    <p>Both left and right claim the free speech mantle. FIRE and ACLU defended protesters' rights during Gaza demonstrations; conservative groups frame speech as threatened by progressive orthodoxy.</p>
+                    <p>Both left and right claim the free speech mantle. FIRE and ACLU defended protesters' rights during Gaza demonstrations; conservative groups frame speech as threatened by progressive orthodoxy and administrative overreach.</p>
                     <div class="examples">
                         <strong>Key advertisers:</strong> FIRE, ACLU, Alliance Defending Freedom, PolicyEd
                     </div>
@@ -794,31 +1129,31 @@
 
                 <div class="theme-card">
                     <h4>✡️ Campus Antisemitism</h4>
-                    <p>The October 7 attacks and subsequent campus protests generated significant ad spend from Jewish advocacy organizations highlighting antisemitism at universities like Columbia.</p>
+                    <p>The October 7 attacks and subsequent campus protests generated significant ad spend from Jewish advocacy organizations highlighting antisemitism at universities like Columbia, Harvard, and Penn.</p>
                     <div class="examples">
-                        <strong>Key advertisers:</strong> ADL, Stand Up to Jewish Hate, Slingshot, Jerusalem Prayer Team
+                        <strong>Key advertisers:</strong> ADL, Stand Up to Jewish Hate, Slingshot, Hillel International
                     </div>
                 </div>
 
                 <div class="theme-card">
-                    <h4>📚 School Choice & Vouchers</h4>
-                    <p>While primarily K-12 focused, voucher debates have higher ed implications. NEA and public school advocates spent heavily opposing ballot measures; conservative groups promoted "educational freedom."</p>
+                    <h4>🏥 Medical School DEI</h4>
+                    <p>Do No Harm has carved out a niche attacking DEI in medical education specifically, targeting AAMC accreditation standards, residency matching, and individual medical school policies.</p>
                     <div class="examples">
-                        <strong>Key advertisers:</strong> NEA Education Votes, Americans United, The Branch, Herzog Foundation
+                        <strong>Key advertisers:</strong> Do No Harm Medicine
                     </div>
                 </div>
 
                 <div class="theme-card">
-                    <h4>💰 Educator Pay & Unions</h4>
-                    <p>The NEA dominates this theme, connecting K-12 educator struggles to broader public education funding. Texas AFT highlighted higher ed employee burnout from legislative overreach.</p>
+                    <h4>⚖️ University Labor Disputes</h4>
+                    <p>Faculty and staff unions focus narrowly on working conditions, pay, and unfair labor practices—primarily in California. Messaging rarely connects to broader higher education policy debates.</p>
                     <div class="examples">
-                        <strong>Key advertisers:</strong> NEA Today, UPTE-CWA (UC workers), Texas AFT, NYSUT
+                        <strong>Key advertisers:</strong> UPTE-CWA, Texas AFT
                     </div>
                 </div>
 
                 <div class="theme-card">
                     <h4>🏛️ Conservative Alternative Education</h4>
-                    <p>Hillsdale positions itself as the model for education free from government influence. PragerU and TFAS target youth before they reach college with alternative ideological content.</p>
+                    <p>Hillsdale positions itself as the model for education free from government influence. TFAS and similar organizations target youth before they reach college with alternative ideological framing.</p>
                     <div class="examples">
                         <strong>Key advertisers:</strong> Hillsdale College, PragerU, TFAS, Leadership Institute
                     </div>
@@ -827,9 +1162,9 @@
         </section>
 
         <section>
-            <h2>Geographic Targeting</h2>
+            <h2>Geographic Patterns</h2>
             <p style="margin-bottom: 20px; color: var(--text-light);">
-                Hillsdale College's ads reach audiences nationwide with relatively even distribution, reflecting their national donor base and online course enrollment strategy. School choice ads concentrated heavily in states with ballot measures.
+                Hillsdale College and Hoover Institution ads reach audiences nationwide, reflecting their national donor bases. Labor-focused ads concentrate in California around UC system disputes. Anti-DEI messaging targets states with active legislation.
             </p>
 
             <div class="table-container">
@@ -843,34 +1178,29 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Colorado</strong></td>
-                            <td>Amendment 80 (school choice) battle</td>
-                            <td>NEA Education Votes, Americans United, Colorado Education Association</td>
+                            <td><strong>California</strong></td>
+                            <td>UC system labor disputes, UCSF strike</td>
+                            <td>UPTE-CWA, University of California, Hoover Institution</td>
                         </tr>
                         <tr>
                             <td><strong>Texas</strong></td>
-                            <td>DEI legislation, voucher debates, tenure reform</td>
-                            <td>Texas Scorecard, Texas AFT, Brandon Creighton</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Kentucky</strong></td>
-                            <td>Amendment 2, DEI bans, tenure changes</td>
-                            <td>Foundation for a Healthy Kentucky, Progress Kentucky</td>
-                        </tr>
-                        <tr>
-                            <td><strong>California</strong></td>
-                            <td>UC worker labor disputes</td>
-                            <td>UPTE-CWA, University of California</td>
-                        </tr>
-                        <tr>
-                            <td><strong>New York</strong></td>
-                            <td>NYSUT advocacy, campus protests</td>
-                            <td>NYSUT, ACLU, Slingshot</td>
+                            <td>DEI legislation, tenure reform (HB 1830), faculty burnout</td>
+                            <td>Texas AFT, Do No Harm</td>
                         </tr>
                         <tr>
                             <td><strong>Florida</strong></td>
-                            <td>Vocational education, Pell Grant access</td>
-                            <td>The Beauty of Education Florida</td>
+                            <td>DEI bans, New College transformation</td>
+                            <td>Do No Harm, Hoover Institution</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ohio</strong></td>
+                            <td>SB1 tenure/DEI restrictions</td>
+                            <td>Do No Harm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nationwide</strong></td>
+                            <td>Donor cultivation, online course enrollment, eBook distribution</td>
+                            <td>Hillsdale College, Hoover Institution, FIRE, TFAS</td>
                         </tr>
                     </tbody>
                 </table>
@@ -880,7 +1210,7 @@
         <section>
             <h2>Demographic Reach</h2>
             <p style="margin-bottom: 20px; color: var(--text-light);">
-                Hillsdale College's ads disproportionately reach older audiences, consistent with their fundraising focus and conservative donor demographics. This contrasts with FIRE's younger-skewing student recruitment campaigns.
+                Conservative higher education advertisers disproportionately reach older audiences, consistent with their fundraising focus. This demographic pattern holds across Hillsdale, Hoover, and similar organizations.
             </p>
 
             <h3>Hillsdale College Audience Profile</h3>
@@ -901,42 +1231,42 @@
 
             <div class="callout insight" style="margin-top: 25px;">
                 <h4>Demographic Note</h4>
-                <p>These figures represent who <em>saw</em> the ads, not necessarily who was targeted. Meta's algorithm optimizes for engagement, so demographic skews may reflect both advertiser intent and algorithmic choices. Hillsdale's older, male-leaning audience aligns with their donor cultivation strategy.</p>
+                <p>These figures represent who <em>saw</em> the ads, not necessarily who was targeted. Meta's algorithm optimizes for engagement, so demographic skews may reflect both advertiser intent and algorithmic choices. The older, male-leaning audience aligns with conservative donor cultivation strategies—these organizations are raising money from retirees, not recruiting students.</p>
             </div>
         </section>
 
         <section>
             <h2>What's Missing: The Silent Majority</h2>
             <p style="margin-bottom: 20px;">
-                Perhaps more revealing than who's advertising is who isn't. The following categories of institutions are largely absent from political advertising on Meta:
+                Perhaps more revealing than who's advertising is who isn't. Major categories of higher education stakeholders are completely absent from political advertising on Meta:
             </p>
 
             <div class="advertiser-grid">
                 <div class="advertiser-card" style="background: #fff5f5; border-color: #fc8181;">
                     <h4>Public University Systems</h4>
                     <p class="description">
-                        The University of California, SUNY, University of Texas system, and other major public universities have minimal political ad presence. Their occasional ads focus on labor issues or institutional announcements—not on defending higher education's value or countering political attacks.
+                        The University of California, SUNY, University of Texas system, and other major public universities have minimal political ad presence. The UC system spent only $6K-$14K—less than 3% of what Hillsdale College spent. Their occasional ads focus on labor issues or institutional announcements—not on defending higher education's value or responding to political attacks.
                     </p>
                 </div>
 
                 <div class="advertiser-card" style="background: #fff5f5; border-color: #fc8181;">
                     <h4>Elite Private Universities</h4>
                     <p class="description">
-                        Harvard, Yale, Columbia, Stanford (beyond Hoover) and other elite institutions are absent from political advertising despite being frequent targets of political criticism. They've chosen "institutional neutrality" over engagement.
+                        Harvard, Yale, Columbia, MIT, and other elite institutions are absent from political advertising despite being frequent targets of political criticism over DEI, legacy admissions, and campus protests. They've chosen "institutional neutrality" over engagement in the political advertising space.
                     </p>
                 </div>
 
                 <div class="advertiser-card" style="background: #fff5f5; border-color: #fc8181;">
-                    <h4>For-Profit Colleges</h4>
+                    <h4>AAUP & Faculty Associations</h4>
                     <p class="description">
-                        University of Phoenix, DeVry, Grand Canyon University and other for-profits have essentially no political ad presence on Meta—despite being subjects of political controversy around student loan policies and predatory practices.
+                        The American Association of University Professors—the primary national organization representing faculty and defending academic freedom—has zero political advertising presence on Meta. As state legislatures pass laws restricting tenure and academic freedom, AAUP is not present in the social media conversation.
                     </p>
                 </div>
 
                 <div class="advertiser-card" style="background: #fff5f5; border-color: #fc8181;">
                     <h4>Higher Ed Association Groups</h4>
                     <p class="description">
-                        The American Council on Education, Association of American Universities, and similar groups representing institutional interests are not advertising—leaving individual advocacy groups to shape public perception.
+                        The American Council on Education, Association of American Universities, Association of Public and Land-grant Universities, and similar groups representing institutional interests are not advertising—leaving advocacy groups to shape public perception without organized counterweight.
                     </p>
                 </div>
             </div>
@@ -945,27 +1275,29 @@
         <section>
             <h2>Policy Context</h2>
             <p style="margin-bottom: 20px; color: var(--text-light);">
-                The advertising landscape reflects a broader political assault on higher education institutions at both federal and state levels.
+                The advertising landscape reflects a broader political offensive against higher education institutions at both federal and state levels—an offensive that has accelerated significantly in 2024-2025.
             </p>
 
             <h3>Federal Level (2025)</h3>
             <ul style="margin-left: 20px; line-height: 2;">
                 <li>Trump Executive Orders 14151 and 14173 dismantled federal DEI programs and mandates</li>
                 <li>Department of Education ruled race-based scholarships and cultural centers violate civil rights law</li>
-                <li>Threats to revoke federal funding from non-compliant institutions</li>
+                <li>Threats to revoke federal funding from institutions with DEI programs</li>
+                <li>Congressional hearings targeting university presidents over antisemitism</li>
             </ul>
 
             <h3 style="margin-top: 25px;">State Level (2024-2025)</h3>
             <ul style="margin-left: 20px; line-height: 2;">
-                <li><strong>Florida, Texas, North Carolina:</strong> DEI program bans enacted</li>
+                <li><strong>Florida, Texas, North Carolina:</strong> DEI program bans enacted and enforced</li>
                 <li><strong>Ohio (SB1), Kentucky:</strong> Tenure protections weakened; DEI offices prohibited</li>
                 <li><strong>Texas (HB 1830):</strong> Proposed bill to eliminate tenure entirely at public institutions</li>
+                <li><strong>North Dakota (HB 1437):</strong> Faculty limited to 50% of tenure review committees</li>
                 <li><strong>26 states:</strong> Introduced bills censoring higher education in 2025</li>
             </ul>
 
             <div class="callout warning" style="margin-top: 25px;">
-                <h4>The Ad Response</h4>
-                <p>Do No Harm Medicine's advertising spiked immediately following Trump's January 2025 executive orders, with "victory" messaging celebrating DEI's dismantlement. By contrast, no major institution or progressive advocacy group mounted a significant ad response defending DEI programs.</p>
+                <h4>The Ad Response Gap</h4>
+                <p>Do No Harm Medicine's advertising spiked immediately following Trump's January 2025 executive orders, with "victory" messaging celebrating DEI's dismantlement. By contrast, no major institution, faculty organization, or progressive advocacy group mounted a significant ad response defending DEI programs or academic freedom. The policy debate is being waged in state legislatures and federal agencies—but only one side is showing up in the social media advertising space.</p>
             </div>
         </section>
 
@@ -992,23 +1324,23 @@
                 </p>
             </div>
 
-            <h3>NEA Today — Educator Advocacy</h3>
-            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-green); margin: 15px 0;">
+            <h3>UPTE-CWA — Strike Mobilization</h3>
+            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-blue); margin: 15px 0;">
                 <p style="font-style: italic; margin-bottom: 10px;">
-                    "Too many educators are barely making ends meet, struggling to pay for basics like groceries or critical medications. Unionized educators in states across the country are fighting for higher salaries - and winning."
+                    "UC workers shouldn't need to rely on food pantries to make ends meet. We'll be ready to strike if management won't take our demands—or their legal obligations—seriously."
                 </p>
                 <p style="font-size: 0.85rem; color: var(--text-light);">
-                    <a href="https://www.facebook.com/ads/library/?id=10041342985890325" target="_blank">View ad →</a>
+                    <a href="https://www.facebook.com/ads/library/?id=501747042563037" target="_blank">View ad →</a>
                 </p>
             </div>
 
-            <h3>The Fund for American Studies — Pre-College Outreach</h3>
-            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent); margin: 15px 0;">
+            <h3>Texas AFT — Faculty Burnout</h3>
+            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-green); margin: 15px 0;">
                 <p style="font-style: italic; margin-bottom: 10px;">
-                    "Marxists are indoctrinating college students. We need to teach America's children economics before they get to college. TFAS reaches more than 150k high school students with real economic education each year."
+                    "After the past few years of legislative overreach, it's no wonder our TX higher ed employees are burned out and looking to leave."
                 </p>
                 <p style="font-size: 0.85rem; color: var(--text-light);">
-                    <a href="https://www.facebook.com/ads/library/?id=2596428103899914" target="_blank">View ad →</a>
+                    <a href="https://www.facebook.com/ads/library/?id=597530046568344" target="_blank">View ad →</a>
                 </p>
             </div>
         </section>
@@ -1019,7 +1351,8 @@
             <h3>Methodology & Limitations</h3>
             <p>This report analyzes political and issue ads from Meta's Ad Library API for the period February 4, 2024 through February 4, 2025. Data was retrieved on February 4, 2025.</p>
             <ul>
-                <li><strong>Search terms:</strong> "university," "college," "higher education," "campus," "DEI," "academic freedom," "faculty," "school choice," and related terms</li>
+                <li><strong>Search terms:</strong> "university," "college," "higher education," "campus," "DEI," "academic freedom," "faculty," "professor," "tenure," and related terms</li>
+                <li><strong>Exclusions:</strong> K-12 education, school voucher/choice campaigns; teachers unions included only where messaging specifically addresses higher education issues</li>
                 <li><strong>Geography:</strong> United States only</li>
                 <li><strong>Spend figures:</strong> Meta reports spend as ranges, not exact values. Upper bounds are used for rankings.</li>
                 <li><strong>Impression figures:</strong> Similarly reported as ranges</li>
