@@ -299,6 +299,278 @@
 
   .warning-box p:last-child { margin-bottom: 0; }
 
+  /* Deep Dive Section */
+  .deep-dive-banner {
+    background: linear-gradient(135deg, #9b1c1c 0%, #c53030 100%);
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin: 56px 0 32px;
+    line-height: 1.6;
+  }
+
+  .deep-dive-banner .deep-dive-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+
+  .deep-dive-banner h2 {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 32px;
+  }
+
+  .deep-dive-banner p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0;
+  }
+
+  /* Ad Inventory Table */
+  .ad-inventory {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+
+  .ad-inventory th {
+    text-align: left;
+    padding: 10px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+    font-weight: 500;
+  }
+
+  .ad-inventory th.right { text-align: right; }
+
+  .ad-inventory td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-body);
+    vertical-align: top;
+  }
+
+  .ad-inventory td.right { text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+  .ad-inventory td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-secondary); }
+  .ad-inventory tr:last-child td { border-bottom: none; }
+  .ad-inventory tr.total-row td { border-top: 2px solid var(--navy); font-weight: 600; color: var(--navy); }
+
+  .spend-bar-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .spend-bar-inline {
+    height: 8px;
+    background: var(--red);
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+
+  /* Demo Chart */
+  .demo-chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 20px 0;
+  }
+
+  .demo-chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .demo-chart-card h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .demo-chart-card .demo-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .demo-bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+
+  .demo-bar-label {
+    width: 50px;
+    text-align: right;
+    padding-right: 8px;
+    color: var(--text-secondary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .demo-bar-track {
+    flex: 1;
+    height: 16px;
+    background: var(--bg-warm);
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .demo-bar-male {
+    height: 100%;
+    background: var(--blue);
+    opacity: 0.7;
+  }
+
+  .demo-bar-female {
+    height: 100%;
+    background: var(--red);
+    opacity: 0.5;
+  }
+
+  .demo-bar-pct {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    width: 45px;
+    padding-left: 6px;
+    flex-shrink: 0;
+  }
+
+  .demo-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-muted);
+  }
+
+  .demo-legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /* Highlight stat */
+  .highlight-stat {
+    display: inline-block;
+    background: var(--red-light);
+    color: var(--red-deep);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: 28px;
+    padding: 4px 14px;
+    border-radius: 6px;
+    margin: 0 2px;
+  }
+
+  /* Platform callout */
+  .platform-box {
+    background: var(--bg-card);
+    border: 2px solid var(--red);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+
+  .platform-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--red-deep);
+    margin-bottom: 10px;
+  }
+
+  .platform-box p {
+    font-size: 14px;
+    color: var(--text-body);
+    margin-bottom: 8px;
+  }
+
+  .platform-box ul {
+    margin: 8px 0 8px 20px;
+    font-size: 13.5px;
+  }
+
+  .platform-box li {
+    margin-bottom: 4px;
+    color: var(--text-body);
+  }
+
+  /* Geographic heatmap-style table */
+  .geo-compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 20px 0;
+  }
+
+  .geo-compare-table th {
+    text-align: left;
+    padding: 8px 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+    font-weight: 500;
+  }
+
+  .geo-compare-table th.right { text-align: right; }
+
+  .geo-compare-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-body);
+  }
+
+  .geo-compare-table td.right { text-align: right; font-family: 'IBM Plex Mono', monospace; }
+  .geo-compare-table tr:last-child td { border-bottom: none; }
+
+  .geo-heat {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+  }
+
+  .geo-heat.high { background: rgba(197, 48, 48, 0.15); color: var(--red-deep); font-weight: 600; }
+  .geo-heat.med { background: rgba(197, 48, 48, 0.08); color: var(--red); }
+  .geo-heat.low { color: var(--text-secondary); }
+
+  @media (max-width: 768px) {
+    .demo-chart-grid { grid-template-columns: 1fr; }
+    .deep-dive-banner h2 { font-size: 24px; }
+    .deep-dive-banner p { font-size: 16px; }
+    .ad-inventory { font-size: 11px; }
+    .ad-inventory td, .ad-inventory th { padding: 8px 6px; }
+  }
+
   /* Campaign Cards */
   .campaign-card {
     background: var(--bg-card);
@@ -931,45 +1203,353 @@
   <p>The choice to run &ldquo;surging demand&rdquo; ads in Oklahoma, West Virginia, Louisiana, Iowa, and North Carolina&mdash;all states with significant fossil fuel industries and Republican representation&mdash;reflects a deliberate cross-aisle strategy. By framing clean energy as complementary to existing energy production rather than a replacement for it, ACP was lobbying Republican senators and House members from energy states who would vote on the reconciliation bill. The message wasn&rsquo;t &ldquo;replace fossil fuels&rdquo;&mdash;it was &ldquo;we need everything.&rdquo;</p>
 </div>
 
-<!-- PHASE 6: POWERVOTES -->
-<div class="campaign-card">
-  <div class="campaign-header">
-    <div>
-      <span class="campaign-phase powervotes">Phase 6 &bull; Grassroots Mobilization</span>
-      <h3 style="margin-top: 12px;">PowerVotes Movement Launch</h3>
-    </div>
-    <div class="campaign-dates">Nov &ndash; Dec 2025</div>
-  </div>
-  <p>ACP&rsquo;s final and most expensive phase pivoted sharply from policy messaging to grassroots mobilization. The &ldquo;PowerVotes&rdquo; campaign launched as the One Big Beautiful Bill moved toward final passage, with clean energy tax credits facing elimination by year&rsquo;s end. The ads called on supporters to &ldquo;join the PowerVotes Movement&rdquo;&mdash;directing users to <a href="https://www.powervotes.com/" target="_blank">powervotes.com</a>, a platform for activating employees, supply chain workers, veterans, landowners, and other clean energy advocates.</p>
-  <p>This represented a strategic escalation: from talking <em>to</em> policymakers (D.C. geofencing) to activating a <em>constituency</em> that would pressure policymakers from their home districts. The spend was heavily concentrated, with single ads reaching $10K&ndash;$15K and total two-month spend of ~$35K.</p>
+<!-- ============================================ -->
+<!-- PHASE 6 DEEP DIVE: POWERVOTES               -->
+<!-- ============================================ -->
 
-  <div class="ad-example">
-    <div class="ad-text">&ldquo;America can lead the world in clean energy - but only if we work together. Join the PowerVotes Movement.&rdquo;</div>
-    <div class="ad-example-meta">
-      <span>Spend: $10,000&ndash;$14,999 &bull; Impressions: 100K&ndash;125K &bull; National</span>
-      <a href="https://www.facebook.com/ads/library/?id=4269478523315243" target="_blank">View Ad &rarr;</a>
-    </div>
-  </div>
+<div class="deep-dive-banner">
+  <div class="deep-dive-label">Deep Dive &mdash; Phase 6</div>
+  <h2>The PowerVotes Campaign</h2>
+  <p>ACP&rsquo;s most expensive campaign represents a strategic inflection point: the moment an industry trade association pivoted from lobbying policymakers to mobilizing a grassroots constituency. Nine ads, $27K&ndash;$35K in spend, one message&mdash;and a revealing set of contradictions.</p>
+</div>
 
-  <div class="campaign-metrics">
-    <div>
-      <div class="campaign-metric-label">Ads</div>
-      <div class="campaign-metric-value">9</div>
-    </div>
-    <div>
-      <div class="campaign-metric-label">Est. Spend</div>
-      <div class="campaign-metric-value">$27.2K&ndash;$34.7K</div>
-    </div>
-    <div>
-      <div class="campaign-metric-label">Objective</div>
-      <div class="campaign-metric-value" style="font-size: 14px;">Action / Mobilization</div>
-    </div>
+<!-- POWERVOTES CONTEXT -->
+<h2>What Is PowerVotes?</h2>
+
+<div class="platform-box">
+  <h4>PowerVotes &mdash; powervotes.com</h4>
+  <p>PowerVotes is ACP&rsquo;s grassroots advocacy platform, built to convert passive clean energy supporters into active political participants. The platform asks visitors to:</p>
+  <ul>
+    <li><strong>Join the advocacy network</strong> by providing contact information</li>
+    <li><strong>Contact members of Congress</strong> to support permitting reform and pro-energy policies</li>
+    <li><strong>Urge lawmakers</strong> to &ldquo;support policies that secure a strong American energy future backed by a broad range of energy projects&rdquo;</li>
+  </ul>
+  <p>The site emphasizes protecting &ldquo;more than a million American clean energy jobs&rdquo; and claims the clean energy workforce will double between 2025 and 2030. It targets five stakeholder groups: employees, supply chain partners, veterans, landowners, and community allies.</p>
+  <p style="margin-bottom: 0;"><strong>Key policy ask:</strong> Permitting reform that accelerates energy project approvals and keeps costs low. The platform deliberately frames its ask in &ldquo;all-of-the-above&rdquo; energy language rather than clean-energy-specific terms. Sources: <a href="https://www.powervotes.com/" target="_blank">powervotes.com</a>, <a href="https://cleanpower.org/resources/clean-energys-ground-game-grassroots-strategy-session/" target="_blank">ACP Grassroots Strategy Session</a></p>
+</div>
+
+<!-- LEGISLATIVE TIMELINE -->
+<h3>Legislative Context: Why November 2025?</h3>
+<p>The PowerVotes Meta campaign didn&rsquo;t launch in a vacuum. Its timing correlates precisely with the most critical phase of the <strong>One Big Beautiful Bill Act (OBBB)</strong>&mdash;the reconciliation package that ultimately sunsetted many IRA clean energy tax credits:</p>
+
+<div class="timeline-chart">
+  <h3>OBBB Timeline vs. PowerVotes Ad Deployment</h3>
+  <div class="bar-row"><div class="bar-label" style="width:100px;">May 22, '25</div><div class="bar-track"><div class="bar-fill" style="width:40%; background: var(--slate);"></div></div><div class="bar-value">House passes OBBB (215&ndash;214)</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:100px;">Jun&ndash;Oct '25</div><div class="bar-track"><div class="bar-fill" style="width:50%; background: var(--amber); opacity: 0.4;"></div></div><div class="bar-value">Senate negotiations &mdash; ACP goes dark on Meta</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:100px;">Nov 24, '25</div><div class="bar-track"><div class="bar-fill" style="width:70%; background: var(--red);"></div></div><div class="bar-value" style="font-weight: 600; color: var(--red-deep);">PowerVotes ads launch &mdash; 6 ads, $13.2K&ndash;$14.5K</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:100px;">Dec 17&ndash;25</div><div class="bar-track"><div class="bar-fill" style="width:90%; background: var(--red);"></div></div><div class="bar-value" style="font-weight: 600; color: var(--red-deep);">Final push &mdash; 3 ads, $14.5K&ndash;$20.1K</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:100px;">Jul 1, '25</div><div class="bar-track"><div class="bar-fill" style="width:40%; background: var(--navy);"></div></div><div class="bar-value">Senate passes OBBB (51&ndash;50, VP tiebreak)</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:100px;">Jul 3&ndash;4 '25</div><div class="bar-track"><div class="bar-fill" style="width:40%; background: var(--navy);"></div></div><div class="bar-value">House concurrence &amp; signed into law</div></div>
+</div>
+
+<div class="context-box">
+  <h4>The OBBB Had Already Passed</h4>
+  <p>A critical detail: the One Big Beautiful Bill was <em>signed into law on July 4, 2025</em>&mdash;nearly five months before ACP launched PowerVotes ads on Meta. The bill&rsquo;s clean energy provisions were already enacted: wind and solar projects became ineligible for IRA tax credits unless they begin construction within 12 months of passage or enter service before December 31, 2027. Clean hydrogen credits terminate for projects starting after December 31, 2027.</p>
+  <p>This means the PowerVotes Meta campaign was not trying to <em>stop</em> legislation&mdash;it was trying to <em>build a constituency</em> for the fights ahead: regulatory implementation, potential future legislation to restore credits, and 2026 midterm elections. The campaign was forward-looking, not defensive. Sources: <a href="https://www.dwt.com/blogs/energy--environmental-law-blog/2025/07/congress-clean-energy-tax-credits-narrowed" target="_blank">Davis Wright Tremaine</a>, <a href="https://taxfoundation.org/blog/big-beautiful-bill-green-energy-tax-credit-changes/" target="_blank">Tax Foundation</a></p>
+</div>
+
+<!-- FULL AD INVENTORY -->
+<h3>Complete Ad Inventory: 9 Ads, One Message</h3>
+<p>Every PowerVotes ad used identical copy: <em>&ldquo;America can lead the world in clean energy &ndash; but only if we work together. Join the PowerVotes Movement.&rdquo;</em> The ads varied only in capitalization (&ldquo;Movement&rdquo; vs. &ldquo;movement&rdquo;), link destination, and budget allocation. This uniformity is itself a signal&mdash;ACP was optimizing for reach and frequency, not A/B testing creative variants.</p>
+
+<div class="timeline-chart" style="overflow-x: auto;">
+  <table class="ad-inventory">
+    <thead>
+      <tr>
+        <th>Launch Date</th>
+        <th>End Date</th>
+        <th class="right">Spend</th>
+        <th class="right">Impressions</th>
+        <th>Link Destination</th>
+        <th>65+ Reach</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mono">Nov 24</td>
+        <td class="mono">Nov 25</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:4px;"></span> $0&ndash;$99</span></td>
+        <td class="right">0&ndash;999</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=808280898863678" target="_blank">powervotes.webflow.io</a></td>
+        <td><span class="geo-heat med">25.8%</span></td>
+      </tr>
+      <tr>
+        <td class="mono">Nov 24</td>
+        <td class="mono">Nov 25</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:4px;"></span> $0&ndash;$99</span></td>
+        <td class="right">1K&ndash;2K</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=1161450975966935" target="_blank">powervotes.com</a></td>
+        <td><span class="geo-heat med">29.7%</span></td>
+      </tr>
+      <tr>
+        <td class="mono">Nov 24</td>
+        <td class="mono">Nov 26</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:4px;"></span> $0&ndash;$99</span></td>
+        <td class="right">3K&ndash;4K</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=2258686451294582" target="_blank">powervotes.webflow.io</a></td>
+        <td><span class="geo-heat med">28.6%</span></td>
+      </tr>
+      <tr>
+        <td class="mono">Nov 24</td>
+        <td class="mono">Dec 3</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:12px;"></span> $200&ndash;$299</span></td>
+        <td class="right">25K&ndash;30K</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=1495482005078028" target="_blank">powervotes.com</a></td>
+        <td><span class="geo-heat med">25.5%</span></td>
+      </tr>
+      <tr>
+        <td class="mono">Nov 24</td>
+        <td class="mono">Dec 5</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:40px;"></span> $3.5K&ndash;$4K</span></td>
+        <td class="right">300K&ndash;350K</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=1125583146054200" target="_blank">powervotes.com</a></td>
+        <td><span class="geo-heat med">31.2%</span></td>
+      </tr>
+      <tr style="background: var(--red-light);">
+        <td class="mono">Nov 24</td>
+        <td class="mono">Dec 18</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:80px;"></span> <strong>$9K&ndash;$10K</strong></span></td>
+        <td class="right">125K&ndash;150K</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=1370628694783513" target="_blank">fb.me redirect</a></td>
+        <td><span class="geo-heat high">61.4%</span></td>
+      </tr>
+      <tr>
+        <td class="mono">Dec 17</td>
+        <td class="mono">Dec 21</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:50px;"></span> $4.5K&ndash;$5K</span></td>
+        <td class="right">50K&ndash;60K</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=872912068435560" target="_blank">fb.me redirect</a></td>
+        <td><span class="geo-heat high">59.1%</span></td>
+      </tr>
+      <tr>
+        <td class="mono">Dec 19</td>
+        <td class="mono">Dec 19</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:4px;"></span> $0&ndash;$99</span></td>
+        <td class="right">0&ndash;999</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=1188114649528958" target="_blank">fb.me redirect</a></td>
+        <td><span class="geo-heat high">63.4%</span></td>
+      </tr>
+      <tr style="background: var(--red-light);">
+        <td class="mono">Dec 19</td>
+        <td class="mono">Dec 25</td>
+        <td class="right"><span class="spend-bar-cell"><span class="spend-bar-inline" style="width:100px;"></span> <strong>$10K&ndash;$15K</strong></span></td>
+        <td class="right">100K&ndash;125K</td>
+        <td><a href="https://www.facebook.com/ads/library/?id=4269478523315243" target="_blank">fb.me redirect</a></td>
+        <td><span class="geo-heat high">82.0%</span></td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2">TOTAL (9 ads)</td>
+        <td class="right">$27.2K&ndash;$34.7K</td>
+        <td class="right">604K&ndash;723K</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="warning-box">
+  <h4>Staging URL Reveals Rushed Launch</h4>
+  <p>Two of the earliest PowerVotes ads (launched Nov 24) pointed users to <code>powervotes.webflow.io</code>&mdash;a <strong>Webflow staging URL</strong>, not the production domain. By the next batch of ads, the link had been corrected to <code>powervotes.com</code>, and later ads used fb.me tracking redirects. This staging URL suggests the Meta campaign was activated before the PowerVotes website was fully deployed to its production domain&mdash;an indicator that the campaign launch was either rushed or that the ad operations team was running ahead of the web team.</p>
+</div>
+
+<!-- DEMOGRAPHIC DEEP DIVE -->
+<h3>The 65+ Skew: Who Is ACP Actually Mobilizing?</h3>
+
+<p>The PowerVotes campaign&rsquo;s most striking feature is its <strong>dramatic demographic shift toward older audiences</strong> as the campaign progressed and budgets scaled. Early test ads (Nov 24&ndash;26, low spend) reached a relatively balanced audience. The high-spend ads that followed skewed overwhelmingly toward adults 65 and older.</p>
+
+<div class="demo-chart-grid">
+  <div class="demo-chart-card">
+    <h4>Early Ads (Nov 24&ndash;Dec 5)</h4>
+    <div class="demo-sub">5 ads &bull; $3.8K&ndash;$4.6K spend &bull; Balanced delivery</div>
+    <div class="demo-bar-row"><div class="demo-bar-label">18&ndash;24</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:30%;"></div><div class="demo-bar-female" style="width:22%;"></div></div><div class="demo-bar-pct">~9%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">25&ndash;34</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:50%;"></div><div class="demo-bar-female" style="width:32%;"></div></div><div class="demo-bar-pct">~16%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">35&ndash;44</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:48%;"></div><div class="demo-bar-female" style="width:30%;"></div></div><div class="demo-bar-pct">~15%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">45&ndash;54</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:38%;"></div><div class="demo-bar-female" style="width:22%;"></div></div><div class="demo-bar-pct">~12%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">55&ndash;64</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:44%;"></div><div class="demo-bar-female" style="width:24%;"></div></div><div class="demo-bar-pct">~14%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">65+</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:70%;"></div><div class="demo-bar-female" style="width:50%;"></div></div><div class="demo-bar-pct">~28%</div></div>
+    <div class="demo-legend"><span><span class="demo-legend-dot" style="background: var(--blue); opacity: 0.7;"></span>Male</span><span><span class="demo-legend-dot" style="background: var(--red); opacity: 0.5;"></span>Female</span></div>
+  </div>
+  <div class="demo-chart-card">
+    <h4>High-Spend Ads (Nov 24&ndash;Dec 25)</h4>
+    <div class="demo-sub">4 ads &bull; $23.5K&ndash;$30.1K spend &bull; Extreme 65+ skew</div>
+    <div class="demo-bar-row"><div class="demo-bar-label">18&ndash;24</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:8%;"></div><div class="demo-bar-female" style="width:4%;"></div></div><div class="demo-bar-pct">~3%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">25&ndash;34</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:14%;"></div><div class="demo-bar-female" style="width:8%;"></div></div><div class="demo-bar-pct">~5%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">35&ndash;44</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:14%;"></div><div class="demo-bar-female" style="width:8%;"></div></div><div class="demo-bar-pct">~5%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">45&ndash;54</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:14%;"></div><div class="demo-bar-female" style="width:6%;"></div></div><div class="demo-bar-pct">~5%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">55&ndash;64</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:22%;"></div><div class="demo-bar-female" style="width:14%;"></div></div><div class="demo-bar-pct">~9%</div></div>
+    <div class="demo-bar-row"><div class="demo-bar-label">65+</div><div class="demo-bar-track"><div class="demo-bar-male" style="width:100%;"></div><div class="demo-bar-female" style="width:74%;"></div></div><div class="demo-bar-pct" style="font-weight: 600; color: var(--red-deep);">~68%</div></div>
+    <div class="demo-legend"><span><span class="demo-legend-dot" style="background: var(--blue); opacity: 0.7;"></span>Male</span><span><span class="demo-legend-dot" style="background: var(--red); opacity: 0.5;"></span>Female</span></div>
   </div>
 </div>
 
+<p>The highest-spend ad (ID: <a href="https://www.facebook.com/ads/library/?id=4269478523315243" target="_blank">4269478523315243</a>, $10K&ndash;$15K) reached an audience that was <span class="highlight-stat">82%</span> aged 65 and older. Males 65+ alone comprised 37.2% of delivery; females 65+ comprised 44.4%. Adults under 45 made up barely 5% of impressions.</p>
+
 <div class="insight-box">
-  <h4>Demographic Shift in PowerVotes</h4>
-  <p>The PowerVotes ads skewed dramatically toward <strong>65+ audiences</strong> (61% of reach for the November ad, 82% for the December ad)&mdash;far exceeding ACP&rsquo;s earlier campaigns which reached younger, more balanced demographics. This could reflect Meta&rsquo;s algorithmic optimization toward users most likely to engage with political content, or it may indicate that the &ldquo;join the movement&rdquo; call-to-action resonated most with older voters. Either way, ACP&rsquo;s grassroots push is reaching retirees more than the workforce it claims to represent.</p>
+  <h4>Algorithm vs. Intent: The Demographic Question</h4>
+  <p>There are three possible explanations for the extreme 65+ skew, and they carry different strategic implications:</p>
+  <p><strong>1. Algorithmic optimization.</strong> Meta&rsquo;s delivery algorithm may have determined that 65+ users were most likely to click &ldquo;Join the PowerVotes Movement,&rdquo; optimizing delivery toward them. Political action CTAs historically perform well with older, more politically engaged users on Facebook. If this is the driver, ACP may not have intended or desired this audience concentration.</p>
+  <p><strong>2. Broad targeting with no age restrictions.</strong> ACP may have targeted broadly (national, all ages) and let Meta optimize. The result&mdash;heavy 65+ delivery&mdash;reflects Facebook&rsquo;s aging user base and the tendency for older users to engage with political issue content. This is a known platform dynamic that advocacy campaigns on Meta must account for.</p>
+  <p><strong>3. Intentional retiree targeting.</strong> ACP may have calculated that retirees are more likely to contact Congress (they have time), more likely to vote in midterms, and more likely to be landowners in wind/solar development areas. If intentional, this is a strategic choice to build a politically active constituency from voters with high civic participation rates.</p>
+  <p style="margin-bottom: 0;">Regardless of cause, the outcome is the same: <strong>a &ldquo;grassroots movement&rdquo; for clean energy workers is overwhelmingly reaching retirees.</strong> ACP&rsquo;s PowerVotes platform claims to mobilize &ldquo;employees, supply chain partners, veterans, [and] landowners,&rdquo; but the Meta data suggests the actual audience skews far older than the working-age population the messaging describes. This mismatch between stated audience and actual delivery is the campaign&rsquo;s most significant strategic gap.</p>
+</div>
+
+<!-- GEOGRAPHIC ANALYSIS -->
+<h3>Geographic Distribution: Where PowerVotes Landed</h3>
+<p>Unlike ACP&rsquo;s earlier campaigns (which precisely targeted D.C., California, or specific energy states), the PowerVotes ads ran nationally. But delivery wasn&rsquo;t uniform&mdash;Meta&rsquo;s algorithm distributed impressions unevenly across states, revealing which audiences engaged most.</p>
+
+<div class="timeline-chart">
+  <table class="geo-compare-table">
+    <thead>
+      <tr>
+        <th>State</th>
+        <th class="right">Nov 24 Launch<br>(6 ads, $13K&ndash;$15K)</th>
+        <th class="right">Dec High-Spend<br>(3 ads, $14K&ndash;$20K)</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Texas</strong></td>
+        <td class="right"><span class="geo-heat high">13.4%</span></td>
+        <td class="right"><span class="geo-heat high">10.3%</span></td>
+        <td>Consistent #1 &mdash; massive clean energy workforce &amp; GOP delegation</td>
+      </tr>
+      <tr>
+        <td><strong>New York</strong></td>
+        <td class="right"><span class="geo-heat high">8.3%</span></td>
+        <td class="right"><span class="geo-heat high">7.8%</span></td>
+        <td>Offshore wind hub, high political engagement</td>
+      </tr>
+      <tr>
+        <td><strong>California</strong></td>
+        <td class="right"><span class="geo-heat med">7.0%</span></td>
+        <td class="right"><span class="geo-heat high">8.8%</span></td>
+        <td>ACP&rsquo;s battery storage stronghold; grew in Dec</td>
+      </tr>
+      <tr>
+        <td><strong>Florida</strong></td>
+        <td class="right"><span class="geo-heat med">3.8%</span></td>
+        <td class="right"><span class="geo-heat med">6.0%</span></td>
+        <td>Solar growth state; significant jump in December</td>
+      </tr>
+      <tr>
+        <td><strong>Colorado</strong></td>
+        <td class="right"><span class="geo-heat med">4.3%</span></td>
+        <td class="right"><span class="geo-heat med">3.4%</span></td>
+        <td>Wind/solar hub; ACP office presence</td>
+      </tr>
+      <tr>
+        <td><strong>Ohio</strong></td>
+        <td class="right"><span class="geo-heat med">4.0%</span></td>
+        <td class="right"><span class="geo-heat med">3.5%</span></td>
+        <td>Manufacturing &amp; wind; swing-state engagement</td>
+      </tr>
+      <tr>
+        <td><strong>Missouri</strong></td>
+        <td class="right"><span class="geo-heat med">4.0%</span></td>
+        <td class="right"><span class="geo-heat low">n/a</span></td>
+        <td>Wind energy state; dropped off in December</td>
+      </tr>
+      <tr>
+        <td><strong>Pennsylvania</strong></td>
+        <td class="right"><span class="geo-heat med">3.1%</span></td>
+        <td class="right"><span class="geo-heat med">3.5%</span></td>
+        <td>Energy transition state; offshore wind development</td>
+      </tr>
+      <tr>
+        <td><strong>North Carolina</strong></td>
+        <td class="right"><span class="geo-heat med">3.1%</span></td>
+        <td class="right"><span class="geo-heat med">3.5%</span></td>
+        <td>Major solar state; growing clean energy workforce</td>
+      </tr>
+      <tr>
+        <td><strong>Iowa</strong></td>
+        <td class="right"><span class="geo-heat med">2.8%</span></td>
+        <td class="right"><span class="geo-heat low">n/a</span></td>
+        <td>Wind champion; over-indexes vs. population share</td>
+      </tr>
+      <tr>
+        <td><strong>Illinois</strong></td>
+        <td class="right"><span class="geo-heat med">3.2%</span></td>
+        <td class="right"><span class="geo-heat med">3.4%</span></td>
+        <td>Wind corridor; manufacturing jobs base</td>
+      </tr>
+      <tr>
+        <td><strong>Virginia / Maryland</strong></td>
+        <td class="right"><span class="geo-heat med">5.7%</span></td>
+        <td class="right"><span class="geo-heat med">5.6%</span></td>
+        <td>D.C. metro spillover &mdash; policymaker households</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="insight-box">
+  <h4>Texas Dominance Is Not Random</h4>
+  <p>Texas consistently captured 10&ndash;14% of PowerVotes impressions&mdash;roughly 3x its share of the U.S. Facebook user base. Texas is simultaneously the largest wind energy producer in the country, a state whose Republican congressional delegation has significant influence over energy policy, and a state where clean energy is woven into the rural economy through landowner lease payments. ACP&rsquo;s algorithm-aided concentration in Texas aligns with a strategic need to demonstrate grassroots clean energy support in a state that &ldquo;reads&rdquo; as politically red. A PowerVotes sign-up from Texas carries more persuasive weight with a Republican lawmaker than one from California.</p>
+</div>
+
+<div class="insight-box">
+  <h4>The Virginia/Maryland Signal</h4>
+  <p>Virginia and Maryland combined for ~5.7% of PowerVotes delivery&mdash;significantly above their population share. This is the D.C. metro spillover effect: even in a &ldquo;national&rdquo; campaign, ACP&rsquo;s policymaker-adjacent geography pulls disproportionate delivery. Some of these impressions may be reaching the same Hill staffers and agency employees that ACP&rsquo;s January 2025 offshore wind ads geofenced directly. The trade association&rsquo;s inside game and outside game overlap geographically.</p>
+</div>
+
+<!-- SPEND CONCENTRATION -->
+<h3>Spend Concentration: A Few Bets, Not a Broad Push</h3>
+<p>The PowerVotes campaign&rsquo;s budget was extraordinarily concentrated. Two ads alone accounted for the majority of spending:</p>
+
+<div class="timeline-chart">
+  <h3>PowerVotes Spend Distribution</h3>
+  <div class="bar-row"><div class="bar-label" style="width: 90px;">Ad #6</div><div class="bar-track"><div class="bar-fill" style="width:66.7%; background: var(--red);"></div></div><div class="bar-value">$9K&ndash;$10K &bull; Nov 24&ndash;Dec 18</div></div>
+  <div class="bar-row"><div class="bar-label" style="width: 90px;">Ad #9</div><div class="bar-track"><div class="bar-fill" style="width:100%; background: var(--red);"></div></div><div class="bar-value">$10K&ndash;$15K &bull; Dec 19&ndash;25</div></div>
+  <div class="bar-row"><div class="bar-label" style="width: 90px;">Ad #7</div><div class="bar-track"><div class="bar-fill" style="width:33.3%; background: var(--red); opacity: 0.6;"></div></div><div class="bar-value">$4.5K&ndash;$5K &bull; Dec 17&ndash;21</div></div>
+  <div class="bar-row"><div class="bar-label" style="width: 90px;">Ad #5</div><div class="bar-track"><div class="bar-fill" style="width:26.7%; background: var(--red); opacity: 0.6;"></div></div><div class="bar-value">$3.5K&ndash;$4K &bull; Nov 24&ndash;Dec 5</div></div>
+  <div class="bar-row"><div class="bar-label" style="width: 90px;">Ad #4</div><div class="bar-track"><div class="bar-fill" style="width:2%; background: var(--red); opacity: 0.3;"></div></div><div class="bar-value">$200&ndash;$299 &bull; Nov 24&ndash;Dec 3</div></div>
+  <div class="bar-row"><div class="bar-label" style="width: 90px;">Ads #1&ndash;3, 8</div><div class="bar-track"><div class="bar-fill" style="width:2.6%; background: var(--red); opacity: 0.3;"></div></div><div class="bar-value">$0&ndash;$396 total &bull; test flights</div></div>
+</div>
+
+<p>Ads #6 and #9 together represent <strong>$19K&ndash;$25K, or roughly 70% of the entire PowerVotes budget</strong>. These were not test ads&mdash;they were scaled pushes running for extended periods (24 days and 6 days, respectively). The four low-spend ads ($0&ndash;$99 each) appear to be test flights launched simultaneously on November 24 to gauge initial engagement before scaling the winners.</p>
+
+<div class="warning-box">
+  <h4>Cost Efficiency Divergence</h4>
+  <p>The November and December high-spend ads showed dramatically different cost efficiency:</p>
+  <p><strong>Ad #5</strong> (Nov 24&ndash;Dec 5): $3.5K&ndash;$4K spend for 300K&ndash;350K impressions = <strong>~$12 CPM</strong>. This was the most efficient PowerVotes ad by a wide margin.</p>
+  <p><strong>Ad #9</strong> (Dec 19&ndash;25): $10K&ndash;$15K spend for 100K&ndash;125K impressions = <strong>~$110 CPM</strong>. This was nearly 10x more expensive per impression.</p>
+  <p style="margin-bottom: 0;">The December ads paid a steep premium for delivery. Holiday-season CPMs on Meta typically spike, but a 10x increase suggests either aggressive frequency capping, a narrow audience that was quickly saturated, or Meta&rsquo;s algorithm struggling to find cost-effective delivery for a political issue ad during peak commercial advertising season. ACP may have been paying Christmas-week rates to push a grassroots message that would have been dramatically cheaper in November.</p>
+</div>
+
+<!-- CAMPAIGN ASSESSMENT -->
+<h3>PowerVotes Campaign Assessment</h3>
+
+<div class="campaign-card" style="border-color: var(--red); border-width: 2px;">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-phase powervotes">Campaign Summary</span>
+      <h3 style="margin-top: 12px;">PowerVotes on Meta: Strategic Escalation with Structural Limitations</h3>
+    </div>
+  </div>
+  <p>The PowerVotes Meta campaign represents a meaningful strategic shift for ACP&mdash;from talking to policymakers to trying to activate a constituency. But the execution reveals several tensions:</p>
+  <p><strong>Strength &mdash; Speed and commitment.</strong> ACP went from zero to $35K in spend within four weeks, demonstrating organizational willingness to invest in a new campaign framework. The PowerVotes platform itself is substantive, with specific policy asks (permitting reform) and clear calls to action (contact Congress).</p>
+  <p><strong>Weakness &mdash; Audience mismatch.</strong> A &ldquo;movement&rdquo; campaign for clean energy workers is overwhelmingly reaching retirees. Whether by algorithm or design, the Meta execution is not building the diverse coalition (employees, veterans, supply chain workers) that PowerVotes describes.</p>
+  <p><strong>Weakness &mdash; Creative uniformity.</strong> Nine ads with identical copy and no visual variation limits Meta&rsquo;s ability to optimize across audience segments. An A/B test framework with varied messaging&mdash;economic framing for some audiences, patriotic framing for others&mdash;would likely improve both reach distribution and cost efficiency.</p>
+  <p><strong>Weakness &mdash; Timing premium.</strong> Launching a scaled push during Christmas week cost ACP dearly in CPMs. The December ads were roughly 10x less efficient than the November ads. Starting the campaign 4&ndash;6 weeks earlier would have delivered more impressions for the same budget.</p>
+  <p><strong>Question &mdash; Post-OBBB strategy.</strong> The OBBB was already law when PowerVotes ads ran. ACP appears to be building infrastructure for longer-term advocacy rather than trying to influence an immediate vote. This is strategically sound but requires sustained investment to mature. The abrupt stop after December 25 raises the question: was this the start of an ongoing campaign, or a one-time surge that has already ended?</p>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Total Ads</div>
+      <div class="campaign-metric-value">9</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Est. Total Spend</div>
+      <div class="campaign-metric-value">$27.2K&ndash;$34.7K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Est. Impressions</div>
+      <div class="campaign-metric-value">604K&ndash;723K</div>
+    </div>
+  </div>
 </div>
 
 <!-- GEOGRAPHIC ANALYSIS -->
