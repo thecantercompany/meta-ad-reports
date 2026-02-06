@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>American Clean Power Association — Advertiser Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue-deep: #1e3a5f;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber-deep: #92400e;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple-deep: #4c1d95;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --teal-deep: #115e59;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+    --orange-deep: #9a3412;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+    --cyan-deep: #155e75;
+    --cyan: #0891b2;
+    --cyan-light: #ecfeff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .header-meta .sep { color: var(--border); }
+
+  /* Top Stats */
+  .top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    padding: 24px 22px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    margin-top: 56px;
+  }
+
+  h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin-bottom: 10px;
+    margin-top: 28px;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 14px; }
+
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Key Finding Card */
+  .key-finding {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .key-finding-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+
+  .key-finding p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.93);
+    margin-bottom: 0;
+  }
+
+  /* Org Profile Card */
+  .org-profile {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+
+  .org-profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .org-detail-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .org-detail-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  /* Context Box */
+  .context-box {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .context-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+  }
+
+  .context-box p {
+    font-size: 13.5px;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+  }
+
+  .context-box p:last-child { margin-bottom: 0; }
+
+  .context-box a { color: var(--blue-deep); text-decoration: underline; }
+
+  /* Warning Box */
+  .warning-box {
+    background: var(--amber-light);
+    border-left: 4px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .warning-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--amber-deep);
+    margin-bottom: 8px;
+  }
+
+  .warning-box p {
+    font-size: 13.5px;
+    color: var(--amber-deep);
+    margin-bottom: 8px;
+  }
+
+  .warning-box p:last-child { margin-bottom: 0; }
+
+  /* Campaign Cards */
+  .campaign-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .campaign-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .campaign-phase {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .campaign-phase.hydrogen { background: var(--green-light); color: var(--green-deep); }
+  .campaign-phase.iowa { background: var(--blue-light); color: var(--blue-deep); }
+  .campaign-phase.taxcredits { background: var(--purple-light); color: var(--purple-deep); }
+  .campaign-phase.offshore { background: var(--teal-light); color: var(--teal-deep); }
+  .campaign-phase.battery { background: var(--cyan-light); color: var(--cyan-deep); }
+  .campaign-phase.manufacturing { background: var(--orange-light); color: var(--orange-deep); }
+  .campaign-phase.demand { background: var(--amber-light); color: var(--amber-deep); }
+  .campaign-phase.powervotes { background: var(--red-light); color: var(--red-deep); }
+
+  .campaign-dates {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .campaign-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .campaign-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .campaign-metric-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+
+  .campaign-metric-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+
+  /* Timeline */
+  .timeline-chart {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 32px;
+    overflow-x: auto;
+  }
+
+  .timeline-chart h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+
+  .bar-label {
+    width: 70px;
+    text-align: right;
+    padding-right: 10px;
+    color: var(--text-secondary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 18px;
+    background: var(--bg-warm);
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    min-width: 2px;
+    position: relative;
+  }
+
+  .bar-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    width: 90px;
+    padding-left: 8px;
+    flex-shrink: 0;
+  }
+
+  .bar-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    width: 50px;
+    text-align: right;
+    padding-right: 6px;
+    flex-shrink: 0;
+  }
+
+  /* Ad Example */
+  .ad-example {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .ad-example-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ad-text {
+    color: var(--text-primary);
+    font-style: italic;
+  }
+
+  /* Insight Box */
+  .insight-box {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .insight-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+  }
+
+  .insight-box p {
+    font-size: 13.5px;
+    color: var(--blue-deep);
+    margin-bottom: 0;
+  }
+
+  /* Region Table */
+  .region-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  .region-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+    font-weight: 500;
+  }
+
+  .region-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-body);
+  }
+
+  .region-table tr:last-child td { border-bottom: none; }
+  .region-table td:nth-child(2), .region-table th:nth-child(2),
+  .region-table td:nth-child(3), .region-table th:nth-child(3) {
+    text-align: right;
+  }
+
+  /* Methodology */
+  .methodology {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-top: 48px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .methodology h3 {
+    font-size: 16px;
+    margin-top: 0;
+    color: var(--text-body);
+  }
+
+  .methodology ul {
+    margin: 10px 0 10px 20px;
+  }
+
+  .methodology li {
+    margin-bottom: 4px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+
+  .footer a { color: var(--text-secondary); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container { padding: 28px 18px 60px; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .top-stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-value { font-size: 26px; }
+    .org-profile-grid { grid-template-columns: 1fr; }
+    .campaign-metrics { grid-template-columns: 1fr; }
+    .campaign-header { flex-direction: column; }
+    h2 { font-size: 22px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .container { padding: 20px; max-width: none; }
+    .key-finding { background: #1a2332 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Advertiser Intelligence Brief</div>
+  <h1>American Clean Power Association
+    <span>Meta Political &amp; Issue Ad Activity Analysis</span>
+  </h1>
+  <div class="header-meta">
+    <span>Page ID: 9423488774</span>
+    <span class="sep">|</span>
+    <span>February 2024 &ndash; December 2025</span>
+    <span class="sep">|</span>
+    <span>Data retrieved: February 6, 2026</span>
+  </div>
+</div>
+
+<!-- TOP STATS -->
+<div class="top-stats">
+  <div class="stat-card">
+    <div class="stat-label">Total Ads</div>
+    <div class="stat-value">164</div>
+    <div class="stat-sub">classified as political/issue</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Est. Total Spend</div>
+    <div class="stat-value">$80K&ndash;$115K</div>
+    <div class="stat-sub">across all campaigns</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Active Period</div>
+    <div class="stat-value">~22 Months</div>
+    <div class="stat-sub">Feb 2024 &ndash; Dec 2025</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Campaigns</div>
+    <div class="stat-value">6</div>
+    <div class="stat-sub">distinct messaging phases</div>
+  </div>
+</div>
+
+<!-- KEY FINDING -->
+<div class="key-finding">
+  <div class="key-finding-label">Strategic Takeaway</div>
+  <p>The American Clean Power Association (ACP), the nation&rsquo;s largest clean energy trade association, ran 164 political and issue ads on Meta platforms from February 2024 through December 2025, spending an estimated $80K&ndash;$115K. ACP&rsquo;s advertising strategy evolved through six distinct phases&mdash;from defending green hydrogen tax rules to mobilizing a grassroots &ldquo;PowerVotes&rdquo; movement&mdash;revealing how the industry&rsquo;s premier lobby adapted its messaging as clean energy policy shifted from the IRA implementation era into an existential defense of tax credits under the incoming Trump administration and the One Big Beautiful Bill.</p>
+</div>
+
+<!-- ORGANIZATION PROFILE -->
+<div class="section-title">Organization Profile</div>
+<h2>Who Is the American Clean Power Association?</h2>
+
+<div class="org-profile">
+  <p style="font-size: 15px; color: var(--text-primary); margin-bottom: 16px; font-weight: 500;">
+    ACP is the unified national trade association for the clean energy industry, representing over 800 companies across wind, solar, energy storage, clean hydrogen, and transmission.
+  </p>
+  <div class="org-profile-grid">
+    <div>
+      <div class="org-detail-label">Founded</div>
+      <div class="org-detail-value">2021, through the merger of the American Wind Energy Association (AWEA), the Energy Storage Association (ESA), and the U.S. Solar Energy Industries Association&rsquo;s utility-scale division.</div>
+    </div>
+    <div>
+      <div class="org-detail-label">Tax Status</div>
+      <div class="org-detail-value">501(c)(6) business league / trade association. Also operates a CleanPower PAC (FEC ID: C00259572).</div>
+    </div>
+    <div>
+      <div class="org-detail-label">CEO</div>
+      <div class="org-detail-value">Jason Grumet (since January 2023). Former founder and 15-year president of the Bipartisan Policy Center. Known for cross-aisle relationship-building.</div>
+    </div>
+    <div>
+      <div class="org-detail-label">Revenue</div>
+      <div class="org-detail-value">~$35 million annually. Funded by member dues from developers, manufacturers, utilities, financial institutions, and technology providers.</div>
+    </div>
+    <div>
+      <div class="org-detail-label">Key Members</div>
+      <div class="org-detail-value">AES Clean Energy, Avangrid Renewables, BHE Renewables, Clearway Energy, Dominion Energy, EDF Renewables, Southern Power, Amazon Web Services, American Electric Power.</div>
+    </div>
+    <div>
+      <div class="org-detail-label">Lobbying</div>
+      <div class="org-detail-value">$2.01 million spent on federal lobbying in 2024 (<a href="https://www.opensecrets.org/federal-lobbying/clients/summary?id=D000024034" target="_blank">OpenSecrets</a>). Focus areas include IRA implementation, permitting reform, and grid infrastructure.</div>
+    </div>
+  </div>
+</div>
+
+<div class="context-box">
+  <h4>Policy Context: A Pivotal Two Years</h4>
+  <p>ACP&rsquo;s advertising in this period maps directly onto the clean energy industry&rsquo;s most consequential policy window since the IRA&rsquo;s passage in August 2022. The two years covered by this report span:</p>
+  <p><strong>Early 2024:</strong> Treasury rulemakings on 45V clean hydrogen tax credits that would determine whether the green hydrogen industry could scale. <strong>Fall 2024:</strong> The presidential election, with IRA tax credits on the ballot by proxy. <strong>January 2025:</strong> Trump&rsquo;s return to office and executive orders pausing IRA disbursements. <strong>Mid-2025:</strong> Congressional debate on the &ldquo;One Big Beautiful Bill,&rdquo; which ultimately sunsets many IRA clean energy tax credits by December 2025. <strong>Late 2025:</strong> ACP pivots to grassroots mobilization via PowerVotes as the legislative threat materializes.</p>
+</div>
+
+<!-- AD SPENDING TIMELINE -->
+<div class="section-title">Spending Timeline</div>
+<h2>Monthly Ad Activity: February 2024 &ndash; December 2025</h2>
+<p>ACP&rsquo;s spending is episodic and campaign-driven, with pronounced spikes correlating to policy deadlines and legislative moments. The organization was dormant on Meta for months at a time, then activated bursts of highly targeted advertising.</p>
+
+<div class="timeline-chart">
+  <h3>Monthly Spend (Upper Bound) &amp; Ad Volume</h3>
+  <div class="bar-row"><div class="bar-label">Feb '24</div><div class="bar-count">9 ads</div><div class="bar-track"><div class="bar-fill" style="width:13.8%; background: var(--green);"></div></div><div class="bar-value">$4,891</div></div>
+  <div class="bar-row"><div class="bar-label">Mar '24</div><div class="bar-count">3 ads</div><div class="bar-track"><div class="bar-fill" style="width:8.1%; background: var(--green);"></div></div><div class="bar-value">$2,897</div></div>
+  <div class="bar-row"><div class="bar-label">Apr–Jul '24</div><div class="bar-count">&mdash;</div><div class="bar-track"><div class="bar-fill" style="width:0%; background: var(--slate);"></div></div><div class="bar-value">$0</div></div>
+  <div class="bar-row"><div class="bar-label">Aug '24</div><div class="bar-count">8 ads</div><div class="bar-track"><div class="bar-fill" style="width:2.5%; background: var(--slate);"></div></div><div class="bar-value">$892</div></div>
+  <div class="bar-row"><div class="bar-label">Sep '24</div><div class="bar-count">34 ads</div><div class="bar-track"><div class="bar-fill" style="width:50.3%; background: var(--blue);"></div></div><div class="bar-value">$17,866</div></div>
+  <div class="bar-row"><div class="bar-label">Oct '24</div><div class="bar-count">43 ads</div><div class="bar-track"><div class="bar-fill" style="width:12.3%; background: var(--purple);"></div></div><div class="bar-value">$4,357</div></div>
+  <div class="bar-row"><div class="bar-label">Nov '24</div><div class="bar-count">&mdash;</div><div class="bar-track"><div class="bar-fill" style="width:0%; background: var(--slate);"></div></div><div class="bar-value">$0</div></div>
+  <div class="bar-row"><div class="bar-label">Dec '24</div><div class="bar-count">1 ad</div><div class="bar-track"><div class="bar-fill" style="width:1.7%; background: var(--teal);"></div></div><div class="bar-value">$599</div></div>
+  <div class="bar-row"><div class="bar-label">Jan '25</div><div class="bar-count">23 ads</div><div class="bar-track"><div class="bar-fill" style="width:100%; background: var(--navy);"></div></div><div class="bar-value">$35,477</div></div>
+  <div class="bar-row"><div class="bar-label">Feb–Mar '25</div><div class="bar-count">&mdash;</div><div class="bar-track"><div class="bar-fill" style="width:0%; background: var(--slate);"></div></div><div class="bar-value">$0</div></div>
+  <div class="bar-row"><div class="bar-label">Apr '25</div><div class="bar-count">4 ads</div><div class="bar-track"><div class="bar-fill" style="width:13.2%; background: var(--orange);"></div></div><div class="bar-value">$4,696</div></div>
+  <div class="bar-row"><div class="bar-label">May '25</div><div class="bar-count">11 ads</div><div class="bar-track"><div class="bar-fill" style="width:3.9%; background: var(--amber);"></div></div><div class="bar-value">$1,389</div></div>
+  <div class="bar-row"><div class="bar-label">Jun '25</div><div class="bar-count">7 ads</div><div class="bar-track"><div class="bar-fill" style="width:14.6%; background: var(--cyan);"></div></div><div class="bar-value">$5,193</div></div>
+  <div class="bar-row"><div class="bar-label">Jul '25</div><div class="bar-count">12 ads</div><div class="bar-track"><div class="bar-fill" style="width:5.6%; background: var(--orange);"></div></div><div class="bar-value">$1,988</div></div>
+  <div class="bar-row"><div class="bar-label">Aug–Oct '25</div><div class="bar-count">&mdash;</div><div class="bar-track"><div class="bar-fill" style="width:0%; background: var(--slate);"></div></div><div class="bar-value">$0</div></div>
+  <div class="bar-row"><div class="bar-label">Nov '25</div><div class="bar-count">6 ads</div><div class="bar-track"><div class="bar-fill" style="width:41.1%; background: var(--red);"></div></div><div class="bar-value">$14,594</div></div>
+  <div class="bar-row"><div class="bar-label">Dec '25</div><div class="bar-count">3 ads</div><div class="bar-track"><div class="bar-fill" style="width:56.6%; background: var(--red);"></div></div><div class="bar-value">$20,097</div></div>
+</div>
+
+<div class="insight-box">
+  <h4>Spending Pattern Analysis</h4>
+  <p>Two spending peaks dominate: <strong>January 2025 ($35K)</strong> coinciding with the Trump inauguration and offshore wind / battery storage defense campaigns, and <strong>November&ndash;December 2025 ($35K combined)</strong> when the PowerVotes grassroots mobilization launched as the One Big Beautiful Bill threatened IRA tax credits. The September 2024 Iowa kids campaign ($18K) represents an emotional storytelling approach unique to ACP&rsquo;s otherwise policy-focused advertising.</p>
+</div>
+
+<!-- CAMPAIGN ANALYSIS -->
+<div class="section-title">Campaign-by-Campaign Analysis</div>
+<h2>Six Distinct Advertising Phases</h2>
+<p>ACP&rsquo;s 164 ads break into six clearly defined campaigns, each tied to a specific policy moment and employing distinct messaging strategies.</p>
+
+<!-- PHASE 1: GREEN HYDROGEN -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-phase hydrogen">Phase 1 &bull; Policy Advocacy</span>
+      <h3 style="margin-top: 12px;">Green Hydrogen 45V Tax Credit Defense</h3>
+    </div>
+    <div class="campaign-dates">Feb &ndash; Apr 2024</div>
+  </div>
+  <p>ACP&rsquo;s first 2024 campaign targeted the Treasury Department&rsquo;s proposed rules for the Section 45V clean hydrogen production tax credit. Treasury&rsquo;s &ldquo;time-matching&rdquo; requirements&mdash;which would require hydrogen producers to match their electricity consumption with clean energy generation on an hourly basis&mdash;threatened to make green hydrogen economically unviable. ACP argued the proposal would cut deployment by 53%.</p>
+  <p>The ads were geographically concentrated in <strong>California, Illinois, Minnesota, Washington, and the D.C. metro</strong>&mdash;a pattern consistent with targeting policymakers and clean energy workforce hubs rather than the general public.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;Treasury decisions on time-matching requirements will determine whether a U.S. green hydrogen industry moves forward in the next decade. Treasury&rsquo;s current proposal decreases green hydrogen deployment by 53 percent.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Spend: $1,000&ndash;$1,499 &bull; Impressions: 300K&ndash;350K</span>
+      <a href="https://www.facebook.com/ads/library/?id=375151192139202" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Ads</div>
+      <div class="campaign-metric-value">12</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Est. Spend</div>
+      <div class="campaign-metric-value">$5.8K&ndash;$7.8K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Objective</div>
+      <div class="campaign-metric-value" style="font-size: 14px;">Regulatory Influence</div>
+    </div>
+  </div>
+</div>
+
+<div class="context-box">
+  <h4>Policy Outcome</h4>
+  <p>Treasury released final 45V rules in January 2025 with significant flexibility concessions, allowing annual (rather than hourly) emissions accounting&mdash;a partial win for ACP&rsquo;s position. The final rules were more favorable to industry than the initial proposal ACP had lobbied against. (<a href="https://home.treasury.gov/news/press-releases/jy2768" target="_blank">Treasury press release</a>)</p>
+</div>
+
+<!-- PHASE 2: IOWA KIDS -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-phase iowa">Phase 2 &bull; Awareness / Storytelling</span>
+      <h3 style="margin-top: 12px;">Iowa &ldquo;Kids Love Clean Energy&rdquo; Campaign</h3>
+    </div>
+    <div class="campaign-dates">Sep &ndash; Oct 2024</div>
+  </div>
+  <p>ACP&rsquo;s single largest ad burst by volume: <strong>34 ads in September alone</strong>, nearly all promoting the same two video creatives featuring Iowa children talking about clean energy. Iowa, which generates more electricity from wind than any other state by percentage, served as the campaign&rsquo;s proof point. The timing&mdash;six weeks before the 2024 presidential election&mdash;positioned clean energy as a bipartisan, family-friendly issue.</p>
+  <p>The ads were geo-targeted to <strong>Georgia</strong> and other swing/Southern states, not Iowa itself. This is a persuasion campaign aimed at audiences in states where clean energy may be perceived as politically contentious.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;The kids of Iowa have an important message! Clean energy is good energy, and it&rsquo;s powering more than 4 million homes in their state. Hear from them in their own words.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Spend: $400&ndash;$699 per ad &bull; 34 ad variants</span>
+      <a href="https://www.facebook.com/ads/library/?id=1041137690609550" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Ads</div>
+      <div class="campaign-metric-value">34</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Est. Spend</div>
+      <div class="campaign-metric-value">$14.5K&ndash;$17.9K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Objective</div>
+      <div class="campaign-metric-value" style="font-size: 14px;">Voter Persuasion</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE 3: TAX CREDITS + STATE ECONOMIES -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-phase taxcredits">Phase 3 &bull; Economic Messaging</span>
+      <h3 style="margin-top: 12px;">Energy Tax Credits &amp; State Economic Impact</h3>
+    </div>
+    <div class="campaign-dates">Oct 2024</div>
+  </div>
+  <p>Immediately following the Iowa campaign, ACP launched a state-by-state economic impact blitz with <strong>43 ads across 15+ states</strong>. Each ad was customized with state-specific statistics: jobs created, billions added to local economies, and power capacity delivered. This was the most geographically distributed campaign ACP ran&mdash;reaching states from Texas to North Carolina to Illinois to Iowa.</p>
+  <p>The messaging framed energy tax credits as economic drivers, not environmental policy. This is strategic: by grounding the argument in jobs and investment, ACP made the case for preserving IRA credits in language that appeals across partisan lines.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;Clean energy is estimated to create 720,000 good paying jobs in our state. Energy tax credits are making this possible.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Spend: $0&ndash;$199 per ad &bull; 43 state-specific variants</span>
+      <a href="https://www.facebook.com/ads/library/?id=520973387395024" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;Thanks to energy tax credits, clean energy investment is estimated to add $107 billion to the state&rsquo;s economy in the next decade.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Texas-targeted variant</span>
+      <a href="https://www.facebook.com/ads/library/?id=514816551526502" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Ads</div>
+      <div class="campaign-metric-value">43</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Est. Spend</div>
+      <div class="campaign-metric-value">$100&ndash;$4.4K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Objective</div>
+      <div class="campaign-metric-value" style="font-size: 14px;">IRA Credit Defense</div>
+    </div>
+  </div>
+</div>
+
+<div class="warning-box">
+  <h4>Pre-Election Timing</h4>
+  <p>Phases 2 and 3 together represent ACP&rsquo;s most intensive advertising period: 77 ads between September and October 2024, timed to saturate audiences before the November election. This was not candidate advertising, but it was clearly designed to build public support for clean energy policies that both candidates&rsquo; platforms would impact. The industry was hedging&mdash;building a constituency that would pressure whichever administration took office to preserve tax credits.</p>
+</div>
+
+<!-- PHASE 4: OFFSHORE WIND + BATTERY STORAGE -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-phase offshore">Phase 4 &bull; Sector Defense</span>
+      <h3 style="margin-top: 12px;">Offshore Wind &amp; Battery Storage Campaigns</h3>
+    </div>
+    <div class="campaign-dates">Dec 2024 &ndash; Feb 2025</div>
+  </div>
+  <p>ACP&rsquo;s highest single-month spend ($35K in January 2025) came just days after Trump took office. The campaign split into two tracks:</p>
+  <p><strong>Offshore wind on the Gulf Coast:</strong> Two ads alone spent $10K&ndash;$15K each, exclusively geo-targeted to <strong>Washington, D.C.</strong>, promoting the economic benefits of offshore wind for Louisiana and the Gulf. This is textbook grasstops lobbying&mdash;placing ads in the feeds of policymakers, Hill staffers, and federal agency employees while the new administration was forming its energy agenda. The messaging leaned into economic framing: &ldquo;new opportunities for a longtime energy hub.&rdquo;</p>
+  <p><strong>Battery storage in California:</strong> Concurrent ads highlighted BESS jobs (53,000+ Californians), grid reliability during heat waves, and $100 billion in investment commitments. These ran statewide in California, supporting ACP-California&rsquo;s legislative agenda.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;America&rsquo;s offshore wind industry is creating new opportunities for a longtime energy hub on the Gulf Coast.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Spend: $10,000&ndash;$14,999 &bull; D.C. only &bull; Audience: 50K&ndash;100K</span>
+      <a href="https://www.facebook.com/ads/library/?id=2552484421622897" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;The battery storage industry is committed to investing $100 billion in American-made grid batteries. CA is leading the way.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Spend: $500&ndash;$599 &bull; Impressions: 200K&ndash;250K</span>
+      <a href="https://www.facebook.com/ads/library/?id=1006629545008753" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Ads</div>
+      <div class="campaign-metric-value">24</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Est. Spend</div>
+      <div class="campaign-metric-value">$23.9K&ndash;$36.1K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Objective</div>
+      <div class="campaign-metric-value" style="font-size: 14px;">Policymaker Targeting</div>
+    </div>
+  </div>
+</div>
+
+<div class="insight-box">
+  <h4>D.C. Geofencing as Lobbying</h4>
+  <p>The offshore wind ads&rsquo; 100% delivery to Washington, D.C. is the clearest signal of ACP&rsquo;s advertising intent. At $10K&ndash;$15K per ad targeting only the D.C. metro, these are not mass awareness buys&mdash;they are digital lobbying, placing pro-industry messaging into the social media feeds of executive branch officials, congressional staff, and agency decision-makers during the first weeks of the new administration. This pattern is common among trade associations but rarely this precisely documented.</p>
+</div>
+
+<!-- PHASE 5: MANUFACTURING BOOM + ENERGY DEMAND -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-phase manufacturing">Phase 5 &bull; Economic Narrative</span>
+      <h3 style="margin-top: 12px;">Manufacturing Boom &amp; Surging Energy Demand</h3>
+    </div>
+    <div class="campaign-dates">Apr &ndash; Aug 2025</div>
+  </div>
+  <p>As the One Big Beautiful Bill moved through Congress and threatened IRA tax credits, ACP shifted to economic nationalism messaging. Two parallel narratives ran simultaneously:</p>
+  <p><strong>&ldquo;Manufacturing boom&rdquo;</strong> ads emphasized that clean energy was driving U.S. industrial growth, creating &ldquo;good-paying jobs,&rdquo; and building &ldquo;a stronger, more reliable energy future.&rdquo; The framing deliberately mirrors the economic messaging used to pass the IRA originally.</p>
+  <p><strong>&ldquo;Energy demand is surging&rdquo;</strong> ads were state-specific (Oklahoma, Iowa, Louisiana, West Virginia, North Carolina) and argued that rising energy demand requires &ldquo;all energy sources&rdquo;&mdash;an &ldquo;all-of-the-above&rdquo; framing designed to appeal to fossil fuel state legislators who might otherwise oppose clean energy provisions.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;From solar and wind to storage and steel &mdash; clean power is energizing a U.S. manufacturing boom, creating good-paying jobs and building a stronger, more reliable energy future.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Spend: $3,500&ndash;$3,999 &bull; Impressions: 45K&ndash;50K</span>
+      <a href="https://www.facebook.com/ads/library/?id=997928322508077" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;U.S. energy demand is surging. To meet it, Oklahoma must embrace all energy sources.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Spend: $100&ndash;$199 &bull; Oklahoma-targeted</span>
+      <a href="https://www.facebook.com/ads/library/?id=1481083419552334" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Ads</div>
+      <div class="campaign-metric-value">34</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Est. Spend</div>
+      <div class="campaign-metric-value">$8.7K&ndash;$13.3K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Objective</div>
+      <div class="campaign-metric-value" style="font-size: 14px;">Legislative Persuasion</div>
+    </div>
+  </div>
+</div>
+
+<div class="context-box">
+  <h4>&ldquo;All-of-the-Above&rdquo; Framing</h4>
+  <p>The choice to run &ldquo;surging demand&rdquo; ads in Oklahoma, West Virginia, Louisiana, Iowa, and North Carolina&mdash;all states with significant fossil fuel industries and Republican representation&mdash;reflects a deliberate cross-aisle strategy. By framing clean energy as complementary to existing energy production rather than a replacement for it, ACP was lobbying Republican senators and House members from energy states who would vote on the reconciliation bill. The message wasn&rsquo;t &ldquo;replace fossil fuels&rdquo;&mdash;it was &ldquo;we need everything.&rdquo;</p>
+</div>
+
+<!-- PHASE 6: POWERVOTES -->
+<div class="campaign-card">
+  <div class="campaign-header">
+    <div>
+      <span class="campaign-phase powervotes">Phase 6 &bull; Grassroots Mobilization</span>
+      <h3 style="margin-top: 12px;">PowerVotes Movement Launch</h3>
+    </div>
+    <div class="campaign-dates">Nov &ndash; Dec 2025</div>
+  </div>
+  <p>ACP&rsquo;s final and most expensive phase pivoted sharply from policy messaging to grassroots mobilization. The &ldquo;PowerVotes&rdquo; campaign launched as the One Big Beautiful Bill moved toward final passage, with clean energy tax credits facing elimination by year&rsquo;s end. The ads called on supporters to &ldquo;join the PowerVotes Movement&rdquo;&mdash;directing users to <a href="https://www.powervotes.com/" target="_blank">powervotes.com</a>, a platform for activating employees, supply chain workers, veterans, landowners, and other clean energy advocates.</p>
+  <p>This represented a strategic escalation: from talking <em>to</em> policymakers (D.C. geofencing) to activating a <em>constituency</em> that would pressure policymakers from their home districts. The spend was heavily concentrated, with single ads reaching $10K&ndash;$15K and total two-month spend of ~$35K.</p>
+
+  <div class="ad-example">
+    <div class="ad-text">&ldquo;America can lead the world in clean energy - but only if we work together. Join the PowerVotes Movement.&rdquo;</div>
+    <div class="ad-example-meta">
+      <span>Spend: $10,000&ndash;$14,999 &bull; Impressions: 100K&ndash;125K &bull; National</span>
+      <a href="https://www.facebook.com/ads/library/?id=4269478523315243" target="_blank">View Ad &rarr;</a>
+    </div>
+  </div>
+
+  <div class="campaign-metrics">
+    <div>
+      <div class="campaign-metric-label">Ads</div>
+      <div class="campaign-metric-value">9</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Est. Spend</div>
+      <div class="campaign-metric-value">$27.2K&ndash;$34.7K</div>
+    </div>
+    <div>
+      <div class="campaign-metric-label">Objective</div>
+      <div class="campaign-metric-value" style="font-size: 14px;">Action / Mobilization</div>
+    </div>
+  </div>
+</div>
+
+<div class="insight-box">
+  <h4>Demographic Shift in PowerVotes</h4>
+  <p>The PowerVotes ads skewed dramatically toward <strong>65+ audiences</strong> (61% of reach for the November ad, 82% for the December ad)&mdash;far exceeding ACP&rsquo;s earlier campaigns which reached younger, more balanced demographics. This could reflect Meta&rsquo;s algorithmic optimization toward users most likely to engage with political content, or it may indicate that the &ldquo;join the movement&rdquo; call-to-action resonated most with older voters. Either way, ACP&rsquo;s grassroots push is reaching retirees more than the workforce it claims to represent.</p>
+</div>
+
+<!-- GEOGRAPHIC ANALYSIS -->
+<div class="section-title">Geographic Targeting</div>
+<h2>State-Level Delivery Patterns</h2>
+<p>ACP&rsquo;s geographic targeting varies dramatically by campaign phase, revealing strategic intent:</p>
+
+<div class="timeline-chart">
+  <h3>Campaign-by-Campaign Geographic Focus</h3>
+  <table class="region-table">
+    <thead>
+      <tr>
+        <th>Campaign Phase</th>
+        <th style="text-align: left;">Primary Targets</th>
+        <th>Strategy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Green Hydrogen</strong> (Feb&ndash;Apr &rsquo;24)</td>
+        <td style="text-align: left;">CA, IL, MN, WA, D.C.</td>
+        <td>Clean energy industry hubs + policymakers</td>
+      </tr>
+      <tr>
+        <td><strong>Iowa Kids</strong> (Sep &rsquo;24)</td>
+        <td style="text-align: left;">GA and other swing states</td>
+        <td>Pre-election persuasion in contested states</td>
+      </tr>
+      <tr>
+        <td><strong>Tax Credits</strong> (Oct &rsquo;24)</td>
+        <td style="text-align: left;">15+ states (TX, NC, IL, IA, OH, etc.)</td>
+        <td>Broad state-specific economic messaging</td>
+      </tr>
+      <tr>
+        <td><strong>Offshore Wind</strong> (Jan &rsquo;25)</td>
+        <td style="text-align: left;">Washington, D.C. (100%)</td>
+        <td>Direct policymaker targeting</td>
+      </tr>
+      <tr>
+        <td><strong>Battery Storage</strong> (Jan&ndash;Jun &rsquo;25)</td>
+        <td style="text-align: left;">California</td>
+        <td>State legislative support</td>
+      </tr>
+      <tr>
+        <td><strong>Energy Demand</strong> (May&ndash;Jul &rsquo;25)</td>
+        <td style="text-align: left;">OK, IA, LA, WV, NC</td>
+        <td>Republican energy-state legislators</td>
+      </tr>
+      <tr>
+        <td><strong>PowerVotes</strong> (Nov&ndash;Dec &rsquo;25)</td>
+        <td style="text-align: left;">National (CA, FL, TX, NY lead)</td>
+        <td>Mass grassroots mobilization</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="insight-box">
+  <h4>A Textbook Inside-Outside Strategy</h4>
+  <p>ACP&rsquo;s geographic evolution over two years maps a classic advocacy playbook: start with targeted regulatory influence (D.C., industry hubs), layer in public awareness (swing states before an election), shift to economic persuasion (energy-producing states with wavering legislators), and culminate in broad grassroots mobilization when legislative action becomes imminent. Each phase built on the last, expanding the audience while refining the message for each constituency.</p>
+</div>
+
+<!-- MESSAGING THEMES -->
+<div class="section-title">Messaging Analysis</div>
+<h2>Dominant Narrative Frames</h2>
+
+<div class="timeline-chart">
+  <h3>Top Messaging Themes by Word Frequency</h3>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">energy</div><div class="bar-track"><div class="bar-fill" style="width:100%; background: var(--navy);"></div></div><div class="bar-value">78 mentions</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">clean</div><div class="bar-track"><div class="bar-fill" style="width:26.9%; background: var(--green);"></div></div><div class="bar-value">21</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">demand</div><div class="bar-track"><div class="bar-fill" style="width:21.8%; background: var(--amber);"></div></div><div class="bar-value">17</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">storage</div><div class="bar-track"><div class="bar-fill" style="width:21.8%; background: var(--cyan);"></div></div><div class="bar-value">17</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">creating</div><div class="bar-track"><div class="bar-fill" style="width:20.5%; background: var(--teal);"></div></div><div class="bar-value">16</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">battery</div><div class="bar-track"><div class="bar-fill" style="width:19.2%; background: var(--cyan);"></div></div><div class="bar-value">15</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">manufacturing</div><div class="bar-track"><div class="bar-fill" style="width:16.7%; background: var(--orange);"></div></div><div class="bar-value">13</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">jobs</div><div class="bar-track"><div class="bar-fill" style="width:15.4%; background: var(--blue);"></div></div><div class="bar-value">12</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">reliable</div><div class="bar-track"><div class="bar-fill" style="width:15.4%; background: var(--slate);"></div></div><div class="bar-value">12</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">America</div><div class="bar-track"><div class="bar-fill" style="width:11.5%; background: var(--red);"></div></div><div class="bar-value">9</div></div>
+  <div class="bar-row"><div class="bar-label" style="width:120px;">PowerVotes</div><div class="bar-track"><div class="bar-fill" style="width:11.5%; background: var(--red);"></div></div><div class="bar-value">9</div></div>
+</div>
+
+<p>Three narrative strategies dominate ACP&rsquo;s messaging:</p>
+
+<h3>1. Economic Nationalism</h3>
+<p>The most persistent theme across all campaigns. Words like &ldquo;manufacturing,&rdquo; &ldquo;jobs,&rdquo; &ldquo;boom,&rdquo; &ldquo;American-made,&rdquo; and &ldquo;domestic&rdquo; appear consistently. ACP frames clean energy not as environmental policy but as industrial policy&mdash;a job creator, a manufacturing driver, and a pathway to energy security. This framing is intentionally bipartisan and mirrors the language used to pass the IRA with Republican support from manufacturing districts.</p>
+
+<h3>2. Grid Reliability &amp; Energy Security</h3>
+<p>&ldquo;Reliable,&rdquo; &ldquo;demand,&rdquo; &ldquo;surging,&rdquo; and &ldquo;stronger&rdquo; signal ACP&rsquo;s effort to counter the narrative that renewables are intermittent and unreliable. The &ldquo;all energy sources&rdquo; framing in the demand-surging ads positions clean energy as complementary to the existing grid, not disruptive to it. Battery storage is explicitly positioned as the reliability solution.</p>
+
+<h3>3. Collective Action</h3>
+<p>The PowerVotes campaign introduces urgency and community language: &ldquo;work together,&rdquo; &ldquo;join,&rdquo; &ldquo;movement.&rdquo; This represents a tonal shift from ACP&rsquo;s earlier informational and economic messaging toward emotional mobilization&mdash;a signal that the organization perceives the political threat as severe enough to warrant activating its base.</p>
+
+<div class="warning-box">
+  <h4>What ACP Doesn&rsquo;t Say</h4>
+  <p>Notable absences in ACP&rsquo;s messaging: the words &ldquo;climate,&rdquo; &ldquo;emissions,&rdquo; &ldquo;carbon,&rdquo; and &ldquo;environment&rdquo; appear in virtually <strong>zero</strong> ads. This is a deliberate choice. ACP has completely decoupled its public-facing advertising from climate science framing, instead positioning clean energy purely in economic, security, and patriotic terms. The trade association representing the industry most directly affected by climate policy has calculated that climate language is a political liability in its Meta advertising.</p>
+</div>
+
+<!-- COMPLIANCE NOTES -->
+<div class="section-title">Compliance Notes</div>
+<h2>Ad Transparency Observations</h2>
+
+<p>Several ACP ads were flagged by Meta with the notice: <strong>&ldquo;This ad ran without a required disclaimer.&rdquo;</strong> At least 8 ads across August 2024, September 2024, April 2025, and July 2025 carried this flag. Meta requires political and issue ads to include &ldquo;paid for by&rdquo; disclaimers. While the flagged ads appear to have low spend ($0&ndash;$199), the recurring pattern suggests either a workflow issue in ACP&rsquo;s ad operations or ads that were initially posted as non-political content and subsequently classified as issue advertising by Meta&rsquo;s enforcement system.</p>
+<p>One ad from January 2025 was removed entirely: &ldquo;This content was removed because it didn&rsquo;t follow our Advertising Standards.&rdquo; (<a href="https://www.facebook.com/ads/library/?id=1297379134843908" target="_blank">View record</a>)</p>
+
+<!-- STRATEGIC ASSESSMENT -->
+<div class="section-title">Strategic Assessment</div>
+<h2>What This Spending Pattern Reveals</h2>
+
+<p>ACP&rsquo;s $80K&ndash;$115K in Meta advertising is modest by Washington trade association standards&mdash;particularly for an organization with $35 million in annual revenue and $2 million in lobbying spend. Meta is clearly not ACP&rsquo;s primary advertising channel. But the platform&rsquo;s value to ACP lies in its targeting precision: the ability to place specific messages in front of specific audiences at specific policy moments.</p>
+
+<p>Several strategic patterns emerge:</p>
+
+<p><strong>Meta as a surgical tool, not a mass medium.</strong> ACP uses Facebook and Instagram for targeted influence operations&mdash;D.C. geofencing for policymakers, state-specific ads for legislators, swing-state persuasion before elections. This is a sophisticated, if small-budget, digital advocacy operation.</p>
+
+<p><strong>The absence of climate framing is a strategic calculation.</strong> For the industry&rsquo;s largest trade association to avoid climate language entirely in its paid advertising reflects a judgment about political reality: that clean energy&rsquo;s best argument is economic, not environmental. This may limit ACP&rsquo;s appeal to its environmental base but expands its reach to the center-right lawmakers whose votes matter most for tax credit survival.</p>
+
+<p><strong>The PowerVotes pivot signals escalation.</strong> The shift from inside-game targeting (D.C., state capitals) to outside-game grassroots mobilization (national PowerVotes campaign) in late 2025 suggests ACP concluded that lobbying alone would not protect IRA tax credits. The willingness to spend $35K in two months on movement-building&mdash;more than any prior period&mdash;indicates the organization views the policy threat as existential for its members.</p>
+
+<p><strong>ACP went dark after December 2025.</strong> No ads have run since late December. This could reflect a strategic pause after the One Big Beautiful Bill&rsquo;s passage, budget reallocation to other channels, or a reassessment of Meta&rsquo;s utility as a platform. The silence itself is data.</p>
+
+<!-- METHODOLOGY -->
+<div class="methodology">
+  <h3>Methodology &amp; Data Limitations</h3>
+  <p>This report analyzes political and issue advertising by the American Clean Power Association (Page ID: 9423488774) on Meta platforms (Facebook and Instagram) from February 6, 2024 through February 6, 2026.</p>
+  <ul>
+    <li><strong>Data source:</strong> Meta Ad Library API, accessed via the Meta Ad Library MCP server on February 6, 2026.</li>
+    <li><strong>Spend figures:</strong> Meta reports spend in ranges (e.g., $100&ndash;$199), not exact amounts. Upper-bound estimates are used in timeline charts; ranges are shown in campaign analyses.</li>
+    <li><strong>Impression figures:</strong> Similarly reported in ranges by Meta.</li>
+    <li><strong>Demographics:</strong> Meta&rsquo;s demographic data reflects who <em>saw</em> the ads (delivery), not who was <em>targeted</em>. Demographic skews may reflect algorithmic optimization, not advertiser intent.</li>
+    <li><strong>Geographic delivery:</strong> Based on Meta&rsquo;s delivery_by_region data. Percentages reflect relative reach within each ad, not absolute audience size.</li>
+    <li><strong>Keyword search:</strong> Ads were retrieved via page-level queries, not keyword searches. The 164 ad count represents all political/issue ads from this page in the specified period.</li>
+    <li><strong>Scope:</strong> This report covers only Meta platform advertising. ACP&rsquo;s broader advocacy spending&mdash;including lobbying ($2M+ annually), events, digital advertising on other platforms, and earned media&mdash;is not reflected here. Meta advertising represents a small fraction of ACP&rsquo;s total communications budget.</li>
+    <li><strong>Background research:</strong> Contextual information on ACP&rsquo;s organizational structure, policy positions, and the legislative environment was gathered from public sources including cleanpower.org, OpenSecrets.org, Treasury Department press releases, and news reporting.</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Data source: Meta Ad Library API &bull; Retrieved February 6, 2026</p>
+  <p style="margin-top: 8px;">Built by <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">The Canter Company</a></p>
+</div>
+
+</div>
+</body>
+</html>
