@@ -563,12 +563,108 @@
   .geo-heat.med { background: rgba(197, 48, 48, 0.08); color: var(--red); }
   .geo-heat.low { color: var(--text-secondary); }
 
+  /* Spend Comparison Donut */
+  .spend-compare {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 36px;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 28px 0 36px;
+  }
+
+  .donut-wrap {
+    position: relative;
+    width: 180px;
+    height: 180px;
+  }
+
+  .donut-wrap svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .donut-center-pct {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--red-deep);
+    line-height: 1;
+  }
+
+  .donut-center-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .spend-compare-detail h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .spend-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+  }
+
+  .spend-row-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .spend-row-label {
+    flex: 1;
+    color: var(--text-body);
+  }
+
+  .spend-row-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--navy);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .spend-row-pct {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    width: 48px;
+    text-align: right;
+    margin-left: 8px;
+  }
+
   @media (max-width: 768px) {
     .demo-chart-grid { grid-template-columns: 1fr; }
     .deep-dive-banner h2 { font-size: 24px; }
     .deep-dive-banner p { font-size: 16px; }
     .ad-inventory { font-size: 11px; }
     .ad-inventory td, .ad-inventory th { padding: 8px 6px; }
+    .spend-compare { grid-template-columns: 1fr; justify-items: center; }
   }
 
   /* Campaign Cards */
@@ -1211,6 +1307,80 @@
   <div class="deep-dive-label">Deep Dive &mdash; Phase 6</div>
   <h2>The PowerVotes Campaign</h2>
   <p>ACP&rsquo;s most expensive campaign represents a strategic inflection point: the moment an industry trade association pivoted from lobbying policymakers to mobilizing a grassroots constituency. Nine ads, $27K&ndash;$35K in spend, one message&mdash;and a revealing set of contradictions.</p>
+</div>
+
+<!-- POWERVOTES SPEND SHARE -->
+<div class="spend-compare">
+  <div class="donut-wrap">
+    <!-- Donut chart: 30% PowerVotes (red), 70% other campaigns (navy) -->
+    <!-- Circle circumference = 2 * PI * 60 = 376.99 -->
+    <svg viewBox="0 0 140 140">
+      <!-- Background ring (other campaigns) -->
+      <circle cx="70" cy="70" r="60" fill="none" stroke="#1a2332" stroke-width="20" stroke-opacity="0.15"/>
+      <!-- Other campaigns arc -->
+      <circle cx="70" cy="70" r="60" fill="none" stroke="var(--navy)" stroke-width="20"
+        stroke-dasharray="263.9 113.1" stroke-dashoffset="0" stroke-linecap="round"/>
+      <!-- PowerVotes arc -->
+      <circle cx="70" cy="70" r="60" fill="none" stroke="var(--red)" stroke-width="20"
+        stroke-dasharray="113.1 263.9" stroke-dashoffset="-263.9" stroke-linecap="round"/>
+    </svg>
+    <div class="donut-center">
+      <div class="donut-center-pct">30%</div>
+      <div class="donut-center-label">PowerVotes</div>
+    </div>
+  </div>
+  <div class="spend-compare-detail">
+    <h4>PowerVotes vs. All Other ACP Campaigns</h4>
+    <div class="spend-row">
+      <div class="spend-row-dot" style="background: var(--red);"></div>
+      <div class="spend-row-label"><strong>PowerVotes</strong> (Nov&ndash;Dec 2025)</div>
+      <div class="spend-row-value">$27.2K&ndash;$34.7K</div>
+      <div class="spend-row-pct">~30%</div>
+    </div>
+    <div class="spend-row">
+      <div class="spend-row-dot" style="background: var(--green);"></div>
+      <div class="spend-row-label">Green Hydrogen (Feb&ndash;Apr 2024)</div>
+      <div class="spend-row-value">$5.8K&ndash;$7.8K</div>
+      <div class="spend-row-pct">~7%</div>
+    </div>
+    <div class="spend-row">
+      <div class="spend-row-dot" style="background: var(--blue);"></div>
+      <div class="spend-row-label">Iowa Kids (Sep 2024)</div>
+      <div class="spend-row-value">$14.5K&ndash;$17.9K</div>
+      <div class="spend-row-pct">~16%</div>
+    </div>
+    <div class="spend-row">
+      <div class="spend-row-dot" style="background: var(--purple);"></div>
+      <div class="spend-row-label">State Tax Credits (Oct 2024)</div>
+      <div class="spend-row-value">$100&ndash;$4.4K</div>
+      <div class="spend-row-pct">~3%</div>
+    </div>
+    <div class="spend-row">
+      <div class="spend-row-dot" style="background: var(--teal);"></div>
+      <div class="spend-row-label">Offshore Wind + Battery (Dec &rsquo;24&ndash;Feb &rsquo;25)</div>
+      <div class="spend-row-value">$23.9K&ndash;$36.1K</div>
+      <div class="spend-row-pct">~31%</div>
+    </div>
+    <div class="spend-row">
+      <div class="spend-row-dot" style="background: var(--orange);"></div>
+      <div class="spend-row-label">Manufacturing + Demand (Apr&ndash;Aug 2025)</div>
+      <div class="spend-row-value">$8.7K&ndash;$13.3K</div>
+      <div class="spend-row-pct">~12%</div>
+    </div>
+    <div style="border-top: 2px solid var(--navy); margin-top: 12px; padding-top: 10px;">
+      <div class="spend-row" style="margin-bottom: 0;">
+        <div class="spend-row-dot" style="background: transparent; border: 2px solid var(--navy);"></div>
+        <div class="spend-row-label" style="font-weight: 600; color: var(--navy);">Total ACP Spend</div>
+        <div class="spend-row-value" style="font-weight: 700;">$80.3K&ndash;$114.9K</div>
+        <div class="spend-row-pct" style="font-weight: 600;">100%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="insight-box">
+  <h4>PowerVotes: Largest Single Campaign by Spend Velocity</h4>
+  <p>While the Offshore Wind + Battery Storage phase had comparable total spend (~31% vs. ~30%), it ran across three months with 24 ads. PowerVotes achieved nearly the same outlay in <strong>just four weeks with only 9 ads</strong>&mdash;making it the highest-velocity spend in ACP&rsquo;s entire two-year ad history. The average PowerVotes ad spent $3,000&ndash;$3,900 vs. $490&ndash;$670 for all other campaigns. ACP was writing bigger checks, faster, for this campaign than anything before it.</p>
 </div>
 
 <!-- POWERVOTES CONTEXT -->
