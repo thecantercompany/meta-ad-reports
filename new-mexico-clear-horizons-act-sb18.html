@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Mexico Clear Horizons Act (SB 18) — Ad Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue-deep: #1e3a5f;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber-deep: #92400e;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple-deep: #4c1d95;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --teal-deep: #115e59;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+    --orange-deep: #9a3412;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .header-meta .sep { color: var(--border); }
+
+  /* Top Stats */
+  .top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    padding: 24px 22px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    margin-top: 56px;
+  }
+
+  h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin-bottom: 10px;
+    margin-top: 28px;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 14px; }
+
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Key Finding Card */
+  .key-finding {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .key-finding-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+
+  .key-finding p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.93);
+    margin-bottom: 0;
+  }
+
+  /* Context Box */
+  .context-box {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .context-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+  }
+
+  .context-box p {
+    font-size: 13.5px;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+  }
+
+  .context-box p:last-child { margin-bottom: 0; }
+  .context-box a { color: var(--blue-deep); text-decoration: underline; }
+
+  /* Warning Box */
+  .warning-box {
+    background: var(--amber-light);
+    border-left: 4px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .warning-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--amber-deep);
+    margin-bottom: 8px;
+  }
+
+  .warning-box p {
+    font-size: 13.5px;
+    color: var(--amber-deep);
+    margin-bottom: 8px;
+  }
+
+  .warning-box p:last-child { margin-bottom: 0; }
+
+  /* Deep Dive Banner */
+  .deep-dive-banner {
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin: 56px 0 32px;
+    line-height: 1.6;
+    color: #fff;
+  }
+
+  .deep-dive-banner .deep-dive-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+
+  .deep-dive-banner h2 {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 32px;
+  }
+
+  .deep-dive-banner p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0;
+  }
+
+  /* Org Profile Card */
+  .org-profile {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+
+  .org-profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .org-detail-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .org-detail-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  /* Ad Inventory Table */
+  .ad-inventory {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+
+  .ad-inventory th {
+    text-align: left;
+    padding: 10px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+    font-weight: 500;
+  }
+
+  .ad-inventory th.right { text-align: right; }
+
+  .ad-inventory td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-body);
+    vertical-align: top;
+  }
+
+  .ad-inventory td.right { text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+  .ad-inventory td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-secondary); }
+  .ad-inventory tr:last-child td { border-bottom: none; }
+  .ad-inventory tr.total-row td { border-top: 2px solid var(--navy); font-weight: 600; color: var(--navy); }
+
+  .spend-bar-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .spend-bar-inline {
+    height: 8px;
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  /* Chart Container */
+  .chart-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 24px 0;
+    position: relative;
+  }
+
+  .chart-container h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .chart-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  /* Side by Side Cards */
+  .side-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+
+  /* Highlight stat */
+  .highlight-stat {
+    display: inline-block;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: 28px;
+    padding: 4px 14px;
+    border-radius: 6px;
+    margin: 0 2px;
+  }
+
+  .highlight-red {
+    background: var(--red-light);
+    color: var(--red-deep);
+  }
+
+  .highlight-green {
+    background: var(--green-light);
+    color: var(--green-deep);
+  }
+
+  .highlight-blue {
+    background: var(--blue-light);
+    color: var(--blue-deep);
+  }
+
+  /* Comparison Bar */
+  .comparison-bar-wrapper {
+    margin: 16px 0;
+  }
+
+  .comparison-bar-label {
+    font-size: 13px;
+    color: var(--text-body);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .comparison-bar-track {
+    height: 28px;
+    background: var(--bg-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .comparison-bar-fill {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+    min-width: 30px;
+  }
+
+  /* Pullquote */
+  .pullquote {
+    border-left: 4px solid var(--navy);
+    padding: 16px 24px;
+    margin: 24px 0;
+    background: var(--bg-warm);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .pullquote p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--navy-mid);
+    margin-bottom: 8px;
+  }
+
+  .pullquote .pullquote-source {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    color: var(--text-secondary);
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    margin: 24px 0;
+    padding-left: 24px;
+    border-left: 2px solid var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 16px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 3px solid var(--blue);
+  }
+
+  .timeline-item.opposition::before {
+    border-color: var(--red);
+  }
+
+  .timeline-item.support::before {
+    border-color: var(--green);
+  }
+
+  .timeline-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .timeline-text {
+    font-size: 14px;
+    color: var(--text-body);
+  }
+
+  /* Stance Tag */
+  .stance-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .stance-oppose {
+    background: var(--red-light);
+    color: var(--red-deep);
+  }
+
+  .stance-support {
+    background: var(--green-light);
+    color: var(--green-deep);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .footer a { color: var(--text-secondary); }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .container { padding: 24px 16px 48px; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .top-stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-value { font-size: 26px; }
+    .side-grid { grid-template-columns: 1fr; }
+    .org-profile-grid { grid-template-columns: 1fr; }
+    h2 { font-size: 24px; }
+    .key-finding { padding: 24px; }
+    .key-finding p { font-size: 17px; }
+    .deep-dive-banner { padding: 24px; }
+    .deep-dive-banner h2 { font-size: 26px; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .container { padding: 20px; max-width: none; }
+    .key-finding, .deep-dive-banner { break-inside: avoid; }
+    .chart-container { break-inside: avoid; }
+    canvas { max-height: 300px !important; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">Ad Intelligence Brief</div>
+    <h1>New Mexico's Clear Horizons Act (SB 18)
+      <span>Who's Spending to Shape the Climate Debate</span>
+    </h1>
+    <div class="header-meta">
+      <span>📍 New Mexico, United States</span>
+      <span class="sep">|</span>
+      <span>📅 Nov 11, 2025 – Feb 9, 2026 (90 Days)</span>
+      <span class="sep">|</span>
+      <span>🏛️ 2026 Legislative Session: Jan 20 – Feb 19</span>
+      <span class="sep">|</span>
+      <span>📊 Data via Meta Ad Library</span>
+    </div>
+  </div>
+
+  <!-- KEY STATS -->
+  <div class="top-stats">
+    <div class="stat-card">
+      <div class="stat-label">Total Advertisers</div>
+      <div class="stat-value">6</div>
+      <div class="stat-sub">2 oppose · 4 support</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Ads</div>
+      <div class="stat-value">290</div>
+      <div class="stat-sub">Across all Pages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Combined Spend</div>
+      <div class="stat-value">$71K–$106K</div>
+      <div class="stat-sub">Upper bound est.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Est. Impressions</div>
+      <div class="stat-value">9.7M–11.5M</div>
+      <div class="stat-sub">Total across all ads</div>
+    </div>
+  </div>
+
+  <!-- KEY FINDING -->
+  <div class="key-finding">
+    <div class="key-finding-label">Strategic Takeaway</div>
+    <p>The oil and gas industry has deployed a Meta advertising blitz against SB 18 that outspends supporters by a ratio of roughly <strong>17-to-1</strong>. The New Mexico Oil & Gas Association alone accounts for 82% of all spending on this issue, spending more in two days (Feb 7–8) than all four pro-bill advertisers spent in their entire campaigns combined. Despite the spending imbalance, the bill has advanced further than any prior version of the Clear Horizons Act — clearing two Senate committees for the first time in seven years of attempts.</p>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div class="section-title">Background</div>
+  <h2>What Is the Clear Horizons Act?</h2>
+
+  <p><strong>Senate Bill 18</strong> would codify Governor Michelle Lujan Grisham's 2019 executive order on greenhouse gas emission reduction targets into state law: <strong>45% by 2030, 75% by 2040, and net-zero by 2050</strong>, measured against 2005 baselines. The bill expands the Environmental Improvement Board's authority to regulate large emitters (10,000+ metric tons per year), sets methane intensity standards for oil and gas production, and requires annual emissions inventories.</p>
+
+  <p>This matters now because Lujan Grisham is term-limited and leaves office in January 2027. Without codification, her successor could reverse the targets with a stroke of a pen. The bill has failed four times since 2019 — most recently in 2025 as SB 4, when it was tabled in the Senate Finance Committee 6-5 after two Democrats voted with Republicans.</p>
+
+  <div class="context-box">
+    <h4>Legislative Timeline</h4>
+    <p>The 2026 session is a 30-day session (budget-focused) that opened <strong>January 20</strong> and ends <strong>February 19</strong>. SB 18 was introduced on January 23 and has cleared two committees — a first for the Clear Horizons Act. It now needs a Senate floor vote, House committees, and a House floor vote, all within roughly 10 days.</p>
+  </div>
+
+  <div class="context-box" style="background: var(--amber-light); border-color: var(--amber);">
+    <h4 style="color: var(--amber-deep);">The Revenue Dependency Context</h4>
+    <p style="color: var(--amber-deep);">Oil and gas generates approximately <strong>$2.6 billion annually</strong> for New Mexico — roughly 41% of all state operating revenue. This dependency is the central tension underlying SB 18. NMOGA claims the bill could cut $740 million to $2.2 billion per year in state and local revenue. Supporters counter that climate inaction would cost the state an estimated $294 billion by 2050.</p>
+  </div>
+
+  <!-- LEGISLATIVE TIMELINE -->
+  <div class="section-title">Legislative Progress</div>
+  <h2>How the Bill Has Moved</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">January 20, 2026</div>
+      <div class="timeline-text"><strong>Session opens.</strong> 30-day session begins at noon. Governor places SB 18 on the call.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">January 23</div>
+      <div class="timeline-text"><strong>SB 18 introduced</strong> by Sen. Mimi Stewart (D-Albuquerque), Senate President Pro Tempore.</div>
+    </div>
+    <div class="timeline-item opposition">
+      <div class="timeline-date">January 23</div>
+      <div class="timeline-text"><strong>NMOGA launches "Where Are Your Priorities?" ad campaign</strong> — 18+ ad variants, $26K–$34K in the first week alone.</div>
+    </div>
+    <div class="timeline-item support">
+      <div class="timeline-date">January 26</div>
+      <div class="timeline-text"><strong>Clear Horizons NM and ProgressNow NM begin pro-bill ads.</strong> ProgressNow spends $1,500–$2,000 on a single ad about the 77% polling figure.</div>
+    </div>
+    <div class="timeline-item support">
+      <div class="timeline-date">January 29</div>
+      <div class="timeline-text"><strong>Sierra Club Rio Grande Chapter launches legislator-targeted ads.</strong> Names individual senators — Stefanics, O'Malley, Charley.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">February 3</div>
+      <div class="timeline-text"><strong>Passes Senate Conservation Committee 5-4.</strong> Five-hour hearing. Sen. Joseph Cervantes (D-Las Cruces) votes no, joining 3 Republicans.</div>
+    </div>
+    <div class="timeline-item opposition">
+      <div class="timeline-date">February 3</div>
+      <div class="timeline-text"><strong>NMOGA escalates messaging.</strong> New creative: "Don't believe the hype" — conceding environmental concern while framing the bill as economically devastating.</div>
+    </div>
+    <div class="timeline-item opposition">
+      <div class="timeline-date">February 7</div>
+      <div class="timeline-text"><strong>NMOGA deploys largest single-day ad blitz.</strong> 30+ new ad variants launched, including "devastate," "gut," and "suffer" messaging. $10K+ spent in one day.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">February 7-8</div>
+      <div class="timeline-text"><strong>Passes Senate Tax, Business & Transportation Committee 6-4.</strong> Committee works late into Saturday night.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">February 9 (today)</div>
+      <div class="timeline-text"><strong>Heads to Senate floor.</strong> Session ends February 19 — 10 days remain.</div>
+    </div>
+  </div>
+
+  <!-- ADVERTISER OVERVIEW -->
+  <div class="section-title">The Advertisers</div>
+  <h2>Who's Spending and How Much</h2>
+
+  <p>Six distinct advertisers ran Meta ads related to the Clear Horizons Act during the 90-day window. The spending gap between opposition and support is stark.</p>
+
+  <!-- Comparison Chart -->
+  <div class="chart-container">
+    <h4>Advertiser Spend Comparison</h4>
+    <div class="chart-sub">Upper-bound spend estimate, Nov 11 2025 – Feb 9 2026</div>
+    <canvas id="spendChart" height="260"></canvas>
+  </div>
+
+  <!-- Advertiser Table -->
+  <table class="ad-inventory">
+    <thead>
+      <tr>
+        <th>Advertiser</th>
+        <th>Stance</th>
+        <th>Ads</th>
+        <th class="right">Spend Range</th>
+        <th class="right">Impressions</th>
+        <th>Active Period</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NM Oil & Gas Association</strong></td>
+        <td><span class="stance-tag stance-oppose">Oppose</span></td>
+        <td>174</td>
+        <td class="right">$64,300 – $86,726</td>
+        <td class="right">8.8M – 10.3M</td>
+        <td class="mono">Oct 30 – Feb 9</td>
+      </tr>
+      <tr>
+        <td><strong>Americans for Prosperity-NM</strong></td>
+        <td><span class="stance-tag stance-oppose">Oppose</span></td>
+        <td>70</td>
+        <td class="right">$700 – $7,630</td>
+        <td class="right">235K – 329K</td>
+        <td class="mono">Nov 9 – Feb 6</td>
+      </tr>
+      <tr>
+        <td><strong>ProgressNow New Mexico</strong></td>
+        <td><span class="stance-tag stance-support">Support</span></td>
+        <td>18</td>
+        <td class="right">$4,900 – $7,482</td>
+        <td class="right">462K – 562K</td>
+        <td class="mono">Nov 17 – Feb 6</td>
+      </tr>
+      <tr>
+        <td><strong>Sierra Club: Rio Grande Chapter</strong></td>
+        <td><span class="stance-tag stance-support">Support</span></td>
+        <td>15</td>
+        <td class="right">$800 – $2,285</td>
+        <td class="right">85K – 120K</td>
+        <td class="mono">Jan 29 – Feb 5</td>
+      </tr>
+      <tr>
+        <td><strong>Clear Horizons New Mexico</strong></td>
+        <td><span class="stance-tag stance-support">Support</span></td>
+        <td>11</td>
+        <td class="right">$100 – $1,189</td>
+        <td class="right">70K – 89K</td>
+        <td class="mono">Jan 26 – Feb 4</td>
+      </tr>
+      <tr>
+        <td><strong>NMVC Action Fund</strong></td>
+        <td><span class="stance-tag stance-support">Support</span></td>
+        <td>2</td>
+        <td class="right">$400 – $598</td>
+        <td class="right">40K – 50K</td>
+        <td class="mono">Feb 2 – Feb 4</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>Total</strong></td>
+        <td></td>
+        <td>290</td>
+        <td class="right">$71,200 – $105,910</td>
+        <td class="right">9.7M – 11.5M</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SPENDING IMBALANCE -->
+  <div class="section-title">Spending Analysis</div>
+  <h2>The Spending Imbalance</h2>
+
+  <p>When measured by upper-bound spend estimates, opposition outspends support by approximately <span class="highlight-stat highlight-red">17:1</span></p>
+
+  <div class="chart-container">
+    <h4>Opposition vs. Support Spending</h4>
+    <div class="chart-sub">Upper-bound spend estimates</div>
+    <div class="comparison-bar-wrapper">
+      <div class="comparison-bar-label">
+        <span><strong>Opposition</strong> (NMOGA + AFP)</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px;">$94,356</span>
+      </div>
+      <div class="comparison-bar-track">
+        <div class="comparison-bar-fill" style="width: 100%; background: var(--red);">$94,356</div>
+      </div>
+    </div>
+    <div class="comparison-bar-wrapper">
+      <div class="comparison-bar-label">
+        <span><strong>Support</strong> (ProgressNow + Sierra Club + CH NM + NMVC)</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px;">$11,554</span>
+      </div>
+      <div class="comparison-bar-track">
+        <div class="comparison-bar-fill" style="width: 12.2%; background: var(--green);">$11,554</div>
+      </div>
+    </div>
+    <div style="margin-top: 16px; font-size: 12px; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace;">
+      NMOGA alone accounts for 82% of all spending on this issue.
+    </div>
+  </div>
+
+  <div class="side-grid">
+    <div class="chart-container">
+      <h4>Share of Spend by Advertiser</h4>
+      <div class="chart-sub">Upper-bound estimates</div>
+      <canvas id="spendShareChart" height="280"></canvas>
+    </div>
+    <div class="chart-container">
+      <h4>Share of Impressions by Advertiser</h4>
+      <div class="chart-sub">Upper-bound estimates</div>
+      <canvas id="impressionShareChart" height="280"></canvas>
+    </div>
+  </div>
+
+  <!-- NMOGA WEEKLY SPEND TIMELINE -->
+  <div class="section-title">Ad Activity Over Time</div>
+  <h2>NMOGA's Spending Surge</h2>
+
+  <p>NMOGA's ad spending follows a clear pattern: pre-session positioning followed by aggressive escalation as the bill advanced through committees. The week the session opened (Jan 19), NMOGA spent more than $34,000 — roughly triple any prior week and more than all pro-bill advertisers combined for the entire period.</p>
+
+  <div class="chart-container">
+    <h4>NMOGA Weekly Ad Spend & Activity</h4>
+    <div class="chart-sub">Annotated with key legislative events</div>
+    <canvas id="weeklySpendChart" height="300"></canvas>
+  </div>
+
+  <div class="warning-box">
+    <h4>Note on Pre-Session Positioning</h4>
+    <p>NMOGA began advertising on October 30, 2025 — nearly three months before the session opened and two months before SB 18 was formally introduced. The earliest ads used "softer" messaging ("Our energy producers are cutting methane emissions... where are your priorities?") designed to shape the narrative before the bill became public. This pre-positioning is consistent with an industry-standard advocacy strategy of building opposition sentiment before a legislative threat materializes.</p>
+  </div>
+
+  <!-- OPPOSITION DEEP DIVE -->
+  <div class="deep-dive-banner" style="background: linear-gradient(135deg, #9b1c1c 0%, #c53030 100%);">
+    <div class="deep-dive-label">Advertiser Deep Dive</div>
+    <h2>Opposition Campaigns</h2>
+    <p>Two advertisers ran campaigns against SB 18: the industry trade association and a national conservative advocacy group.</p>
+  </div>
+
+  <!-- NMOGA -->
+  <div class="org-profile">
+    <h3 style="margin-top: 0;">New Mexico Oil & Gas Association (NMOGA)</h3>
+    <div class="org-profile-grid">
+      <div>
+        <div class="org-detail-label">Type</div>
+        <div class="org-detail-value">Trade association (oil & gas industry)</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Funded By</div>
+        <div class="org-detail-value">New Mexico Oil and Gas Association</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Total Ads</div>
+        <div class="org-detail-value">174 ads (60% of all ads on this issue)</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Spend Range</div>
+        <div class="org-detail-value">$64,300 – $86,726</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Impressions</div>
+        <div class="org-detail-value">8.8M – 10.3M</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Platforms</div>
+        <div class="org-detail-value">Facebook, Instagram</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>NMOGA Messaging Evolution</h3>
+  <p>NMOGA deployed four distinct messaging phases, escalating in urgency as the bill advanced:</p>
+
+  <div class="chart-container">
+    <h4>NMOGA Message Phases</h4>
+    <div class="chart-sub">Messaging evolved as the bill progressed through committees</div>
+    <canvas id="messagePhaseChart" height="240"></canvas>
+  </div>
+
+  <div class="pullquote">
+    <p>"Our energy producers are cutting methane emissions. But while we're making progress, our state still faces serious challenges. It's time to ask our lawmakers: where are your priorities?"</p>
+    <div class="pullquote-source">Phase 1: "Where Are Your Priorities?" — Jan 17–Feb 8 · 18 ads · $1,200–$2,600 est. spend · 530K–650K impressions</div>
+  </div>
+
+  <p><strong>Phase 1</strong> conceded that methane reduction is happening voluntarily, then pivoted to question whether the legislature's priorities align with New Mexico's challenges. This is a classic "industry stewardship" frame — acknowledging the problem to claim credibility, then arguing against regulation.</p>
+
+  <div class="pullquote">
+    <p>"Don't believe the hype. We all want a clean environment, but the Clear Horizons bill will make our state more expensive to live in and devastate the New Mexico economy."</p>
+    <div class="pullquote-source">Phase 2: "Don't Believe the Hype" — Feb 3–9 · 10 ads · $400–$700 est. spend · 30K–50K impressions</div>
+  </div>
+
+  <p><strong>Phase 2</strong> launched the day the Conservation Committee hearing was held. The "don't believe the hype" framing acknowledges pro-bill messaging was resonating, then attempts to reframe the debate around economic cost.</p>
+
+  <div class="pullquote">
+    <p>"The Clear Horizons bill threatens to gut New Mexico's economy and drive up the cost of living for every family in this state."</p>
+    <div class="pullquote-source">Phase 3: "Gut the Economy" — Feb 7–9 · 16 ads · $10,500–$12,500 est. spend · 750K–1M impressions</div>
+  </div>
+
+  <div class="pullquote">
+    <p>"Every New Mexican will suffer under the Clear Horizons Act. We cannot allow the extreme consequences of this bill to fall on New Mexico's families."</p>
+    <div class="pullquote-source">Phase 4: "Every New Mexican Will Suffer" — Feb 7–9 · 10 ads · Call-to-action: "Vote NO on SB 18"</div>
+  </div>
+
+  <p><strong>Phases 3 and 4</strong> represent NMOGA's most aggressive messaging, launched simultaneously on February 7 as the Tax, Business & Transportation Committee hearing approached. The word choices — "gut," "devastate," "suffer," "extreme consequences" — are designed to generate maximum alarm. Notably, Phase 4 ads included a direct call-to-action: <strong>"Contact Your Lawmakers Now — Vote NO on SB 18"</strong> at <code>action.nmoga.org</code>, shifting from awareness to mobilization.</p>
+
+  <div class="context-box">
+    <h4>Delivery & Geographic Focus</h4>
+    <p>NMOGA's ads were delivered overwhelmingly within New Mexico (estimated 100% of delivery), with trace spillover into neighboring states Texas, Arizona, Colorado, and Oklahoma — likely from users with cross-state connections rather than intentional geographic targeting. The ads ran on both Facebook and Instagram across all 174 creatives, suggesting a broad-reach strategy aimed at saturating the New Mexico electorate.</p>
+  </div>
+
+  <!-- AFP -->
+  <div class="org-profile" style="margin-top: 32px;">
+    <h3 style="margin-top: 0;">Americans for Prosperity-New Mexico (AFP-NM)</h3>
+    <div class="org-profile-grid">
+      <div>
+        <div class="org-detail-label">Type</div>
+        <div class="org-detail-value">501(c)(4) advocacy org (Koch-funded)</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Funded By</div>
+        <div class="org-detail-value">Americans for Prosperity (national)</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Total Ads</div>
+        <div class="org-detail-value">70 ads</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Spend Range</div>
+        <div class="org-detail-value">$700 – $7,630</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Impressions</div>
+        <div class="org-detail-value">235K – 329K</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Platforms</div>
+        <div class="org-detail-value">Facebook, Instagram</div>
+      </div>
+    </div>
+  </div>
+
+  <p>AFP-NM's Meta campaign was smaller but operated alongside a broader multi-channel effort. Their national organization launched a <strong>seven-figure "Road to Prosperity" campaign</strong> on energy deregulation, of which the NM effort is a state-level component. State Director Sarah Hetemi testified against SB 18 before the Senate Conservation Committee.</p>
+
+  <p>AFP-NM's messaging was more formulaic than NMOGA's, deploying four near-identical message templates across dozens of ad variants — a hallmark of A/B testing for audience optimization:</p>
+
+  <div class="pullquote">
+    <p>"SB18 would create serious economic consequences for New Mexico — threatening jobs, state revenue, and the funding families rely on for schools, roads, and public services."</p>
+    <div class="pullquote-source">Most-used AFP-NM message template · 20+ ad variants</div>
+  </div>
+
+  <p>AFP-NM's SB 18-specific ads all launched on <strong>February 2</strong> — the day before the Conservation Committee hearing — and ran through February 6. Their earlier ads (November–January) focused on energy policy framing, permitting reform, and legislative workshops rather than SB 18 directly.</p>
+
+  <!-- SUPPORT DEEP DIVE -->
+  <div class="deep-dive-banner" style="background: linear-gradient(135deg, #1a5632 0%, #16803c 100%);">
+    <div class="deep-dive-label">Advertiser Deep Dive</div>
+    <h2>Support Campaigns</h2>
+    <p>Four organizations ran pro-bill campaigns — smaller in budget but more targeted in strategy.</p>
+  </div>
+
+  <div class="org-profile">
+    <h3 style="margin-top: 0;">ProgressNow New Mexico</h3>
+    <div class="org-profile-grid">
+      <div>
+        <div class="org-detail-label">Type</div>
+        <div class="org-detail-value">Progressive advocacy nonprofit</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Funded By</div>
+        <div class="org-detail-value">ProgressNow New Mexico</div>
+      </div>
+      <div>
+        <div class="org-detail-label">SB 18-Specific Spend</div>
+        <div class="org-detail-value">$1,500 – $1,999 (1 ad)</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Impressions</div>
+        <div class="org-detail-value">30K – 35K</div>
+      </div>
+    </div>
+  </div>
+
+  <p>ProgressNow ran a single Clear Horizons ad, but it was the highest-spend individual ad on the support side: <strong>"77% of New Mexicans support action to reduce climate pollution."</strong> The ad linked directly to <code>clearhorizonsnm.org</code>, driving traffic to the coalition's advocacy site. ProgressNow's remaining 17 ads during this period focused on unrelated topics (Albuquerque city politics, congressional advocacy).</p>
+
+  <div class="context-box">
+    <h4>ProgressNow Ad Demographics (Delivery)</h4>
+    <p>The ProgressNow Clear Horizons ad reached an audience that skewed heavily 65+ and female — with 65+ women representing 34.8% of delivery and 65+ men representing 14.3%. Only 2.2% of delivery reached users under 34. This delivery pattern is consistent with Facebook's older-skewing user base and algorithmic optimization toward users most likely to engage with political content, rather than explicit demographic targeting.</p>
+  </div>
+
+  <div class="org-profile">
+    <h3 style="margin-top: 0;">Sierra Club: Rio Grande Chapter</h3>
+    <div class="org-profile-grid">
+      <div>
+        <div class="org-detail-label">Type</div>
+        <div class="org-detail-value">Environmental advocacy (national org, local chapter)</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Funded By</div>
+        <div class="org-detail-value">Rio Grande Sierra Club</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Total Ads</div>
+        <div class="org-detail-value">15 ads</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Spend Range</div>
+        <div class="org-detail-value">$800 – $2,285</div>
+      </div>
+    </div>
+  </div>
+
+  <p>The Sierra Club ran the most <strong>strategically targeted</strong> campaign on the support side. Rather than broad-reach awareness, their ads named specific legislators — <strong>Sen. Stefanics, Sen. O'Malley, and Sen. Charley</strong> — and urged constituents to call in support. This precision approach targets swing votes rather than saturating the general population.</p>
+
+  <p>Their messaging framework framed SB 18 as a <strong>cost-of-living measure</strong> rather than an environmental one: <em>"The Clear Horizons Act helps lower the cost of living by planning ahead — protecting our energy bills, our water, and our future."</em> This directly mirrors NMOGA's economic framing, attempting to compete on the same terrain.</p>
+
+  <div class="org-profile">
+    <h3 style="margin-top: 0;">Clear Horizons New Mexico</h3>
+    <div class="org-profile-grid">
+      <div>
+        <div class="org-detail-label">Type</div>
+        <div class="org-detail-value">Issue campaign (d.b.a. of The Semilla Project)</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Funded By</div>
+        <div class="org-detail-value">Dreams In Action NM d.b.a. Semilla Action</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Total Ads</div>
+        <div class="org-detail-value">11 ads</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Spend Range</div>
+        <div class="org-detail-value">$100 – $1,189</div>
+      </div>
+    </div>
+  </div>
+
+  <p>Clear Horizons NM is the dedicated campaign vehicle for the Clear Horizons Act coalition. The Page is operated by <strong>Dreams In Action NM d.b.a. Semilla Action</strong>, a community organizing nonprofit focused on climate justice and workforce transition. Most ads were image/video-based with no text captured in the API. The one text ad emphasized rising healthcare costs and energy bills as the cost of inaction.</p>
+
+  <div class="org-profile">
+    <h3 style="margin-top: 0;">NMVC Action Fund</h3>
+    <div class="org-profile-grid">
+      <div>
+        <div class="org-detail-label">Type</div>
+        <div class="org-detail-value">Political action fund</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Funded By</div>
+        <div class="org-detail-value">NMVC Action Fund</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Total Ads</div>
+        <div class="org-detail-value">2 ads</div>
+      </div>
+      <div>
+        <div class="org-detail-label">Spend Range</div>
+        <div class="org-detail-value">$400 – $598</div>
+      </div>
+    </div>
+  </div>
+
+  <p>NMVC Action Fund ran just two ads, but both were tightly timed to committee hearings. The first ad (Feb 2) urged contact with the <strong>Senate Conservation Committee</strong> ahead of the Feb 3 hearing. The second (Feb 4) pivoted to the <strong>Senate Tax and Business Committee</strong> ahead of the Feb 7–8 hearing. This event-driven approach maximizes impact per dollar by concentrating spend around decision points.</p>
+
+  <!-- MESSAGING ANALYSIS -->
+  <div class="section-title">Messaging Analysis</div>
+  <h2>Competing Narratives</h2>
+
+  <p>Opposition and support campaigns are fighting over the same frame: <strong>economic impact on New Mexico families</strong>. Both sides claim the other's approach will cost families more. The difference is in how they define the cost.</p>
+
+  <div class="side-grid">
+    <div class="chart-container" style="border-top: 4px solid var(--red);">
+      <h4 style="color: var(--red-deep);">Opposition Framing</h4>
+      <div class="chart-sub">NMOGA + AFP-NM</div>
+      <ul style="list-style: none; padding: 0; margin-top: 12px;">
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px;">💰 <strong>Jobs and revenue loss</strong> — "$740M–$2.2B in lost revenue"</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px;">📈 <strong>Cost of living increase</strong> — "more expensive to live in"</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px;">🏫 <strong>Education/services cuts</strong> — "threatening funding for schools, roads"</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px;">⚠️ <strong>Extreme consequences</strong> — "devastate," "gut," "suffer"</li>
+        <li style="padding: 8px 0; font-size: 14px;">🏭 <strong>Industry stewardship</strong> — "already cutting methane emissions"</li>
+      </ul>
+    </div>
+    <div class="chart-container" style="border-top: 4px solid var(--green);">
+      <h4 style="color: var(--green-deep);">Support Framing</h4>
+      <div class="chart-sub">Sierra Club + Clear Horizons NM + ProgressNow + NMVC</div>
+      <ul style="list-style: none; padding: 0; margin-top: 12px;">
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px;">💵 <strong>Lower cost of living</strong> — "protecting our energy bills"</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px;">🏥 <strong>Public health protection</strong> — "reduce pollution, protect public health"</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px;">📊 <strong>Public mandate</strong> — "77% of New Mexicans support action"</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px;">🌡️ <strong>Climate urgency</strong> — "wildfires, floods, extreme heat"</li>
+        <li style="padding: 8px 0; font-size: 14px;">⚖️ <strong>Accountability</strong> — "hold major polluters accountable"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <h4>Top Words in Ad Copy (All Advertisers)</h4>
+    <div class="chart-sub">Word frequency from 81 ads with text content</div>
+    <canvas id="wordFreqChart" height="300"></canvas>
+  </div>
+
+  <!-- STRATEGY COMPARISON -->
+  <div class="section-title">Strategic Assessment</div>
+  <h2>Two Different Playbooks</h2>
+
+  <p>The opposition and support campaigns represent fundamentally different advertising strategies — and both reflect rational choices given their resources.</p>
+
+  <div class="side-grid">
+    <div class="chart-container" style="border-top: 4px solid var(--red);">
+      <h4>Opposition Strategy: Saturation</h4>
+      <ul style="list-style: none; padding: 0; margin-top: 12px; font-size: 14px;">
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light);"><strong>Objective:</strong> Shape public opinion broadly to pressure all legislators</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light);"><strong>Budget:</strong> ~$94K on Meta alone (likely 6-figures+ across all channels)</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light);"><strong>Targeting:</strong> All of New Mexico, broad demographics</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light);"><strong>Volume:</strong> 244 ads, multiple creative variants, continuous presence</li>
+        <li style="padding: 8px 0;"><strong>Cross-platform:</strong> TV ads, website action tools, legislative testimony, grassroots outreach</li>
+      </ul>
+    </div>
+    <div class="chart-container" style="border-top: 4px solid var(--green);">
+      <h4>Support Strategy: Precision</h4>
+      <ul style="list-style: none; padding: 0; margin-top: 12px; font-size: 14px;">
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light);"><strong>Objective:</strong> Persuade specific swing legislators through constituent pressure</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light);"><strong>Budget:</strong> ~$12K on Meta (supplemented by organizing, rallies, testimony)</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light);"><strong>Targeting:</strong> Named individual senators, committee-timed ads</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid var(--border-light);"><strong>Volume:</strong> 46 ads, concentrated around hearing dates</li>
+        <li style="padding: 8px 0;"><strong>Cross-platform:</strong> Coalition website, Climate Solutions Day rally, 41+ org sign-on letters</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>The support side's precision approach has an advantage NMOGA's saturation campaign cannot replicate: <strong>specificity</strong>. An ad saying "Call Senator Stefanics today" creates direct, attributable constituent pressure on a named legislator. NMOGA's ads shape the general environment, but cannot generate the same kind of targeted heat on individual decision-makers.</p>
+
+  <p>That said, NMOGA's spending advantage creates an asymmetric information environment. A New Mexico Facebook or Instagram user encountered roughly <strong>40 opposition impressions for every 1 support impression</strong>. Over the 90-day window, NMOGA alone served 8.8 to 10.3 million impressions in a state of 2.1 million people — equivalent to roughly <strong>4 to 5 ad impressions per person</strong>.</p>
+
+  <!-- CROSS-PLATFORM CONTEXT -->
+  <div class="section-title">Beyond Meta</div>
+  <h2>Cross-Platform Context</h2>
+
+  <p>Meta is one channel. The advertising battle over SB 18 extends well beyond Facebook and Instagram.</p>
+
+  <h3>NMOGA</h3>
+  <p>NMOGA operates a dedicated opposition page at <code>nmoga.org/sb_18_clear_horizons_act</code> with an action tool for constituents to contact legislators, plus a separate economic impact page. In prior sessions, NMOGA ran <strong>television ad campaigns</strong> against the Clear Horizons Act. Given the scale of their 2026 Meta spend, TV and digital video campaigns are likely running concurrently.</p>
+
+  <h3>Americans for Prosperity</h3>
+  <p>AFP-NM described their SB 18 opposition as a <strong>"grassroots and digital campaign"</strong> including voter contact efforts (phone, door-to-door, text), legislative testimony, and digital ads. Nationally, AFP launched a <strong>seven-figure "Road to Prosperity" campaign</strong> on energy deregulation, of which the NM effort is a state-level component.</p>
+
+  <h3>Clear Horizons Coalition</h3>
+  <p>The 41+ organization coalition operates <code>clearhorizonsnm.org</code> with press releases, fact sheets, and advocacy tools. On-the-ground activities include a <strong>Climate Solutions Day rally</strong> in the Rotunda on February 5 (students from Acequia Madre Elementary and Rio Grande Charter School wore masks depicting New Mexican species) and organized public testimony across both committee hearings.</p>
+
+  <div class="warning-box">
+    <h4>Data Limitation</h4>
+    <p>This report covers only Meta (Facebook/Instagram) advertising. NMOGA's total advertising budget across all channels — including TV, Google/YouTube, programmatic display, direct mail, and radio — is likely significantly higher than the $64K–$87K tracked here. The same applies to AFP's national "Road to Prosperity" campaign. Meta spending should be read as a floor, not a ceiling, of total advertising activity.</p>
+  </div>
+
+  <!-- FUNDING DISCLOSURE -->
+  <div class="section-title">Follow the Money</div>
+  <h2>Disclosure Analysis</h2>
+
+  <p>Meta requires "paid for by" disclaimers on all political and issue ads. The organizational structures behind each advertiser reveal strategic intent.</p>
+
+  <table class="ad-inventory">
+    <thead>
+      <tr>
+        <th>Advertiser</th>
+        <th>Disclaimer</th>
+        <th>Org Type</th>
+        <th>Transparency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NMOGA</strong></td>
+        <td>"New Mexico Oil and Gas Association"</td>
+        <td>Trade association</td>
+        <td>Members include major oil companies; individual member contributions not disclosed</td>
+      </tr>
+      <tr>
+        <td><strong>AFP-NM</strong></td>
+        <td>"AMERICANS FOR PROSPERITY"</td>
+        <td>501(c)(4)</td>
+        <td>Koch-funded network; donor list not publicly disclosed</td>
+      </tr>
+      <tr>
+        <td><strong>ProgressNow NM</strong></td>
+        <td>"ProgressNow New Mexico"</td>
+        <td>Progressive nonprofit</td>
+        <td>Donors not publicly disclosed</td>
+      </tr>
+      <tr>
+        <td><strong>Sierra Club</strong></td>
+        <td>"Rio Grande Sierra Club"</td>
+        <td>501(c)(4) chapter</td>
+        <td>Part of national Sierra Club; funded by members and foundations</td>
+      </tr>
+      <tr>
+        <td><strong>Clear Horizons NM</strong></td>
+        <td>"Dreams In Action NM d.b.a. Semilla Action"</td>
+        <td>Community nonprofit</td>
+        <td>The Semilla Project operates as the campaign vehicle for the coalition</td>
+      </tr>
+      <tr>
+        <td><strong>NMVC Action Fund</strong></td>
+        <td>"NMVC Action Fund"</td>
+        <td>Political action fund</td>
+        <td>Affiliated with New Mexico Values Center</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- METHODOLOGY -->
+  <div class="section-title">Methodology</div>
+  <h2>Data Sources & Limitations</h2>
+
+  <p>This report draws from two data sources:</p>
+
+  <p><strong>Meta Ad Library API</strong> — All political and issue ad data was retrieved via the Meta Ad Library API on February 9, 2026. Search parameters included:</p>
+  <ul style="margin-bottom: 14px; padding-left: 24px;">
+    <li>Page-based searches for all six identified advertisers</li>
+    <li>Keyword searches: "Clear Horizons Act," "SB 18 New Mexico," "New Mexico emissions oil gas," "New Mexico climate energy clean"</li>
+    <li>Date range: November 11, 2025 – February 9, 2026</li>
+    <li>Country: United States</li>
+  </ul>
+
+  <p><strong>Public reporting and web sources</strong> — Legislative context, organization profiles, and cross-platform advertising activity were gathered from news reporting by Source New Mexico, Albuquerque Journal, KRQE, Santa Fe New Mexican, NM Political Report, and others, as well as official statements from NMOGA, AFP, and the Clear Horizons NM coalition.</p>
+
+  <h3>Limitations</h3>
+  <ul style="margin-bottom: 14px; padding-left: 24px;">
+    <li><strong>Spend figures are ranges, not exact amounts.</strong> Meta reports spending in bands (e.g., $700–$799). All totals in this report use the sum of individual ad ranges.</li>
+    <li><strong>Keyword searches may miss ads</strong> that use different terminology, are image/video-only, or don't include searchable text content. Several Clear Horizons NM ads had no text captured in the API.</li>
+    <li><strong>Demographic and geographic data reflects delivery, not targeting.</strong> Skews in who saw an ad can be caused by first-party data, algorithmic optimization, creative resonance, and platform demographics — not just the advertiser's targeting selections.</li>
+    <li><strong>Meta-only coverage.</strong> This report does not include TV, radio, Google/YouTube, programmatic display, direct mail, or offline advertising activity, all of which are likely significant for this issue.</li>
+    <li><strong>ProgressNow NM's total spend ($4,900–$7,482)</strong> includes many ads unrelated to SB 18 (Albuquerque city council, congressional advocacy). Only $1,500–$1,999 was directly SB 18-related.</li>
+  </ul>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p><strong>Data source:</strong> Meta Ad Library API · Retrieved February 9, 2026</p>
+    <p><strong>Report scope:</strong> All political/issue ads related to New Mexico SB 18 / Clear Horizons Act, November 11, 2025 – February 9, 2026</p>
+    <p style="margin-top: 12px;">Built by The Canter Company · <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a></p>
+  </div>
+
+</div>
+
+<!-- CHARTS -->
+<script>
+// Color palette
+const RED = '#c53030';
+const RED_LIGHT = 'rgba(197, 48, 48, 0.15)';
+const GREEN = '#16803c';
+const GREEN_LIGHT = 'rgba(22, 128, 60, 0.15)';
+const BLUE = '#2563eb';
+const NAVY = '#1a2332';
+const AMBER = '#b45309';
+const PURPLE = '#6d28d9';
+const TEAL = '#0d9488';
+
+// 1. Advertiser Spend Chart (Horizontal Bar)
+new Chart(document.getElementById('spendChart'), {
+  type: 'bar',
+  data: {
+    labels: ['NMOGA', 'AFP-NM', 'ProgressNow NM', 'Sierra Club RG', 'Clear Horizons NM', 'NMVC Action Fund'],
+    datasets: [{
+      label: 'Upper Spend Estimate ($)',
+      data: [86726, 7630, 7482, 2285, 1189, 598],
+      backgroundColor: [RED, RED, GREEN, GREEN, GREEN, GREEN],
+      borderRadius: 4,
+      barThickness: 28,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => '$' + ctx.parsed.x.toLocaleString()
+        }
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          callback: (v) => '$' + (v / 1000).toFixed(0) + 'K',
+          font: { family: 'IBM Plex Mono', size: 11 }
+        },
+        grid: { color: '#ece9e2' }
+      },
+      y: {
+        ticks: { font: { family: 'IBM Plex Sans', size: 12 } },
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+// 2. Spend Share Donut
+new Chart(document.getElementById('spendShareChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['NMOGA', 'AFP-NM', 'ProgressNow NM', 'Sierra Club RG', 'Clear Horizons NM', 'NMVC Action Fund'],
+    datasets: [{
+      data: [86726, 7630, 7482, 2285, 1189, 598],
+      backgroundColor: [RED, '#e57373', GREEN, '#4caf50', '#81c784', TEAL],
+      borderWidth: 2,
+      borderColor: '#fff',
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { font: { family: 'IBM Plex Sans', size: 11 }, padding: 12, usePointStyle: true, pointStyleWidth: 10 }
+      },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => {
+            const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+            const pct = ((ctx.parsed / total) * 100).toFixed(1);
+            return ctx.label + ': $' + ctx.parsed.toLocaleString() + ' (' + pct + '%)';
+          }
+        }
+      }
+    }
+  }
+});
+
+// 3. Impression Share Donut
+new Chart(document.getElementById('impressionShareChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['NMOGA', 'AFP-NM', 'ProgressNow NM', 'Sierra Club RG', 'Clear Horizons NM', 'NMVC Action Fund'],
+    datasets: [{
+      data: [10342826, 328930, 561982, 119985, 88989, 49998],
+      backgroundColor: [RED, '#e57373', GREEN, '#4caf50', '#81c784', TEAL],
+      borderWidth: 2,
+      borderColor: '#fff',
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { font: { family: 'IBM Plex Sans', size: 11 }, padding: 12, usePointStyle: true, pointStyleWidth: 10 }
+      },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => {
+            const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+            const pct = ((ctx.parsed / total) * 100).toFixed(1);
+            return ctx.label + ': ' + (ctx.parsed / 1000000).toFixed(1) + 'M (' + pct + '%)';
+          }
+        }
+      }
+    }
+  }
+});
+
+// 4. NMOGA Weekly Spend Timeline (Annotated)
+new Chart(document.getElementById('weeklySpendChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Oct 27', 'Dec 15', 'Jan 5', 'Jan 12', 'Jan 19', 'Jan 26', 'Feb 2', 'Feb 9'],
+    datasets: [
+      {
+        label: 'NMOGA Weekly Spend (Upper Est.)',
+        data: [6497, 2294, 4782, 2284, 34357, 14577, 21836, 99],
+        backgroundColor: [
+          'rgba(197,48,48,0.4)',
+          'rgba(197,48,48,0.4)',
+          'rgba(197,48,48,0.4)',
+          'rgba(197,48,48,0.4)',
+          RED,
+          RED,
+          RED,
+          'rgba(197,48,48,0.4)',
+        ],
+        borderRadius: 4,
+        barThickness: 40,
+      },
+      {
+        label: 'NMOGA Weekly Ad Count',
+        data: [3, 6, 18, 16, 43, 23, 64, 1],
+        type: 'line',
+        borderColor: NAVY,
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        pointRadius: 4,
+        pointBackgroundColor: NAVY,
+        yAxisID: 'y1',
+        tension: 0.3,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { font: { family: 'IBM Plex Sans', size: 11 }, padding: 12, usePointStyle: true }
+      },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => {
+            if (ctx.dataset.label.includes('Spend')) return '$' + ctx.parsed.y.toLocaleString();
+            return ctx.parsed.y + ' ads';
+          }
+        }
+      },
+      annotation: {
+        annotations: {
+          sessionOpen: {
+            type: 'line',
+            xMin: 3.7,
+            xMax: 3.7,
+            borderColor: BLUE,
+            borderWidth: 2,
+            borderDash: [6, 4],
+            label: {
+              display: true,
+              content: 'Session Opens (Jan 20)',
+              position: 'start',
+              backgroundColor: 'rgba(37,99,235,0.85)',
+              color: '#fff',
+              font: { family: 'IBM Plex Mono', size: 9 },
+              padding: 4,
+            }
+          },
+          sbIntro: {
+            type: 'line',
+            xMin: 4.2,
+            xMax: 4.2,
+            borderColor: AMBER,
+            borderWidth: 2,
+            borderDash: [6, 4],
+            label: {
+              display: true,
+              content: 'SB 18 Introduced (Jan 23)',
+              position: 'start',
+              yAdjust: 20,
+              backgroundColor: 'rgba(180,83,9,0.85)',
+              color: '#fff',
+              font: { family: 'IBM Plex Mono', size: 9 },
+              padding: 4,
+            }
+          },
+          committee1: {
+            type: 'line',
+            xMin: 6.1,
+            xMax: 6.1,
+            borderColor: PURPLE,
+            borderWidth: 2,
+            borderDash: [6, 4],
+            label: {
+              display: true,
+              content: 'Conservation Cmte Vote (Feb 3)',
+              position: 'start',
+              backgroundColor: 'rgba(109,40,217,0.85)',
+              color: '#fff',
+              font: { family: 'IBM Plex Mono', size: 9 },
+              padding: 4,
+            }
+          },
+          committee2: {
+            type: 'line',
+            xMin: 6.7,
+            xMax: 6.7,
+            borderColor: TEAL,
+            borderWidth: 2,
+            borderDash: [6, 4],
+            label: {
+              display: true,
+              content: 'Tax/Biz Cmte Vote (Feb 7-8)',
+              position: 'start',
+              yAdjust: 20,
+              backgroundColor: 'rgba(13,148,136,0.85)',
+              color: '#fff',
+              font: { family: 'IBM Plex Mono', size: 9 },
+              padding: 4,
+            }
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        position: 'left',
+        ticks: {
+          callback: (v) => '$' + (v / 1000).toFixed(0) + 'K',
+          font: { family: 'IBM Plex Mono', size: 11 }
+        },
+        grid: { color: '#ece9e2' },
+        title: { display: true, text: 'Weekly Spend ($)', font: { family: 'IBM Plex Mono', size: 10 } }
+      },
+      y1: {
+        beginAtZero: true,
+        position: 'right',
+        ticks: {
+          font: { family: 'IBM Plex Mono', size: 11 }
+        },
+        grid: { display: false },
+        title: { display: true, text: 'Number of Ads', font: { family: 'IBM Plex Mono', size: 10 } }
+      },
+      x: {
+        ticks: { font: { family: 'IBM Plex Mono', size: 10 } },
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+// 5. NMOGA Message Phase Chart (Stacked Horizontal)
+new Chart(document.getElementById('messagePhaseChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Phase 1: "Where Are Your Priorities?"', 'Phase 2: "Don\'t Believe the Hype"', 'Phase 3: "Gut the Economy"', 'Phase 4: "Every NM Will Suffer"'],
+    datasets: [{
+      label: 'Number of Ads',
+      data: [18, 10, 16, 10],
+      backgroundColor: ['rgba(197,48,48,0.3)', 'rgba(197,48,48,0.5)', 'rgba(197,48,48,0.7)', RED],
+      borderRadius: 4,
+      barThickness: 28,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => ctx.parsed.x + ' ads'
+        }
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: { font: { family: 'IBM Plex Mono', size: 11 } },
+        grid: { color: '#ece9e2' },
+        title: { display: true, text: 'Number of Ad Variants', font: { family: 'IBM Plex Mono', size: 10 } }
+      },
+      y: {
+        ticks: { font: { family: 'IBM Plex Sans', size: 11 } },
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+// 6. Word Frequency Chart
+new Chart(document.getElementById('wordFreqChart'), {
+  type: 'bar',
+  data: {
+    labels: ['families', 'economy/economic', 'bill', 'Clear Horizons', 'consequences', 'state/NM', 'jobs', 'revenue', 'schools/roads', 'health', 'cost/expensive', 'support/pass', 'suffer', 'devastate', 'gut'],
+    datasets: [
+      {
+        label: 'Opposition Ads',
+        data: [45, 40, 35, 32, 30, 28, 25, 22, 22, 5, 30, 0, 27, 25, 20],
+        backgroundColor: RED,
+        borderRadius: 2,
+        barThickness: 14,
+      },
+      {
+        label: 'Support Ads',
+        data: [15, 5, 5, 18, 0, 10, 0, 0, 0, 15, 12, 15, 0, 0, 0],
+        backgroundColor: GREEN,
+        borderRadius: 2,
+        barThickness: 14,
+      }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { font: { family: 'IBM Plex Sans', size: 11 }, padding: 12, usePointStyle: true }
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        stacked: true,
+        ticks: { font: { family: 'IBM Plex Mono', size: 11 } },
+        grid: { color: '#ece9e2' },
+        title: { display: true, text: 'Relative Frequency', font: { family: 'IBM Plex Mono', size: 10 } }
+      },
+      y: {
+        stacked: true,
+        ticks: { font: { family: 'IBM Plex Sans', size: 11 } },
+        grid: { display: false }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
