@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Texas BESS Ads — Intelligence Brief</title>
+<title>Texas BESS Ads — Two-Year Intelligence Brief</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
 <style>
   :root {
     --bg: #faf9f7;
@@ -39,6 +41,12 @@
     --teal-deep: #115e59;
     --teal: #0d9488;
     --teal-light: #f0fdfa;
+    --orange-deep: #9a3412;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+    --cyan-deep: #155e75;
+    --cyan: #0891b2;
+    --cyan-light: #ecfeff;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,7 +66,7 @@
     padding: 48px 32px 80px;
   }
 
-  /* ── HEADER ── */
+  /* Header */
   .header {
     margin-bottom: 48px;
     padding-bottom: 32px;
@@ -99,11 +107,12 @@
     margin-top: 14px;
     font-size: 13px;
     color: var(--text-secondary);
+    flex-wrap: wrap;
   }
 
   .header-meta .sep { color: var(--border); }
 
-  /* ── TOP STATS ── */
+  /* Top Stats */
   .top-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -131,7 +140,7 @@
 
   .stat-value {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--navy);
     letter-spacing: -1px;
@@ -144,7 +153,7 @@
     margin-top: 4px;
   }
 
-  /* ── SECTION HEADERS ── */
+  /* Section Titles */
   .section-title {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
@@ -152,120 +161,94 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--stone);
-    margin-bottom: 16px;
-    padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    margin-top: 56px;
   }
 
-  /* ── CHART ── */
+  h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin-bottom: 10px;
+    margin-top: 28px;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 14px; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Key Finding Card */
+  .key-finding {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .key-finding-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+  }
+
+  .key-finding p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 12px;
+  }
+
+  .key-finding p:last-child { margin-bottom: 0; }
+  .key-finding strong { color: #fff; }
+  .key-finding em { color: #fbbf24; font-style: normal; font-weight: 600; }
+
+  /* Chart Container */
   .chart-container {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 28px;
-    margin-bottom: 48px;
-  }
-
-  .bar-chart {
-    display: flex;
-    align-items: flex-end;
-    gap: 6px;
-    height: 170px;
-    padding-top: 16px;
-    border-bottom: 1px solid var(--border-light);
-  }
-
-  .bar-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    justify-content: flex-end;
-  }
-
-  .bar {
-    width: 100%;
-    max-width: 48px;
-    border-radius: 3px 3px 0 0;
+    margin-bottom: 32px;
     position: relative;
-    transition: opacity 0.2s;
-    cursor: pointer;
-    min-height: 2px;
   }
 
-  .bar:hover { opacity: 0.8; }
-
-  .bar-tooltip {
-    display: none;
-    position: absolute;
-    bottom: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--navy);
-    color: #fff;
-    padding: 7px 12px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-family: 'IBM Plex Mono', monospace;
-    white-space: nowrap;
-    z-index: 10;
-    pointer-events: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  .chart-container canvas {
+    max-height: 340px;
   }
 
-  .bar-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid transparent;
-    border-top-color: var(--navy);
+  .chart-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
   }
 
-  .bar:hover .bar-tooltip { display: block; }
-
-  .bar-label {
-    font-size: 9px;
+  .chart-subtitle {
+    font-size: 12px;
     color: var(--text-muted);
-    margin-top: 8px;
-    font-family: 'IBM Plex Mono', monospace;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    height: 48px;
+    margin-bottom: 16px;
   }
 
-  .chart-legend {
-    display: flex;
-    gap: 24px;
-    margin-top: 16px;
-    justify-content: flex-end;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    color: var(--text-secondary);
-  }
-
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-  }
-
-  /* ── TWO COLUMN ── */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 48px;
-  }
-
+  /* Cards */
   .card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -273,7 +256,21 @@
     padding: 28px;
   }
 
-  /* ── ADVERTISER TABLE ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  /* Advertiser Table */
   .adv-table {
     width: 100%;
     border-collapse: collapse;
@@ -311,6 +308,35 @@
     margin-top: 1px;
   }
 
+  .spend-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .spend-bar-track {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 60px;
+  }
+
+  .spend-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
+
+  .spend-bar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  /* Stance Tags */
   .stance-tag {
     display: inline-block;
     padding: 2px 8px;
@@ -322,33 +348,18 @@
     font-family: 'IBM Plex Mono', monospace;
   }
 
-  .stance-anti { background: var(--red-light); color: var(--red-deep); }
   .stance-pro { background: var(--green-light); color: var(--green-deep); }
+  .stance-anti { background: var(--red-light); color: var(--red-deep); }
   .stance-neutral { background: var(--bg-warm); color: var(--stone); }
   .stance-issue { background: var(--purple-light); color: var(--purple-deep); }
-  .stance-edu { background: var(--teal-light); color: var(--teal-deep); }
+  .stance-astroturf { background: var(--orange-light); color: var(--orange-deep); }
 
-  /* ── MESSAGING THEMES ── */
-  .msg-category {
-    margin-bottom: 20px;
-  }
-
-  .msg-category:last-child { margin-bottom: 0; }
-
-  .msg-category-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
+  /* Messaging Items */
   .msg-item {
-    padding: 10px 14px;
+    padding: 12px 16px;
     background: var(--bg-warm);
     border-radius: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-size: 13px;
     color: var(--text-body);
     line-height: 1.6;
@@ -357,8 +368,7 @@
 
   .msg-item.pro-msg { border-left-color: var(--green); }
   .msg-item.anti-msg { border-left-color: var(--red); }
-  .msg-item.edu-msg { border-left-color: var(--teal); }
-  .msg-item.issue-msg { border-left-color: var(--purple); }
+  .msg-item.neutral-msg { border-left-color: var(--amber); }
 
   .msg-source {
     font-family: 'IBM Plex Mono', monospace;
@@ -367,82 +377,7 @@
     margin-top: 4px;
   }
 
-  /* ── DEMOGRAPHICS ── */
-  .demo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-top: 12px;
-  }
-
-  .demo-section-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-  }
-
-  .demo-bar-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-
-  .demo-label {
-    font-size: 12px;
-    font-family: 'IBM Plex Mono', monospace;
-    color: var(--text-secondary);
-    min-width: 48px;
-  }
-
-  .demo-bar-track {
-    flex: 1;
-    height: 16px;
-    background: var(--bg-warm);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .demo-bar-inner {
-    height: 100%;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    padding-left: 8px;
-    font-size: 10px;
-    font-weight: 600;
-    color: white;
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  .insight-box {
-    margin-top: 24px;
-    padding: 16px 18px;
-    background: var(--bg-warm);
-    border-left: 3px solid var(--navy);
-    border-radius: 0 6px 6px 0;
-    font-size: 13px;
-    color: var(--text-body);
-    line-height: 1.65;
-  }
-
-  .insight-box strong {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--navy);
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  /* ── AD CARDS ── */
-  .texas-ads { margin-bottom: 48px; }
-
+  /* Ad Cards */
   .ad-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -452,10 +387,10 @@
     border-left: 4px solid var(--border);
   }
 
-  .ad-card.anti { border-left-color: var(--red); }
   .ad-card.pro { border-left-color: var(--green); }
-  .ad-card.edu { border-left-color: var(--teal); }
-  .ad-card.issue { border-left-color: var(--purple); }
+  .ad-card.anti { border-left-color: var(--red); }
+  .ad-card.neutral { border-left-color: var(--amber); }
+  .ad-card.astroturf { border-left-color: var(--orange); }
 
   .ad-header {
     display: flex;
@@ -516,11 +451,88 @@
   }
 
   .ad-links a::before {
-    content: '↗';
+    content: '\2197';
     font-size: 11px;
   }
 
-  /* ── STRATEGIC TAKEAWAY ── */
+  /* Insight Box */
+  .insight-box {
+    padding: 16px 18px;
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.65;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .insight-box strong {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin: 24px 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--bg);
+  }
+
+  .timeline-item.event-opposition::before { background: var(--red); }
+  .timeline-item.event-legislation::before { background: var(--purple); }
+  .timeline-item.event-market::before { background: var(--teal); }
+  .timeline-item.event-weather::before { background: var(--amber); }
+
+  .timeline-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  .timeline-text {
+    font-size: 13px;
+    color: var(--text-body);
+    margin-top: 2px;
+  }
+
+  /* Takeaway */
   .takeaway {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -558,35 +570,101 @@
 
   .takeaway p:last-child { margin-bottom: 0; }
   .takeaway p strong { color: var(--navy); }
-  .takeaway p em { font-style: italic; color: var(--red-deep); }
 
-  /* ── FOOTER ── */
+  /* Methodology */
+  .methodology {
+    background: var(--bg-warm);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .methodology strong {
+    color: var(--text-body);
+  }
+
+  /* Footer */
   .footer {
     margin-top: 48px;
     padding-top: 20px;
     border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
     font-size: 11px;
     color: var(--text-muted);
   }
 
-  .footer-left { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.5px; }
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 
-  /* ── RESPONSIVE ── */
+  .footer-left {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-attrib {
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .footer-attrib a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .footer-attrib a:hover { text-decoration: underline; }
+
+  /* Donut legend */
+  .donut-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+    justify-content: center;
+  }
+
+  .donut-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .donut-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  /* Responsive */
   @media (max-width: 800px) {
     .top-stats { grid-template-columns: repeat(2, 1fr); }
     .two-col { grid-template-columns: 1fr; }
+    .three-col { grid-template-columns: 1fr; }
     .header h1 { font-size: 28px; }
     .header h1 span { font-size: 20px; }
-    .demo-grid { grid-template-columns: 1fr; }
     .container { padding: 24px 16px 48px; }
+    .key-finding { padding: 24px; }
+    .key-finding p { font-size: 15px; }
   }
 
   @media print {
     body { background: #fff; }
     .container { padding: 20px; }
-    .bar-tooltip { display: none !important; }
+    .key-finding { break-inside: avoid; }
+    .chart-container { break-inside: avoid; }
+    .ad-card { break-inside: avoid; }
   }
 </style>
 </head>
@@ -596,440 +674,857 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-eyebrow">Competitive Intelligence Brief · Meta Ad Library</div>
-    <h1>Battery Energy Storage (BESS) Ads in Texas<span>90-Day Landscape Analysis</span></h1>
+    <div class="header-eyebrow">Competitive Intelligence Brief &middot; Meta Ad Library</div>
+    <h1>Battery Energy Storage (BESS) Ads in Texas<span>Two-Year Landscape Analysis</span></h1>
     <div class="header-meta">
-      <span>Nov 4, 2025 – Feb 2, 2026</span>
-      <span class="sep">·</span>
-      <span>Political, Social & Issue Ads</span>
-      <span class="sep">·</span>
-      <span>Geo-filtered: Texas</span>
+      <span>Feb 10, 2024 &ndash; Feb 10, 2026</span>
+      <span class="sep">&middot;</span>
+      <span>Political, Social &amp; Issue Ads</span>
+      <span class="sep">&middot;</span>
+      <span>Geo-filtered: Texas delivery</span>
+      <span class="sep">&middot;</span>
+      <span>24-month window</span>
     </div>
   </div>
 
   <!-- TOP STATS -->
   <div class="top-stats">
     <div class="stat-card">
-      <div class="stat-label">Total Ads</div>
-      <div class="stat-value">30+</div>
-      <div class="stat-sub">matching "battery energy storage" reaching TX</div>
+      <div class="stat-label">Total BESS-Related Ads</div>
+      <div class="stat-value">1,600+</div>
+      <div class="stat-sub">matching battery/energy storage reaching TX</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Dominant Advertiser</div>
-      <div class="stat-value">GoodPower</div>
-      <div class="stat-sub">110 total ads · $75K–$104K spend</div>
+      <div class="stat-label">Dominant Spender</div>
+      <div class="stat-value">$1.5M+</div>
+      <div class="stat-sub">GoodPower alone &middot; 1,384 ads</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Texas-Specific Ads</div>
-      <div class="stat-value">6</div>
-      <div class="stat-sub">explicitly referencing TX / BESS siting</div>
+      <div class="stat-label">Pro-BESS Advertisers</div>
+      <div class="stat-value">8</div>
+      <div class="stat-sub">national advocacy + local groups</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Opposition Groups</div>
+      <div class="stat-label">Anti-BESS Advertisers</div>
       <div class="stat-value">3</div>
-      <div class="stat-sub">local anti-BESS advertisers active</div>
+      <div class="stat-sub">hyperlocal, under $3K total spend</div>
     </div>
   </div>
 
-  <!-- VOLUME CHART -->
-  <div class="section-title">Weekly Ad Volume — "Battery Energy Storage" (National, Reaching TX)</div>
+  <!-- KEY FINDING -->
+  <div class="key-finding">
+    <div class="key-finding-label">Key Finding</div>
+    <p><strong>The BESS ad war in Texas is the most lopsided energy battle on Meta.</strong> Pro-BESS forces, led by the foundation-funded GoodPower ($1.5M&ndash;$2M, 1,384 ads), outspend opposition groups by a ratio exceeding <em>500 to 1</em>. Yet despite this spending disparity, grassroots anti-BESS movements have achieved tangible legislative and regulatory victories&mdash;including the first-ever local BESS project kill in Texas (Rock Creek, Kendall County) and the passage of HB&nbsp;3809, which imposes decommissioning mandates the industry warns could threaten project viability.</p>
+    <p>The data reveals a two-year escalation arc: a pro-BESS advertising surge in mid-2024 was met by real-world opposition victories in early 2025, catalyzed by the Moss Landing battery fire in California. <strong>Money is winning the ad war. Organizing is winning the policy war.</strong></p>
+  </div>
+
+  <!-- ANNOTATED SPEND TIMELINE -->
+  <div class="section-title">Monthly Ad Landscape &mdash; Battery Energy Storage (National, Reaching Texas)</div>
   <div class="chart-container">
-    <div class="bar-chart" id="volumeChart"></div>
-    <div class="chart-legend">
-      <div class="legend-item"><div class="legend-dot" style="background: var(--navy);"></div>Ad count</div>
-      <div class="legend-item"><div class="legend-dot" style="background: var(--amber);"></div>Spend spike (>$5K)</div>
-    </div>
+    <div class="chart-title">Annotated Spend Timeline</div>
+    <div class="chart-subtitle">Monthly ad volume and spend for "battery energy storage" ads reaching Texas, with key real-world events overlaid</div>
+    <canvas id="spendTimeline" height="140"></canvas>
   </div>
 
-  <!-- TWO COLUMN -->
+  <!-- GOODPOWER MONTHLY SPEND -->
+  <div class="chart-container">
+    <div class="chart-title">GoodPower: Monthly Ad Spend</div>
+    <div class="chart-subtitle">$1.5M&ndash;$2M total spend across 1,384 ads (Jan 2024 &ndash; Feb 2026). GoodPower is the single dominant advertiser in the BESS space nationally.</div>
+    <canvas id="goodpowerSpend" height="130"></canvas>
+  </div>
+
+  <div class="insight-box">
+    <strong>Interpreting the GoodPower Surge</strong>
+    GoodPower launched in January 2024 and immediately began scaling. By August 2024, it was spending $416K&ndash;$543K/month on 413 ad variants&mdash;a massive A/B testing operation. This coincided with Hurricane Beryl knocking out power across Houston in July 2024, giving grid-resilience messaging a real-world hook. Spending tapered through late 2024, then surged again in Q1 2025 as the Texas legislature convened and BESS-hostile bills were filed. GoodPower is backed by the MacArthur Foundation and describes itself as harnessing "renewable energy to create good jobs and stronger communities."
+  </div>
+
+  <!-- SPEND SHARE DONUT -->
   <div class="two-col">
+    <div class="chart-container" style="margin-bottom: 0;">
+      <div class="chart-title">Spend Share by Advertiser</div>
+      <div class="chart-subtitle">Pro-BESS advertisers only (anti-BESS spend too small to register)</div>
+      <canvas id="spendDonut" height="220"></canvas>
+      <div class="donut-legend" id="donutLegend"></div>
+    </div>
+    <div class="chart-container" style="margin-bottom: 0;">
+      <div class="chart-title">Pro vs. Anti Spending</div>
+      <div class="chart-subtitle">The spending asymmetry is extreme&mdash;anti-BESS groups have spent less than $3K total across two years</div>
+      <canvas id="proAntiBar" height="220"></canvas>
+      <div class="insight-box" style="margin-top: 16px; margin-bottom: 0;">
+        <strong>500:1 Spend Ratio</strong>
+        The combined pro-BESS ad spend exceeds $1.6M. All identified anti-BESS advertisers combined have spent under $3K. This is not a "debate" on Meta&mdash;it is a one-sided messaging operation with negligible organized opposition on the platform.
+      </div>
+    </div>
+  </div>
 
-    <!-- ADVERTISERS TABLE -->
+  <!-- REAL-WORLD TIMELINE -->
+  <div class="section-title">Real-World Context &mdash; Two Years of BESS Battles in Texas</div>
+  <div class="card" style="margin-bottom: 32px;">
+    <h2>Timeline of Key Events</h2>
+    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">The advertising data cannot be understood without the legislative, regulatory, and community events that shaped it. This timeline connects the ad activity to the real world.</p>
+    <div class="timeline">
+      <div class="timeline-item event-market">
+        <div class="timeline-date">Jan 2024</div>
+        <div class="timeline-text"><strong>GoodPower launches.</strong> The MacArthur Foundation-backed advocacy group begins its national ad campaign with Texas as a primary target state. Within months it becomes the largest BESS advertiser in the country.</div>
+      </div>
+      <div class="timeline-item event-market">
+        <div class="timeline-date">Feb&ndash;Apr 2024</div>
+        <div class="timeline-text"><strong>Texas Land &amp; Liberty Coalition active.</strong> A project of Conservative Texans for Energy Innovation runs pro-renewables/pro-BESS ads framed around property rights ($27K&ndash;$35K spend). Uses conservative messaging: "energy independence," "don't let big government tell you what to do with your land."</div>
+      </div>
+      <div class="timeline-item event-weather">
+        <div class="timeline-date">Jul 8, 2024</div>
+        <div class="timeline-text"><strong>Hurricane Beryl devastates Houston.</strong> 2.7M customers lose power. ERCOT batteries help stabilize the grid. League City Residents for Grid Resilience launches a pro-BESS ad campaign citing Beryl as evidence storage is needed (77 ads through November).</div>
+      </div>
+      <div class="timeline-item event-market">
+        <div class="timeline-date">Aug 2024</div>
+        <div class="timeline-text"><strong>GoodPower peaks at $416K&ndash;$543K/month.</strong> 413 ad variants in a single month&mdash;the most aggressive BESS ad blitz ever recorded on Meta. Likely responding to both the Beryl aftermath and emerging legislative threats.</div>
+      </div>
+      <div class="timeline-item event-opposition">
+        <div class="timeline-date">Oct 2024</div>
+        <div class="timeline-text"><strong>Katy City Council rejects Vesper Energy's 500MW BESS.</strong> The proposal near Katy High School is denied after sustained homeowner opposition. The fight becomes a template for local anti-BESS organizing statewide.</div>
+      </div>
+      <div class="timeline-item event-legislation">
+        <div class="timeline-date">Nov 2024</div>
+        <div class="timeline-text"><strong>Texas GOP passes anti-BESS resolution.</strong> The Republican Party of Texas formally calls for BESS regulation, citing "more than 1,000 BESS plants in production or planning" and foreign ownership concerns. HB&nbsp;1378 (500-yard setback) and HB&nbsp;1343 (PUCT permitting) filed.</div>
+      </div>
+      <div class="timeline-item event-opposition">
+        <div class="timeline-date">Jan 16, 2025</div>
+        <div class="timeline-text"><strong>Moss Landing battery fire (California).</strong> The world's largest lithium-ion BESS burns for days. 1,200 evacuated. 55,000 lbs of toxic metals deposited. This event becomes the single most effective argument for anti-BESS organizers nationwide&mdash;including in Texas.</div>
+      </div>
+      <div class="timeline-item event-opposition">
+        <div class="timeline-date">Jan 2025</div>
+        <div class="timeline-text"><strong>Rock Creek BESS abandoned in Kendall County.</strong> East Point Energy (Equinor subsidiary) pulls its 250MW proposal near Comfort after the Hill Country Energy Sub-Regional Planning Commission and fire marshal impose strict requirements. First local BESS kill in Texas.</div>
+      </div>
+      <div class="timeline-item event-legislation">
+        <div class="timeline-date">Mar 2025</div>
+        <div class="timeline-text"><strong>Fannin County becomes a flashpoint.</strong> Engie's BESS near Savoy draws fierce opposition. Rep. Shelley Luther joins residents at hearings. Engie sues the county, claiming officials "moved the goalposts at every turn."</div>
+      </div>
+      <div class="timeline-item event-legislation">
+        <div class="timeline-date">May 29, 2025</div>
+        <div class="timeline-text"><strong>Gov. Abbott signs HB&nbsp;3809.</strong> Mandates full decommissioning of all BESS facilities including buried cables and foundations. Industry groups warn the law could make marginal projects uneconomic. Effective Sep 1, 2025.</div>
+      </div>
+      <div class="timeline-item event-market">
+        <div class="timeline-date">End of 2025</div>
+        <div class="timeline-text"><strong>ERCOT battery capacity nearly doubles in one year.</strong> From 8.6GW to 13.9GW. Texas now has more battery storage than all states except California combined. New grid-connection applications fall 50% in H2 2025, however, signaling cooling investment.</div>
+      </div>
+      <div class="timeline-item event-opposition">
+        <div class="timeline-date">Nov 2025</div>
+        <div class="timeline-text"><strong>Vesper Energy appeals to PUC.</strong> After Katy's rejection, the developer asks the Public Utility Commission of Texas to overrule the city's zoning decision. ERCOT files a direct interest in the outcome. Decision delayed.</div>
+      </div>
+      <div class="timeline-item event-weather">
+        <div class="timeline-date">Jan 21&ndash;28, 2026</div>
+        <div class="timeline-text"><strong>Winter Storm Fern.</strong> Batteries provide 9.5% of grid power at peak, generating 7,000+ MW (enough for 1.75M homes). GoodPower immediately deploys 11+ ad variants citing storm resilience. The grid holds&mdash;a victory for BESS proponents.</div>
+      </div>
+      <div class="timeline-item event-opposition">
+        <div class="timeline-date">Dec 2025</div>
+        <div class="timeline-text"><strong>"Don't BESS With Menard" runs first ad.</strong> Menard County grassroots opposition. Ran without required disclaimer. Minimal spend ($0&ndash;$99) but symbolic of the community-level organizing spreading across rural Texas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADVERTISERS TABLE -->
+  <div class="section-title">Advertiser Landscape &mdash; All Identified BESS Advertisers Reaching Texas</div>
+
+  <div class="card" style="margin-bottom: 32px;">
+    <table class="adv-table">
+      <thead>
+        <tr>
+          <th>Advertiser</th>
+          <th>Ads</th>
+          <th style="text-align: right;">Total Spend Est.</th>
+          <th>Active Period</th>
+          <th>Stance</th>
+          <th>Objective</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="adv-name">GoodPower</div><div class="adv-funder-table">GoodPower, Inc &middot; MacArthur Foundation-backed</div></td>
+          <td>1,384</td>
+          <td style="text-align: right;">$1.5M&ndash;$2M</td>
+          <td>Jan 2024&ndash;present</td>
+          <td><span class="stance-tag stance-pro">Pro-BESS</span></td>
+          <td>Awareness / Persuasion</td>
+        </tr>
+        <tr>
+          <td><div class="adv-name">Texas Land &amp; Liberty Coalition</div><div class="adv-funder-table">Conservative Texans for Energy Innovation</div></td>
+          <td>17</td>
+          <td style="text-align: right;">$27K&ndash;$35K</td>
+          <td>Jan&ndash;Nov 2024</td>
+          <td><span class="stance-tag stance-pro">Pro-BESS</span></td>
+          <td>Persuasion (conservative frame)</td>
+        </tr>
+        <tr>
+          <td><div class="adv-name">Apex Clean Energy</div><div class="adv-funder-table">Developer &middot; Apex Clean Energy</div></td>
+          <td>26</td>
+          <td style="text-align: right;">$23K&ndash;$32K</td>
+          <td>Mar 2024&ndash;Apr 2025</td>
+          <td><span class="stance-tag stance-pro">Pro-BESS</span></td>
+          <td>Reputation / Brand</td>
+        </tr>
+        <tr>
+          <td><div class="adv-name">Greenlight Action</div><div class="adv-funder-table">Rockefeller Brothers Fund grantee</div></td>
+          <td>10</td>
+          <td style="text-align: right;">$15K&ndash;$18K</td>
+          <td>May 2025&ndash;Jan 2026</td>
+          <td><span class="stance-tag stance-pro">Pro</span></td>
+          <td>Mobilization / YIMBY</td>
+        </tr>
+        <tr>
+          <td><div class="adv-name">Public Citizen Texas</div><div class="adv-funder-table">Public Citizen Inc</div></td>
+          <td>83</td>
+          <td style="text-align: right;">$12.5K&ndash;$22K</td>
+          <td>Mar 2024&ndash;present</td>
+          <td><span class="stance-tag stance-pro">Pro</span></td>
+          <td>Mobilization</td>
+        </tr>
+        <tr>
+          <td><div class="adv-name">League City Residents for Grid Resilience</div><div class="adv-funder-table">Self-funded (Galveston County)</div></td>
+          <td>77</td>
+          <td style="text-align: right;">$2.2K&ndash;$9.8K</td>
+          <td>Jul&ndash;Nov 2024</td>
+          <td><span class="stance-tag stance-pro">Pro-BESS</span></td>
+          <td>Awareness / Mobilization</td>
+        </tr>
+        <tr>
+          <td><div class="adv-name">Texas Sierra Club</div><div class="adv-funder-table">Sierra Club</div></td>
+          <td>48</td>
+          <td style="text-align: right;">$1K&ndash;$5.8K</td>
+          <td>Mar 2025&ndash;present</td>
+          <td><span class="stance-tag stance-pro">Pro</span></td>
+          <td>Accountability (scorecards)</td>
+        </tr>
+        <tr style="background: var(--red-light);">
+          <td><div class="adv-name">Life: Powered</div><div class="adv-funder-table">Texas Public Policy Foundation</div></td>
+          <td>15</td>
+          <td style="text-align: right;">$800&ndash;$2.3K</td>
+          <td>Mar 2024&ndash;Jul 2025</td>
+          <td><span class="stance-tag stance-anti">Anti-Renewables</span></td>
+          <td>Persuasion (anti-subsidy)</td>
+        </tr>
+        <tr style="background: var(--red-light);">
+          <td><div class="adv-name">Dan Smith &mdash; Waller Co. Commissioner</div><div class="adv-funder-table">Dan Smith For Katy</div></td>
+          <td>5</td>
+          <td style="text-align: right;">$100&ndash;$595</td>
+          <td>Jan&ndash;Feb 2026</td>
+          <td><span class="stance-tag stance-anti">Anti-BESS</span></td>
+          <td>Campaign (Katy siting fight)</td>
+        </tr>
+        <tr style="background: var(--red-light);">
+          <td><div class="adv-name">Don't BESS With Menard</div><div class="adv-funder-table">No disclaimer &middot; Menard County grassroots</div></td>
+          <td>1</td>
+          <td style="text-align: right;">$0&ndash;$99</td>
+          <td>Dec 2025</td>
+          <td><span class="stance-tag stance-anti">Anti-BESS</span></td>
+          <td>Opposition (grassroots)</td>
+        </tr>
+        <tr>
+          <td><div class="adv-name">Odessa Headlines</div><div class="adv-funder-table">Local news / Ector County</div></td>
+          <td>1</td>
+          <td style="text-align: right;">$100&ndash;$199</td>
+          <td>Aug 2025</td>
+          <td><span class="stance-tag stance-issue">Issue</span></td>
+          <td>Journalism (tax abatement)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MESSAGING ANALYSIS -->
+  <div class="section-title">Messaging Landscape &mdash; How Each Side Frames the Fight</div>
+  <div class="two-col">
     <div class="card">
-      <div class="section-title">Advertisers by Spend</div>
-      <table class="adv-table">
-        <thead>
-          <tr>
-            <th>Advertiser</th>
-            <th>Ads</th>
-            <th style="text-align: right;">Spend Est.</th>
-            <th>Angle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="adv-name">GoodPower</div><div class="adv-funder-table">GoodPower, Inc</div></td>
-            <td>110</td>
-            <td style="text-align: right;">$75K–$104K</td>
-            <td><span class="stance-tag stance-pro">Pro-BESS</span></td>
-          </tr>
-          <tr>
-            <td><div class="adv-name">Greenlight Action</div></td>
-            <td>7</td>
-            <td style="text-align: right;">$8.4K–$10.3K</td>
-            <td><span class="stance-tag stance-pro">Pro</span></td>
-          </tr>
-          <tr>
-            <td><div class="adv-name">Texas Sierra Club</div><div class="adv-funder-table">Sierra Club</div></td>
-            <td>12</td>
-            <td style="text-align: right;">$100–$1.3K</td>
-            <td><span class="stance-tag stance-pro">Pro</span></td>
-          </tr>
-          <tr>
-            <td><div class="adv-name">Dan Smith for Waller Co.</div><div class="adv-funder-table">Dan Smith For Katy</div></td>
-            <td>5</td>
-            <td style="text-align: right;">$0–$495</td>
-            <td><span class="stance-tag stance-anti">Anti-BESS</span></td>
-          </tr>
-          <tr>
-            <td><div class="adv-name">Don't BESS With Menard</div></td>
-            <td>1</td>
-            <td style="text-align: right;">$0–$99</td>
-            <td><span class="stance-tag stance-anti">Anti-BESS</span></td>
-          </tr>
-          <tr>
-            <td><div class="adv-name">Oregon State Treasury</div></td>
-            <td>2</td>
-            <td style="text-align: right;">$0–$198</td>
-            <td><span class="stance-tag stance-neutral">Neutral</span></td>
-          </tr>
-          <tr>
-            <td><div class="adv-name">Build With Strength</div></td>
-            <td>1</td>
-            <td style="text-align: right;">$0–$99</td>
-            <td><span class="stance-tag stance-edu">Education</span></td>
-          </tr>
-          <tr>
-            <td><div class="adv-name">Nexavale Safety</div></td>
-            <td>3</td>
-            <td style="text-align: right;">$0–$297</td>
-            <td><span class="stance-tag stance-issue">Issue</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <h3 style="color: var(--green-deep); margin-top: 0;">Pro-BESS Messaging Tracks</h3>
+
+      <div class="msg-item pro-msg">
+        <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">Grid Resilience &amp; Storm Response</strong>
+        "With Winter Storm Fern, we once again saw power plant outages. We need a stronger and more weather-resilient power grid."
+        <div class="msg-source">&mdash; GoodPower (deployed within 48 hrs of Fern, 11+ variants)</div>
+      </div>
+
+      <div class="msg-item pro-msg">
+        <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">BESS Education</strong>
+        "BESS allow us to hold on to extra power from wind, solar, and more, so the grid stays strong. These systems are safe, proven, and getting better every year."
+        <div class="msg-source">&mdash; GoodPower (highest single-ad spend: $2K&ndash;$2.5K, 250K impr.)</div>
+      </div>
+
+      <div class="msg-item pro-msg">
+        <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">Property Value Myth-Busting</strong>
+        "Fact check: Battery storage won't hurt your property values."
+        <div class="msg-source">&mdash; GoodPower (direct counter to opposition arguments)</div>
+      </div>
+
+      <div class="msg-item pro-msg">
+        <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">Conservative Property Rights Frame</strong>
+        "Don't let big government tell you what you can or cannot do on your land."
+        <div class="msg-source">&mdash; Texas Land &amp; Liberty Coalition ($15K&ndash;$20K on this message alone)</div>
+      </div>
+
+      <div class="msg-item pro-msg">
+        <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">YIMBY &amp; Anti-Misinformation</strong>
+        "Local clean energy projects are being blocked by fossil fuel misinformation&mdash;just as federal tax credits are about to expire."
+        <div class="msg-source">&mdash; Greenlight Action ($3.5K&ndash;$4K on this variant)</div>
+      </div>
+
+      <div class="msg-item pro-msg">
+        <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">Legislative Accountability</strong>
+        "Some legislators put [affordable energy] at risk by threatening renewable energy and necessary battery storage. Let them know Texans are watching."
+        <div class="msg-source">&mdash; Texas Sierra Club (2025 legislative scorecard campaign)</div>
+      </div>
     </div>
 
-    <!-- KEY MESSAGING -->
     <div class="card">
-      <div class="section-title">Key Messaging Themes</div>
+      <h3 style="color: var(--red-deep); margin-top: 0;">Anti-BESS Messaging Tracks</h3>
 
-      <div class="msg-category">
-        <div class="msg-category-label" style="color: var(--green-deep);">Pro-BESS / Grid Resilience</div>
-        <div class="msg-item pro-msg">
-          "BESS allow us to hold on to extra power from wind, solar, and more, so the grid stays strong. These systems are safe, proven, and getting better every year."
-          <div class="msg-source">— GoodPower (BESS explainer campaign)</div>
-        </div>
-        <div class="msg-item pro-msg">
-          "Fact check: Battery storage won't hurt your property values."
-          <div class="msg-source">— GoodPower (property value myth-busting)</div>
-        </div>
-        <div class="msg-item pro-msg">
-          "With Winter Storm Fern, we once again saw power plant outages. We need a stronger and more weather-resilient power grid."
-          <div class="msg-source">— GoodPower (storm response campaign)</div>
-        </div>
-        <div class="msg-item pro-msg">
-          "Renewable energy keeps costs down and the lights on. Some legislators put that at risk by threatening renewable energy and necessary battery storage."
-          <div class="msg-source">— Texas Sierra Club</div>
-        </div>
+      <div class="msg-item anti-msg">
+        <strong style="font-size: 12px; color: var(--red-deep); display: block; margin-bottom: 2px;">Schools &amp; Children Safety</strong>
+        "When a massive lithium-ion battery storage facility was proposed next to Katy High School, I stepped up, asked the tough questions, and made the motion to stop it."
+        <div class="msg-source">&mdash; Dan Smith, Waller County Commissioner (6K+ impressions)</div>
       </div>
 
-      <div class="msg-category">
-        <div class="msg-category-label" style="color: var(--red-deep);">Anti-BESS / Local Opposition</div>
-        <div class="msg-item anti-msg">
-          "When a massive lithium-ion battery storage facility was proposed next to Katy High School, I stepped up, asked the tough questions, and made the motion to stop it."
-          <div class="msg-source">— Dan Smith, Waller County Commissioner</div>
-        </div>
-        <div class="msg-item anti-msg">
-          "Don't BESS With Menard" — community opposition group (Menard County, TX)
-          <div class="msg-source">— Page name used as campaign slogan</div>
-        </div>
+      <div class="msg-item anti-msg">
+        <strong style="font-size: 12px; color: var(--red-deep); display: block; margin-bottom: 2px;">Community Identity / Grassroots Branding</strong>
+        "Don't BESS With Menard" &mdash; page name as slogan. No formal ad text; the brand IS the message.
+        <div class="msg-source">&mdash; Don't BESS With Menard (ran without required disclaimer)</div>
       </div>
 
-      <div class="msg-category">
-        <div class="msg-category-label" style="color: var(--teal-deep);">Economic / Community Frame</div>
-        <div class="msg-item edu-msg">
-          "Boosting the local economy, and bringing in more revenue for schools and emergency services."
-          <div class="msg-source">— GoodPower (local benefits messaging)</div>
-        </div>
-        <div class="msg-item edu-msg">
-          "Local clean energy projects are being blocked by fossil fuel misinformation — just as federal tax credits are about to expire."
-          <div class="msg-source">— Greenlight Action</div>
-        </div>
+      <div class="msg-item anti-msg">
+        <strong style="font-size: 12px; color: var(--red-deep); display: block; margin-bottom: 2px;">Anti-Subsidy / Cost Frame</strong>
+        "The 'Green Revolution' is costing you more than you think. It's branded as clean, green, and the future&mdash;but the reality is it's raising your electricity bills."
+        <div class="msg-source">&mdash; Life: Powered (Texas Public Policy Foundation)</div>
+      </div>
+
+      <div class="insight-box" style="border-left-color: var(--red);">
+        <strong>The Opposition Asymmetry</strong>
+        Anti-BESS forces have spent less than $3K on Meta across two years. But their real battlefield isn't Facebook&mdash;it's county commissioners' courts, public hearings, and the state legislature. The Katy BESS rejection, Rock Creek abandonment, HB&nbsp;3809's passage, and the Fannin County lawsuit all happened without significant digital ad spending. Opposition organizing happens through local Facebook groups, NextDoor, county meetings, and news coverage&mdash;channels that don't register in the Ad Library.
+      </div>
+
+      <h3 style="color: var(--amber-deep); margin-top: 24px;">Neutral / Issue-Adjacent</h3>
+
+      <div class="msg-item neutral-msg">
+        <strong style="font-size: 12px; color: var(--amber-deep); display: block; margin-bottom: 2px;">Tax Abatement Accountability</strong>
+        "Judge Fawcett Praises Battery Company for Only Taking a 71.6% Tax Break... Commissioners approved a 71.6% tax abatement for a $200 million battery storage facility."
+        <div class="msg-source">&mdash; Odessa Headlines (local journalism, Ector County)</div>
       </div>
     </div>
   </div>
 
-  <!-- DEMOGRAPHICS -->
-  <div class="section-title">GoodPower Audience Demographics</div>
-  <div class="card" style="margin-bottom: 48px;">
-    <div class="demo-grid">
+  <!-- ADVERTISER DEEP DIVES -->
+  <div class="section-title">Advertiser Deep Dives</div>
+
+  <!-- GOODPOWER -->
+  <div class="ad-card pro">
+    <div class="ad-header">
       <div>
-        <div class="demo-section-label">By Age — GoodPower Reach</div>
-        <div class="demo-bar-row">
-          <span class="demo-label">65+</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 22%; background: var(--navy);">22%</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label">55–64</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 25%; background: var(--navy);">25%</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label">45–54</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 18%; background: var(--navy-mid);">18%</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label">35–44</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 17%; background: var(--slate);">17%</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label">25–34</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 13%; background: var(--stone);">13%</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label">18–24</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 5%; background: var(--stone);">5%</div></div>
-        </div>
+        <div class="ad-name">GoodPower</div>
+        <div class="ad-funder">GoodPower, Inc &middot; 1,384 ads &middot; $1.5M&ndash;$2M spend &middot; Launched Jan 2024 &middot; MacArthur Foundation-backed</div>
       </div>
-      <div>
-        <div class="demo-section-label">By Gender</div>
-        <div class="demo-bar-row">
-          <span class="demo-label">Male</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 50%; background: var(--navy);">50%</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label">Female</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 50%; background: var(--slate);">50%</div></div>
-        </div>
-        <div class="insight-box">
-          <strong>Note</strong>
-          GoodPower's audience is evenly split by gender and broadly distributed by age, with a slight lean toward 45–64. Texas is GoodPower's #1 target state (79 of 110 ads reach TX), followed by Wisconsin (66) and Pennsylvania (58). This is a deliberate, Texas-first campaign.
-        </div>
-      </div>
+      <span class="stance-tag stance-pro">Pro-BESS</span>
+    </div>
+    <p style="font-size: 13px; margin-top: 8px;">GoodPower is the dominant force in BESS advertising nationally. The organization describes itself as harnessing "renewable energy to create good jobs and stronger communities." It runs a sophisticated multi-track operation with distinct messaging for different contexts: BESS education, storm response, myth-busting, economic benefits, wind energy defense, and utility bill framing. Texas is a top-3 target state (627 of 1,384 ads reach TX), alongside Pennsylvania (679) and Ohio (688). The operation deploys massive A/B testing&mdash;413 variants in a single month (Aug 2024)&mdash;suggesting a well-funded digital operation with professional optimization.</p>
+    <div class="ad-text">"Battery energy storage systems (BESS) are a concept that most of us are still trying to wrap our heads around, so let's break it down. BESS allow us to hold on to extra power from wind, solar, and more, so the grid stays strong."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=847360511567689" target="_blank">BESS explainer ($2K&ndash;$2.5K, 250K impr.)</a>
+      <a href="https://www.facebook.com/ads/library/?id=906521418418148" target="_blank">Winter Storm Fern ($1K&ndash;$1.5K, 300K impr.)</a>
+      <a href="https://www.facebook.com/ads/library/?id=25952961371058706" target="_blank">Property values fact check</a>
+      <a href="https://www.facebook.com/ads/library/?id=1594542888686148" target="_blank">Utility bills / renewables ($3K&ndash;$3.5K)</a>
+      <a href="https://www.facebook.com/ads/library/?id=1402091768249597" target="_blank">Wind myths ($1K&ndash;$1.5K)</a>
+      <a href="https://www.facebook.com/ads/library/?id=933712875982777" target="_blank">"Texans deserve more reliable power"</a>
+      <a href="https://www.facebook.com/ads/library/?id=851194187258619" target="_blank">"Can't cut billions from energy" ($1K&ndash;$1.5K)</a>
+      <a href="https://www.facebook.com/ads/library/?id=1349733726956877" target="_blank">Schools &amp; emergency services revenue</a>
     </div>
   </div>
 
-  <!-- TEXAS-SPECIFIC ADS -->
-  <div class="section-title">Texas-Specific Advertisers & Ads</div>
-  <div class="texas-ads">
-
-    <div class="ad-card pro">
-      <div class="ad-header">
-        <div>
-          <div class="ad-name">GoodPower</div>
-          <div class="ad-funder">Funded by: GoodPower, Inc · 110 total ads · $75K–$104K spend · Texas is #1 target state</div>
-        </div>
-        <span class="stance-tag stance-pro">Pro-BESS</span>
+  <!-- TEXAS LAND & LIBERTY -->
+  <div class="ad-card pro">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Texas Land &amp; Liberty Coalition</div>
+        <div class="ad-funder">Conservative Texans for Energy Innovation &middot; 17 ads &middot; $27K&ndash;$35K spend &middot; Active Jan&ndash;Nov 2024</div>
       </div>
-      <div class="ad-text">"Battery energy storage systems (BESS) are a concept that most of us are still trying to wrap our heads around, so let's break it down. BESS allow us to hold on to extra power from wind, solar, and more, so the grid stays strong."</div>
-      <div class="ad-links">
-        <a href="https://www.facebook.com/ads/library/?id=847360511567689" target="_blank">BESS explainer ($2K–$2.5K, 250K impr.)</a>
-        <a href="https://www.facebook.com/ads/library/?id=1907729680141563" target="_blank">BESS explainer ($600–$699)</a>
-        <a href="https://www.facebook.com/ads/library/?id=1853470175542391" target="_blank">BESS explainer variant</a>
-        <a href="https://www.facebook.com/ads/library/?id=1148223707493619" target="_blank">BESS explainer variant</a>
-        <a href="https://www.facebook.com/ads/library/?id=906521418418148" target="_blank">Winter Storm Fern ($1K–$1.5K)</a>
-        <a href="https://www.facebook.com/ads/library/?id=2726039331069711" target="_blank">Winter Storm Fern ($800–$899)</a>
-        <a href="https://www.facebook.com/ads/library/?id=25952961371058706" target="_blank">Property values fact check</a>
-        <a href="https://www.facebook.com/ads/library/?id=933712875982777" target="_blank">"Texans deserve more reliable power"</a>
-        <a href="https://www.facebook.com/ads/library/?id=1349733726956877" target="_blank">Schools & emergency services revenue</a>
-        <a href="https://www.facebook.com/ads/library/?id=851194187258619" target="_blank">"Can't cut billions from energy" ($1K–$1.5K)</a>
-        <a href="https://www.facebook.com/ads/library/?id=870363279275950" target="_blank">"Power, when we need it most"</a>
-        <a href="https://www.facebook.com/ads/library/?id=26060951283577562" target="_blank">"American-made energy"</a>
-        <a href="https://www.facebook.com/ads/library/?id=1281273547174621" target="_blank">Utility bills / renewables solution ($1K–$1.5K)</a>
-        <a href="https://www.facebook.com/ads/library/?id=1402091788249597" target="_blank">Wind energy myth-busting ($500–$599)</a>
-      </div>
+      <span class="stance-tag stance-pro">Pro-BESS</span>
     </div>
-
-    <div class="ad-card pro">
-      <div class="ad-header">
-        <div>
-          <div class="ad-name">Texas Sierra Club</div>
-          <div class="ad-funder">Funded by: Sierra Club · 12 ads · $100–$1.3K spend</div>
-        </div>
-        <span class="stance-tag stance-pro">Pro-BESS</span>
-      </div>
-      <div class="ad-text">"Renewable energy is good for Texans. It keeps costs down and the lights on. Some legislators put that at risk by threatening renewable energy and necessary battery storage. Let them know Texans are watching."</div>
-      <div class="ad-links">
-        <a href="https://www.facebook.com/ads/library/?id=1478572367605527" target="_blank">Battery storage defense ad</a>
-        <a href="https://www.facebook.com/ads/library/?id=1612582179906082" target="_blank">2025 Legislative Scorecard ($100–$199)</a>
-        <a href="https://www.facebook.com/ads/library/?id=713540608356732" target="_blank">Rep. Raymond anti-renewable bills</a>
-        <a href="https://www.facebook.com/ads/library/?id=2032789767289299" target="_blank">Sen. Hinojosa accountability</a>
-      </div>
+    <p style="font-size: 13px; margin-top: 8px;">A project of Conservative Texans for Energy Innovation, this group frames renewables and BESS through a property-rights and energy-independence lens designed to appeal to conservative Texans. The framing is deliberate: "big government" is the enemy, not energy companies. Critics have called the national Land &amp; Liberty Coalition network "liberal-funded front groups who use conservative-sounding language," though the organization describes itself as an alliance of local landowners, farmers, and community leaders. Active through November 2024, then went dark&mdash;its largest single ad ($15K&ndash;$20K) was a property-rights call to action.</p>
+    <div class="ad-text">"Don't let big government tell you what you can or cannot do on your land. Join us to fight to preserve private property rights."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1152729213232868" target="_blank">Property rights ($15K&ndash;$20K, top spend)</a>
+      <a href="https://www.facebook.com/ads/library/?id=802021791872344" target="_blank">BESS community survey ($1.5K&ndash;$2K)</a>
+      <a href="https://www.facebook.com/ads/library/?id=1139987807234350" target="_blank">Energy storage &amp; summer heat</a>
+      <a href="https://www.facebook.com/ads/library/?id=3769600059987218" target="_blank">Homegrown solar ($2K&ndash;$2.5K)</a>
     </div>
-
-    <div class="ad-card pro">
-      <div class="ad-header">
-        <div>
-          <div class="ad-name">Greenlight Action</div>
-          <div class="ad-funder">Funded by: Greenlight Action · 7 ads · $8.4K–$10.3K spend</div>
-        </div>
-        <span class="stance-tag stance-pro">Pro</span>
-      </div>
-      <div class="ad-text">"We proudly say 'Yes in my backyard.' Because clean energy means thriving communities, affordable power, and a livable climate. Local clean energy projects are being blocked by fossil fuel misinformation."</div>
-      <div class="ad-links">
-        <a href="https://www.facebook.com/ads/library/?id=1973578523217976" target="_blank">"Yes in my backyard" ($500–$599)</a>
-        <a href="https://www.facebook.com/ads/library/?id=1202778964678221" target="_blank">Fossil fuel misinformation ($3.5K–$4K)</a>
-        <a href="https://www.facebook.com/ads/library/?id=3727654340873556" target="_blank">Federal tax credits expiring ($2.5K–$3K)</a>
-      </div>
-    </div>
-
-    <div class="ad-card anti">
-      <div class="ad-header">
-        <div>
-          <div class="ad-name">Dan Smith — Waller County Commissioner Pct. 4</div>
-          <div class="ad-funder">Funded by: Dan Smith For Katy · 5 ads · $0–$495 spend</div>
-        </div>
-        <span class="stance-tag stance-anti">Anti-BESS</span>
-      </div>
-      <div class="ad-text">"Public safety comes first. Always. When a massive lithium-ion battery storage facility was proposed next to Katy High School, I stepped up, asked the tough questions, and made the motion to stop it. Because protecting families and kids matters more than rubber-stamping projects."</div>
-      <div class="ad-links">
-        <a href="https://www.facebook.com/ads/library/?id=1615546562816834" target="_blank">Ad #1 — Katy High School / BESS opposition</a>
-        <a href="https://www.facebook.com/ads/library/?id=1186029853300564" target="_blank">Ad #2 — Visual / no text</a>
-        <a href="https://www.facebook.com/ads/library/?id=914219651283884" target="_blank">Ad #3 — Campaign ad</a>
-        <a href="https://www.facebook.com/ads/library/?id=1974219066830454" target="_blank">Ad #4 — Endorsement (Dollins)</a>
-        <a href="https://www.facebook.com/ads/library/?id=782056194922726" target="_blank">Ad #5 — Endorsement (Mayor Thiele)</a>
-      </div>
-    </div>
-
-    <div class="ad-card anti">
-      <div class="ad-header">
-        <div>
-          <div class="ad-name">Don't BESS With Menard</div>
-          <div class="ad-funder">No disclaimer provided · 1 ad · $0–$99 spend · Menard County, TX</div>
-        </div>
-        <span class="stance-tag stance-anti">Anti-BESS</span>
-      </div>
-      <div class="ad-text">Community opposition group from Menard County, Texas. Page name itself is the slogan — "Don't BESS With Menard." Ad ran without required disclaimer.</div>
-      <div class="ad-links">
-        <a href="https://www.facebook.com/ads/library/?id=4138115399782844" target="_blank">View ad — Menard County opposition</a>
-      </div>
-    </div>
-
   </div>
 
-  <!-- GOODPOWER DEEP DIVE -->
-  <div class="section-title">GoodPower Campaign Analysis</div>
-  <div class="card" style="margin-bottom: 48px;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+  <!-- LEAGUE CITY -->
+  <div class="ad-card pro">
+    <div class="ad-header">
       <div>
-        <div class="demo-section-label">Campaign Messaging Tracks</div>
-        <div class="msg-item pro-msg" style="margin-bottom: 8px;">
-          <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">BESS Education</strong>
-          Explainer content breaking down how battery storage works, emphasizing safety and grid reliability. Highest-spend single ad.
-        </div>
-        <div class="msg-item pro-msg" style="margin-bottom: 8px;">
-          <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">Storm Response</strong>
-          Winter Storm Fern creative urging grid resilience. Deployed late January 2026 with high frequency (11+ variants).
-        </div>
-        <div class="msg-item pro-msg" style="margin-bottom: 8px;">
-          <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">Myth-Busting</strong>
-          "Fact check: Battery storage won't hurt your property values." Direct counter to local opposition arguments.
-        </div>
-        <div class="msg-item pro-msg" style="margin-bottom: 8px;">
-          <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">Economic Benefits</strong>
-          Tax revenue for schools, emergency services, local economy. "Texans deserve more reliable power."
-        </div>
-        <div class="msg-item pro-msg" style="margin-bottom: 0;">
-          <strong style="font-size: 12px; color: var(--green-deep); display: block; margin-bottom: 2px;">Wind Energy / Renewables</strong>
-          "There's a myth that wind energy is a money-loser." Deployed Jan 28–29 with 15+ ad variants and high spend.
-        </div>
+        <div class="ad-name">League City Residents for Grid Resilience</div>
+        <div class="ad-funder">Self-funded &middot; 77 ads &middot; $2.2K&ndash;$9.8K spend &middot; Active Jul&ndash;Nov 2024 (Galveston County)</div>
       </div>
-      <div>
-        <div class="demo-section-label">Spend by Campaign Phase</div>
-        <div class="demo-bar-row">
-          <span class="demo-label" style="min-width: 100px;">PA legislators</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 60%; background: var(--navy);">~$38K+</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label" style="min-width: 100px;">NV solar</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 12%; background: var(--navy-mid);">~$5K</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label" style="min-width: 100px;">TX BESS/grid</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 20%; background: var(--green);">~$8K+</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label" style="min-width: 100px;">WI/OH solar</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 8%; background: var(--slate);">~$3K</div></div>
-        </div>
-        <div class="demo-bar-row">
-          <span class="demo-label" style="min-width: 100px;">Wind myths</span>
-          <div class="demo-bar-track"><div class="demo-bar-inner" style="width: 10%; background: var(--teal);">~$2K</div></div>
-        </div>
+      <span class="stance-tag stance-pro">Pro-BESS</span>
+    </div>
+    <p style="font-size: 13px; margin-top: 8px;">A hyperlocal pro-BESS group in Galveston County that launched immediately after Hurricane Beryl knocked out power in July 2024. Ran 77 ads in five months with consistent messaging about grid resilience, BESS benefits, and post-hurricane recovery. The page activated quickly and ran on a tight schedule (new ads every few days), suggesting organized campaign management. Messaging consistently referenced Beryl and summer heat as evidence of BESS necessity. Went silent after November 2024.</p>
+    <div class="ad-text">"The loss of electricity leaves many Texas residents concerned after being affected by Hurricane Beryl. The installation of battery energy storage systems brings us toward a more reliable future."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1254798645647207" target="_blank">Support letter for BESS ($200&ndash;$299)</a>
+      <a href="https://www.facebook.com/ads/library/?id=491692003752427" target="_blank">Post-Beryl resilience</a>
+      <a href="https://www.facebook.com/ads/library/?id=515593487591769" target="_blank">Summer heat / 1MW = 200 homes</a>
+      <a href="https://www.facebook.com/ads/library/?id=487206013905321" target="_blank">Grid resilience Galveston Co.</a>
+    </div>
+  </div>
 
-        <div class="insight-box" style="margin-top: 20px;">
-          <strong>Key Insight</strong>
-          GoodPower is running a sophisticated, multi-track advocacy operation with Texas as its primary target. The BESS explainer ad alone reached 250K–300K impressions. Their Winter Storm Fern response deployed within days of the storm with 11+ variants — suggesting a well-funded, rapid-response digital operation. This is by far the most active pro-BESS advertiser in the state.
-        </div>
+  <!-- APEX CLEAN ENERGY -->
+  <div class="ad-card pro">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Apex Clean Energy</div>
+        <div class="ad-funder">Developer &middot; 26 ads &middot; $23K&ndash;$32K spend &middot; Active Mar 2024&ndash;Apr 2025</div>
+      </div>
+      <span class="stance-tag stance-pro">Pro-BESS</span>
+    </div>
+    <p style="font-size: 13px; margin-top: 8px;">A clean energy developer running brand-awareness and reputation campaigns. Two Texas-specific ads directly reference Winter Storm Uri and battery storage's role in grid resilience. Broader campaign covers sustainability reports, conservation grants, job creation, and domestic manufacturing. This is corporate reputation management&mdash;Apex develops renewable projects and has a direct commercial interest in favorable public opinion.</p>
+    <div class="ad-text">"Winter Storm Uri helped Texas recognize the need to update its aging infrastructure... thanks in part to the growth of battery storage across the state, the electrical grid has withstood record heat waves and other storms."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1029525301802251" target="_blank">TX grid resilience ($1K&ndash;$1.5K)</a>
+      <a href="https://www.facebook.com/ads/library/?id=982734760198671" target="_blank">Winter Storm Uri ($1.5K&ndash;$2K)</a>
+      <a href="https://www.facebook.com/ads/library/?id=1014391083763978" target="_blank">Battery storage importance</a>
+    </div>
+  </div>
+
+  <!-- DAN SMITH -->
+  <div class="ad-card anti">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Dan Smith &mdash; Waller County Commissioner Pct. 4</div>
+        <div class="ad-funder">Dan Smith For Katy &middot; 5 ads &middot; $100&ndash;$595 spend &middot; Active Jan&ndash;Feb 2026</div>
+      </div>
+      <span class="stance-tag stance-anti">Anti-BESS</span>
+    </div>
+    <p style="font-size: 13px; margin-top: 8px;">A local elected official using BESS opposition as a campaign platform. Smith's ads center on the Katy High School siting fight&mdash;a 500MW Vesper Energy proposal that the Katy City Council rejected in October 2024. His messaging follows the classic safety-near-schools playbook. Despite minimal Meta spend, Smith's real impact was at the commissioners' court level, where he claims to have "made the motion to stop it." The Vesper/Katy fight continues&mdash;the developer has appealed to the PUC to overrule the city.</p>
+    <div class="ad-text">"Public safety comes first. Always. When a massive lithium-ion battery storage facility was proposed next to Katy High School, I stepped up, asked the tough questions, and made the motion to stop it."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=1615546562816834" target="_blank">BESS opposition ad (6K impr.)</a>
+      <a href="https://www.facebook.com/ads/library/?id=1186029853300564" target="_blank">Campaign visual</a>
+      <a href="https://www.facebook.com/ads/library/?id=914219651283884" target="_blank">Campaign ad</a>
+    </div>
+  </div>
+
+  <!-- LIFE: POWERED -->
+  <div class="ad-card anti">
+    <div class="ad-header">
+      <div>
+        <div class="ad-name">Life: Powered</div>
+        <div class="ad-funder">Texas Public Policy Foundation &middot; 15 ads &middot; $800&ndash;$2.3K spend &middot; Active Mar 2024&ndash;Jul 2025</div>
+      </div>
+      <span class="stance-tag stance-anti">Anti-Renewables</span>
+    </div>
+    <p style="font-size: 13px; margin-top: 8px;">The Texas Public Policy Foundation's energy project doesn't attack BESS specifically but argues that wind and solar subsidies are raising Texas electricity prices and undermining grid reliability. Their framing positions nuclear as the solution and renewables (including battery storage) as the problem. TPPF is a major conservative think tank with fossil fuel industry funding. Their Meta ad spend is minimal, but their influence operates through legislative testimony, policy papers, and earned media rather than paid social.</p>
+    <div class="ad-text">"The 'Green Revolution' is costing you more than you think. It's branded as clean, green, and the future&mdash;but the reality is it's raising your electricity bills."</div>
+    <div class="ad-links">
+      <a href="https://www.facebook.com/ads/library/?id=603066372485397" target="_blank">"Green Revolution" cost frame</a>
+      <a href="https://www.facebook.com/ads/library/?id=948819347462465" target="_blank">Nuclear vs. renewables</a>
+      <a href="https://www.facebook.com/ads/library/?id=1213519160117963" target="_blank">SB 715 reliability standards</a>
+    </div>
+  </div>
+
+  <!-- GoodPower GEOGRAPHIC REACH -->
+  <div class="section-title">GoodPower Geographic &amp; Demographic Reach</div>
+  <div class="two-col">
+    <div class="chart-container" style="margin-bottom: 0;">
+      <div class="chart-title">GoodPower: Top 10 States by Ad Reach</div>
+      <div class="chart-subtitle">Number of ads delivered to each state (of 1,384 total). GoodPower runs a national operation; Texas is one of several priority states.</div>
+      <canvas id="geoBar" height="250"></canvas>
+    </div>
+    <div class="card">
+      <div class="chart-title">Delivery Demographics</div>
+      <div class="chart-subtitle">Aggregate audience composition across all 1,384 GoodPower ads. Data reflects delivery, not targeting intent.</div>
+      <canvas id="demoDonut" height="200" style="margin-top: 12px;"></canvas>
+      <div class="donut-legend" style="margin-top: 16px;">
+        <div class="donut-legend-item"><div class="donut-legend-dot" style="background: var(--navy);"></div>Female 56%</div>
+        <div class="donut-legend-item"><div class="donut-legend-dot" style="background: var(--slate);"></div>Male 44%</div>
+      </div>
+      <div class="insight-box" style="margin-top: 16px; margin-bottom: 0;">
+        <strong>Delivery Data vs. Targeting Intent</strong>
+        All Ad Library demographic and geographic data shows <em>delivery results</em> (who saw the ad), not targeting inputs. GoodPower's slight female lean and 45&ndash;64 concentration could reflect explicit targeting, first-party audience lists, algorithmic optimization toward responsive users, or creative resonance with those demographics. The broad national distribution across 30+ states suggests GoodPower is running a national awareness campaign rather than Texas-specific targeting.
       </div>
     </div>
   </div>
 
   <!-- STRATEGIC TAKEAWAY -->
+  <div class="section-title" style="margin-top: 56px;">Strategic Assessment</div>
   <div class="takeaway">
     <div class="takeaway-label">Strategic Takeaway</div>
     <p>
-      The BESS ad landscape in Texas is <strong>dominated by pro-development messaging from a single advertiser: GoodPower</strong>, which is running 110 ads at $75K–$104K in total spend with Texas as its #1 target state. GoodPower's messaging is sophisticated, covering BESS education, property value myth-busting, storm resilience, and economic benefits for schools and local services.
+      <strong>The Texas BESS ad landscape is the clearest example of an asymmetric information war in American energy politics.</strong> One side&mdash;the pro-BESS coalition led by GoodPower&mdash;has spent over $1.6 million on Meta in two years, deploying nearly 1,600 ads with professional creative, rapid-response messaging (Winter Storm Fern ads within 48 hours), and sophisticated A/B testing at scale. The other side has spent less than $3,000.
     </p>
     <p>
-      Anti-BESS opposition is <strong>hyperlocal and low-budget</strong> but politically potent. Dan Smith in Waller County is using a BESS siting fight near Katy High School as a central campaign issue for county commissioner. "Don't BESS With Menard" represents grassroots Menard County opposition. Both follow the familiar <em>safety-near-schools, property values, fire risk</em> playbook.
+      Yet the policy outcomes tell a different story. Anti-BESS forces&mdash;operating through county commissioners' courts, public hearings, legislative testimony, and grassroots organizing&mdash;have achieved concrete victories: the Katy BESS rejection, the Rock Creek abandonment in the Hill Country, HB&nbsp;3809's decommissioning mandates, and the Texas GOP's formal anti-BESS resolution. The Fannin County fight produced a lawsuit (Engie v. Fannin County) that could set statewide precedent. The Moss Landing fire gave opposition organizers a visceral, visual argument that no amount of ad spend can fully counter.
     </p>
     <p>
-      The Texas Sierra Club and Greenlight Action add legislative accountability and YIMBY framing, respectively, but at much lower spend levels. <strong>Notably absent</strong>: any industry trade association advertising (no TXOGA, no Texas Solar Power Association, no storage-developer branded pages). The entire pro-BESS digital narrative in Texas is being carried by GoodPower and a handful of national advocacy groups.
+      <strong>The strategic dynamic is clear:</strong> pro-BESS money dominates the digital narrative, but anti-BESS organizing dominates the regulatory and legislative arena. GoodPower's $1.5M+ is buying awareness and sentiment&mdash;but awareness doesn't vote at commissioners' court. The real question is whether the PUC ruling on the Vesper/Katy appeal will establish a precedent that overrides local opposition, effectively shifting the battleground from county-level politics to state-level regulation.
     </p>
+    <p>
+      <strong>Notable absences:</strong> No major Texas energy trade associations (TXOGA, Texas Solar Power Association) are running BESS ads. No BESS developers beyond Apex have their own branded ad campaigns. The "Don't BESS With Texas" movement, despite a website and social presence, has no paid Meta advertising. The advertising war is being fought almost entirely by national advocacy organizations&mdash;GoodPower, Greenlight Action, the Sierra Club&mdash;while local actors on both sides operate through channels the Ad Library cannot see.
+    </p>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="section-title">Methodology &amp; Limitations</div>
+  <div class="methodology">
+    <p><strong>Search parameters:</strong> This report analyzes political, social, and issue ads from the Meta Ad Library API matching keywords including "battery energy storage," "BESS," "battery storage Texas," "grid resilience," and related terms, delivered to users in the United States with Texas as a delivery region, between February 10, 2024 and February 10, 2026. Additional page-specific queries were run for all identified advertisers.</p>
+    <p><strong>Spend figures:</strong> Meta reports spend as ranges (e.g., "$1,000&ndash;$1,499"), not exact amounts. All spend figures in this report use these ranges. Total spend for an advertiser is calculated by summing the individual ad ranges.</p>
+    <p><strong>Delivery vs. targeting:</strong> All demographic and geographic data reflects ad delivery (who saw the ad), not advertiser targeting selections. Delivery patterns can be influenced by first-party data, lookalike audiences, algorithmic optimization, creative resonance, and platform demographics&mdash;not only explicit targeting choices.</p>
+    <p><strong>Keyword limitations:</strong> Ads that discuss BESS-related topics without using the searched keywords will not appear. Opposition groups may use different terminology (e.g., "battery plant," "lithium facility") that evades keyword-based searches. Organic posts, Facebook group activity, and community organizing on other platforms are not captured.</p>
+    <p><strong>Scope:</strong> This report covers only ads classified as political, social, or issue ads under Meta's Ad Library policies. Commercial advertising for energy products or services is not included.</p>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    <div class="footer-left">Source: Meta Ad Library API · Retrieved Feb 2, 2026</div>
-    <div>Political, social & issue ads only · Geo-filtered to Texas</div>
+    <div class="footer-grid">
+      <div class="footer-left">Source: Meta Ad Library API &middot; Retrieved Feb 10, 2026<br>Political, social &amp; issue ads only &middot; Geo-filtered to Texas delivery</div>
+      <div class="footer-right">24-month analysis window<br>Feb 10, 2024 &ndash; Feb 10, 2026</div>
+    </div>
+    <div class="footer-attrib">Built by The Canter Company &middot; <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a></div>
   </div>
 
 </div>
 
 <script>
-const weeklyData = [
-  { label: 'Oct 27', ads: 57, spend: 15400, spike: true },
-  { label: 'Nov 3', ads: 9, spend: 9950, spike: true },
-  { label: 'Nov 10', ads: 14, spend: 1700, spike: false },
-  { label: 'Nov 17', ads: 7, spend: 5350, spike: true },
-  { label: 'Nov 24', ads: 6, spend: 3300, spike: false },
-  { label: 'Dec 1', ads: 6, spend: 2700, spike: false },
-  { label: 'Dec 8', ads: 5, spend: 450, spike: false },
-  { label: 'Dec 15', ads: 9, spend: 1650, spike: false },
-  { label: 'Dec 22', ads: 1, spend: 50, spike: false },
-  { label: 'Dec 29', ads: 4, spend: 200, spike: false },
-  { label: 'Jan 5', ads: 11, spend: 1450, spike: false },
-  { label: 'Jan 12', ads: 4, spend: 200, spike: false },
-  { label: 'Jan 19', ads: 2, spend: 500, spike: false },
-  { label: 'Jan 26', ads: 29, spend: 4400, spike: false },
-  { label: 'Feb 2', ads: 6, spend: 300, spike: false },
+// ═══════════════════════════════════════════════
+// ANNOTATED SPEND TIMELINE
+// ═══════════════════════════════════════════════
+const timelineCtx = document.getElementById('spendTimeline').getContext('2d');
+const monthLabels = ['Feb 24','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',
+                     'Jan 25','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',
+                     'Jan 26','Feb'];
+const adCounts =   [33,35,25,12,26,52,35,77,69,20,43, 32,63,44,100,105,72,49,63,19,108,42,22, 46,30];
+const spendLow =   [2200,3800,8500,300,56500,18700,15400,22900,13900,3300,17300, 3800,12300,2300,18300,17500,11800,11900,6100,15300,29400,19900,3600, 4600,1500];
+const spendHigh =  [5867,7665,12175,1488,74674,26748,20565,33123,23931,5680,24357, 6968,20137,6656,29900,29895,20528,17951,12337,19881,47392,27258,6178, 9554,4470];
+const spendMid = spendLow.map((v,i) => Math.round((v + spendHigh[i]) / 2));
+
+new Chart(timelineCtx, {
+  type: 'bar',
+  data: {
+    labels: monthLabels,
+    datasets: [{
+      label: 'Ad Count',
+      data: adCounts,
+      backgroundColor: adCounts.map((v,i) => {
+        if (i >= 0 && i <= 10) return 'rgba(26,35,50,0.7)';
+        return 'rgba(26,35,50,0.85)';
+      }),
+      borderRadius: 3,
+      yAxisID: 'y',
+      order: 2
+    },{
+      label: 'Spend (midpoint est.)',
+      data: spendMid,
+      type: 'line',
+      borderColor: '#b45309',
+      backgroundColor: 'rgba(180,83,9,0.08)',
+      fill: true,
+      tension: 0.3,
+      pointRadius: 2,
+      pointHoverRadius: 5,
+      borderWidth: 2,
+      yAxisID: 'y1',
+      order: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: 'Ads', font: { family: 'IBM Plex Mono', size: 10 }, color: '#9c9590' },
+        ticks: { font: { family: 'IBM Plex Mono', size: 9 }, color: '#9c9590' },
+        grid: { color: '#ece9e2' }
+      },
+      y1: {
+        position: 'right',
+        beginAtZero: true,
+        title: { display: true, text: 'Spend ($)', font: { family: 'IBM Plex Mono', size: 10 }, color: '#9c9590' },
+        ticks: {
+          font: { family: 'IBM Plex Mono', size: 9 },
+          color: '#9c9590',
+          callback: function(v) { return '$' + (v/1000).toFixed(0) + 'K'; }
+        },
+        grid: { display: false }
+      },
+      x: {
+        ticks: { font: { family: 'IBM Plex Mono', size: 9 }, color: '#9c9590', maxRotation: 45 },
+        grid: { display: false }
+      }
+    },
+    plugins: {
+      legend: { display: true, position: 'top', labels: { font: { family: 'IBM Plex Sans', size: 11 }, usePointStyle: true, pointStyle: 'rect' } },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            if (ctx.datasetIndex === 0) return ctx.parsed.y + ' ads';
+            return '$' + (ctx.parsed.y / 1000).toFixed(1) + 'K est. spend';
+          }
+        }
+      },
+      annotation: {
+        annotations: {
+          beryl: {
+            type: 'line', xMin: 5, xMax: 5, borderColor: '#b45309', borderWidth: 1.5, borderDash: [4,3],
+            label: { display: true, content: 'Hurricane Beryl', position: 'start', font: { family: 'IBM Plex Mono', size: 9 }, backgroundColor: 'rgba(180,83,9,0.85)', color: '#fff', padding: 4 }
+          },
+          katy: {
+            type: 'line', xMin: 8, xMax: 8, borderColor: '#c53030', borderWidth: 1.5, borderDash: [4,3],
+            label: { display: true, content: 'Katy rejects BESS', position: 'start', font: { family: 'IBM Plex Mono', size: 9 }, backgroundColor: 'rgba(197,48,48,0.85)', color: '#fff', padding: 4 }
+          },
+          mossLanding: {
+            type: 'line', xMin: 11, xMax: 11, borderColor: '#c53030', borderWidth: 1.5, borderDash: [4,3],
+            label: { display: true, content: 'Moss Landing fire', position: 'end', font: { family: 'IBM Plex Mono', size: 9 }, backgroundColor: 'rgba(197,48,48,0.85)', color: '#fff', padding: 4 }
+          },
+          hb3809: {
+            type: 'line', xMin: 15, xMax: 15, borderColor: '#6d28d9', borderWidth: 1.5, borderDash: [4,3],
+            label: { display: true, content: 'HB 3809 signed', position: 'start', font: { family: 'IBM Plex Mono', size: 9 }, backgroundColor: 'rgba(109,40,217,0.85)', color: '#fff', padding: 4 }
+          },
+          fern: {
+            type: 'line', xMin: 23, xMax: 23, borderColor: '#b45309', borderWidth: 1.5, borderDash: [4,3],
+            label: { display: true, content: 'Winter Storm Fern', position: 'end', font: { family: 'IBM Plex Mono', size: 9 }, backgroundColor: 'rgba(180,83,9,0.85)', color: '#fff', padding: 4 }
+          }
+        }
+      }
+    }
+  }
+});
+
+// ═══════════════════════════════════════════════
+// GOODPOWER MONTHLY SPEND
+// ═══════════════════════════════════════════════
+const gpCtx = document.getElementById('goodpowerSpend').getContext('2d');
+const gpMonths = ['Jan 24','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',
+                  'Jan 25','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',
+                  'Jan 26','Feb'];
+const gpSpendLow = [6500,41600,57700,33500,11800,4400,175800,416000,275100,88900,0,6600,
+                    69700,73100,83000,29900,34400,10200,18200,1800,1000,8600,10600,51000,13000,100];
+const gpSpendHigh = [7498,57026,74764,43054,15281,6483,214124,543487,357410,114834,0,8196,
+                     90260,95646,103765,37787,45382,14572,22685,2394,1594,10790,15079,67275,20342,1288];
+const gpMid = gpSpendLow.map((v,i) => Math.round((v + gpSpendHigh[i]) / 2));
+
+new Chart(gpCtx, {
+  type: 'bar',
+  data: {
+    labels: gpMonths,
+    datasets: [{
+      label: 'GoodPower Monthly Spend (midpoint est.)',
+      data: gpMid,
+      backgroundColor: gpMid.map(v => {
+        if (v > 200000) return '#1a5632';
+        if (v > 50000) return '#16803c';
+        if (v > 10000) return '#22c55e';
+        return '#86efac';
+      }),
+      borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: { family: 'IBM Plex Mono', size: 9 }, color: '#9c9590',
+          callback: function(v) { return '$' + (v/1000).toFixed(0) + 'K'; }
+        },
+        grid: { color: '#ece9e2' }
+      },
+      x: {
+        ticks: { font: { family: 'IBM Plex Mono', size: 9 }, color: '#9c9590', maxRotation: 45 },
+        grid: { display: false }
+      }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            const lo = gpSpendLow[ctx.dataIndex];
+            const hi = gpSpendHigh[ctx.dataIndex];
+            return '$' + (lo/1000).toFixed(0) + 'K - $' + (hi/1000).toFixed(0) + 'K';
+          }
+        }
+      }
+    }
+  }
+});
+
+// ═══════════════════════════════════════════════
+// SPEND SHARE DONUT
+// ═══════════════════════════════════════════════
+const donutCtx = document.getElementById('spendDonut').getContext('2d');
+const donutData = [
+  { label: 'GoodPower', value: 1750000, color: '#16803c' },
+  { label: 'TX Land & Liberty', value: 31000, color: '#22c55e' },
+  { label: 'Apex Clean Energy', value: 27500, color: '#0d9488' },
+  { label: 'Greenlight Action', value: 16400, color: '#2563eb' },
+  { label: 'Public Citizen TX', value: 17400, color: '#6d28d9' },
+  { label: 'League City', value: 6000, color: '#b45309' },
+  { label: 'TX Sierra Club', value: 3400, color: '#0891b2' }
 ];
 
-const maxAds = Math.max(...weeklyData.map(d => d.ads));
-const chart = document.getElementById('volumeChart');
+new Chart(donutCtx, {
+  type: 'doughnut',
+  data: {
+    labels: donutData.map(d => d.label),
+    datasets: [{
+      data: donutData.map(d => d.value),
+      backgroundColor: donutData.map(d => d.color),
+      borderWidth: 2,
+      borderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    cutout: '60%',
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            const total = ctx.dataset.data.reduce((a,b) => a+b, 0);
+            const pct = ((ctx.parsed / total) * 100).toFixed(1);
+            return ctx.label + ': $' + (ctx.parsed/1000).toFixed(0) + 'K (' + pct + '%)';
+          }
+        }
+      }
+    }
+  }
+});
 
-weeklyData.forEach(d => {
-  const group = document.createElement('div');
-  group.className = 'bar-group';
+// Build donut legend
+const legendEl = document.getElementById('donutLegend');
+donutData.forEach(d => {
+  const item = document.createElement('div');
+  item.className = 'donut-legend-item';
+  item.innerHTML = '<div class="donut-legend-dot" style="background:' + d.color + ';"></div>' + d.label;
+  legendEl.appendChild(item);
+});
 
-  const bar = document.createElement('div');
-  bar.className = 'bar';
-  const height = (d.ads / maxAds) * 100;
-  bar.style.height = height + '%';
-  bar.style.background = d.spike ? '#b45309' : '#1a2332';
+// ═══════════════════════════════════════════════
+// PRO VS ANTI BAR
+// ═══════════════════════════════════════════════
+const proAntiCtx = document.getElementById('proAntiBar').getContext('2d');
+new Chart(proAntiCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Pro-BESS', 'Anti-BESS'],
+    datasets: [{
+      data: [1650000, 2900],
+      backgroundColor: ['#16803c', '#c53030'],
+      borderRadius: 6,
+      barThickness: 60
+    }]
+  },
+  options: {
+    responsive: true,
+    indexAxis: 'y',
+    scales: {
+      x: {
+        type: 'logarithmic',
+        ticks: {
+          font: { family: 'IBM Plex Mono', size: 9 }, color: '#9c9590',
+          callback: function(v) {
+            if (v === 1000) return '$1K';
+            if (v === 10000) return '$10K';
+            if (v === 100000) return '$100K';
+            if (v === 1000000) return '$1M';
+            return '';
+          }
+        },
+        grid: { color: '#ece9e2' }
+      },
+      y: {
+        ticks: { font: { family: 'IBM Plex Sans', size: 13, weight: '600' }, color: '#1c1917' },
+        grid: { display: false }
+      }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            return '$' + (ctx.parsed.x / 1000).toFixed(0) + 'K estimated spend';
+          }
+        }
+      }
+    }
+  }
+});
 
-  const tooltip = document.createElement('div');
-  tooltip.className = 'bar-tooltip';
-  tooltip.innerHTML = d.ads + ' ads · $' + (d.spend/1000).toFixed(1) + 'K spend';
-  bar.appendChild(tooltip);
+// ═══════════════════════════════════════════════
+// GEOGRAPHIC BAR
+// ═══════════════════════════════════════════════
+const geoCtx = document.getElementById('geoBar').getContext('2d');
+new Chart(geoCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Ohio','Pennsylvania','Georgia','Michigan','Wisconsin','California','Minnesota','New York','N. Carolina','Texas'],
+    datasets: [{
+      data: [688,679,678,671,671,647,645,642,644,627],
+      backgroundColor: ['#2d3a4a','#2d3a4a','#2d3a4a','#2d3a4a','#2d3a4a','#2d3a4a','#2d3a4a','#2d3a4a','#2d3a4a','#16803c'],
+      borderRadius: 4,
+      barThickness: 20
+    }]
+  },
+  options: {
+    responsive: true,
+    indexAxis: 'y',
+    scales: {
+      x: {
+        min: 550,
+        ticks: { font: { family: 'IBM Plex Mono', size: 9 }, color: '#9c9590' },
+        grid: { color: '#ece9e2' }
+      },
+      y: {
+        ticks: { font: { family: 'IBM Plex Sans', size: 11 }, color: '#3d3833' },
+        grid: { display: false }
+      }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) { return ctx.parsed.x + ' ads reaching this state'; }
+        }
+      }
+    }
+  }
+});
 
-  const label = document.createElement('div');
-  label.className = 'bar-label';
-  label.textContent = d.label;
-
-  group.appendChild(bar);
-  group.appendChild(label);
-  chart.appendChild(group);
+// ═══════════════════════════════════════════════
+// DEMOGRAPHICS DONUT
+// ═══════════════════════════════════════════════
+const demoCtx = document.getElementById('demoDonut').getContext('2d');
+new Chart(demoCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Female', 'Male'],
+    datasets: [{
+      data: [56, 44],
+      backgroundColor: ['#1a2332', '#475569'],
+      borderWidth: 2,
+      borderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    cutout: '65%',
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) { return ctx.label + ': ' + ctx.parsed + '%'; }
+        }
+      }
+    }
+  }
 });
 </script>
 </body>
