@@ -824,7 +824,7 @@
   <div class="chart-container">
     <h4>Monthly Ad Spend: API Corporate + Energy Citizens</h4>
     <div class="chart-sub">Jul 2020 – Feb 2026 · Stacked by page · Annotated with policy events</div>
-    <canvas id="spendTimeline" height="420"></canvas>
+    <div style="position:relative;height:400px;"><canvas id="spendTimeline"></canvas></div>
   </div>
 
   <!-- Spend Breakdown Table -->
@@ -1039,7 +1039,7 @@
   <div class="chart-container">
     <h4>Ad Delivery by State: API Corporate vs. Energy Citizens</h4>
     <div class="chart-sub">Top 15 states by average reach percentage · Reflects delivery, not targeting</div>
-    <canvas id="geoChart" height="350"></canvas>
+    <div style="position:relative;height:380px;"><canvas id="geoChart"></canvas></div>
   </div>
 
   <div class="context-box">
@@ -1180,7 +1180,7 @@
   <div class="chart-container">
     <h4>Dominant Messaging Themes by Year</h4>
     <div class="chart-sub">Based on word frequency analysis across ad text samples</div>
-    <canvas id="messagingChart" height="300"></canvas>
+    <div style="position:relative;height:300px;"><canvas id="messagingChart"></canvas></div>
   </div>
 
   <table class="ad-inventory">
@@ -1240,12 +1240,12 @@
     <div>
       <h4>Share of Combined Spend</h4>
       <div class="chart-sub">By page · Upper estimate</div>
-      <canvas id="spendShare" height="280"></canvas>
+      <div style="position:relative;height:280px;"><canvas id="spendShare"></canvas></div>
     </div>
     <div>
       <h4>Share of Combined Ad Volume</h4>
       <div class="chart-sub">By page · Total ads</div>
-      <canvas id="volumeShare" height="280"></canvas>
+      <div style="position:relative;height:280px;"><canvas id="volumeShare"></canvas></div>
     </div>
   </div>
 
@@ -1257,7 +1257,7 @@
   <div class="chart-container">
     <h4>Energy Citizens Monthly Ad Volume</h4>
     <div class="chart-sub">Oct 2020 – Feb 2026 · Color-coded by campaign mode</div>
-    <canvas id="ecVolumeChart" height="350"></canvas>
+    <div style="position:relative;height:350px;"><canvas id="ecVolumeChart"></canvas></div>
   </div>
 
   <!-- Strategic Assessment -->
@@ -1422,23 +1422,24 @@
     return months[parseInt(mo)-1] + ' ' + y.slice(2);
   });
 
+  const labelFont = { size: 8, family: "'IBM Plex Mono'" };
   const annotations = {
-    line1: { type: 'line', xMin: 2, xMax: 2, borderColor: 'rgba(201,48,48,0.5)', borderWidth: 1.5, borderDash: [4,3],
-      label: { display: true, content: 'Biden Climate Plan', position: 'start', backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
-    line2: { type: 'line', xMin: 7, xMax: 7, borderColor: 'rgba(109,40,217,0.5)', borderWidth: 1.5, borderDash: [4,3],
-      label: { display: true, content: '2020 Election', position: 'start', backgroundColor: 'rgba(109,40,217,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
-    line3: { type: 'line', xMin: 13, xMax: 13, borderColor: 'rgba(201,48,48,0.5)', borderWidth: 1.5, borderDash: [4,3],
-      label: { display: true, content: 'Build Back Better', position: 'start', backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
-    line4: { type: 'line', xMin: 23, xMax: 23, borderColor: 'rgba(201,48,48,0.5)', borderWidth: 1.5, borderDash: [4,3],
-      label: { display: true, content: 'Ukraine / Gas Prices', position: 'start', backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
-    line5: { type: 'line', xMin: 27, xMax: 27, borderColor: 'rgba(180,83,9,0.5)', borderWidth: 1.5, borderDash: [4,3],
-      label: { display: true, content: 'IRA Signed', position: 'start', backgroundColor: 'rgba(180,83,9,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
-    line6: { type: 'line', xMin: 36, xMax: 36, borderColor: 'rgba(201,48,48,0.5)', borderWidth: 1.5, borderDash: [4,3],
-      label: { display: true, content: 'EPA Rules Triple Threat', position: 'start', backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
-    line7: { type: 'line', xMin: 46, xMax: 46, borderColor: 'rgba(109,40,217,0.5)', borderWidth: 1.5, borderDash: [4,3],
-      label: { display: true, content: 'Lights On / LNG Pause', position: 'start', backgroundColor: 'rgba(109,40,217,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
-    line8: { type: 'line', xMin: 64, xMax: 64, borderColor: 'rgba(22,128,60,0.5)', borderWidth: 1.5, borderDash: [4,3],
-      label: { display: true, content: 'Permitting Reform Launch', position: 'start', backgroundColor: 'rgba(22,128,60,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+    line1: { type: 'line', xMin: 2, xMax: 2, borderColor: 'rgba(201,48,48,0.4)', borderWidth: 1, borderDash: [4,3],
+      label: { display: true, content: 'Biden Climate Plan', position: 'start', yAdjust: 0, backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: labelFont, padding: 3 }},
+    line2: { type: 'line', xMin: 7, xMax: 7, borderColor: 'rgba(109,40,217,0.4)', borderWidth: 1, borderDash: [4,3],
+      label: { display: true, content: '2020 Election', position: 'start', yAdjust: 14, backgroundColor: 'rgba(109,40,217,0.85)', color: '#fff', font: labelFont, padding: 3 }},
+    line3: { type: 'line', xMin: 13, xMax: 13, borderColor: 'rgba(201,48,48,0.4)', borderWidth: 1, borderDash: [4,3],
+      label: { display: true, content: 'Build Back Better', position: 'start', yAdjust: 0, backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: labelFont, padding: 3 }},
+    line4: { type: 'line', xMin: 23, xMax: 23, borderColor: 'rgba(201,48,48,0.4)', borderWidth: 1, borderDash: [4,3],
+      label: { display: true, content: 'Ukraine / Gas Prices', position: 'start', yAdjust: 14, backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: labelFont, padding: 3 }},
+    line5: { type: 'line', xMin: 27, xMax: 27, borderColor: 'rgba(180,83,9,0.4)', borderWidth: 1, borderDash: [4,3],
+      label: { display: true, content: 'IRA Signed', position: 'start', yAdjust: 0, backgroundColor: 'rgba(180,83,9,0.85)', color: '#fff', font: labelFont, padding: 3 }},
+    line6: { type: 'line', xMin: 36, xMax: 36, borderColor: 'rgba(201,48,48,0.4)', borderWidth: 1, borderDash: [4,3],
+      label: { display: true, content: 'EPA Triple Threat', position: 'start', yAdjust: 14, backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: labelFont, padding: 3 }},
+    line7: { type: 'line', xMin: 46, xMax: 46, borderColor: 'rgba(109,40,217,0.4)', borderWidth: 1, borderDash: [4,3],
+      label: { display: true, content: 'Lights On / LNG Pause', position: 'start', yAdjust: 0, backgroundColor: 'rgba(109,40,217,0.85)', color: '#fff', font: labelFont, padding: 3 }},
+    line8: { type: 'line', xMin: 64, xMax: 64, borderColor: 'rgba(22,128,60,0.4)', borderWidth: 1, borderDash: [4,3],
+      label: { display: true, content: 'Permitting Reform', position: 'start', yAdjust: 14, backgroundColor: 'rgba(22,128,60,0.85)', color: '#fff', font: labelFont, padding: 3 }},
   };
 
   new Chart(ctx, {
