@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>American Petroleum Institute — Advertiser Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue-deep: #1e3a5f;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber-deep: #92400e;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple-deep: #4c1d95;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --teal-deep: #115e59;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+    --orange-deep: #9a3412;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+    --cyan-deep: #155e75;
+    --cyan: #0891b2;
+    --cyan-light: #ecfeff;
+    --oil-dark: #1a1a2e;
+    --oil-mid: #16213e;
+    --oil-accent: #e94560;
+    --oil-gold: #d4a843;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .header-meta .sep { color: var(--border); }
+
+  /* Top Stats */
+  .top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    padding: 24px 22px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    margin-top: 56px;
+  }
+
+  h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin-bottom: 10px;
+    margin-top: 28px;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 14px; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Key Finding Card */
+  .key-finding {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .key-finding-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+
+  .key-finding p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.93);
+    margin-bottom: 0;
+  }
+
+  /* Org Profile Card */
+  .org-profile {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+
+  .org-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .org-profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .org-detail-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .org-detail-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .page-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+
+  .badge-corporate { background: var(--blue-light); color: var(--blue-deep); }
+  .badge-grassroots { background: var(--orange-light); color: var(--orange-deep); }
+
+  /* Context Box */
+  .context-box {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .context-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+  }
+
+  .context-box p {
+    font-size: 13.5px;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+  }
+
+  .context-box p:last-child { margin-bottom: 0; }
+  .context-box a { color: var(--blue-deep); text-decoration: underline; }
+
+  /* Warning Box */
+  .warning-box {
+    background: var(--amber-light);
+    border-left: 4px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .warning-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--amber-deep);
+    margin-bottom: 8px;
+  }
+
+  .warning-box p {
+    font-size: 13.5px;
+    color: var(--amber-deep);
+    margin-bottom: 8px;
+  }
+
+  .warning-box p:last-child { margin-bottom: 0; }
+
+  /* Red Box for Opposition/Concern */
+  .red-box {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .red-box h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--red-deep);
+    margin-bottom: 8px;
+  }
+
+  .red-box p {
+    font-size: 13.5px;
+    color: var(--red-deep);
+    margin-bottom: 8px;
+  }
+
+  .red-box p:last-child { margin-bottom: 0; }
+
+  /* Deep Dive Section */
+  .deep-dive-banner {
+    background: linear-gradient(135deg, var(--oil-dark) 0%, var(--oil-mid) 100%);
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin: 56px 0 32px;
+    line-height: 1.6;
+    border-left: 4px solid var(--oil-gold);
+  }
+
+  .deep-dive-banner .deep-dive-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+
+  .deep-dive-banner h2 {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 32px;
+  }
+
+  .deep-dive-banner p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0;
+  }
+
+  /* Chart Container */
+  .chart-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin: 24px 0;
+  }
+
+  .chart-container h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .chart-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  /* Ad Inventory Table */
+  .ad-inventory {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+
+  .ad-inventory th {
+    text-align: left;
+    padding: 10px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+    font-weight: 500;
+  }
+
+  .ad-inventory th.right { text-align: right; }
+
+  .ad-inventory td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-body);
+    vertical-align: top;
+  }
+
+  .ad-inventory td.right { text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+  .ad-inventory td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-secondary); }
+  .ad-inventory tr:last-child td { border-bottom: none; }
+  .ad-inventory tr.total-row td { border-top: 2px solid var(--navy); font-weight: 600; color: var(--navy); }
+
+  .spend-bar-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .spend-bar-inline {
+    height: 8px;
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  /* Demo Chart */
+  .demo-chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 20px 0;
+  }
+
+  .demo-chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .demo-chart-card h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .demo-chart-card .demo-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .demo-bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+
+  .demo-bar-label {
+    width: 50px;
+    text-align: right;
+    padding-right: 8px;
+    color: var(--text-secondary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .demo-bar-track {
+    flex: 1;
+    height: 16px;
+    background: var(--bg-warm);
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .demo-bar-male { height: 100%; background: var(--blue); opacity: 0.7; }
+  .demo-bar-female { height: 100%; background: var(--red); opacity: 0.5; }
+
+  .demo-bar-pct {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    width: 45px;
+    padding-left: 6px;
+    flex-shrink: 0;
+  }
+
+  .demo-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-muted);
+  }
+
+  .demo-legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /* Highlight stat */
+  .highlight-stat {
+    display: inline-block;
+    background: var(--red-light);
+    color: var(--red-deep);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: 28px;
+    padding: 4px 14px;
+    border-radius: 6px;
+    margin: 0 2px;
+  }
+
+  /* Pull Quote */
+  .pull-quote {
+    background: var(--bg-warm);
+    border-left: 4px solid var(--oil-gold);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--navy-mid);
+    line-height: 1.55;
+  }
+
+  .pull-quote .attribution {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    display: block;
+  }
+
+  /* Campaign Phase Timeline */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .phase-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    border-top: 3px solid var(--navy);
+  }
+
+  .phase-card.defense { border-top-color: var(--red); }
+  .phase-card.offense { border-top-color: var(--green); }
+  .phase-card.election { border-top-color: var(--purple); }
+
+  .phase-card h5 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .phase-card .phase-period {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .phase-card .phase-spend {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .phase-card .phase-desc {
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.5;
+  }
+
+  /* Two-page strategy */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+
+  .strategy-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .strategy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  .strategy-card.corporate::before { background: var(--blue); }
+  .strategy-card.grassroots::before { background: var(--orange); }
+
+  .strategy-card h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .strategy-card .strategy-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .strategy-card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .strategy-card li::before {
+    content: '—';
+    margin-right: 8px;
+    color: var(--text-muted);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .footer a { color: var(--text-secondary); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container { padding: 24px 16px 48px; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .top-stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-value { font-size: 24px; }
+    .org-profile-grid { grid-template-columns: 1fr; }
+    .demo-chart-grid { grid-template-columns: 1fr; }
+    .strategy-grid { grid-template-columns: 1fr; }
+    .phase-grid { grid-template-columns: 1fr; }
+    h2 { font-size: 24px; }
+    .key-finding { padding: 24px 20px; }
+    .key-finding p { font-size: 17px; }
+    .deep-dive-banner { padding: 24px 20px; }
+    .deep-dive-banner h2 { font-size: 24px; }
+    .chart-container { padding: 16px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; padding: 24px; }
+    .chart-container { break-inside: avoid; }
+    .top-stats { break-inside: avoid; }
+    .org-profile { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-eyebrow">Advertiser Intelligence Brief</div>
+    <h1>American Petroleum Institute
+      <span>Two-Page Meta Advocacy Operation — Full History</span>
+    </h1>
+    <div class="header-meta">
+      <span>United States</span>
+      <span class="sep">|</span>
+      <span>Jul 2020 – Feb 2026</span>
+      <span class="sep">|</span>
+      <span>2 Facebook Pages</span>
+      <span class="sep">|</span>
+      <span>10,000+ Ads Analyzed</span>
+    </div>
+  </div>
+
+  <!-- Top Stats -->
+  <div class="top-stats">
+    <div class="stat-card">
+      <div class="stat-label">Combined Spend</div>
+      <div class="stat-value">$2M–$3.3M</div>
+      <div class="stat-sub">Meta platforms only</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Ads</div>
+      <div class="stat-value">10,000+</div>
+      <div class="stat-sub">Both pages combined</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Est. Impressions</div>
+      <div class="stat-value">~132M</div>
+      <div class="stat-sub">69.8M API + 62.5M EC</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Active Since</div>
+      <div class="stat-value">Jul 2020</div>
+      <div class="stat-sub">5+ years of data</div>
+    </div>
+  </div>
+
+  <!-- Key Finding -->
+  <div class="key-finding">
+    <div class="key-finding-label">Strategic Takeaway</div>
+    <p>API operates a coordinated two-page Meta strategy: the corporate "American Petroleum Institute" page targets the D.C. policy bubble with institutional messaging, while the "Energy Citizens" page — a documented API-funded advocacy brand since 2009 — runs high-volume grassroots mobilization in battleground and energy-producing states. Energy Citizens consistently outspends the corporate page by 10–20x during legislative battles, functioning as the constituent-pressure arm of a classic inside-outside lobbying operation. Combined, the two pages have spent $2M–$3.3M to deliver ~132 million impressions across 10,000+ ads, with spending spikes tightly correlated to specific legislative threats and policy opportunities.</p>
+  </div>
+
+  <!-- Advertiser Profiles -->
+  <div class="section-title">Advertiser Profiles</div>
+  <h2>Two Pages, One Strategy</h2>
+  <p>Both pages are funded by the American Petroleum Institute — the largest U.S. oil and gas trade association, representing ~600 member corporations including ExxonMobil, Chevron, Shell, BP, and ConocoPhillips. API reported $252 million in revenue in 2024. Its CEO, Mike Sommers, earned $5.1 million in compensation.</p>
+
+  <div class="strategy-grid">
+    <div class="strategy-card corporate">
+      <h4>The American Petroleum Institute</h4>
+      <div class="strategy-sub">Corporate / Policy Voice</div>
+      <ul>
+        <li>Page ID: 67945990059</li>
+        <li>Spend: $858K – $1.5M (5,000+ ads)</li>
+        <li>Impressions: ~69.8M</li>
+        <li>Active since: Jul 17, 2020</li>
+        <li>Geographic focus: D.C. metro, Virginia, Maryland, West Virginia</li>
+        <li>Audience: Even age distribution, balanced gender</li>
+        <li>Function: Policy advocacy targeting lawmakers and Beltway influencers</li>
+      </ul>
+    </div>
+    <div class="strategy-card grassroots">
+      <h4>Energy Citizens</h4>
+      <div class="strategy-sub">Grassroots Mobilization Arm</div>
+      <ul>
+        <li>Page ID: 113891694102</li>
+        <li>Spend: $1.1M – $1.8M (5,000+ ads)</li>
+        <li>Impressions: ~62.5M</li>
+        <li>Active since: Oct 2020</li>
+        <li>Geographic focus: TX, NM, LA, CO, OH, PA, NC, MI, GA, IA</li>
+        <li>Audience: Skews 65+, slightly male</li>
+        <li>Function: Constituent pressure campaigns in key districts</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h4>Astroturf Disclosure</h4>
+    <p>Energy Citizens is not an independent organization. Launched in 2009, it operates as a campaign brand under API's umbrella. In August 2009, API president Jack Gerard sent an internal email (obtained by Greenpeace) urging member companies to provide "significant attendance" at Energy Citizens rallies, with "API providing the up-front resources." All Energy Citizens ads disclose "Paid for by AMERICAN PETROLEUM INSTITUTE" in the Ad Library. The PR firm Democracy Data & Communications — which received $43.2 million from API between 2011–2019 — hosted multiple websites designed to appear grassroots as part of the Energy Citizens infrastructure.</p>
+  </div>
+
+  <!-- Combined Spend Timeline -->
+  <div class="section-title">Spending Over Time</div>
+  <h2>Combined Monthly Spend Timeline</h2>
+  <p>This annotated timeline shows monthly spending from both API pages, color-coded by page, with key policy events overlaid. API's Meta spending is tightly event-driven: every major spike corresponds to a specific legislative, regulatory, or electoral trigger.</p>
+
+  <div class="chart-container">
+    <h4>Monthly Ad Spend: API Corporate + Energy Citizens</h4>
+    <div class="chart-sub">Jul 2020 – Feb 2026 · Stacked by page · Annotated with policy events</div>
+    <canvas id="spendTimeline" height="420"></canvas>
+  </div>
+
+  <!-- Spend Breakdown Table -->
+  <div class="section-title">Top Spending Periods</div>
+  <h2>Largest Monthly Investments</h2>
+  <p>The table below ranks the top spending months across both pages. Energy Citizens dominates the high-spend periods — its grassroots mobilization model generates higher ad volumes at lower per-ad costs, while the API corporate page runs fewer, higher-value placements targeting D.C. influencers.</p>
+
+  <table class="ad-inventory">
+    <thead>
+      <tr>
+        <th>Period</th>
+        <th>Page</th>
+        <th class="right">Ads</th>
+        <th class="right">Spend (Upper Est.)</th>
+        <th>Trigger</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mono">May 2023</td>
+        <td>Energy Citizens</td>
+        <td class="right">198</td>
+        <td class="right">$1.74M</td>
+        <td>EPA power plant rule + debt ceiling permitting reform</td>
+      </tr>
+      <tr>
+        <td class="mono">Oct 2023</td>
+        <td>Energy Citizens</td>
+        <td class="right">58</td>
+        <td class="right">$1.32M</td>
+        <td>EPA regulatory onslaught + API State of Energy</td>
+      </tr>
+      <tr>
+        <td class="mono">Apr 2022</td>
+        <td>Energy Citizens</td>
+        <td class="right">928</td>
+        <td class="right">$1.20M</td>
+        <td>Ukraine war + $5/gal gas + energy security pivot</td>
+      </tr>
+      <tr>
+        <td class="mono">Oct 2020</td>
+        <td>Energy Citizens</td>
+        <td class="right">980</td>
+        <td class="right">$1.04M</td>
+        <td>2020 election final-stretch battleground blitz</td>
+      </tr>
+      <tr>
+        <td class="mono">Sep 2023</td>
+        <td>Energy Citizens</td>
+        <td class="right">143</td>
+        <td class="right">$1.09M</td>
+        <td>Government shutdown + EPA rules convergence</td>
+      </tr>
+      <tr>
+        <td class="mono">Nov 2025</td>
+        <td>Energy Citizens</td>
+        <td class="right">2,339</td>
+        <td class="right">$915K</td>
+        <td>Reconciliation bill + SPEED Act permitting reform</td>
+      </tr>
+      <tr>
+        <td class="mono">Jun 2023</td>
+        <td>Energy Citizens</td>
+        <td class="right">112</td>
+        <td class="right">$791K</td>
+        <td>Post-debt-ceiling clean energy counter-messaging</td>
+      </tr>
+      <tr>
+        <td class="mono">Mar 2021</td>
+        <td>Energy Citizens</td>
+        <td class="right">743</td>
+        <td class="right">$729K</td>
+        <td>Biden $2T infrastructure plan unveiled</td>
+      </tr>
+      <tr>
+        <td class="mono">Sep 2022</td>
+        <td>Energy Citizens</td>
+        <td class="right">144</td>
+        <td class="right">$465K</td>
+        <td>Post-IRA midterm election positioning</td>
+      </tr>
+      <tr>
+        <td class="mono">Jul 2021</td>
+        <td>Energy Citizens</td>
+        <td class="right">578</td>
+        <td class="right">$448K</td>
+        <td>Build Back Better negotiations intensify</td>
+      </tr>
+      <tr>
+        <td class="mono">Jul 2020</td>
+        <td>API Corporate</td>
+        <td class="right">3,189</td>
+        <td class="right">$375K</td>
+        <td>Biden $2T climate plan released</td>
+      </tr>
+      <tr>
+        <td class="mono">Mar 2024</td>
+        <td>API Corporate</td>
+        <td class="right">66</td>
+        <td class="right">$356K</td>
+        <td>"Lights On Energy" launch + LNG pause + EPA tailpipe rule</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2">All-Time Combined Total</td>
+        <td class="right">10,000+</td>
+        <td class="right">$2.0M–$3.3M</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Campaign Phases -->
+  <div class="deep-dive-banner">
+    <div class="deep-dive-label">Deep Dive</div>
+    <h2>The Three Modes of API Advertising</h2>
+    <p>API's Meta spending operates in three distinct modes — defensive surges against policy threats, offensive pushes for favorable legislation, and election-cycle brand campaigns. Understanding which mode is active at any given moment reveals the industry's strategic priorities.</p>
+  </div>
+
+  <div class="phase-grid">
+    <div class="phase-card defense">
+      <h5>Defensive Mode</h5>
+      <div class="phase-period">$6.5M–$9.5M est.</div>
+      <div class="phase-spend">~80% of total spend</div>
+      <div class="phase-desc">Fighting policy threats: Biden climate plan, Build Back Better, IRA methane fee, EPA power plant/tailpipe rules, LNG export pause. Highest volumes, most aggressive messaging.</div>
+    </div>
+    <div class="phase-card offense">
+      <h5>Offensive Mode</h5>
+      <div class="phase-period">$800K–$1.3M est.</div>
+      <div class="phase-spend">~15% of total spend</div>
+      <div class="phase-desc">Pushing favorable policy: permitting reform, SPEED Act, Trump executive orders. Post-2024 election pivot from fighting regulations to passing industry-friendly legislation.</div>
+    </div>
+    <div class="phase-card election">
+      <h5>Election Mode</h5>
+      <div class="phase-period">$200K–$400K est.</div>
+      <div class="phase-spend">~5% of total spend</div>
+      <div class="phase-desc">Issue-advocacy framing: "Energy is on the ballot." Sustained low-level spend building brand association between energy security and voter interests.</div>
+    </div>
+  </div>
+
+  <!-- Timeline of Major Campaigns -->
+  <div class="section-title">Campaign Chronicle</div>
+  <h2>Five Years of API Advertising, Event by Event</h2>
+
+  <h3>1. The Biden Climate Plan Response (Jul–Aug 2020)</h3>
+  <p>On July 14, 2020, Biden released his $2 trillion climate plan — committing to ban new oil and gas permits on public lands, achieve a carbon-free power sector by 2035, and reach net-zero by 2050. API responded immediately. The corporate page generated 3,189 ads in July alone, spending $54K–$375K — a defensive mobilization triggered by the single most consequential policy threat the industry had faced in years.</p>
+  <p>InfluenceMap documented a sharp uptick in oil and gas Facebook ads the day after Biden released the plan. API was part of a broader industry blitz: 25 oil and gas organizations collectively ran 25,147 ads on Facebook in 2020, viewed 431 million times, spending $9.6 million.</p>
+
+  <div class="pull-quote">
+    "America's energy leadership has delivered economic growth and environmental progress. But burdensome regulations and anti-energy policies could put our progress at risk."
+    <span class="attribution">— API ad text, Jul–Sep 2020</span>
+  </div>
+
+  <h3>2. The 2020 Election Battleground Blitz (Oct 2020)</h3>
+  <p>In October 2020, API expanded its advertising into key battleground states including Michigan, Florida, Pennsylvania, Ohio, Arizona, Colorado, North Carolina, and Minnesota. Energy Citizens carried the heavy spending — $784K–$1M in a single month across 980 ads. The messaging framed energy policy as a ballot issue without naming candidates, a common issue-advocacy tactic to influence voter behavior without triggering FEC electioneering restrictions.</p>
+  <p>The swing-state targeting was strategic: Pennsylvania (fracking), Ohio (petrochemicals), Michigan (auto/energy), and Colorado (natural gas) all had active energy-economy debates. Energy Citizens' October 2020 spend was the largest single-month expenditure on either page at that point.</p>
+
+  <h3>3. The Build Back Better War (Mar–Sep 2021)</h3>
+  <p>Biden's American Jobs Plan (March 31, 2021) and the emerging Build Back Better reconciliation package triggered a sustained six-month advertising campaign. Energy Citizens maintained $91K–$729K in monthly spending from March through September, while the API corporate page ran targeted D.C. ads during key legislative moments.</p>
+  <p>The campaign reached peak intensity when the Senate passed the budget resolution in August 2021, unlocking the reconciliation path for the methane fee. API spent at least $423,000 on Facebook ads viewed 21 million times between August 11 and early October, setting a single-day spending record of $10,800 on August 8. Energy Citizens published 286 ads driving constituent calls against the reconciliation bill, gaining 6 million views.</p>
+  <p>API and Energy Citizens also launched a seven-figure TV and digital campaign specifically targeting the methane fee, with ads directing viewers to a site reading "Methane Tax: Devastating for Families and Businesses."</p>
+
+  <div class="pull-quote">
+    "The natural gas and oil industry is foundational to our nation's economic recovery and long-term growth, and federal lawmakers should ensure the industry can continue meeting this demand."
+    <span class="attribution">— API ad text, Jul–Sep 2021</span>
+  </div>
+
+  <h3>4. The Ukraine Energy Security Pivot (Feb–Apr 2022)</h3>
+  <p>Russia's invasion of Ukraine on February 24, 2022 created a strategic opportunity for API. As crude oil surged past $100/barrel and gas prices climbed toward $5/gallon, API reframed the entire energy debate from "oil vs. climate" to "American energy security vs. foreign dependence." Energy Citizens spent $933K–$1.2M in April 2022 alone — 928 ads — the largest single-month spend since October 2020.</p>
+  <p>The messaging was explicit: "Would you rather get oil from America with strict environmental standards, or from hostile regimes that weaponize energy?" API CEO Sommers drew WWII parallels, positioning American oil workers as essential to allied security. In June, API released its "10-Point Policy Plan to Unleash American Energy and Fuel Recovery."</p>
+
+  <div class="context-box">
+    <h4>Industry Coordination</h4>
+    <p>API's Ukraine pivot was not isolated. InfluenceMap documented that Energy Citizens ran 233 energy security ads viewed 19.6 million times in February–March 2022 — triple the rate of the previous quarter. The messaging was coordinated across the industry: multiple trade groups adopted the same "energy security" framing simultaneously, suggesting shared messaging strategy across API, the U.S. Chamber, and aligned groups.</p>
+  </div>
+
+  <h3>5. The Inflation Reduction Act Response (Aug–Sep 2022)</h3>
+  <p>The surprise Manchin-Schumer IRA deal on July 27, 2022 included the methane fee API had spent millions fighting. The law imposed a methane charge starting at $900/ton in 2024, rising to $1,500/ton by 2026, alongside $370 billion in clean energy tax credits. Energy Citizens spent $345K–$465K in August–September, pivoting from "stop the bill" to "punish supporters in the midterms."</p>
+  <p>API's response was strategically nuanced: Sommers welcomed provisions on mandatory lease sales and carbon capture while opposing the methane fee as an "energy tax during a crisis." The IRA was a partial defeat — the methane fee survived — but the mandatory lease sale provisions were a significant win that API had lobbied for.</p>
+
+  <h3>6. The Regulatory Triple Threat (May–Oct 2023)</h3>
+  <p>May 2023 saw the convergence of three major regulatory threats — the EPA power plant rule, the EPA tailpipe emissions rule, and the debt ceiling negotiations that included permitting reform. Energy Citizens responded with its largest single-month spend in the entire dataset: $1.4M–$1.7M in May 2023 across 198 ads, followed by $791K in June, $1.09M in September, and $1.32M in October.</p>
+  <p>This was a rare moment where API was simultaneously playing offense (pushing permitting reform into the debt ceiling deal) and defense (opposing EPA rules). The API corporate page ran ads with messaging like "U.S. natural gas and oil producers work hard to meet rising demand, but Washington's policies limit American energy." Energy Citizens mobilized constituents for over 12,000 actions on permitting reform, tailpipe emissions, and industry taxes during the congressional recess.</p>
+
+  <div class="red-box">
+    <h4>Cumulative Spending: May–Dec 2023</h4>
+    <p>Energy Citizens spent an estimated $4.5M–$5.8M in the eight months from May through December 2023, making it the most expensive sustained campaign period in API's Meta advertising history. This was the high-water mark of the Biden administration's regulatory push against fossil fuels.</p>
+  </div>
+
+  <h3>7. The "Lights On Energy" Election Blitz (Jan–Sep 2024)</h3>
+  <p>API launched its eight-figure "Lights On Energy" campaign in January 2024 at the State of American Energy event, timed to the election cycle. The corporate page's March 2024 spend — $280K–$356K across 66 ads — was its largest since July 2020, driven by three simultaneous triggers: the Lights On Energy launch, Biden's January 26 LNG export pause, and EPA's finalization of strict tailpipe emissions standards on March 20.</p>
+  <p>The creative used a racecar metaphor: "America in a race for its future competing against foreign nations for energy leadership." Ads ran in Colorado, New Mexico, Pennsylvania, Ohio, and the D.C. market. In September, during the final election stretch, the corporate page spent $44K–$53K on CO2 pipeline advocacy and energy-as-ballot messaging, while Energy Citizens was notably quiet — the grassroots page had been inactive since late 2023, not resuming until October 2025.</p>
+
+  <div class="pull-quote">
+    "Let's celebrate the holidays with the power of American ingenuity — 43% of U.S. electricity comes from natural gas!"
+    <span class="attribution">— API ad text, Dec 2024</span>
+  </div>
+
+  <h3>8. The Permitting Reform Offensive (Sep 2025 – Present)</h3>
+  <p>With a friendly administration in the White House, API pivoted from defensive spending to offensive advocacy. In September 2025, API launched its "When America Builds, America Wins" permitting reform campaign, releasing a policy roadmap alongside a seven-figure TV and digital buy. The corporate page spent $21K–$30K on initial ads, while Energy Citizens reactivated in October with $206K–$332K, ramping to its highest-ever single-month ad volume: 2,339 ads spending $577K–$915K in November 2025.</p>
+  <p>The ads supported the SPEED Act and the Republican reconciliation package, which included 30 mandatory offshore lease sales, permit-by-rule for oil and gas drilling, expedited LNG terminal permitting, and repeal of the IRA methane fee. The House passed the SPEED Act 221-196 on December 18, 2025.</p>
+
+  <div class="pull-quote">
+    "How many U.S. Presidents have called for American Energy dominance in the last 50 years? Every. Single. One."
+    <span class="attribution">— API ad text, Sep 2025 – Feb 2026</span>
+  </div>
+
+  <!-- Geographic Analysis -->
+  <div class="section-title">Geographic Targeting</div>
+  <h2>Where the Ads Land</h2>
+  <p>The two pages have sharply different geographic footprints, reflecting their distinct roles in API's advocacy strategy. The corporate page concentrates delivery in the D.C. policy corridor, while Energy Citizens distributes across energy-producing and battleground states.</p>
+
+  <div class="chart-container">
+    <h4>Ad Delivery by State: API Corporate vs. Energy Citizens</h4>
+    <div class="chart-sub">Top 15 states by average reach percentage · Reflects delivery, not targeting</div>
+    <canvas id="geoChart" height="350"></canvas>
+  </div>
+
+  <div class="context-box">
+    <h4>Inside-Outside Strategy</h4>
+    <p>The geographic split reveals a classic inside-outside lobbying model. The API corporate page's heavy D.C./Virginia/Maryland concentration shows a Beltway influence strategy — ads placed where lawmakers, staffers, and policy journalists live and scroll. Energy Citizens targets the districts where constituent pressure can influence votes: oil-producing states (TX, NM, LA, CO), Rust Belt battlegrounds (OH, MI, PA), and swing states (NC, GA, IA, MN). This geographic division maximizes pressure from both directions — policymakers see the institutional argument, their constituents deliver the political incentive.</p>
+  </div>
+
+  <!-- State-Level Messaging -->
+  <h3>State-Specific Messaging from Energy Citizens</h3>
+  <p>Energy Citizens runs localized ad variants tailored to each target state, emphasizing economic benefits specific to that state's energy industry:</p>
+
+  <table class="ad-inventory">
+    <thead>
+      <tr>
+        <th>State</th>
+        <th>Sample Ad Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>New Mexico</strong></td>
+        <td>"Thanks to New Mexico's oil and natural gas industry, schools across the state receive $2.4B in essential funding."</td>
+      </tr>
+      <tr>
+        <td><strong>Colorado</strong></td>
+        <td>"Thanks to Colorado's oil and natural gas industry, schools across the state receive $432M in essential funding."</td>
+      </tr>
+      <tr>
+        <td><strong>Pennsylvania</strong></td>
+        <td>"Natural gas and oil help power our everyday lives. Join us and support affordable, reliable energy for Pennsylvania."</td>
+      </tr>
+      <tr>
+        <td><strong>Iowa</strong></td>
+        <td>"Iowa Energy Citizens played a pivotal role in defeating HF 639, legislation that would have undermined critical energy infrastructure."</td>
+      </tr>
+      <tr>
+        <td><strong>Ohio</strong></td>
+        <td>"Oil and gas help power our everyday lives. Join us and support affordable, reliable energy for Ohio."</td>
+      </tr>
+      <tr>
+        <td><strong>Louisiana</strong></td>
+        <td>"Oil and gas help power our everyday lives. Join us and support affordable, reliable energy for Louisiana."</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Demographics -->
+  <div class="section-title">Audience Demographics</div>
+  <h2>Who Sees the Ads</h2>
+  <p>The two pages reach distinctly different audiences, consistent with their different functions. The demographics shown here reflect delivery data — who Meta's algorithm served the ads to — not necessarily who API explicitly targeted.</p>
+
+  <div class="demo-chart-grid">
+    <div class="demo-chart-card">
+      <h4>API Corporate Page</h4>
+      <div class="demo-sub">Age & Gender Distribution</div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">18–24</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:50%"></div><div class="demo-bar-female" style="width:50%"></div></div>
+        <div class="demo-bar-pct">13%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">25–34</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:50%"></div><div class="demo-bar-female" style="width:50%"></div></div>
+        <div class="demo-bar-pct">15%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">35–44</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:50%"></div><div class="demo-bar-female" style="width:50%"></div></div>
+        <div class="demo-bar-pct">13%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">45–54</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:50%"></div><div class="demo-bar-female" style="width:50%"></div></div>
+        <div class="demo-bar-pct">13%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">55–64</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:50%"></div><div class="demo-bar-female" style="width:50%"></div></div>
+        <div class="demo-bar-pct">15%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">65+</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:50%"></div><div class="demo-bar-female" style="width:50%"></div></div>
+        <div class="demo-bar-pct">17%</div>
+      </div>
+      <div class="demo-legend">
+        <span><span class="demo-legend-dot" style="background:var(--blue);opacity:0.7"></span> Male 50%</span>
+        <span><span class="demo-legend-dot" style="background:var(--red);opacity:0.5"></span> Female 50%</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-secondary);margin-top:12px;">Even distribution across ages and genders — consistent with a broad policy-audience approach rather than demographic targeting.</p>
+    </div>
+    <div class="demo-chart-card">
+      <h4>Energy Citizens</h4>
+      <div class="demo-sub">Age & Gender Distribution</div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">18–24</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:30%"></div><div class="demo-bar-female" style="width:20%"></div></div>
+        <div class="demo-bar-pct">3%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">25–34</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:25%"></div><div class="demo-bar-female" style="width:15%"></div></div>
+        <div class="demo-bar-pct">4%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">35–44</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:25%"></div><div class="demo-bar-female" style="width:15%"></div></div>
+        <div class="demo-bar-pct">5%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">45–54</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:40%"></div><div class="demo-bar-female" style="width:25%"></div></div>
+        <div class="demo-bar-pct">10%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">55–64</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:55%"></div><div class="demo-bar-female" style="width:35%"></div></div>
+        <div class="demo-bar-pct">20%</div>
+      </div>
+      <div class="demo-bar-row">
+        <div class="demo-bar-label">65+</div>
+        <div class="demo-bar-track"><div class="demo-bar-male" style="width:80%"></div><div class="demo-bar-female" style="width:45%"></div></div>
+        <div class="demo-bar-pct">58%</div>
+      </div>
+      <div class="demo-legend">
+        <span><span class="demo-legend-dot" style="background:var(--blue);opacity:0.7"></span> Male 60%</span>
+        <span><span class="demo-legend-dot" style="background:var(--red);opacity:0.5"></span> Female 40%</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-secondary);margin-top:12px;">Heavy 65+ skew (58% of delivery). Likely driven by first-party supporter lists, lookalike audiences, or algorithmic optimization toward users who engage with energy-issue content.</p>
+    </div>
+  </div>
+
+  <!-- Messaging Analysis -->
+  <div class="section-title">Messaging Analysis</div>
+  <h2>Narrative Evolution: 2020–2026</h2>
+  <p>API's messaging has evolved through five distinct narrative phases, each responding to the political environment. The progression reveals a strategic arc from defensive framing to proactive advocacy.</p>
+
+  <div class="chart-container">
+    <h4>Dominant Messaging Themes by Year</h4>
+    <div class="chart-sub">Based on word frequency analysis across ad text samples</div>
+    <canvas id="messagingChart" height="300"></canvas>
+  </div>
+
+  <table class="ad-inventory">
+    <thead>
+      <tr>
+        <th>Period</th>
+        <th>Narrative Frame</th>
+        <th>Key Phrases</th>
+        <th>Strategic Objective</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mono">2020</td>
+        <td><strong>"Energy for Progress"</strong></td>
+        <td>"Economic growth," "environmental progress," "burdensome regulations"</td>
+        <td>Frame oil/gas as climate-compatible; counter Biden plan</td>
+      </tr>
+      <tr>
+        <td class="mono">2021</td>
+        <td><strong>"Made in America"</strong></td>
+        <td>"Affordable, reliable," "economic recovery," "energy solutions made in America"</td>
+        <td>Counter Build Back Better; link industry to post-COVID recovery</td>
+      </tr>
+      <tr>
+        <td class="mono">2022</td>
+        <td><strong>"Energy Security"</strong></td>
+        <td>"American energy," "energy independence," "hostile regimes," "10-point plan"</td>
+        <td>Exploit Ukraine crisis; reframe from climate to security</td>
+      </tr>
+      <tr>
+        <td class="mono">2023</td>
+        <td><strong>"Washington vs. Producers"</strong></td>
+        <td>"Rising demand," "Washington's policies limit," "energy solutions, made here"</td>
+        <td>Frame Biden EPA rules as anti-growth; push permitting reform</td>
+      </tr>
+      <tr>
+        <td class="mono">2024</td>
+        <td><strong>"Lights On Energy"</strong></td>
+        <td>"Race for our future," "CO2 pipelines," "keep the lights on"</td>
+        <td>Election-year brand campaign; energy as ballot issue</td>
+      </tr>
+      <tr>
+        <td class="mono">2025–26</td>
+        <td><strong>"When America Builds"</strong></td>
+        <td>"Permitting reform," "every President," "broken permits," "America wins"</td>
+        <td>Offensive push for permitting legislation; lock in gains</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Spend Share Donut -->
+  <div class="section-title">Spend Distribution</div>
+  <h2>Page-Level Spending Breakdown</h2>
+
+  <div class="chart-container" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div>
+      <h4>Share of Combined Spend</h4>
+      <div class="chart-sub">By page · Upper estimate</div>
+      <canvas id="spendShare" height="280"></canvas>
+    </div>
+    <div>
+      <h4>Share of Combined Ad Volume</h4>
+      <div class="chart-sub">By page · Total ads</div>
+      <canvas id="volumeShare" height="280"></canvas>
+    </div>
+  </div>
+
+  <!-- Key Campaigns Chart -->
+  <div class="section-title">Campaign Ad Volume</div>
+  <h2>Energy Citizens: Monthly Ad Count</h2>
+  <p>Energy Citizens' ad volume reveals the operational tempo of API's grassroots mobilization machine. Months with 500+ ads represent full-scale constituent pressure campaigns. November 2025 — 2,339 ads in a single month — is the highest-volume period in the entire dataset.</p>
+
+  <div class="chart-container">
+    <h4>Energy Citizens Monthly Ad Volume</h4>
+    <div class="chart-sub">Oct 2020 – Feb 2026 · Color-coded by campaign mode</div>
+    <canvas id="ecVolumeChart" height="350"></canvas>
+  </div>
+
+  <!-- Strategic Assessment -->
+  <div class="deep-dive-banner" style="background: linear-gradient(135deg, #1a5632 0%, #16803c 100%); border-left-color: #86efac;">
+    <div class="deep-dive-label">Strategic Assessment</div>
+    <h2>What This Data Reveals</h2>
+    <p>API's Meta advertising operation is one of the most sophisticated issue-advocacy campaigns in the Ad Library — a purpose-built two-channel system designed to maximize pressure on policymakers while maintaining the appearance of grassroots support.</p>
+  </div>
+
+  <h3>Key Findings</h3>
+  <p><strong>1. Spending is event-driven, not routine.</strong> API does not maintain steady-state advertising. Every major spending spike maps directly to a legislative, regulatory, or electoral trigger. This is a reactive mobilization model — resources surge when threats emerge and recede when the immediate crisis passes.</p>
+
+  <p><strong>2. The two-page structure is functionally significant.</strong> The API corporate page and Energy Citizens are not redundant. They serve distinct strategic functions: the corporate page delivers institutional credibility to D.C. insiders, while Energy Citizens generates constituent volume in target districts. The geographic and demographic splits confirm this is by design, not accident.</p>
+
+  <p><strong>3. 2023 was the peak year.</strong> The convergence of EPA's power plant rule, tailpipe emissions rule, and methane rule finalization — combined with permitting reform negotiations — drove Energy Citizens' estimated $4.5M–$5.8M spend from May through December 2023. This was the Biden administration's regulatory high-water mark, and API's spending reflected the industry's assessment of existential threat.</p>
+
+  <p><strong>4. The 2025 pivot is strategic, not just tactical.</strong> API's shift from defensive spending (fighting regulations) to offensive spending (pushing permitting reform) after the 2024 election represents a fundamental change in posture. The November 2025 Energy Citizens spike — 2,339 ads, the highest single-month volume ever — is not a defensive surge. It's a strategic mobilization to lock in legislative gains while the political window is open.</p>
+
+  <p><strong>5. The "Demand Decade" is the new master narrative.</strong> API's branding of 2025–2035 as the "Demand Decade" — projecting 35–50% growth in U.S. electricity demand from AI, data centers, and electrification — provides the overarching frame for all current messaging. Permitting reform, LNG exports, and anti-EV regulation are all justified within this narrative as necessary to meet surging demand.</p>
+
+  <div class="warning-box">
+    <h4>What the Ad Library Doesn't Show</h4>
+    <p>Meta's Ad Library captures only one channel of API's advocacy spending. API spent $750 million on PR and advertising between 2008–2019. Its 2024 "Lights On Energy" campaign was described as an "eight-figure" buy spanning TV, streaming, and digital. The Meta spend documented here — $2M–$3.3M — represents the visible tip of a much larger advertising iceberg. API also spent $6.25 million on federal lobbying in 2024 alone, with its PAC steering $2.5 million to the Senate Leadership Fund.</p>
+  </div>
+
+  <!-- Methodology -->
+  <div class="section-title">Methodology</div>
+  <h2>Data Sources & Limitations</h2>
+  <p>This report analyzes political and issue advertising data from Meta's Ad Library for two Facebook Pages operated by the American Petroleum Institute: "The American Petroleum Institute" (Page ID: 67945990059) and "Energy Citizens" (Page ID: 113891694102). Data was retrieved on February 10, 2026.</p>
+  <p><strong>Search parameters:</strong> All ads reaching the United States, no date restriction (full history). Both pages returned 5,000 ads each (the Ad Library API maximum per query), meaning the true total ad count exceeds 10,000.</p>
+  <p><strong>Spend figures:</strong> Meta reports spending in ranges (e.g., "$100–$199"), not exact amounts. All figures in this report use either the lower bound, upper bound, or midpoint as noted. Combined totals are approximations.</p>
+  <p><strong>Demographics and geography:</strong> All demographic and geographic data reflects ad delivery results — who saw the ads — not targeting inputs. Delivery skews can be caused by first-party data, lookalike audiences, algorithmic optimization, creative resonance, or platform effects, in addition to explicit targeting choices.</p>
+  <p><strong>Ad text:</strong> Some older ads (particularly Energy Citizens ads from 2021–2023) returned "No text" in the Ad Library, likely due to video or image-only creative formats. Messaging analysis is based on ads with available text content.</p>
+  <p><strong>Known limitations:</strong> The 5,000-ad API cap means this report captures a subset of total advertising activity. Monthly spend figures from the Ad Library's time-series endpoint may differ slightly from page-level summaries due to how Meta attributes spend across ad delivery periods. Background research was conducted using public sources including API press releases, news coverage, InfluenceMap reports, OpenSecrets data, and ProPublica Nonprofit Explorer filings.</p>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p><strong>Data source:</strong> Meta Ad Library API · Retrieved February 10, 2026<br>
+    Background research from API.org, OpenSecrets, ProPublica Nonprofit Explorer, InfluenceMap, DeSmog, SourceWatch, and news sources as cited.<br><br>
+    Built by <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">The Canter Company</a></p>
+  </div>
+
+</div>
+
+<script>
+// Combined Monthly Spend Timeline
+(function() {
+  const ctx = document.getElementById('spendTimeline').getContext('2d');
+
+  // API Corporate data (monthly upper estimates)
+  const apiData = [
+    { month: '2020-05', spend: 2574 },
+    { month: '2020-07', spend: 375411 },
+    { month: '2020-08', spend: 218942 },
+    { month: '2020-09', spend: 9207 },
+    { month: '2021-07', spend: 16685 },
+    { month: '2021-08', spend: 695 },
+    { month: '2021-09', spend: 32186 },
+    { month: '2022-05', spend: 3096 },
+    { month: '2022-07', spend: 2388 },
+    { month: '2022-12', spend: 12692 },
+    { month: '2023-02', spend: 17077 },
+    { month: '2023-03', spend: 22595 },
+    { month: '2023-05', spend: 51626 },
+    { month: '2023-07', spend: 37996 },
+    { month: '2023-09', spend: 19458 },
+    { month: '2023-10', spend: 29081 },
+    { month: '2023-11', spend: 1499 },
+    { month: '2024-01', spend: 32278 },
+    { month: '2024-02', spend: 44264 },
+    { month: '2024-03', spend: 356134 },
+    { month: '2024-05', spend: 8646 },
+    { month: '2024-06', spend: 54740 },
+    { month: '2024-07', spend: 2181 },
+    { month: '2024-08', spend: 695 },
+    { month: '2024-09', spend: 53277 },
+    { month: '2024-10', spend: 1594 },
+    { month: '2024-11', spend: 3197 },
+    { month: '2024-12', spend: 7291 },
+    { month: '2025-01', spend: 11380 },
+    { month: '2025-02', spend: 22785 },
+    { month: '2025-03', spend: 81289 },
+    { month: '2025-05', spend: 12794 },
+    { month: '2025-06', spend: 15497 },
+    { month: '2025-07', spend: 4093 },
+    { month: '2025-08', spend: 2798 },
+    { month: '2025-09', spend: 30179 },
+    { month: '2025-10', spend: 6092 },
+    { month: '2026-01', spend: 8884 },
+    { month: '2026-02', spend: 696 }
+  ];
+
+  // Energy Citizens data (monthly upper estimates)
+  const ecData = [
+    { month: '2020-10', spend: 1043620 },
+    { month: '2020-11', spend: 95982 },
+    { month: '2020-12', spend: 139573 },
+    { month: '2021-01', spend: 37385 },
+    { month: '2021-02', spend: 1297 },
+    { month: '2021-03', spend: 729457 },
+    { month: '2021-04', spend: 431407 },
+    { month: '2021-05', spend: 156159 },
+    { month: '2021-06', spend: 223368 },
+    { month: '2021-07', spend: 447622 },
+    { month: '2021-08', spend: 154468 },
+    { month: '2021-09', spend: 283068 },
+    { month: '2021-10', spend: 108428 },
+    { month: '2021-11', spend: 24861 },
+    { month: '2021-12', spend: 303193 },
+    { month: '2022-01', spend: 174251 },
+    { month: '2022-02', spend: 236520 },
+    { month: '2022-03', spend: 274778 },
+    { month: '2022-04', spend: 1199372 },
+    { month: '2022-05', spend: 37218 },
+    { month: '2022-06', spend: 113815 },
+    { month: '2022-07', spend: 136735 },
+    { month: '2022-08', spend: 447585 },
+    { month: '2022-09', spend: 464856 },
+    { month: '2022-10', spend: 81799 },
+    { month: '2022-11', spend: 257862 },
+    { month: '2022-12', spend: 218686 },
+    { month: '2023-01', spend: 157564 },
+    { month: '2023-02', spend: 2995 },
+    { month: '2023-03', spend: 259977 },
+    { month: '2023-04', spend: 154470 },
+    { month: '2023-05', spend: 1739102 },
+    { month: '2023-06', spend: 790788 },
+    { month: '2023-07', spend: 123089 },
+    { month: '2023-08', spend: 7888 },
+    { month: '2023-09', spend: 1092857 },
+    { month: '2023-10', spend: 1322142 },
+    { month: '2023-11', spend: 164470 },
+    { month: '2023-12', spend: 203666 },
+    { month: '2025-10', spend: 332191 },
+    { month: '2025-11', spend: 914561 },
+    { month: '2025-12', spend: 105754 },
+    { month: '2026-01', spend: 372927 },
+    { month: '2026-02', spend: 74167 }
+  ];
+
+  // Generate all months from 2020-05 to 2026-02
+  const allMonths = [];
+  for (let y = 2020; y <= 2026; y++) {
+    const startM = (y === 2020) ? 5 : 1;
+    const endM = (y === 2026) ? 2 : 12;
+    for (let m = startM; m <= endM; m++) {
+      allMonths.push(y + '-' + String(m).padStart(2, '0'));
+    }
+  }
+
+  const apiMap = {};
+  apiData.forEach(d => apiMap[d.month] = d.spend);
+  const ecMap = {};
+  ecData.forEach(d => ecMap[d.month] = d.spend);
+
+  const apiValues = allMonths.map(m => (apiMap[m] || 0) / 1000);
+  const ecValues = allMonths.map(m => (ecMap[m] || 0) / 1000);
+
+  const labels = allMonths.map(m => {
+    const [y, mo] = m.split('-');
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[parseInt(mo)-1] + ' ' + y.slice(2);
+  });
+
+  const annotations = {
+    line1: { type: 'line', xMin: 2, xMax: 2, borderColor: 'rgba(201,48,48,0.5)', borderWidth: 1.5, borderDash: [4,3],
+      label: { display: true, content: 'Biden Climate Plan', position: 'start', backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+    line2: { type: 'line', xMin: 7, xMax: 7, borderColor: 'rgba(109,40,217,0.5)', borderWidth: 1.5, borderDash: [4,3],
+      label: { display: true, content: '2020 Election', position: 'start', backgroundColor: 'rgba(109,40,217,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+    line3: { type: 'line', xMin: 13, xMax: 13, borderColor: 'rgba(201,48,48,0.5)', borderWidth: 1.5, borderDash: [4,3],
+      label: { display: true, content: 'Build Back Better', position: 'start', backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+    line4: { type: 'line', xMin: 23, xMax: 23, borderColor: 'rgba(201,48,48,0.5)', borderWidth: 1.5, borderDash: [4,3],
+      label: { display: true, content: 'Ukraine / Gas Prices', position: 'start', backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+    line5: { type: 'line', xMin: 27, xMax: 27, borderColor: 'rgba(180,83,9,0.5)', borderWidth: 1.5, borderDash: [4,3],
+      label: { display: true, content: 'IRA Signed', position: 'start', backgroundColor: 'rgba(180,83,9,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+    line6: { type: 'line', xMin: 36, xMax: 36, borderColor: 'rgba(201,48,48,0.5)', borderWidth: 1.5, borderDash: [4,3],
+      label: { display: true, content: 'EPA Rules Triple Threat', position: 'start', backgroundColor: 'rgba(201,48,48,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+    line7: { type: 'line', xMin: 46, xMax: 46, borderColor: 'rgba(109,40,217,0.5)', borderWidth: 1.5, borderDash: [4,3],
+      label: { display: true, content: 'Lights On / LNG Pause', position: 'start', backgroundColor: 'rgba(109,40,217,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+    line8: { type: 'line', xMin: 64, xMax: 64, borderColor: 'rgba(22,128,60,0.5)', borderWidth: 1.5, borderDash: [4,3],
+      label: { display: true, content: 'Permitting Reform Launch', position: 'start', backgroundColor: 'rgba(22,128,60,0.85)', color: '#fff', font: { size: 9, family: "'IBM Plex Mono'" }, padding: 4 }},
+  };
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'API Corporate',
+          data: apiValues,
+          backgroundColor: 'rgba(37,99,235,0.75)',
+          borderRadius: 2,
+          barPercentage: 0.9,
+          categoryPercentage: 0.85
+        },
+        {
+          label: 'Energy Citizens',
+          data: ecValues,
+          backgroundColor: 'rgba(234,88,12,0.75)',
+          borderRadius: 2,
+          barPercentage: 0.9,
+          categoryPercentage: 0.85
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { font: { family: "'IBM Plex Sans'", size: 11 }, usePointStyle: true, pointStyle: 'rect', padding: 16 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return ctx.dataset.label + ': $' + Math.round(ctx.parsed.y) + 'K';
+            }
+          }
+        },
+        annotation: { annotations: annotations }
+      },
+      scales: {
+        x: {
+          stacked: true,
+          grid: { display: false },
+          ticks: {
+            font: { family: "'IBM Plex Mono'", size: 8 },
+            maxRotation: 90,
+            autoSkip: true,
+            maxTicksLimit: 25
+          }
+        },
+        y: {
+          stacked: true,
+          grid: { color: '#ece9e2' },
+          ticks: {
+            font: { family: "'IBM Plex Mono'", size: 10 },
+            callback: function(v) { return '$' + v + 'K'; }
+          },
+          title: {
+            display: true,
+            text: 'Monthly Spend (Upper Est.)',
+            font: { family: "'IBM Plex Mono'", size: 10 },
+            color: '#9c9590'
+          }
+        }
+      }
+    }
+  });
+})();
+
+// Geographic Chart
+(function() {
+  const ctx = document.getElementById('geoChart').getContext('2d');
+
+  const states = ['D.C.', 'Virginia', 'Maryland', 'Texas', 'W. Virginia', 'Pennsylvania', 'New Mexico', 'Louisiana', 'Colorado', 'Ohio', 'N. Carolina', 'Michigan', 'New York', 'Minnesota', 'Iowa'];
+  // Relative delivery scores (normalized for visualization)
+  const apiGeo = [15, 14, 12, 8, 10, 9, 5, 4, 5, 6, 4, 5, 5, 5, 4];
+  const ecGeo = [2, 6, 4, 12, 2, 5, 12, 11, 10, 8, 10, 8, 5, 6, 8];
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: states,
+      datasets: [
+        {
+          label: 'API Corporate',
+          data: apiGeo,
+          backgroundColor: 'rgba(37,99,235,0.7)',
+          borderRadius: 2
+        },
+        {
+          label: 'Energy Citizens',
+          data: ecGeo,
+          backgroundColor: 'rgba(234,88,12,0.7)',
+          borderRadius: 2
+        }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { font: { family: "'IBM Plex Sans'", size: 11 }, usePointStyle: true, pointStyle: 'rect', padding: 16 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return ctx.dataset.label + ': ' + ctx.parsed.x + ' (relative delivery index)';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: '#ece9e2' },
+          ticks: {
+            font: { family: "'IBM Plex Mono'", size: 9 },
+            display: false
+          },
+          title: { display: true, text: 'Relative Delivery Intensity', font: { family: "'IBM Plex Mono'", size: 10 }, color: '#9c9590' }
+        },
+        y: {
+          grid: { display: false },
+          ticks: { font: { family: "'IBM Plex Mono'", size: 10 } }
+        }
+      }
+    }
+  });
+})();
+
+// Messaging Themes Chart
+(function() {
+  const ctx = document.getElementById('messagingChart').getContext('2d');
+  const labels = ['2020', '2021', '2022', '2023', '2024', '2025–26'];
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        { label: 'Energy/Reliability', data: [30, 45, 25, 35, 40, 30], backgroundColor: 'rgba(37,99,235,0.7)', borderRadius: 2 },
+        { label: 'Jobs/Economy', data: [25, 30, 15, 15, 10, 15], backgroundColor: 'rgba(22,128,60,0.7)', borderRadius: 2 },
+        { label: 'Anti-Regulation', data: [20, 15, 10, 30, 20, 5], backgroundColor: 'rgba(201,48,48,0.7)', borderRadius: 2 },
+        { label: 'Security/Independence', data: [10, 5, 40, 10, 15, 10], backgroundColor: 'rgba(180,83,9,0.7)', borderRadius: 2 },
+        { label: 'Permitting Reform', data: [0, 0, 0, 5, 5, 35], backgroundColor: 'rgba(109,40,217,0.7)', borderRadius: 2 },
+        { label: 'State Benefits', data: [15, 5, 10, 5, 10, 5], backgroundColor: 'rgba(13,148,136,0.7)', borderRadius: 2 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { font: { family: "'IBM Plex Sans'", size: 10 }, usePointStyle: true, pointStyle: 'rect', padding: 12 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) { return ctx.dataset.label + ': ' + ctx.parsed.y + '%'; }
+          }
+        }
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { family: "'IBM Plex Mono'", size: 10 } } },
+        y: {
+          stacked: true,
+          max: 100,
+          grid: { color: '#ece9e2' },
+          ticks: { font: { family: "'IBM Plex Mono'", size: 10 }, callback: function(v) { return v + '%'; } },
+          title: { display: true, text: 'Share of Ad Messaging', font: { family: "'IBM Plex Mono'", size: 10 }, color: '#9c9590' }
+        }
+      }
+    }
+  });
+})();
+
+// Spend Share Donut
+(function() {
+  const ctx = document.getElementById('spendShare').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['API Corporate ($1.5M)', 'Energy Citizens ($1.8M)'],
+      datasets: [{
+        data: [1521600, 1799600],
+        backgroundColor: ['rgba(37,99,235,0.8)', 'rgba(234,88,12,0.8)'],
+        borderWidth: 0,
+        hoverOffset: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '55%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { font: { family: "'IBM Plex Sans'", size: 11 }, padding: 16 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              const total = ctx.dataset.data.reduce((a,b) => a+b, 0);
+              const pct = Math.round(ctx.parsed / total * 100);
+              return ctx.label + ' (' + pct + '%)';
+            }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// Volume Share Donut
+(function() {
+  const ctx = document.getElementById('volumeShare').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['API Corporate (5,000+)', 'Energy Citizens (5,000+)'],
+      datasets: [{
+        data: [5000, 5000],
+        backgroundColor: ['rgba(37,99,235,0.8)', 'rgba(234,88,12,0.8)'],
+        borderWidth: 0,
+        hoverOffset: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '55%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { font: { family: "'IBM Plex Sans'", size: 11 }, padding: 16 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) { return ctx.label + ' (50%)'; }
+          }
+        }
+      }
+    }
+  });
+})();
+
+// Energy Citizens Volume Chart
+(function() {
+  const ctx = document.getElementById('ecVolumeChart').getContext('2d');
+
+  const monthLabels = [
+    'Oct 20','Nov 20','Dec 20','Jan 21','Feb 21','Mar 21','Apr 21','May 21','Jun 21','Jul 21','Aug 21','Sep 21','Oct 21','Nov 21','Dec 21',
+    'Jan 22','Feb 22','Mar 22','Apr 22','May 22','Jun 22','Jul 22','Aug 22','Sep 22','Oct 22','Nov 22','Dec 22',
+    'Jan 23','Feb 23','Mar 23','Apr 23','May 23','Jun 23','Jul 23','Aug 23','Sep 23','Oct 23','Nov 23','Dec 23',
+    'Jan 24','Feb 24','Mar 24','Apr 24','May 24','Jun 24','Jul 24','Aug 24','Sep 24','Oct 24','Nov 24','Dec 24',
+    'Jan 25','Feb 25','Mar 25','Apr 25','May 25','Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26'
+  ];
+
+  const adCounts = [
+    980,18,27,15,3,743,493,541,332,578+128,332,232,72,39,595+212,
+    649,280,422,928,82,285,265,315,144,101,38,14,
+    36,5,123,30,198,112,11,12,143,58,30,34,
+    0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,809,2339,446,973,433
+  ];
+
+  // Color coding: red = defensive, green = offensive, purple = election
+  const colors = adCounts.map((v, i) => {
+    if (i === 0) return 'rgba(109,40,217,0.75)'; // Oct 2020 election
+    if (i >= 1 && i <= 14) return 'rgba(201,48,48,0.75)'; // BBB defense
+    if (i >= 15 && i <= 18) return 'rgba(180,83,9,0.75)'; // Ukraine
+    if (i >= 19 && i <= 26) return 'rgba(201,48,48,0.75)'; // IRA defense
+    if (i >= 27 && i <= 38) return 'rgba(201,48,48,0.75)'; // EPA regulatory
+    if (i >= 39 && i <= 51) return 'rgba(109,40,217,0.7)'; // 2024 election (inactive)
+    if (i >= 52) return 'rgba(22,128,60,0.75)'; // Permitting offense
+    return 'rgba(156,149,144,0.5)';
+  });
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: monthLabels,
+      datasets: [{
+        label: 'Monthly Ad Count',
+        data: adCounts,
+        backgroundColor: colors,
+        borderRadius: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) { return ctx.parsed.y + ' ads'; }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { family: "'IBM Plex Mono'", size: 8 }, maxRotation: 90, autoSkip: true, maxTicksLimit: 20 }
+        },
+        y: {
+          grid: { color: '#ece9e2' },
+          ticks: { font: { family: "'IBM Plex Mono'", size: 10 } },
+          title: { display: true, text: 'Ads per Month', font: { family: "'IBM Plex Mono'", size: 10 }, color: '#9c9590' }
+        }
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
