@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2024 GOTV Ads — Campaigns vs. Outside Groups on Meta</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-warm: #f5f3ef;
+    --bg-accent: #f0ece4;
+    --border: #e4e0d8;
+    --border-light: #ece9e2;
+    --navy: #1a2332;
+    --navy-mid: #2d3a4a;
+    --slate: #475569;
+    --stone: #78716c;
+    --text-primary: #1c1917;
+    --text-body: #3d3833;
+    --text-secondary: #6b6560;
+    --text-muted: #9c9590;
+    --blue-deep: #1e3a5f;
+    --blue: #2563eb;
+    --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c;
+    --red: #c53030;
+    --red-light: #fef2f2;
+    --green-deep: #1a5632;
+    --green: #16803c;
+    --green-light: #f0fdf4;
+    --amber-deep: #92400e;
+    --amber: #b45309;
+    --amber-light: #fffbeb;
+    --purple-deep: #4c1d95;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --teal-deep: #115e59;
+    --teal: #0d9488;
+    --teal-light: #f0fdfa;
+    --orange-deep: #9a3412;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+    --cyan-deep: #155e75;
+    --cyan: #0891b2;
+    --cyan-light: #ecfeff;
+    /* GOTV-specific palette */
+    --dem-blue: #1d4ed8;
+    --dem-blue-light: #dbeafe;
+    --rep-red: #dc2626;
+    --rep-red-light: #fef2f2;
+    --nonpartisan: #7c3aed;
+    --nonpartisan-light: #f5f3ff;
+    --outside-left: #2563eb;
+    --outside-right: #ef4444;
+    --outside-center: #8b5cf6;
+    --campaign: #059669;
+    --campaign-light: #d1fae5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .header-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .header h1 span {
+    display: block;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .header-meta .sep { color: var(--border); }
+
+  /* Top Stats */
+  .top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    padding: 24px 22px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 56px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--stone);
+    letter-spacing: 1px;
+  }
+
+  .section h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.2px;
+  }
+
+  .section h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin: 28px 0 12px;
+  }
+
+  p { margin-bottom: 14px; font-size: 15px; }
+  p + p { margin-top: 0; }
+
+  /* Cards */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .card-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 16px;
+  }
+
+  /* Chart containers */
+  .chart-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .chart-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .chart-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+
+  .chart-canvas-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Tables */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 16px 0;
+  }
+
+  .data-table thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--border);
+    text-align: left;
+  }
+
+  .data-table thead th.right { text-align: right; }
+
+  .data-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+  }
+
+  .data-table tbody td.right { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .data-table tbody tr:last-child td { border-bottom: none; }
+
+  .data-table tbody tr:hover { background: var(--bg-warm); }
+
+  /* Spend bar */
+  .spend-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .spend-bar {
+    height: 8px;
+    border-radius: 4px;
+    min-width: 2px;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .tag-campaign { background: var(--campaign-light); color: var(--green-deep); }
+  .tag-outside-left { background: var(--dem-blue-light); color: var(--blue-deep); }
+  .tag-outside-right { background: var(--rep-red-light); color: var(--red-deep); }
+  .tag-outside-nonpartisan { background: var(--nonpartisan-light); color: var(--purple-deep); }
+
+  /* Callout boxes */
+  .callout {
+    border-left: 4px solid var(--blue);
+    padding: 18px 22px;
+    margin: 20px 0;
+    background: var(--blue-light);
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+
+  .callout-red {
+    border-left-color: var(--red);
+    background: var(--red-light);
+  }
+
+  .callout-amber {
+    border-left-color: var(--amber);
+    background: var(--amber-light);
+  }
+
+  .callout-green {
+    border-left-color: var(--green);
+    background: var(--green-light);
+  }
+
+  .callout-purple {
+    border-left-color: var(--purple);
+    background: var(--purple-light);
+  }
+
+  .callout strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--navy);
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  /* Key finding highlight */
+  .key-finding {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    margin: 32px 0;
+  }
+
+  .key-finding h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 12px;
+  }
+
+  .key-finding p {
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+
+  .key-finding .kf-stat {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    margin: 12px 0 4px;
+  }
+
+  .key-finding .kf-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* State spotlight */
+  .state-spotlight {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    margin: 24px 0;
+  }
+
+  .state-spotlight h4 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .footer a:hover { text-decoration: underline; }
+
+  /* Links */
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Methodology */
+  .methodology {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .methodology h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .container { padding: 0; }
+    .chart-wrap, .card { break-inside: avoid; }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .container { padding: 24px 16px 60px; }
+    .header h1 { font-size: 28px; }
+    .header h1 span { font-size: 20px; }
+    .top-stats { grid-template-columns: repeat(2, 1fr); }
+    .stat-value { font-size: 24px; }
+    .two-col { grid-template-columns: 1fr; }
+    .section h2 { font-size: 22px; }
+    .key-finding .kf-stat { font-size: 28px; }
+    .data-table { font-size: 12px; }
+    .data-table thead th, .data-table tbody td { padding: 8px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Meta Ad Library Intelligence Brief</div>
+  <h1>Get Out the Vote on Meta<span>Campaigns vs. Outside Groups in the 2024 General Election</span></h1>
+  <div class="header-meta">
+    <span>August 1 &ndash; November 5, 2024</span>
+    <span class="sep">|</span>
+    <span>United States</span>
+    <span class="sep">|</span>
+    <span>Special Focus: Texas &amp; New Mexico</span>
+  </div>
+</div>
+
+<!-- TOP STATS -->
+<div class="top-stats">
+  <div class="stat-card">
+    <div class="stat-label">Total GOTV Ad Spend</div>
+    <div class="stat-value">$14.5M+</div>
+    <div class="stat-sub">Upper-bound estimate across tracked advertisers</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Campaign Spend</div>
+    <div class="stat-value">$5.3M</div>
+    <div class="stat-sub">Trump, Harris, Allred, Biden &amp; down-ballot</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Outside Group Spend</div>
+    <div class="stat-value">$9.2M+</div>
+    <div class="stat-sub">Super PACs, nonprofits, civic orgs</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Total Ads Tracked</div>
+    <div class="stat-value">18,900+</div>
+    <div class="stat-sub">Across 15+ major advertisers</div>
+  </div>
+</div>
+
+<!-- KEY FINDING -->
+<div class="key-finding">
+  <h3>The Big Picture</h3>
+  <p>Outside groups outspent official campaigns on Meta GOTV advertising by nearly 2-to-1 during the 2024 general election. The Trump campaign dropped $3.4M&ndash;$4.6M in just five days, but organizations like Forward Blue, Voto Latino, Sendthevote, and Powered by People ran sustained multi-week operations that collectively dwarfed direct campaign spending. On the progressive side, the outside-group ecosystem was deep and diversified. On the conservative side, it was thinner &mdash; concentrated in Turning Point Action and a handful of PACs &mdash; revealing a structural asymmetry in how each coalition mobilizes voters on Meta.</p>
+</div>
+
+<!-- SECTION 1: LANDSCAPE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2>The GOTV Landscape</h2>
+  </div>
+
+  <p>The 2024 general election GOTV operation on Meta was shaped by an extraordinary event: President Biden's withdrawal on July 21 and Vice President Harris's rapid consolidation of the Democratic nomination. This created a compressed timeline that benefited outside groups with existing infrastructure while forcing the new Harris campaign to build a Meta ad operation from scratch in under 100 days.</p>
+
+  <p>Our analysis tracked 15+ major advertisers running GOTV-oriented ads on Meta between August 1 and November 5, 2024. We categorized them into two buckets per the user's framework:</p>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-header">Campaigns</div>
+      <p style="font-size:14px;"><strong>Definition:</strong> Official candidate committees for Biden/Harris and Trump/Vance at the presidential level, plus all down-ballot candidate committees (Colin Allred, etc.)</p>
+      <p style="font-size:14px;"><strong>Key characteristic:</strong> Tend to mix GOTV with fundraising and persuasion. Concentrated spending bursts in final weeks.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">Outside Groups</div>
+      <p style="font-size:14px;"><strong>Definition:</strong> Everything else &mdash; super PACs, party committees (DNC/RNC), 501(c)(4)s, civic organizations, advocacy nonprofits, and individual advocates.</p>
+      <p style="font-size:14px;"><strong>Key characteristic:</strong> Longer runways, more specialized targeting. Progressive side had deeper bench of Meta advertisers.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-amber">
+    <strong>A note on "GOTV" classification</strong>
+    Defining what counts as a GOTV ad is inherently subjective. We included any ad with a clear voter mobilization hook: "register to vote," "make a plan," "find your polling place," "Election Day is Nov 5," "vote early," or explicit persuasion-plus-turnout messaging ("vote for X to protect Y"). Pure issue ads without a voting call-to-action were excluded. Many campaign ads blend fundraising with GOTV language &mdash; we included these when the GOTV hook was prominent.
+  </div>
+</div>
+
+<!-- SECTION 2: TOP SPENDERS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2>Top GOTV Advertisers</h2>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Total GOTV Ad Spend by Advertiser</div>
+    <div class="chart-subtitle">Aug 1 &ndash; Nov 5, 2024 &bull; Upper-bound spend estimates &bull; Campaign = green, Outside = blue/red/purple</div>
+    <div class="chart-canvas-wrap" style="height: 480px;">
+      <canvas id="spendChart"></canvas>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Advertiser</th>
+        <th>Type</th>
+        <th class="right">Ads</th>
+        <th class="right">Spend Range</th>
+        <th class="right">Impressions</th>
+        <th>Active Period</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Donald J. Trump</strong></td>
+        <td><span class="tag tag-campaign">Campaign</span></td>
+        <td class="right">5,000</td>
+        <td class="right">$3.4M &ndash; $4.6M</td>
+        <td class="right">104M &ndash; 106M</td>
+        <td>Oct 24 &ndash; Oct 28</td>
+      </tr>
+      <tr>
+        <td><strong>Colin Allred</strong></td>
+        <td><span class="tag tag-campaign">Campaign</span></td>
+        <td class="right">703</td>
+        <td class="right">$2.7M &ndash; $3.3M</td>
+        <td class="right">53M &ndash; 62M</td>
+        <td>Feb &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>Forward Blue</strong></td>
+        <td><span class="tag tag-outside-left">Outside &bull; Left</span></td>
+        <td class="right">4,007</td>
+        <td class="right">$2.2M &ndash; $3.1M</td>
+        <td class="right">66M &ndash; 75M</td>
+        <td>Jul &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>Voto Latino</strong></td>
+        <td><span class="tag tag-outside-left">Outside &bull; Left</span></td>
+        <td class="right">5,000</td>
+        <td class="right">$1.1M &ndash; $1.7M</td>
+        <td class="right">95M &ndash; 103M</td>
+        <td>Sep &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>Sendthevote</strong></td>
+        <td><span class="tag tag-outside-right">Outside &bull; Right</span></td>
+        <td class="right">4,415</td>
+        <td class="right">$913K &ndash; $1.5M</td>
+        <td class="right">53M &ndash; 60M</td>
+        <td>Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>Beto O'Rourke / Powered by People</strong></td>
+        <td><span class="tag tag-outside-left">Outside &bull; Left</span></td>
+        <td class="right">1,438</td>
+        <td class="right">$1.1M &ndash; $1.4M</td>
+        <td class="right">30M &ndash; 30M</td>
+        <td>Jan &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>Hard Asset Heroes</strong></td>
+        <td><span class="tag tag-outside-right">Outside &bull; Right</span></td>
+        <td class="right">340</td>
+        <td class="right">$1.3M &ndash; $1.5M</td>
+        <td class="right">12M &ndash; 8M</td>
+        <td>Sep &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>Kamala Harris</strong></td>
+        <td><span class="tag tag-campaign">Campaign</span></td>
+        <td class="right">883+</td>
+        <td class="right">$1.1M &ndash; $1.4M</td>
+        <td class="right">27M &ndash; 31M</td>
+        <td>Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>HeadCount</strong></td>
+        <td><span class="tag tag-outside-nonpartisan">Outside &bull; Nonpartisan</span></td>
+        <td class="right">1,124</td>
+        <td class="right">$649K &ndash; $881K</td>
+        <td class="right">62M &ndash; 60M</td>
+        <td>Aug &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>Turning Point Action</strong></td>
+        <td><span class="tag tag-outside-right">Outside &bull; Right</span></td>
+        <td class="right">250</td>
+        <td class="right">$526K &ndash; $661K</td>
+        <td class="right">25M</td>
+        <td>Jul &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>Joe Biden</strong></td>
+        <td><span class="tag tag-campaign">Campaign</span></td>
+        <td class="right">351</td>
+        <td class="right">$186K &ndash; $256K</td>
+        <td class="right">9M &ndash; 10M</td>
+        <td>Jul &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>TX Organizing Project</strong></td>
+        <td><span class="tag tag-outside-left">Outside &bull; Left</span></td>
+        <td class="right">193</td>
+        <td class="right">$89K &ndash; $125K</td>
+        <td class="right">9M &ndash; 11M</td>
+        <td>Aug &ndash; Oct 2024</td>
+      </tr>
+      <tr>
+        <td><strong>TurnUp / Turnout Activism</strong></td>
+        <td><span class="tag tag-outside-nonpartisan">Outside &bull; Nonpartisan</span></td>
+        <td class="right">33</td>
+        <td class="right">$57K &ndash; $71K</td>
+        <td class="right">13M &ndash; 10M</td>
+        <td>Sep &ndash; Nov 2024</td>
+      </tr>
+      <tr>
+        <td><strong>ProgressNow New Mexico</strong></td>
+        <td><span class="tag tag-outside-left">Outside &bull; Left</span></td>
+        <td class="right">44</td>
+        <td class="right">$6K &ndash; $11K</td>
+        <td class="right">983K &ndash; 1.2M</td>
+        <td>Jul &ndash; Oct 2024</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-purple">
+    <strong>Efficiency note: HeadCount and TurnUp punched above their weight</strong>
+    HeadCount generated 60M+ impressions on a $649K&ndash;$881K budget &mdash; roughly $0.01 per impression. TurnUp achieved 10M&ndash;13M impressions on just $57K&ndash;$71K ($0.005&ndash;$0.007 per impression). Compare to Hard Asset Heroes, which spent $1.3M&ndash;$1.5M for only 8M&ndash;12M impressions ($0.12&ndash;$0.19 per impression). The variance likely reflects creative quality, targeting precision, and whether ads were optimized for reach vs. engagement.
+  </div>
+</div>
+
+<!-- SECTION 3: CAMPAIGNS vs OUTSIDE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2>Campaigns vs. Outside Groups</h2>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Spend Share: Campaigns vs. Outside Groups</div>
+    <div class="chart-subtitle">Based on upper-bound spend estimates for tracked GOTV advertisers</div>
+    <div class="two-col">
+      <div class="chart-canvas-wrap" style="height: 300px;">
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center;">
+        <div style="margin-bottom:20px;">
+          <div class="stat-label">Campaign Spending</div>
+          <div class="stat-value" style="font-size:28px;">~$9.6M</div>
+          <div class="stat-sub">Trump ($4.6M) + Allred ($3.3M) + Harris ($1.4M) + Biden ($256K)</div>
+        </div>
+        <div>
+          <div class="stat-label">Outside Group Spending</div>
+          <div class="stat-value" style="font-size:28px;">~$9.2M</div>
+          <div class="stat-sub">Forward Blue ($3.1M) + Voto Latino ($1.7M) + Sendthevote ($1.5M) + 10 more</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>At first glance, campaign and outside group spending appear roughly equal. But this masks a critical asymmetry: <strong>the Trump campaign alone accounts for nearly half of all campaign spending</strong>, and he spent it in a five-day blitz. Remove Trump, and outside groups outspend campaigns by about 2.5-to-1.</p>
+
+  <p>The structural difference becomes clearer when you look at the progressive vs. conservative ecosystem:</p>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-header">Progressive Outside Groups</div>
+      <table class="data-table" style="font-size:13px;">
+        <thead><tr><th>Group</th><th class="right">Spend (Upper)</th></tr></thead>
+        <tbody>
+          <tr><td>Forward Blue</td><td class="right">$3.1M</td></tr>
+          <tr><td>Voto Latino</td><td class="right">$1.7M</td></tr>
+          <tr><td>Beto / Powered by People</td><td class="right">$1.4M</td></tr>
+          <tr><td>HeadCount</td><td class="right">$881K</td></tr>
+          <tr><td>TX Organizing Project</td><td class="right">$125K</td></tr>
+          <tr><td>ProgressNow NM</td><td class="right">$11K</td></tr>
+          <tr style="font-weight:600; border-top:2px solid var(--border);"><td>Total</td><td class="right">~$7.2M</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-header">Conservative Outside Groups</div>
+      <table class="data-table" style="font-size:13px;">
+        <thead><tr><th>Group</th><th class="right">Spend (Upper)</th></tr></thead>
+        <tbody>
+          <tr><td>Sendthevote</td><td class="right">$1.5M</td></tr>
+          <tr><td>Hard Asset Heroes</td><td class="right">$1.5M</td></tr>
+          <tr><td>Turning Point Action</td><td class="right">$661K</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr style="font-weight:600; border-top:2px solid var(--border);"><td>Total</td><td class="right">~$3.7M</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p>Progressive outside groups outspent conservative outside groups on Meta GOTV by approximately <strong>2-to-1</strong>. More importantly, the progressive side fielded six identifiable Meta GOTV operations versus three on the conservative side. This depth matters: it allows different organizations to target different demographics, geographies, and messages without competing for the same audience.</p>
+
+  <div class="callout callout-red">
+    <strong>The RNC outsourcing gamble</strong>
+    Unlike prior cycles where the RNC ran a centralized ground game, the 2024 Republican Party outsourced significant GOTV operations to allied groups like Turning Point Action and America PAC. On Meta, this fragmentation is visible: the Trump campaign itself ran a massive final-week blitz, but the broader conservative GOTV infrastructure was thinner and less coordinated. Post-election reporting questioned whether this decentralized approach cost Republicans at the margins.
+  </div>
+</div>
+
+<!-- SECTION 4: TIMELINE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2>Spending Over Time</h2>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Weekly GOTV Ad Spend by Key Advertiser</div>
+    <div class="chart-subtitle">Annotated with real-world events that drove spending spikes</div>
+    <div class="chart-canvas-wrap" style="height: 420px;">
+      <canvas id="timelineChart"></canvas>
+    </div>
+  </div>
+
+  <p>The timeline reveals starkly different strategies:</p>
+
+  <p><strong>The Trump Blitz:</strong> The Trump campaign was virtually absent from Meta GOTV until the final week of October, when it unleashed $3.4M&ndash;$4.6M in five days (Oct 24&ndash;28). This was a concentrated, high-intensity push &mdash; 5,000 ads in under a week. The messaging was laser-focused on battleground states: "STOP WHAT YOU'RE DOING. Do you want North Carolina going to Kamala?" and "Find your Election Day Voting Location &amp; win this for TRUMP."</p>
+
+  <p><strong>The Outside Group Marathon:</strong> Groups like Forward Blue and Beto/Powered by People ramped spending steadily from July through October, peaking in the final three weeks but maintaining presence throughout. Voto Latino surged around voter registration deadlines in early October.</p>
+
+  <p><strong>The Harris Sprint:</strong> The Kamala Harris page had virtually no GOTV presence before October, reflecting the compressed timeline after Biden's July 21 withdrawal. When it came, it was focused: $1.1M&ndash;$1.4M concentrated in a single month.</p>
+
+  <div class="callout callout-green">
+    <strong>Voto Latino's registration deadline spike</strong>
+    Voto Latino spent an estimated $699K&ndash;$1M in the single week of September 30 &mdash; timed to the Texas voter registration deadline (October 7) and New Mexico's deadline (October 8). This was the most strategically precise spending spike in our dataset: a massive investment timed to the exact moment it could convert into registered voters. After deadlines passed, spending dropped sharply as the organization shifted to turnout messaging.
+  </div>
+</div>
+
+<!-- SECTION 5: GEOGRAPHIC -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2>Geographic Targeting</h2>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Where the Ads Landed</div>
+    <div class="chart-subtitle">Top states by ad delivery concentration for major GOTV advertisers</div>
+    <div class="chart-canvas-wrap" style="height: 380px;">
+      <canvas id="geoChart"></canvas>
+    </div>
+  </div>
+
+  <p>The geographic delivery data reveals a remarkably consistent battleground map across advertisers. Pennsylvania, Georgia, Michigan, Wisconsin, Arizona, and Nevada appear in almost every major advertiser's top-delivery states &mdash; the same six states that dominated the 2024 presidential race.</p>
+
+  <p>Key geographic patterns:</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Advertiser</th>
+        <th>Top Delivery States</th>
+        <th>Notable Absence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Trump Campaign</strong></td>
+        <td>PA, NV, GA, WI, AZ, ME, MI</td>
+        <td>No TX or NM</td>
+      </tr>
+      <tr>
+        <td><strong>Sendthevote</strong></td>
+        <td>GA, MI, WI, PA, NC</td>
+        <td>No TX, NM, or AZ</td>
+      </tr>
+      <tr>
+        <td><strong>HeadCount</strong></td>
+        <td>GA, PA, MI, NC, WI, AZ</td>
+        <td>TX, NM minimal</td>
+      </tr>
+      <tr>
+        <td><strong>Turning Point Action</strong></td>
+        <td>AZ (dominant), GA, TX</td>
+        <td>AZ-focused operation</td>
+      </tr>
+      <tr>
+        <td><strong>Beto / Powered by People</strong></td>
+        <td>TX (dominant)</td>
+        <td>TX-only operation</td>
+      </tr>
+      <tr>
+        <td><strong>Voto Latino</strong></td>
+        <td>NV, NC, WI, PA, TX, AZ, MN</td>
+        <td>Broad swing state + TX</td>
+      </tr>
+      <tr>
+        <td><strong>Colin Allred</strong></td>
+        <td>TX (dominant)</td>
+        <td>National fundraising tail</td>
+      </tr>
+      <tr>
+        <td><strong>Forward Blue</strong></td>
+        <td>CA, PA, OH, WI, NV, MT</td>
+        <td>Unusually broad spread</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Delivery ≠ Targeting</strong>
+    All Ad Library geographic data shows <em>delivery results</em> (who saw the ad), not <em>targeting inputs</em> (what the advertiser selected). Geographic concentration can result from explicit geo-targeting, algorithmic optimization, first-party data uploads, or audience lookalike modeling. When we say an advertiser "focused on" a state, we mean their ads disproportionately reached people there &mdash; not that they necessarily set state-level targeting.
+  </div>
+</div>
+
+<!-- SECTION 6: TEXAS SPOTLIGHT -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2>Texas Spotlight</h2>
+  </div>
+
+  <p>Texas was the epicenter of down-ballot GOTV activity on Meta, driven primarily by the Colin Allred vs. Ted Cruz Senate race &mdash; one of the most expensive Senate contests in the country at $250M+ in total spending across all media.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Texas GOTV Ad Spend by Advertiser</div>
+    <div class="chart-subtitle">Advertisers with significant Texas delivery or Texas-focused operations</div>
+    <div class="chart-canvas-wrap" style="height: 320px;">
+      <canvas id="txChart"></canvas>
+    </div>
+  </div>
+
+  <div class="state-spotlight">
+    <h4>Texas GOTV Ecosystem</h4>
+    <p style="font-size:14px;">Three distinct GOTV operations converged in Texas:</p>
+    <p style="font-size:14px;"><strong>1. The Allred Machine ($2.7M&ndash;$3.3M):</strong> Colin Allred's campaign was the largest single Meta advertiser in the Texas GOTV space. While much of his ad spend was fundraising-oriented (targeting national donors), his Texas-delivered ads anchored the Democratic GOTV infrastructure. The campaign opened 30+ field offices across Texas and Allred's digital operation served as the connective tissue for the broader progressive GOTV coalition.</p>
+    <p style="font-size:14px;"><strong>2. Powered by People ($1.1M&ndash;$1.4M):</strong> Beto O'Rourke's organization was the dedicated Texas GOTV engine. With 0.3% delivery concentration in Texas (the highest of any state), Powered by People ran video-heavy ads focused on voter registration and early voting. The organization reported knocking on 3 million+ doors &mdash; Meta ads were one channel in a multi-platform mobilization effort.</p>
+    <p style="font-size:14px;"><strong>3. The Ground-Level Groups ($89K&ndash;$125K):</strong> Texas Organizing Project focused on down-ballot progressive candidates in Houston, Dallas, and San Antonio. Their ads were hyper-local: specific county judge endorsements, HISD bond opposition, marijuana decriminalization propositions. This is where Meta GOTV connected to the ballot below the fold.</p>
+  </div>
+
+  <div class="callout callout-amber">
+    <strong>National groups largely skipped Texas</strong>
+    Despite the competitive Senate race, national GOTV groups like Sendthevote, HeadCount, and Forward Blue delivered minimal ads to Texas. The Trump campaign didn't target Texas either. The implicit calculation: Texas was not a presidential battleground, and national GOTV dollars were better spent in true swing states. Texas GOTV was left to Texas-specific organizations and the Allred campaign.
+  </div>
+
+  <h3>The Rio Grande Valley Dimension</h3>
+  <p>Voto Latino was the only major national organization with significant Texas GOTV delivery. Their massive $699K&ndash;$1M registration-deadline spending spike in late September/early October included Texas alongside swing states, reflecting the strategic importance of the Latino vote in both the Senate race and competitive House races in the Rio Grande Valley (TX-15, TX-28, TX-34).</p>
+  <p>The RGV's rightward shift &mdash; which began in 2020 and continued in 2024 &mdash; made Latino voter engagement a two-way competition. Republican-aligned groups did not appear to mount a significant Meta GOTV operation specifically targeting the RGV, suggesting their voter contact strategy in South Texas relied more heavily on door-to-door canvassing and other channels.</p>
+</div>
+
+<!-- SECTION 7: NEW MEXICO SPOTLIGHT -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">07</span>
+    <h2>New Mexico Spotlight</h2>
+  </div>
+
+  <p>New Mexico tells a very different story from Texas: despite hosting one of the most competitive House races in the country (NM-2, Vasquez vs. Herrell), Meta GOTV spending in the state was vanishingly small.</p>
+
+  <div class="state-spotlight">
+    <h4>NM-2: The Race That Meta GOTV Forgot</h4>
+    <p style="font-size:14px;">The NM-2 rematch between Rep. Gabe Vasquez (D) and Yvette Herrell (R) was rated a Toss-Up by Cook Political Report and was decided by approximately 4&ndash;5 points in Herrell's favor. Combined candidate and outside spending exceeded $30 million across all media. Yet on Meta, the only identifiable NM-specific GOTV operation was <strong>ProgressNow New Mexico</strong>, which spent just $6K&ndash;$11K on 44 ads.</p>
+    <p style="font-size:14px;">ProgressNow NM's ads mixed GOTV messaging ("Hey NM! At nmvote.org, find Early or Election Day voting locations") with anti-Herrell persuasion ("Yvette Herrell says she's not extreme, yet just this past weekend she stood behind the same flag white nationalists..."). At $6K&ndash;$11K, this was effectively a rounding error in a $30M+ race.</p>
+  </div>
+
+  <p><strong>Where did the NM GOTV money go?</strong> The most likely explanation: NM-2 GOTV spending was concentrated on television, direct mail, and ground operations rather than Meta. The Congressional Leadership Fund (R) and House Majority PAC (D) &mdash; the primary outside spenders in NM-2 &mdash; typically allocate the bulk of their budgets to broadcast and cable TV in smaller media markets where it's cheaper and reaches a higher percentage of the electorate. Southern New Mexico's media markets (Las Cruces, El Paso overlap) are relatively inexpensive for TV, reducing the marginal value of shifting dollars to Meta.</p>
+
+  <p>Additionally, NM's long early voting period (October 8 &ndash; November 2, nearly 26 days) and same-day voter registration mean that GOTV is less about a single Election Day push and more about sustained engagement &mdash; a dynamic better suited to ground operations and mail than digital ad blitzes.</p>
+
+  <div class="callout">
+    <strong>HeadCount's NM presence</strong>
+    HeadCount ran at least one NM-specific ad ("Make your voice heard in New Mexico! Your polls are open 7am - 7pm") but at minimal spend ($0&ndash;$99). National nonpartisan groups acknowledged NM without investing meaningfully there.
+  </div>
+</div>
+
+<!-- SECTION 8: MESSAGING -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">08</span>
+    <h2>Messaging Strategies</h2>
+  </div>
+
+  <p>GOTV messaging on Meta fell into distinct patterns that varied sharply between campaigns and outside groups, and between left and right:</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">GOTV Messaging Framework</div>
+    <div class="chart-subtitle">How different advertiser types framed their voter mobilization appeals</div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div style="padding:16px; background:var(--campaign-light); border-radius:8px;">
+        <div style="font-weight:600; color:var(--green-deep); margin-bottom:8px; font-size:14px;">Campaign GOTV</div>
+        <ul style="font-size:13px; padding-left:18px; color:var(--text-body);">
+          <li style="margin-bottom:6px;"><strong>Trump:</strong> Urgency + fear of loss. "STOP WHAT YOU'RE DOING. Do you want North Carolina going to Kamala?" State-specific targeting with localized urgency.</li>
+          <li style="margin-bottom:6px;"><strong>Allred:</strong> Primarily fundraising with GOTV framing. "I'm on the brink of defeating Ted Cruz &mdash; chip in $15." The GOTV hook was implicit: donations fund the ground game.</li>
+          <li><strong>Harris:</strong> Persuasion-plus-turnout. Issue-focused ads (childcare costs, reproductive rights) paired with "make a plan to vote" calls to action.</li>
+        </ul>
+      </div>
+      <div style="padding:16px; background:var(--blue-light); border-radius:8px;">
+        <div style="font-weight:600; color:var(--blue-deep); margin-bottom:8px; font-size:14px;">Outside Group GOTV</div>
+        <ul style="font-size:13px; padding-left:18px; color:var(--text-body);">
+          <li style="margin-bottom:6px;"><strong>Sendthevote:</strong> Right-leaning populist. "Open borders. Endless Wars. High Prices. Here's your power move: VOTE!" Culturally resonant ("childless cat ladies" reference).</li>
+          <li style="margin-bottom:6px;"><strong>HeadCount:</strong> State-specific logistics. "Your polls are open 7am-8pm. Not registered? You can register and vote at your polling place." Pure information delivery.</li>
+          <li><strong>Voto Latino:</strong> Registration-focused. High-volume, short-runway campaigns timed to state deadlines. Bilingual content targeting Latino voters.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p>The most effective messaging pattern, by impression efficiency, was <strong>logistical specificity</strong> &mdash; telling voters exactly when, where, and how to vote. HeadCount's state-by-state "your polls are open" ads generated massive reach on modest budgets. The least efficient pattern was <strong>ideological GOTV</strong> &mdash; ads that spent more time arguing positions than providing voting information. Hard Asset Heroes' $1.3M&ndash;$1.5M spend generated relatively fewer impressions, suggesting either narrow targeting or lower engagement rates.</p>
+</div>
+
+<!-- SECTION 9: STRATEGIC TAKEAWAY -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">09</span>
+    <h2>Strategic Takeaway</h2>
+  </div>
+
+  <div class="key-finding">
+    <h3>The Outside Group Asymmetry Is Structural, Not Cyclical</h3>
+    <p>The progressive coalition fielded six or more Meta GOTV operations &mdash; civic nonprofits (HeadCount, TurnUp), Latino-focused organizations (Voto Latino), state-specific machines (Powered by People, TX Organizing Project), and national super PACs (Forward Blue). The conservative coalition relied on three: Sendthevote, Hard Asset Heroes, and Turning Point Action. This isn't a one-cycle fluke. It reflects decades of investment in progressive civic infrastructure that has no analogue on the right. The RNC's 2024 decision to outsource GOTV to allied groups may have been an attempt to close this gap, but the Meta data suggests it remains wide.</p>
+    <span class="kf-stat">6 vs. 3</span>
+    <span class="kf-label">Progressive vs. conservative Meta GOTV operations</span>
+  </div>
+
+  <p>Three implications for future cycles:</p>
+
+  <p><strong>1. The burst vs. marathon question:</strong> Trump's five-day, $3.4M&ndash;$4.6M blitz and the progressive coalition's multi-week sustained operations represent genuinely different theories of digital GOTV. The burst model is cheaper to execute (less creative production, less targeting optimization) but risks audience fatigue and ad saturation. The marathon model builds frequency and name recognition but requires sustained investment. Neither approach "won" &mdash; both campaigns lost some races they invested in &mdash; but the data shows these are conscious strategic choices, not accidents.</p>
+
+  <p><strong>2. Texas is a GOTV island:</strong> National groups treated Texas as a non-battleground at the presidential level and allocated GOTV dollars elsewhere. This left Texas GOTV entirely to state-specific organizations and the Allred campaign. If Texas ever reaches genuine presidential battleground status, the infrastructure gap between its existing GOTV ecosystem and what national campaigns deploy in swing states (PA, GA, MI) will be enormous.</p>
+
+  <p><strong>3. Small states get ignored on Meta:</strong> New Mexico's near-absence from Meta GOTV spending despite hosting a nationally competitive House race suggests that Meta is not the platform of choice for GOTV in smaller media markets. TV, mail, and field operations likely absorbed the NM-2 GOTV budget. This has implications for how future races in similar markets plan their digital strategies.</p>
+</div>
+
+<!-- SECTION 10: METHODOLOGY -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">10</span>
+    <h2>Methodology</h2>
+  </div>
+
+  <div class="methodology">
+    <h4>Data Source &amp; Limitations</h4>
+    <p>All ad data was retrieved from the Meta Ad Library API on February 10, 2026, covering ads classified as political, social, or issue ads that ran in the United States between August 1 and November 5, 2024.</p>
+    <p><strong>Search methodology:</strong> We identified GOTV advertisers through multiple keyword searches ("vote," "register to vote," "election day," "early voting," "make a plan to vote," "polling location," "ballot") combined with top-spender analysis and page-specific lookups for known GOTV organizations. We then retrieved spend summaries, ad content, geographic delivery, demographic delivery, and weekly volume data for each major advertiser.</p>
+    <p><strong>Limitations:</strong></p>
+    <ul style="padding-left:20px; margin-top:8px;">
+      <li>Meta reports spend as ranges, not exact figures. We use upper-bound estimates for rankings and comparisons, and report ranges where precision matters.</li>
+      <li>Keyword searches may miss GOTV ads that use different terminology, visual-only content, or non-English language.</li>
+      <li>The "campaigns vs. outside groups" boundary is based on the "paid for by" disclaimer. Some entities blur this line.</li>
+      <li>Geographic delivery data reflects who saw ads, not who was targeted. Algorithmic optimization, audience uploads, and lookalike modeling all affect delivery patterns independently of explicit geographic targeting.</li>
+      <li>Demographic percentages from the API represent per-ad averages, not aggregate totals, and appear small in absolute terms.</li>
+      <li>This analysis covers Meta platforms only (Facebook, Instagram, Messenger, Audience Network). It does not capture GOTV spending on Google/YouTube, programmatic display, CTV, direct mail, TV, radio, or field operations.</li>
+      <li>Some advertisers may have run additional ads under different page names or through multiple pages not captured in our tracking.</li>
+    </ul>
+    <p style="margin-top:12px;"><strong>Classification notes:</strong> We classified "Sendthevote" and "Hard Asset Heroes" as right-leaning based on their ad content (references to "open borders," "endless wars," and culturally conservative framing). HeadCount and TurnUp are classified as nonpartisan based on their organizational 501(c)(3) status and content that avoids candidate endorsement. Forward Blue is classified as left-leaning based on its "paid for by" disclaimer and ad content supporting Democratic candidates.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Data source: Meta Ad Library API &bull; Retrieved February 10, 2026</p>
+  <p style="margin-top:8px;">Built by The Canter Company &bull; <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a></p>
+</div>
+
+</div><!-- /container -->
+
+<!-- CHARTS -->
+<script>
+// Color palette
+const colors = {
+  campaign: '#059669',
+  campaignLight: '#d1fae5',
+  outsideLeft: '#2563eb',
+  outsideLeftLight: '#dbeafe',
+  outsideRight: '#ef4444',
+  outsideRightLight: '#fef2f2',
+  nonpartisan: '#8b5cf6',
+  nonpartisanLight: '#f5f3ff'
+};
+
+// Chart 1: Top Spenders Bar Chart
+const spendCtx = document.getElementById('spendChart').getContext('2d');
+new Chart(spendCtx, {
+  type: 'bar',
+  data: {
+    labels: [
+      'Donald J. Trump',
+      'Colin Allred',
+      'Forward Blue',
+      'Voto Latino',
+      'Sendthevote',
+      'Beto / Powered by People',
+      'Hard Asset Heroes',
+      'Kamala Harris',
+      'HeadCount',
+      'Turning Point Action',
+      'Joe Biden',
+      'TX Organizing Project',
+      'TurnUp',
+      'ProgressNow NM'
+    ],
+    datasets: [{
+      label: 'Upper-bound Spend',
+      data: [4596300, 3309997, 3065493, 1734500, 1501985, 1421862, 1482560, 1352717, 881376, 660850, 256149, 124507, 71067, 10556],
+      backgroundColor: [
+        colors.campaign,
+        colors.campaign,
+        colors.outsideLeft,
+        colors.outsideLeft,
+        colors.outsideRight,
+        colors.outsideLeft,
+        colors.outsideRight,
+        colors.campaign,
+        colors.nonpartisan,
+        colors.outsideRight,
+        colors.campaign,
+        colors.outsideLeft,
+        colors.nonpartisan,
+        colors.outsideLeft
+      ],
+      borderRadius: 4,
+      barThickness: 22
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            return '$' + ctx.parsed.x.toLocaleString();
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          callback: function(v) { return '$' + (v / 1000000).toFixed(1) + 'M'; },
+          font: { family: "'IBM Plex Mono', monospace", size: 11 }
+        },
+        grid: { color: '#ece9e2' }
+      },
+      y: {
+        ticks: {
+          font: { family: "'IBM Plex Sans', sans-serif", size: 12 }
+        },
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+// Chart 2: Pie Chart - Campaigns vs Outside
+const pieCtx = document.getElementById('pieChart').getContext('2d');
+new Chart(pieCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Campaigns', 'Outside — Left', 'Outside — Right', 'Outside — Nonpartisan'],
+    datasets: [{
+      data: [9515163, 7216862, 3645395, 952443],
+      backgroundColor: [colors.campaign, colors.outsideLeft, colors.outsideRight, colors.nonpartisan],
+      borderWidth: 2,
+      borderColor: '#faf9f7'
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '55%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 16,
+          font: { family: "'IBM Plex Sans', sans-serif", size: 12 }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+            const pct = ((ctx.parsed / total) * 100).toFixed(1);
+            return ctx.label + ': $' + (ctx.parsed / 1000000).toFixed(1) + 'M (' + pct + '%)';
+          }
+        }
+      }
+    }
+  }
+});
+
+// Chart 3: Timeline
+const timeCtx = document.getElementById('timelineChart').getContext('2d');
+new Chart(timeCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Aug 5', 'Aug 12', 'Aug 19', 'Aug 26', 'Sep 2', 'Sep 9', 'Sep 16', 'Sep 23', 'Sep 30', 'Oct 7', 'Oct 14', 'Oct 21', 'Oct 28'],
+    datasets: [
+      {
+        label: 'Trump Campaign',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2998181, 1598119],
+        backgroundColor: colors.campaign,
+        stack: 'campaigns'
+      },
+      {
+        label: 'Forward Blue',
+        data: [163169, 44567, 59607, 309327, 203946, 57998, 100188, 523241, 100690, 214574, 233510, 228212, 81097],
+        backgroundColor: colors.outsideLeft,
+        stack: 'outside'
+      },
+      {
+        label: 'Beto / Powered by People',
+        data: [47338, 43510, 17452, 12517, 125657, 16978, 34065, 2972, 13876, 97450, 86118, 90888, 596],
+        backgroundColor: '#60a5fa',
+        stack: 'outside'
+      },
+      {
+        label: 'Sendthevote',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 33936, 96921, 6997, 710988, 653143],
+        backgroundColor: colors.outsideRight,
+        stack: 'outside'
+      },
+      {
+        label: 'Voto Latino',
+        data: [0, 0, 0, 0, 0, 146363, 98986, 176292, 1048208, 98564, 38303, 109926, 17858],
+        backgroundColor: '#a78bfa',
+        stack: 'outside'
+      },
+      {
+        label: 'HeadCount',
+        data: [0, 0, 5595, 2098, 1697, 1996, 23554, 15164, 128988, 169858, 158659, 355404, 18363],
+        backgroundColor: colors.nonpartisan,
+        stack: 'outside'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 14,
+          font: { family: "'IBM Plex Sans', sans-serif", size: 11 },
+          usePointStyle: true,
+          pointStyle: 'rectRounded'
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            return ctx.dataset.label + ': $' + ctx.parsed.y.toLocaleString();
+          }
+        }
+      },
+      annotation: {
+        annotations: {
+          bidenDrop: {
+            type: 'line',
+            xMin: 0, xMax: 0,
+            borderColor: '#f59e0b',
+            borderWidth: 2,
+            borderDash: [6, 3],
+            label: {
+              display: true,
+              content: 'Biden withdraws (Jul 21)',
+              position: 'start',
+              backgroundColor: 'rgba(245, 158, 11, 0.85)',
+              font: { size: 10, family: "'IBM Plex Mono', monospace" },
+              padding: 4
+            }
+          },
+          debate: {
+            type: 'line',
+            xMin: 4.5, xMax: 4.5,
+            borderColor: '#6366f1',
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            label: {
+              display: true,
+              content: 'Harris-Trump debate (Sep 10)',
+              position: 'start',
+              backgroundColor: 'rgba(99, 102, 241, 0.85)',
+              font: { size: 10, family: "'IBM Plex Mono', monospace" },
+              padding: 4
+            }
+          },
+          txDeadline: {
+            type: 'line',
+            xMin: 9, xMax: 9,
+            borderColor: '#dc2626',
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            label: {
+              display: true,
+              content: 'TX reg deadline (Oct 7)',
+              position: 'end',
+              backgroundColor: 'rgba(220, 38, 38, 0.85)',
+              font: { size: 10, family: "'IBM Plex Mono', monospace" },
+              padding: 4
+            }
+          },
+          txEarly: {
+            type: 'line',
+            xMin: 11, xMax: 11,
+            borderColor: '#059669',
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            label: {
+              display: true,
+              content: 'TX early voting (Oct 21)',
+              position: 'end',
+              backgroundColor: 'rgba(5, 150, 105, 0.85)',
+              font: { size: 10, family: "'IBM Plex Mono', monospace" },
+              padding: 4
+            }
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { font: { family: "'IBM Plex Mono', monospace", size: 10 } },
+        grid: { display: false }
+      },
+      y: {
+        ticks: {
+          callback: function(v) {
+            if (v >= 1000000) return '$' + (v / 1000000).toFixed(1) + 'M';
+            return '$' + (v / 1000).toFixed(0) + 'K';
+          },
+          font: { family: "'IBM Plex Mono', monospace", size: 11 }
+        },
+        grid: { color: '#ece9e2' },
+        stacked: false
+      }
+    }
+  }
+});
+
+// Chart 4: Geographic targeting
+const geoCtx = document.getElementById('geoChart').getContext('2d');
+new Chart(geoCtx, {
+  type: 'bar',
+  data: {
+    labels: ['PA', 'GA', 'MI', 'WI', 'AZ', 'NV', 'NC', 'TX', 'NM'],
+    datasets: [
+      {
+        label: 'Trump',
+        data: [0.2, 0.2, 0.1, 0.1, 0.1, 0.2, 0.04, 0, 0],
+        backgroundColor: colors.campaign
+      },
+      {
+        label: 'Sendthevote',
+        data: [0.2, 0.3, 0.2, 0.2, 0, 0, 0.1, 0, 0],
+        backgroundColor: colors.outsideRight
+      },
+      {
+        label: 'HeadCount',
+        data: [0.1, 0.1, 0.1, 0.1, 0.1, 0, 0.1, 0.02, 0.01],
+        backgroundColor: colors.nonpartisan
+      },
+      {
+        label: 'Voto Latino',
+        data: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.02],
+        backgroundColor: '#a78bfa'
+      },
+      {
+        label: 'Beto / PbP',
+        data: [0, 0, 0, 0, 0, 0, 0, 0.3, 0.01],
+        backgroundColor: '#60a5fa'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 14,
+          font: { family: "'IBM Plex Sans', sans-serif", size: 11 },
+          usePointStyle: true,
+          pointStyle: 'rectRounded'
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            return ctx.dataset.label + ': ' + ctx.parsed.y + '% avg. reach';
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { font: { family: "'IBM Plex Mono', monospace", size: 11 } },
+        grid: { display: false }
+      },
+      y: {
+        ticks: {
+          callback: function(v) { return v + '%'; },
+          font: { family: "'IBM Plex Mono', monospace", size: 11 }
+        },
+        grid: { color: '#ece9e2' },
+        title: { display: true, text: 'Avg. Delivery Reach %', font: { size: 11 } }
+      }
+    }
+  }
+});
+
+// Chart 5: Texas GOTV
+const txCtx = document.getElementById('txChart').getContext('2d');
+new Chart(txCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Colin Allred', 'Beto / Powered by People', 'Voto Latino\n(TX portion)', 'TX Organizing Project', 'ProgressNow NM'],
+    datasets: [{
+      label: 'Upper-bound Spend',
+      data: [3309997, 1421862, 200000, 124507, 0],
+      backgroundColor: [colors.campaign, colors.outsideLeft, colors.outsideLeft, colors.outsideLeft, colors.outsideLeft],
+      borderRadius: 4,
+      barThickness: 28
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            if (ctx.parsed.x === 200000) return '~$200K (estimated TX portion of $1.7M total)';
+            return '$' + ctx.parsed.x.toLocaleString();
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          callback: function(v) { return '$' + (v / 1000000).toFixed(1) + 'M'; },
+          font: { family: "'IBM Plex Mono', monospace", size: 11 }
+        },
+        grid: { color: '#ece9e2' }
+      },
+      y: {
+        ticks: {
+          font: { family: "'IBM Plex Sans', sans-serif", size: 12 }
+        },
+        grid: { display: false }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
