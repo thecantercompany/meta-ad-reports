@@ -581,6 +581,82 @@
     color: var(--text-secondary);
   }
 
+  /* Footnotes */
+  .footnote-ref {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: none;
+    vertical-align: super;
+    line-height: 0;
+    margin-left: 1px;
+  }
+
+  .footnote-ref:hover {
+    text-decoration: underline;
+  }
+
+  .footnotes {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footnotes h4 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+  }
+
+  .footnotes ol {
+    margin: 0;
+    padding-left: 24px;
+    counter-reset: footnote-counter;
+    list-style: none;
+  }
+
+  .footnotes li {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 8px;
+    padding-left: 4px;
+    position: relative;
+  }
+
+  .footnotes li::before {
+    content: counter(footnote-counter);
+    counter-increment: footnote-counter;
+    font-weight: 600;
+    color: var(--blue);
+    font-size: 11px;
+    position: absolute;
+    left: -20px;
+  }
+
+  .footnotes li a {
+    color: var(--blue);
+    text-decoration: none;
+    word-break: break-all;
+  }
+
+  .footnotes li a:hover {
+    text-decoration: underline;
+  }
+
+  .footnote-back {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 4px;
+  }
+
+  .footnote-back:hover {
+    color: var(--blue);
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     .container { padding: 28px 18px 48px; }
@@ -649,8 +725,8 @@
       <span class="section-num">01</span>
       <h2 class="section-title">Who Is the Permian Strategic Partnership?</h2>
     </div>
-    <p>The Permian Strategic Partnership (PSP) is a coalition of 27 leading Permian Basin energy companies and two university systems, formed in 2019 to address quality-of-life challenges in the oil-producing region spanning 22 counties across West Texas and Southeastern New Mexico. Since its founding, PSP has committed $184 million in philanthropic investments that it says have leveraged over $1.8 billion in total community support.</p>
-    <p>PSP focuses on four areas: <strong>education</strong> ($80.1M invested), <strong>healthcare</strong> ($63.4M), <strong>workforce development</strong> ($25.8M), and <strong>road safety</strong> ($13.7M). In 2024 alone, PSP committed nearly $31 million to these initiatives.</p>
+    <p>The Permian Strategic Partnership (PSP) is a coalition of 27 leading Permian Basin energy companies and two university systems, formed in 2019 to address quality-of-life challenges in the oil-producing region spanning 22 counties across West Texas and Southeastern New Mexico.<a href="#fn1" id="fnref1" class="footnote-ref">1</a> Since its founding, PSP has committed $184 million in philanthropic investments that it says have leveraged over $1.8 billion in total community support.<a href="#fn2" id="fnref2" class="footnote-ref">2</a></p>
+    <p>PSP focuses on four areas: <strong>education</strong> ($80.1M invested), <strong>healthcare</strong> ($63.4M), <strong>workforce development</strong> ($25.8M), and <strong>road safety</strong> ($13.7M). In 2024 alone, PSP committed nearly $31 million to these initiatives.<a href="#fn2" class="footnote-ref">2</a></p>
     <p>The coalition represents some of the largest oil and gas producers operating in the Permian Basin, the most productive oil field in the United States. Ten counties in the Permian account for 93% of all U.S. oil production growth since 2020.</p>
 
     <div class="callout">
@@ -783,9 +859,9 @@
 
     <!-- Census Campaign -->
     <h3 style="font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--census-teal); margin: 24px 0 12px;">The Permian Counts: 2020 Census Mobilization</h3>
-    <p>PSP's largest Meta advertising investment was its 2020 Census campaign, run through a dedicated Facebook Page called "The Permian Counts." The campaign launched on March 16, 2020 — just days after COVID-19 was declared a national emergency — and ran through April 21. In approximately five weeks, PSP deployed 81 ads spending $46,000&ndash;$60,000 and generating an estimated 5.3&ndash;6.3 million impressions.</p>
+    <p>PSP's largest Meta advertising investment was its 2020 Census campaign, run through a dedicated Facebook Page called "The Permian Counts."<a href="#fn8" id="fnref8" class="footnote-ref">8</a> The campaign launched on March 16, 2020 — just days after COVID-19 was declared a national emergency — and ran through April 21. In approximately five weeks, PSP deployed 81 ads spending $46,000&ndash;$60,000 and generating an estimated 5.3&ndash;6.3 million impressions.</p>
 
-    <p>The urgency was real. A study by The Perryman Group, commissioned by PSP, estimated that census undercounts in the Permian could result in losses of $1.1 billion in gross product and 13,135 job-years of employment over the following decade. The Permian Basin's transient workforce population — workers who move in and out with drilling activity — made undercounts especially likely. For an industry whose federal and state funding allocations, political representation, and infrastructure investment depend on population counts, maximizing census participation was a direct business interest as much as a civic one.</p>
+    <p>The urgency was real. A study by The Perryman Group, commissioned by PSP, estimated that census undercounts in the Permian could result in losses of $1.1 billion in gross product and 13,135 job-years of employment over the following decade.<a href="#fn3" id="fnref3" class="footnote-ref">3</a> The Permian Basin's transient workforce population — workers who move in and out with drilling activity — made undercounts especially likely. For an industry whose federal and state funding allocations, political representation, and infrastructure investment depend on population counts, maximizing census participation was a direct business interest as much as a civic one.</p>
 
     <div class="callout teal">
       <strong>Campaign Scale</strong>
@@ -836,7 +912,7 @@
 
     <div class="callout amber">
       <strong>Why Education, Why Now?</strong>
-      Education quality is the #1 factor PSP member companies cite when evaluating whether to relocate employees to the Permian Basin. In 2025, PSP launched a $10 million initiative to establish a third Harmony Public School campus in the region, supported Pathway Academy's opening in Big Spring (serving grades 7&ndash;12), and invested in career technical education centers. The Facebook ads are the public-facing tip of a much larger education reform effort. The "Future Ready" campaign appears designed to generate community pressure on school districts to adopt higher standards — a classic grasstops mobilization strategy where industry backs parent advocacy.
+      Education quality is the #1 factor PSP member companies cite when evaluating whether to relocate employees to the Permian Basin.<a href="#fn4" id="fnref4" class="footnote-ref">4</a> In 2025, PSP launched a $10 million initiative to establish a third Harmony Public School campus in the region,<a href="#fn5" id="fnref5" class="footnote-ref">5</a> supported Pathway Academy's opening in Big Spring (serving grades 7&ndash;12),<a href="#fn6" id="fnref6" class="footnote-ref">6</a> and invested in career technical education centers.<a href="#fn7" id="fnref7" class="footnote-ref">7</a> The Facebook ads are the public-facing tip of a much larger education reform effort. The "Future Ready" campaign appears designed to generate community pressure on school districts to adopt higher standards — a classic grasstops mobilization strategy where industry backs parent advocacy.
     </div>
   </div>
 
@@ -950,6 +1026,21 @@
     <p>The Permian Strategic Partnership's Meta advertising reveals a disciplined, issue-specific approach rather than a continuous brand presence. PSP advertises only when there is a concrete civic objective — census participation, voter registration, education reform — and goes silent in between. This is the opposite of an always-on corporate reputation campaign.</p>
     <p style="margin-top: 12px;">The pattern also reveals strategic escalation. The 2020 census campaign was the big spend — $46K&ndash;$60K to ensure the Permian Basin was properly counted, protecting federal funding and political representation that directly benefit the energy industry and its workforce. The 2025 education campaign is smaller in ad dollars but potentially higher in strategic ambition: PSP is now actively mobilizing community members to pressure school districts on education standards, a grasstops organizing technique that extends the coalition's influence from philanthropy into policy advocacy.</p>
     <p style="margin-top: 12px;">What PSP <em>doesn't</em> advertise is as telling as what it does. There are no ads defending oil and gas, no climate messaging, no regulatory pushback — all common themes from industry trade groups like API or Energy Citizens. PSP's advertising identity is entirely civic: census, voting, schools. This positioning allows the coalition to build community goodwill and social license without triggering the adversarial dynamics that accompany explicitly pro-fossil-fuel messaging.</p>
+  </div>
+
+  <!-- Footnotes -->
+  <div class="footnotes">
+    <h4>Sources</h4>
+    <ol>
+      <li id="fn1">Permian Strategic Partnership, "Members." <a href="https://permianpartnership.org/members/" target="_blank">permianpartnership.org/members</a> <a href="#fnref1" class="footnote-back">&uarr;</a></li>
+      <li id="fn2">Permian Strategic Partnership, "Permian Strategic Partnership leveraged $1.8 billion investment into the community," press release, Jul. 14, 2025. <a href="https://www.prnewswire.com/news-releases/permian-strategic-partnership-leveraged-1-8-billion-investment-into-the-community-302504396.html" target="_blank">prnewswire.com</a> <a href="#fnref2" class="footnote-back">&uarr;</a></li>
+      <li id="fn3">The Perryman Group, economic impact study commissioned by PSP, Jan. 2020. Cited via The Permian Counts campaign. See also Ray Perryman, "The Economist: Missing Persons," <em>Odessa American</em>. <a href="https://www.oaoa.com/local-news/business/ray-perryman/the-economist-missing-persons/" target="_blank">oaoa.com</a> <a href="#fnref3" class="footnote-back">&uarr;</a></li>
+      <li id="fn4">Permian Strategic Partnership, "Education Initiatives." <a href="https://permianpartnership.org/focus/education/" target="_blank">permianpartnership.org/focus/education</a> <a href="#fnref4" class="footnote-back">&uarr;</a></li>
+      <li id="fn5">"PSP launches $10 million initiative to establish third Harmony Public School in Permian Basin," <em>Odessa American</em>. <a href="https://www.oaoa.com/local-news/psp-launches-10-million-initiative-to-establish-third-harmony-public-school-in-permian-basin-2/" target="_blank">oaoa.com</a> <a href="#fnref5" class="footnote-back">&uarr;</a></li>
+      <li id="fn6">"Permian Strategic Partnership supports Pathway Academy launch," <em>Midland Reporter-Telegram</em>. <a href="https://www.mrt.com/news/article/permian-strategic-partnership-pathway-academy-20216120.php" target="_blank">mrt.com</a> <a href="#fnref6" class="footnote-back">&uarr;</a></li>
+      <li id="fn7">"PSP announces $10 million donation toward new CTE center," <em>Odessa American</em>. <a href="https://www.oaoa.com/local-news/education/psp-announces-10-million-donation-toward-new-cte-center/" target="_blank">oaoa.com</a> <a href="#fnref7" class="footnote-back">&uarr;</a></li>
+      <li id="fn8">Permian Strategic Partnership, "PSP Launches 'The Permian Counts' Campaign to Drive Census Participation." <a href="https://permianpartnership.org/psp-launches-the-permian-counts-campaign-to-drive-census-participation/" target="_blank">permianpartnership.org</a> <a href="#fnref8" class="footnote-back">&uarr;</a></li>
+    </ol>
   </div>
 
   <!-- Methodology -->
