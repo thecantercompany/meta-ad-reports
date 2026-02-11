@@ -659,12 +659,84 @@
     .key-finding p { font-size: 15px; }
   }
 
+  /* Footnotes */
+  sup.fn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--blue);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 1px;
+    position: relative;
+    top: -1px;
+  }
+
+  sup.fn a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  sup.fn a:hover {
+    text-decoration: underline;
+  }
+
+  .footnotes {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footnotes ol {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .footnotes li {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    padding: 6px 0 6px 36px;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .footnotes li:last-child { border-bottom: none; }
+
+  .fn-num {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--blue);
+    width: 28px;
+    text-align: right;
+  }
+
+  .footnotes li a {
+    color: var(--blue);
+    word-break: break-all;
+  }
+
+  .fn-back {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 4px;
+  }
+
+  .fn-back:hover { color: var(--blue); }
+
   @media print {
     body { background: #fff; }
     .container { padding: 20px; }
     .key-finding { break-inside: avoid; }
     .chart-container { break-inside: avoid; }
     .ad-card { break-inside: avoid; }
+    .footnotes { break-before: page; }
   }
 </style>
 </head>
@@ -714,8 +786,8 @@
   <!-- KEY FINDING -->
   <div class="key-finding">
     <div class="key-finding-label">Key Finding</div>
-    <p><strong>The BESS ad war in Texas is the most lopsided energy battle on Meta.</strong> Pro-BESS forces, led by the foundation-funded GoodPower ($1.5M&ndash;$2M, 1,384 ads), outspend opposition groups by a ratio exceeding <em>500 to 1</em>. Yet despite this spending disparity, grassroots anti-BESS movements have achieved tangible legislative and regulatory victories&mdash;including the first-ever local BESS project kill in Texas (Rock Creek, Kendall County) and the passage of HB&nbsp;3809, which imposes decommissioning mandates the industry warns could threaten project viability.</p>
-    <p>The data reveals a two-year escalation arc: a pro-BESS advertising surge in mid-2024 was met by real-world opposition victories in early 2025, catalyzed by the Moss Landing battery fire in California. <strong>Money is winning the ad war. Organizing is winning the policy war.</strong></p>
+    <p><strong>The BESS ad war in Texas is the most lopsided energy battle on Meta.</strong> Pro-BESS forces, led by the foundation-funded GoodPower ($1.5M&ndash;$2M, 1,384 ads), outspend opposition groups by a ratio exceeding <em>500 to 1</em>. Yet despite this spending disparity, grassroots anti-BESS movements have achieved tangible legislative and regulatory victories&mdash;including the first-ever local BESS project kill in Texas (Rock Creek, Kendall County)<sup class="fn"><a href="#fn6" id="ref6">6</a></sup> and the passage of HB&nbsp;3809, which imposes decommissioning mandates the industry warns could threaten project viability.<sup class="fn"><a href="#fn8" id="ref8">8</a></sup></p>
+    <p>The data reveals a two-year escalation arc: a pro-BESS advertising surge in mid-2024 was met by real-world opposition victories in early 2025, catalyzed by the Moss Landing battery fire in California.<sup class="fn"><a href="#fn5" id="ref5">5</a></sup> <strong>Money is winning the ad war. Organizing is winning the policy war.</strong></p>
   </div>
 
   <!-- ANNOTATED SPEND TIMELINE -->
@@ -735,7 +807,7 @@
 
   <div class="insight-box">
     <strong>Interpreting the GoodPower Surge</strong>
-    GoodPower launched in January 2024 and immediately began scaling. By August 2024, it was spending $416K&ndash;$543K/month on 413 ad variants&mdash;a massive A/B testing operation. This coincided with Hurricane Beryl knocking out power across Houston in July 2024, giving grid-resilience messaging a real-world hook. Spending tapered through late 2024, then surged again in Q1 2025 as the Texas legislature convened and BESS-hostile bills were filed. GoodPower is backed by the MacArthur Foundation and describes itself as harnessing "renewable energy to create good jobs and stronger communities."
+    GoodPower launched in January 2024 and immediately began scaling. By August 2024, it was spending $416K&ndash;$543K/month on 413 ad variants&mdash;a massive A/B testing operation. This coincided with Hurricane Beryl knocking out power across Houston in July 2024, giving grid-resilience messaging a real-world hook. Spending tapered through late 2024, then surged again in Q1 2025 as the Texas legislature convened and BESS-hostile bills were filed. GoodPower is backed by the MacArthur Foundation<sup class="fn"><a href="#fn1">1</a></sup> and describes itself as working to "accelerate the global transition to a renewable economy that works for everyone."<sup class="fn"><a href="#fn14" id="ref14">14</a></sup>
   </div>
 
   <!-- SPEND SHARE DONUT -->
@@ -765,7 +837,7 @@
     <div class="timeline">
       <div class="timeline-item event-market">
         <div class="timeline-date">Jan 2024</div>
-        <div class="timeline-text"><strong>GoodPower launches.</strong> The MacArthur Foundation-backed advocacy group begins its national ad campaign with Texas as a primary target state. Within months it becomes the largest BESS advertiser in the country.</div>
+        <div class="timeline-text"><strong>GoodPower launches.</strong> The MacArthur Foundation-backed<sup class="fn"><a href="#fn1" id="ref1">1</a></sup> advocacy group begins its national ad campaign with Texas as a primary target state. Within months it becomes the largest BESS advertiser in the country.</div>
       </div>
       <div class="timeline-item event-market">
         <div class="timeline-date">Feb&ndash;Apr 2024</div>
@@ -773,7 +845,7 @@
       </div>
       <div class="timeline-item event-weather">
         <div class="timeline-date">Jul 8, 2024</div>
-        <div class="timeline-text"><strong>Hurricane Beryl devastates Houston.</strong> 2.7M customers lose power. ERCOT batteries help stabilize the grid. League City Residents for Grid Resilience launches a pro-BESS ad campaign citing Beryl as evidence storage is needed (77 ads through November).</div>
+        <div class="timeline-text"><strong>Hurricane Beryl devastates Houston.</strong> 2.7M customers lose power.<sup class="fn"><a href="#fn2" id="ref2">2</a></sup> League City Residents for Grid Resilience launches a pro-BESS ad campaign citing Beryl as evidence storage is needed (77 ads through November).</div>
       </div>
       <div class="timeline-item event-market">
         <div class="timeline-date">Aug 2024</div>
@@ -781,39 +853,39 @@
       </div>
       <div class="timeline-item event-opposition">
         <div class="timeline-date">Oct 2024</div>
-        <div class="timeline-text"><strong>Katy City Council rejects Vesper Energy's 500MW BESS.</strong> The proposal near Katy High School is denied after sustained homeowner opposition. The fight becomes a template for local anti-BESS organizing statewide.</div>
+        <div class="timeline-text"><strong>Katy City Council rejects Vesper Energy's 500MW BESS.</strong><sup class="fn"><a href="#fn3" id="ref3">3</a></sup> The proposal near Katy High School is denied after sustained homeowner opposition. The fight becomes a template for local anti-BESS organizing statewide.</div>
       </div>
       <div class="timeline-item event-legislation">
         <div class="timeline-date">Nov 2024</div>
-        <div class="timeline-text"><strong>Texas GOP passes anti-BESS resolution.</strong> The Republican Party of Texas formally calls for BESS regulation, citing "more than 1,000 BESS plants in production or planning" and foreign ownership concerns. HB&nbsp;1378 (500-yard setback) and HB&nbsp;1343 (PUCT permitting) filed.</div>
+        <div class="timeline-text"><strong>Texas GOP passes anti-BESS resolution.</strong><sup class="fn"><a href="#fn4" id="ref4">4</a></sup> The Republican Party of Texas formally calls for BESS regulation, citing "more than 1,000 BESS plants in production or planning" and foreign ownership concerns. HB&nbsp;1378 (500-yard setback) and HB&nbsp;1343 (PUCT permitting) filed.</div>
       </div>
       <div class="timeline-item event-opposition">
         <div class="timeline-date">Jan 16, 2025</div>
-        <div class="timeline-text"><strong>Moss Landing battery fire (California).</strong> The world's largest lithium-ion BESS burns for days. 1,200 evacuated. 55,000 lbs of toxic metals deposited. This event becomes the single most effective argument for anti-BESS organizers nationwide&mdash;including in Texas.</div>
+        <div class="timeline-text"><strong>Moss Landing battery fire (California).</strong><sup class="fn"><a href="#fn5">5</a></sup> The world's largest lithium-ion BESS burns for days. 1,200 evacuated.<sup class="fn"><a href="#fn5a" id="ref5a">5a</a></sup> 55,000 lbs of toxic metals deposited.<sup class="fn"><a href="#fn5b" id="ref5b">5b</a></sup> This event becomes the single most effective argument for anti-BESS organizers nationwide&mdash;including in Texas.</div>
       </div>
       <div class="timeline-item event-opposition">
         <div class="timeline-date">Jan 2025</div>
-        <div class="timeline-text"><strong>Rock Creek BESS abandoned in Kendall County.</strong> East Point Energy (Equinor subsidiary) pulls its 250MW proposal near Comfort after the Hill Country Energy Sub-Regional Planning Commission and fire marshal impose strict requirements. First local BESS kill in Texas.</div>
+        <div class="timeline-text"><strong>Rock Creek BESS abandoned in Kendall County.</strong><sup class="fn"><a href="#fn6">6</a></sup> East Point Energy (Equinor subsidiary)<sup class="fn"><a href="#fn6a" id="ref6a">6a</a></sup> pulls its 250MW proposal near Comfort after the Hill Country Energy Sub-Regional Planning Commission and fire marshal impose strict requirements. First local BESS kill in Texas.</div>
       </div>
       <div class="timeline-item event-legislation">
         <div class="timeline-date">Mar 2025</div>
-        <div class="timeline-text"><strong>Fannin County becomes a flashpoint.</strong> Engie's BESS near Savoy draws fierce opposition. Rep. Shelley Luther joins residents at hearings. Engie sues the county, claiming officials "moved the goalposts at every turn."</div>
+        <div class="timeline-text"><strong>Fannin County becomes a flashpoint.</strong> Engie's BESS near Savoy draws fierce opposition. Rep. Shelley Luther joins residents at hearings.<sup class="fn"><a href="#fn7" id="ref7">7</a></sup> Engie sues the county, claiming officials "moved the goalposts at every turn."<sup class="fn"><a href="#fn7a" id="ref7a">7a</a></sup></div>
       </div>
       <div class="timeline-item event-legislation">
         <div class="timeline-date">May 29, 2025</div>
-        <div class="timeline-text"><strong>Gov. Abbott signs HB&nbsp;3809.</strong> Mandates full decommissioning of all BESS facilities including buried cables and foundations. Industry groups warn the law could make marginal projects uneconomic. Effective Sep 1, 2025.</div>
+        <div class="timeline-text"><strong>Gov. Abbott signs HB&nbsp;3809.</strong><sup class="fn"><a href="#fn8">8</a></sup> Mandates full decommissioning of all BESS facilities including buried cables and foundations. Industry groups warn the law could make marginal projects uneconomic.<sup class="fn"><a href="#fn8a" id="ref8a">8a</a></sup> Effective Sep 1, 2025.</div>
       </div>
       <div class="timeline-item event-market">
         <div class="timeline-date">End of 2025</div>
-        <div class="timeline-text"><strong>ERCOT battery capacity nearly doubles in one year.</strong> From 8.6GW to 13.9GW. Texas now has more battery storage than all states except California combined. New grid-connection applications fall 50% in H2 2025, however, signaling cooling investment.</div>
+        <div class="timeline-text"><strong>ERCOT battery capacity nearly doubles in one year.</strong> From 8.6GW to 13.9GW.<sup class="fn"><a href="#fn9" id="ref9">9</a></sup> Texas now has more battery storage than all states except California combined. New grid-connection applications fall 50% in H2 2025, however, signaling cooling investment.<sup class="fn"><a href="#fn9a" id="ref9a">9a</a></sup></div>
       </div>
       <div class="timeline-item event-opposition">
         <div class="timeline-date">Nov 2025</div>
-        <div class="timeline-text"><strong>Vesper Energy appeals to PUC.</strong> After Katy's rejection, the developer asks the Public Utility Commission of Texas to overrule the city's zoning decision. ERCOT files a direct interest in the outcome. Decision delayed.</div>
+        <div class="timeline-text"><strong>Vesper Energy appeals to PUC.</strong><sup class="fn"><a href="#fn10" id="ref10">10</a></sup> After Katy's rejection, the developer asks the Public Utility Commission of Texas to overrule the city's zoning decision. ERCOT files a direct interest in the outcome.<sup class="fn"><a href="#fn10a" id="ref10a">10a</a></sup> Decision delayed.</div>
       </div>
       <div class="timeline-item event-weather">
         <div class="timeline-date">Jan 21&ndash;28, 2026</div>
-        <div class="timeline-text"><strong>Winter Storm Fern.</strong> Batteries provide 9.5% of grid power at peak, generating 7,000+ MW (enough for 1.75M homes). GoodPower immediately deploys 11+ ad variants citing storm resilience. The grid holds&mdash;a victory for BESS proponents.</div>
+        <div class="timeline-text"><strong>Winter Storm Fern.</strong> Batteries provide 9.5% of grid power at peak, generating 7,000+ MW (enough for 1.75M homes).<sup class="fn"><a href="#fn11" id="ref11">11</a></sup> GoodPower immediately deploys 11+ ad variants citing storm resilience. The grid holds&mdash;a victory for BESS proponents.</div>
       </div>
       <div class="timeline-item event-opposition">
         <div class="timeline-date">Dec 2025</div>
@@ -839,7 +911,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="adv-name">GoodPower</div><div class="adv-funder-table">GoodPower, Inc &middot; MacArthur Foundation-backed</div></td>
+          <td><div class="adv-name">GoodPower</div><div class="adv-funder-table">GoodPower, Inc &middot; MacArthur Foundation-backed<sup class="fn"><a href="#fn1">1</a></sup></div></td>
           <td>1,384</td>
           <td style="text-align: right;">$1.5M&ndash;$2M</td>
           <td>Jan 2024&ndash;present</td>
@@ -1017,11 +1089,11 @@
     <div class="ad-header">
       <div>
         <div class="ad-name">GoodPower</div>
-        <div class="ad-funder">GoodPower, Inc &middot; 1,384 ads &middot; $1.5M&ndash;$2M spend &middot; Launched Jan 2024 &middot; MacArthur Foundation-backed</div>
+        <div class="ad-funder">GoodPower, Inc &middot; 1,384 ads &middot; $1.5M&ndash;$2M spend &middot; Launched Jan 2024 &middot; MacArthur Foundation-backed<sup class="fn"><a href="#fn1">1</a></sup></div>
       </div>
       <span class="stance-tag stance-pro">Pro-BESS</span>
     </div>
-    <p style="font-size: 13px; margin-top: 8px;">GoodPower is the dominant force in BESS advertising nationally. The organization describes itself as harnessing "renewable energy to create good jobs and stronger communities." It runs a sophisticated multi-track operation with distinct messaging for different contexts: BESS education, storm response, myth-busting, economic benefits, wind energy defense, and utility bill framing. Texas is a top-3 target state (627 of 1,384 ads reach TX), alongside Pennsylvania (679) and Ohio (688). The operation deploys massive A/B testing&mdash;413 variants in a single month (Aug 2024)&mdash;suggesting a well-funded digital operation with professional optimization.</p>
+    <p style="font-size: 13px; margin-top: 8px;">GoodPower is the dominant force in BESS advertising nationally. The organization describes its mission as accelerating "the global transition to a renewable economy that works for everyone."<sup class="fn"><a href="#fn14">14</a></sup> It runs a sophisticated multi-track operation with distinct messaging for different contexts: BESS education, storm response, myth-busting, economic benefits, wind energy defense, and utility bill framing. Texas is a top-3 target state (627 of 1,384 ads reach TX), alongside Pennsylvania (679) and Ohio (688). The operation deploys massive A/B testing&mdash;413 variants in a single month (Aug 2024)&mdash;suggesting a well-funded digital operation with professional optimization.</p>
     <div class="ad-text">"Battery energy storage systems (BESS) are a concept that most of us are still trying to wrap our heads around, so let's break it down. BESS allow us to hold on to extra power from wind, solar, and more, so the grid stays strong."</div>
     <div class="ad-links">
       <a href="https://www.facebook.com/ads/library/?id=847360511567689" target="_blank">BESS explainer ($2K&ndash;$2.5K, 250K impr.)</a>
@@ -1044,7 +1116,7 @@
       </div>
       <span class="stance-tag stance-pro">Pro-BESS</span>
     </div>
-    <p style="font-size: 13px; margin-top: 8px;">A project of Conservative Texans for Energy Innovation, this group frames renewables and BESS through a property-rights and energy-independence lens designed to appeal to conservative Texans. The framing is deliberate: "big government" is the enemy, not energy companies. Critics have called the national Land &amp; Liberty Coalition network "liberal-funded front groups who use conservative-sounding language," though the organization describes itself as an alliance of local landowners, farmers, and community leaders. Active through November 2024, then went dark&mdash;its largest single ad ($15K&ndash;$20K) was a property-rights call to action.</p>
+    <p style="font-size: 13px; margin-top: 8px;">A project of Conservative Texans for Energy Innovation, this group frames renewables and BESS through a property-rights and energy-independence lens designed to appeal to conservative Texans. The framing is deliberate: "big government" is the enemy, not energy companies. Critics have called the national Land &amp; Liberty Coalition network "liberal-funded front groups who use conservative-sounding language,"<sup class="fn"><a href="#fn12" id="ref12">12</a></sup> though the organization describes itself as an alliance of local landowners, farmers, and community leaders. Active through November 2024, then went dark&mdash;its largest single ad ($15K&ndash;$20K) was a property-rights call to action.</p>
     <div class="ad-text">"Don't let big government tell you what you can or cannot do on your land. Join us to fight to preserve private property rights."</div>
     <div class="ad-links">
       <a href="https://www.facebook.com/ads/library/?id=1152729213232868" target="_blank">Property rights ($15K&ndash;$20K, top spend)</a>
@@ -1100,7 +1172,7 @@
       </div>
       <span class="stance-tag stance-anti">Anti-BESS</span>
     </div>
-    <p style="font-size: 13px; margin-top: 8px;">A local elected official using BESS opposition as a campaign platform. Smith's ads center on the Katy High School siting fight&mdash;a 500MW Vesper Energy proposal that the Katy City Council rejected in October 2024. His messaging follows the classic safety-near-schools playbook. Despite minimal Meta spend, Smith's real impact was at the commissioners' court level, where he claims to have "made the motion to stop it." The Vesper/Katy fight continues&mdash;the developer has appealed to the PUC to overrule the city.</p>
+    <p style="font-size: 13px; margin-top: 8px;">A local elected official using BESS opposition as a campaign platform. Smith's ads center on the Katy High School siting fight&mdash;a 500MW Vesper Energy proposal that the Katy City Council rejected in October 2024. His messaging follows the classic safety-near-schools playbook. Despite minimal Meta spend, Smith's real impact was at the commissioners' court level, where he claims to have "made the motion to stop it." The Vesper/Katy fight continues&mdash;the developer has appealed to the PUC to overrule the city.<sup class="fn"><a href="#fn10">10</a></sup></p>
     <div class="ad-text">"Public safety comes first. Always. When a massive lithium-ion battery storage facility was proposed next to Katy High School, I stepped up, asked the tough questions, and made the motion to stop it."</div>
     <div class="ad-links">
       <a href="https://www.facebook.com/ads/library/?id=1615546562816834" target="_blank">BESS opposition ad (6K impr.)</a>
@@ -1118,7 +1190,7 @@
       </div>
       <span class="stance-tag stance-anti">Anti-Renewables</span>
     </div>
-    <p style="font-size: 13px; margin-top: 8px;">The Texas Public Policy Foundation's energy project doesn't attack BESS specifically but argues that wind and solar subsidies are raising Texas electricity prices and undermining grid reliability. Their framing positions nuclear as the solution and renewables (including battery storage) as the problem. TPPF is a major conservative think tank with fossil fuel industry funding. Their Meta ad spend is minimal, but their influence operates through legislative testimony, policy papers, and earned media rather than paid social.</p>
+    <p style="font-size: 13px; margin-top: 8px;">The Texas Public Policy Foundation's energy project doesn't attack BESS specifically but argues that wind and solar subsidies are raising Texas electricity prices and undermining grid reliability. Their framing positions nuclear as the solution and renewables (including battery storage) as the problem. TPPF is a major conservative think tank with fossil fuel industry funding.<sup class="fn"><a href="#fn13" id="ref13">13</a></sup> Their Meta ad spend is minimal, but their influence operates through legislative testimony, policy papers, and earned media rather than paid social.</p>
     <div class="ad-text">"The 'Green Revolution' is costing you more than you think. It's branded as clean, green, and the future&mdash;but the reality is it's raising your electricity bills."</div>
     <div class="ad-links">
       <a href="https://www.facebook.com/ads/library/?id=603066372485397" target="_blank">"Green Revolution" cost frame</a>
@@ -1158,10 +1230,10 @@
       <strong>The Texas BESS ad landscape is the clearest example of an asymmetric information war in American energy politics.</strong> One side&mdash;the pro-BESS coalition led by GoodPower&mdash;has spent over $1.6 million on Meta in two years, deploying nearly 1,600 ads with professional creative, rapid-response messaging (Winter Storm Fern ads within 48 hours), and sophisticated A/B testing at scale. The other side has spent less than $3,000.
     </p>
     <p>
-      Yet the policy outcomes tell a different story. Anti-BESS forces&mdash;operating through county commissioners' courts, public hearings, legislative testimony, and grassroots organizing&mdash;have achieved concrete victories: the Katy BESS rejection, the Rock Creek abandonment in the Hill Country, HB&nbsp;3809's decommissioning mandates, and the Texas GOP's formal anti-BESS resolution. The Fannin County fight produced a lawsuit (Engie v. Fannin County) that could set statewide precedent. The Moss Landing fire gave opposition organizers a visceral, visual argument that no amount of ad spend can fully counter.
+      Yet the policy outcomes tell a different story. Anti-BESS forces&mdash;operating through county commissioners' courts, public hearings, legislative testimony, and grassroots organizing&mdash;have achieved concrete victories: the Katy BESS rejection,<sup class="fn"><a href="#fn3">3</a></sup> the Rock Creek abandonment in the Hill Country,<sup class="fn"><a href="#fn6">6</a></sup> HB&nbsp;3809's decommissioning mandates,<sup class="fn"><a href="#fn8">8</a></sup> and the Texas GOP's formal anti-BESS resolution.<sup class="fn"><a href="#fn4">4</a></sup> The Fannin County fight produced a lawsuit (Engie v. Fannin County)<sup class="fn"><a href="#fn7a">7a</a></sup> that could set statewide precedent. The Moss Landing fire<sup class="fn"><a href="#fn5">5</a></sup> gave opposition organizers a visceral, visual argument that no amount of ad spend can fully counter.
     </p>
     <p>
-      <strong>The strategic dynamic is clear:</strong> pro-BESS money dominates the digital narrative, but anti-BESS organizing dominates the regulatory and legislative arena. GoodPower's $1.5M+ is buying awareness and sentiment&mdash;but awareness doesn't vote at commissioners' court. The real question is whether the PUC ruling on the Vesper/Katy appeal will establish a precedent that overrides local opposition, effectively shifting the battleground from county-level politics to state-level regulation.
+      <strong>The strategic dynamic is clear:</strong> pro-BESS money dominates the digital narrative, but anti-BESS organizing dominates the regulatory and legislative arena. GoodPower's $1.5M+ is buying awareness and sentiment&mdash;but awareness doesn't vote at commissioners' court. The real question is whether the PUC ruling on the Vesper/Katy appeal<sup class="fn"><a href="#fn10">10</a></sup> will establish a precedent that overrides local opposition, effectively shifting the battleground from county-level politics to state-level regulation.
     </p>
     <p>
       <strong>Notable absences:</strong> No major Texas energy trade associations (TXOGA, Texas Solar Power Association) are running BESS ads. No BESS developers beyond Apex have their own branded ad campaigns. The "Don't BESS With Texas" movement, despite a website and social presence, has no paid Meta advertising. The advertising war is being fought almost entirely by national advocacy organizations&mdash;GoodPower, Greenlight Action, the Sierra Club&mdash;while local actors on both sides operate through channels the Ad Library cannot see.
@@ -1176,6 +1248,34 @@
     <p><strong>Delivery vs. targeting:</strong> All demographic and geographic data reflects ad delivery (who saw the ad), not advertiser targeting selections. Delivery patterns can be influenced by first-party data, lookalike audiences, algorithmic optimization, creative resonance, and platform demographics&mdash;not only explicit targeting choices.</p>
     <p><strong>Keyword limitations:</strong> Ads that discuss BESS-related topics without using the searched keywords will not appear. Opposition groups may use different terminology (e.g., "battery plant," "lithium facility") that evades keyword-based searches. Organic posts, Facebook group activity, and community organizing on other platforms are not captured.</p>
     <p><strong>Scope:</strong> This report covers only ads classified as political, social, or issue ads under Meta's Ad Library policies. Commercial advertising for energy products or services is not included.</p>
+  </div>
+
+  <!-- FOOTNOTES -->
+  <div class="footnotes">
+    <div class="section-title">Sources &amp; Citations</div>
+    <ol>
+      <li id="fn1"><span class="fn-num">1</span>MacArthur Foundation, "Alliance for Climate Education [GoodPower Education Fund] &mdash; Grantee Profile," $2.5M in grants (2020, 2023) under Climate Solutions program. <a href="https://www.macfound.org/grantee/alliance-for-climate-education-10115305/" target="_blank">macfound.org</a> <a href="#ref1" class="fn-back">&uarr;</a></li>
+      <li id="fn2"><span class="fn-num">2</span>Utility Dive, "Texas restoration efforts underway after Hurricane Beryl leaves 2.7M customers without power," Jul 2024. <a href="https://www.utilitydive.com/news/texas-restoration-efforts-underway-beryl-almost-3-million-without-power/720816/" target="_blank">utilitydive.com</a> <a href="#ref2" class="fn-back">&uarr;</a></li>
+      <li id="fn3"><span class="fn-num">3</span>Community Impact, "Katy City Council denies permit for energy storage facility amid community pushback," Oct 15, 2024. <a href="https://communityimpact.com/houston/katy-north/government/2024/10/15/katy-city-council-denies-permit-for-energy-storage-facility-amid-community-pushback/" target="_blank">communityimpact.com</a>. See also: Energy-Storage.News, "Texas city's council rejects developer Vesper Energy's 500MW battery storage proposal." <a href="https://www.energy-storage.news/texas-citys-council-rejects-developer-vesper-energys-500mw-battery-storage-proposal/" target="_blank">energy-storage.news</a> <a href="#ref3" class="fn-back">&uarr;</a></li>
+      <li id="fn4"><span class="fn-num">4</span>Republican Party of Texas, "Resolution to Protect Texas Counties from the Rapid Expansion of Battery Energy Storage Systems (BESS)," Nov 2024. <a href="https://texasgop.org/resolution-to-protect-texas-counties-from-the-rapid-expansion-of-battery-energy-storage-systems-bess/" target="_blank">texasgop.org</a>. HB 1343 bill text: <a href="https://capitol.texas.gov/tlodocs/89R/billtext/html/HB01343I.htm" target="_blank">capitol.texas.gov</a> <a href="#ref4" class="fn-back">&uarr;</a></li>
+      <li id="fn5"><span class="fn-num">5</span>U.S. EPA, "Moss Landing Vistra Battery Fire Response." <a href="https://www.epa.gov/ca/moss-landing-vistra-battery-fire" target="_blank">epa.gov</a>. See also: Canary Media, "Moss Landing, the world's biggest grid battery, caught fire again." <a href="https://www.canarymedia.com/articles/batteries/moss-landing-the-worlds-biggest-grid-battery-just-caught-fire-again" target="_blank">canarymedia.com</a> <a href="#ref5" class="fn-back">&uarr;</a></li>
+      <li id="fn5a"><span class="fn-num">5a</span>Canary Media, reporting 1,200 evacuated during the Moss Landing fire, Jan 2025. <a href="https://www.canarymedia.com/articles/batteries/moss-landing-the-worlds-biggest-grid-battery-just-caught-fire-again" target="_blank">canarymedia.com</a> <a href="#ref5a" class="fn-back">&uarr;</a></li>
+      <li id="fn5b"><span class="fn-num">5b</span>The Press Democrat, "New study: Moss Landing battery fire dumped 55,000 pounds of toxic metals into wildlife-rich marshes," Dec 2, 2025. <a href="https://www.pressdemocrat.com/2025/12/02/new-study-moss-landing-battery-fire-dumped-55000-pounds-of-toxic-metals-into-wildlife-rich-marshes/" target="_blank">pressdemocrat.com</a> <a href="#ref5b" class="fn-back">&uarr;</a></li>
+      <li id="fn6"><span class="fn-num">6</span>San Antonio Express-News, "Energy firm cancels plans for Hill Country battery storage project," Jan 2025. <a href="https://www.expressnews.com/hill-country/article/battery-energy-grid-ercot-hill-country-comfort-21320792.php" target="_blank">expressnews.com</a> <a href="#ref6" class="fn-back">&uarr;</a></li>
+      <li id="fn6a"><span class="fn-num">6a</span>Equinor, "Equinor announces first battery storage projects in the United States," confirming East Point Energy as subsidiary. <a href="https://www.equinor.com/news/us/20240410-first-battery-storage-projects" target="_blank">equinor.com</a> <a href="#ref6a" class="fn-back">&uarr;</a></li>
+      <li id="fn7"><span class="fn-num">7</span>KXII News, "Texas state leaders advocate for Fannin County residents opposing new battery facility," Mar 24, 2025. <a href="https://www.kxii.com/2025/03/24/texas-state-leaders-advocate-fannin-county-residents-opposing-new-battery-facility/" target="_blank">kxii.com</a> <a href="#ref7" class="fn-back">&uarr;</a></li>
+      <li id="fn7a"><span class="fn-num">7a</span>KTEN News, "Fannin County battery facility sparks a lawsuit." Quote: Engie claimed officials "moved the goalposts at every turn." <a href="https://www.kten.com/news/fannin-county-battery-facility-sparks-a-lawsuit/article_4c12fdcd-78d9-449d-9fb0-a1cc6c69f17a.html" target="_blank">kten.com</a> <a href="#ref7a" class="fn-back">&uarr;</a></li>
+      <li id="fn8"><span class="fn-num">8</span>Energy-Storage.News, "Texas governor Greg Abbott signs law establishing decommissioning procedures for BESS," May 2025. <a href="https://www.energy-storage.news/texas-governor-signs-bess-decommissioning-procedures-law/" target="_blank">energy-storage.news</a> <a href="#ref8" class="fn-back">&uarr;</a></li>
+      <li id="fn8a"><span class="fn-num">8a</span>Baker Botts, "Texas Adopts New Decommissioning Law for Battery Energy Storage Systems," Jul 2025. Legal analysis of HB 3809 industry impact. <a href="https://www.bakerbotts.com/thought-leadership/publications/2025/july/texas-adopts-new-decommissioning-law-for-battery-energy-storage-systems" target="_blank">bakerbotts.com</a> <a href="#ref8a" class="fn-back">&uarr;</a></li>
+      <li id="fn9"><span class="fn-num">9</span>Modo Energy, "ERCOT Annual Buildout Report: Battery capacity reaches 14 GW entering 2026." <a href="https://modoenergy.com/research/en/ercot-battery-buildout-2025-annual-report" target="_blank">modoenergy.com</a> <a href="#ref9" class="fn-back">&uarr;</a></li>
+      <li id="fn9a"><span class="fn-num">9a</span>ESS News, "ERCOT BESS interconnection applications drop 50% in H2 2025 as faults in the boom emerge," Feb 6, 2026. <a href="https://www.ess-news.com/2026/02/06/ercot-bess-interconnection-applications-drop-50-in-h2-2025-as-faults-in-the-boom-emerge/" target="_blank">ess-news.com</a> <a href="#ref9a" class="fn-back">&uarr;</a></li>
+      <li id="fn10"><span class="fn-num">10</span>Click2Houston (KPRC), "Katy homeowners stopped a battery project, now the developer wants the state to overrule them," Nov 19, 2025. <a href="https://www.click2houston.com/news/local/2025/11/19/katy-homeowners-stopped-a-battery-project-now-the-developer-wants-the-state-to-overrule-them/" target="_blank">click2houston.com</a> <a href="#ref10" class="fn-back">&uarr;</a></li>
+      <li id="fn10a"><span class="fn-num">10a</span>Click2Houston (KPRC), "Katy battery plant decision delayed; ERCOT says city's denial affects grid authority," Dec 8, 2025. ERCOT filed a formal motion to intervene. <a href="https://www.click2houston.com/news/local/2025/12/08/katy-battery-plant-decision-delayed-ercot-says-citys-denial-affects-grid-authority/" target="_blank">click2houston.com</a> <a href="#ref10a" class="fn-back">&uarr;</a></li>
+      <li id="fn11"><span class="fn-num">11</span>Texas Tribune, "Texas grid weathers weekend storm thanks to new generation," Jan 29, 2026. Reports 9.5% of grid power from batteries at peak, 7,000+ MW output. <a href="https://www.texastribune.org/2026/01/29/texas-winter-storm-uri-anniversary-power-grid-ercot/" target="_blank">texastribune.org</a> <a href="#ref11" class="fn-back">&uarr;</a></li>
+      <li id="fn12"><span class="fn-num">12</span>Center of the American Experiment, "Iowa Utility Board Proposes Use of Eminent Domain to Force Renewables On Landowners; Phony Conservative 'Land and Liberty Coalition' is Silent." Note: Source is a conservative think tank; characterization reflects their editorial position. <a href="https://www.americanexperiment.org/iowa-utility-board-proposes-use-of-eminent-domain-to-force-renewables-on-landowners-phony-conservative-land-and-liberty-coalition-is-silent/" target="_blank">americanexperiment.org</a> <a href="#ref12" class="fn-back">&uarr;</a></li>
+      <li id="fn13"><span class="fn-num">13</span>The Texas Observer, "Revealed: The Corporations and Billionaires that Fund the Texas Public Policy Foundation." Documents funding from ExxonMobil, ConocoPhillips, Chevron, Koch Industries, and fossil fuel executives. <a href="https://www.texasobserver.org/revealed-the-corporations-and-billionaires-that-fund-the-texas-public-policy-foundation/" target="_blank">texasobserver.org</a> <a href="#ref13" class="fn-back">&uarr;</a></li>
+      <li id="fn14"><span class="fn-num">14</span>GoodPower, "About" page. Mission: "GoodPower empowers humanity to accelerate the global transition to a renewable economy that works for everyone." <a href="https://goodpower.org/about/" target="_blank">goodpower.org</a> <a href="#ref14" class="fn-back">&uarr;</a></li>
+    </ol>
   </div>
 
   <!-- FOOTER -->
