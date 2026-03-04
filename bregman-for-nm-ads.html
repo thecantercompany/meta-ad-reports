@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Bregman for NM Governor — 2026 Ad Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+<style>
+:root {
+  --bg: #faf9f7;
+  --bg-card: #ffffff;
+  --bg-warm: #f5f3ef;
+  --bg-accent: #f0ece4;
+  --border: #e4e0d8;
+  --border-light: #ece9e2;
+  --text-primary: #1c1917;
+  --text-body: #3d3833;
+  --text-secondary: #6b6560;
+  --text-muted: #9c9590;
+  --navy: #1a2332;
+  --navy-mid: #2d3a4a;
+  --slate: #475569;
+  --stone: #78716c;
+  --blue-deep: #1e3a5f;
+  --blue: #2563eb;
+  --blue-light: #e8f0fe;
+  --teal-deep: #115e59;
+  --teal: #0d9488;
+  --teal-light: #f0fdfa;
+  --amber-deep: #92400e;
+  --amber: #b45309;
+  --amber-light: #fffbeb;
+  --purple-deep: #5b21b6;
+  --purple: #7c3aed;
+  --purple-light: #f5f3ff;
+  --green-deep: #1a5632;
+  --green: #16803c;
+  --green-light: #f0fdf4;
+  --red-deep: #9b1c1c;
+  --red: #c53030;
+  --red-light: #fef2f2;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-body);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 48px 32px 64px;
+}
+
+/* Header */
+.header {
+  border-bottom: 2px solid var(--navy);
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+}
+.header-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--slate);
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.header h1 span {
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--navy-mid);
+  margin-top: 4px;
+}
+.header-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+.header-meta span {
+  margin-right: 20px;
+}
+
+/* Top Stats */
+.top-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.stat-card {
+  background: var(--bg-card);
+  padding: 24px;
+  text-align: center;
+}
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.stat-value {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.stat-subtext {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Key Finding */
+.key-finding {
+  background: var(--navy);
+  color: #ffffff;
+  padding: 32px;
+  border-radius: 10px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+  font-size: 16px;
+}
+.key-finding strong { color: #ffffff; }
+.key-finding em {
+  color: #fbbf24;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Section Title */
+.section-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--slate);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-top: 56px;
+  margin-bottom: 24px;
+}
+
+/* Chart Container */
+.chart-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.chart-container h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.chart-container .chart-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+/* Two Column */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Three Column */
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+/* Theme Cards */
+.theme-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.theme-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.theme-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.theme-name {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.theme-stats {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.theme-desc {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Ad Cards */
+.ad-card {
+  background: var(--bg-warm);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 12px;
+  border-left: 3px solid var(--border);
+}
+.ad-card.ice { border-left-color: var(--blue); }
+.ad-card.reform { border-left-color: var(--teal); }
+.ad-card.values { border-left-color: var(--amber); }
+.ad-card.intro { border-left-color: var(--purple); }
+.ad-card.land { border-left-color: var(--green); }
+.ad-text {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.ad-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--blue);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-top: 8px;
+  transition: background 0.15s;
+}
+.ad-link:hover {
+  background: var(--blue-light);
+  border-color: var(--blue);
+}
+.ad-link::before { content: '\2197'; }
+
+/* Insight Box */
+.insight-box {
+  background: var(--bg-warm);
+  border-left: 3px solid var(--navy);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.insight-box strong {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--stone);
+  margin-bottom: 6px;
+}
+.insight-box.strategic { border-left-color: var(--blue-deep); }
+.insight-box.caution { border-left-color: var(--amber); }
+
+/* Demographic Bars */
+.demo-bar-group {
+  margin-bottom: 12px;
+}
+.demo-bar-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.demo-bar-track {
+  height: 24px;
+  background: var(--bg-warm);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.demo-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Phase Timeline */
+.phase-timeline {
+  display: flex;
+  gap: 0;
+  margin: 24px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 48px;
+}
+.phase-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 80px;
+  padding: 0 12px;
+}
+
+/* Strategic Section */
+.strategic-section {
+  margin-bottom: 32px;
+}
+.strategic-section h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.strategic-section p {
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+/* Methodology */
+.methodology {
+  background: var(--bg-warm);
+  border-radius: 10px;
+  padding: 28px;
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.methodology h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+.footer-left, .footer-right {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .container { padding: 24px 16px 48px; }
+  .header h1 { font-size: 28px; }
+  .header h1 span { font-size: 18px; }
+  .top-stats { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .three-col { grid-template-columns: 1fr; }
+  .stat-value { font-size: 26px; }
+  .footer { flex-direction: column; gap: 12px; }
+}
+
+/* Print */
+@media print {
+  body { background: #fff; }
+  .key-finding, .chart-container, .ad-card, .theme-card { break-inside: avoid; }
+  .methodology { break-before: page; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-eyebrow">Intelligence Brief</div>
+  <h1>Sam Bregman for NM Governor
+    <span>2026 Meta Ad Library Analysis</span>
+  </h1>
+  <div class="header-meta">
+    <span>Page: Sam Bregman</span>
+    <span>Paid for by: Bregman for NM</span>
+    <span>Analysis period: Dec 22, 2025 – Mar 4, 2026</span>
+  </div>
+</header>
+
+<!-- TOP STATS -->
+<div class="top-stats">
+  <div class="stat-card">
+    <div class="stat-label">Total Ads</div>
+    <div class="stat-value">75</div>
+    <div class="stat-subtext">across 11 weeks</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Estimated Spend</div>
+    <div class="stat-value">$7.7K–$15.5K</div>
+    <div class="stat-subtext">Meta-reported range</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Impressions</div>
+    <div class="stat-value">661K–832K</div>
+    <div class="stat-subtext">estimated delivery</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Active Period</div>
+    <div class="stat-value">11 wks</div>
+    <div class="stat-subtext">Dec 22 – Mar 4</div>
+  </div>
+</div>
+
+<!-- KEY FINDING -->
+<div class="key-finding">
+  <strong>Key Finding:</strong> Bregman's 2026 ad strategy is built on a single dominant message: <em>prosecuting ICE agents who violate New Mexico law</em>. After a broad multi-theme campaign launch in late December, the campaign pivoted sharply in late January — coinciding with the Trump inauguration — to run almost exclusively on ICE enforcement messaging. Over a third of all ads and the majority of post-launch spend are dedicated to this one issue, positioning Bregman as the candidate already taking action from his DA's office ahead of the June 2026 Democratic gubernatorial primary against former Interior Secretary Deb Haaland.
+</div>
+
+<!-- CAMPAIGN TIMELINE -->
+<div class="section-title">Campaign Timeline</div>
+
+<div class="chart-container">
+  <h3>Weekly Ad Volume & Estimated Spend</h3>
+  <div class="chart-subtitle">Stacked by messaging theme · Annotations mark key events</div>
+  <div style="position: relative; height: 280px;">
+    <canvas id="timelineChart"></canvas>
+  </div>
+</div>
+
+<!-- Phase Timeline Visual -->
+<div class="card">
+  <h3 style="font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 16px;">Campaign Phases</h3>
+  <div class="phase-timeline">
+    <div class="phase-block" style="background: var(--purple); flex: 2;">Launch</div>
+    <div class="phase-block" style="background: #94a3b8; flex: 4;">Holiday Pause</div>
+    <div class="phase-block" style="background: var(--blue); flex: 5;">ICE Messaging</div>
+  </div>
+  <div style="display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-muted); margin-top: 8px;">
+    <span>Dec 22</span>
+    <span>Dec 29 – Jan 25</span>
+    <span>Jan 26 – Mar 4</span>
+  </div>
+
+  <div class="insight-box strategic" style="margin-top: 20px;">
+    <strong>Phase Analysis</strong>
+    The campaign launched with a <strong style="display: inline; font-family: inherit; font-size: inherit; text-transform: none; letter-spacing: 0;">burst of 33 ads testing 7+ distinct messages</strong> in a single week — a classic A/B testing blitz. After a 4-week holiday pause with zero ad activity, the campaign returned with a near-exclusive focus on ICE enforcement. This pivot from breadth to depth signals the campaign found its message.
+  </div>
+</div>
+
+<!-- MESSAGING THEMES -->
+<div class="section-title">Messaging Strategy</div>
+
+<div class="two-col">
+  <div class="chart-container">
+    <h3>Theme Distribution</h3>
+    <div class="chart-subtitle">Share of total ads by messaging theme</div>
+    <div style="position: relative; height: 260px;">
+      <canvas id="themeDonut"></canvas>
+    </div>
+  </div>
+  <div class="chart-container">
+    <h3>Messaging by Week</h3>
+    <div class="chart-subtitle">Theme rotation over time (active weeks only)</div>
+    <div style="position: relative; height: 260px;">
+      <canvas id="themeByWeek"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Theme Detail Cards -->
+<div class="theme-card">
+  <div class="theme-header">
+    <div class="theme-dot" style="background: #2563eb;"></div>
+    <div class="theme-name">ICE Enforcement</div>
+  </div>
+  <div class="theme-stats">26 ads · 35% of total · Jan 27 – Feb 19 · Estimated $3,800–$6,400 spend</div>
+  <div class="theme-desc">
+    The campaign's dominant message and heaviest spend category. Bregman leverages his current authority as Bernalillo County DA to frame himself as already fighting the Trump administration — not just promising to. Two primary creative variants rotate, both built on the same core claim: that he has put ICE on notice that agents who violate New Mexico state law will face prosecution.
+  </div>
+  <div class="ad-card ice">
+    <div class="ad-text">"ICE agents, you're on notice. If you violate New Mexico state law, you will be prosecuted."</div>
+    <a href="https://www.facebook.com/ads/library/?id=842759898718853" target="_blank" class="ad-link">View ad</a>
+  </div>
+  <div class="ad-card ice">
+    <div class="ad-text">"As DA, my job is to uphold the law, and what ICE is doing is breaking it. That's why I put them on notice here in New Mexico. The people of our state deserve leadership that defends civil liberties..."</div>
+    <a href="https://www.facebook.com/ads/library/?id=843515612027099" target="_blank" class="ad-link">View ad</a>
+  </div>
+</div>
+
+<div class="theme-card">
+  <div class="theme-header">
+    <div class="theme-dot" style="background: #0d9488;"></div>
+    <div class="theme-name">Reform & Anti-Washington</div>
+  </div>
+  <div class="theme-stats">15 ads · 20% of total · Dec 22–23 launch only · Estimated $700–$2,400 spend</div>
+  <div class="theme-desc">
+    The campaign's opening-week platform message, built around three sub-themes: a paid legislature with term limits, an anti-Washington framing aimed implicitly at Haaland's DC tenure, and a reform fundraising ask. None of these messages ran after the December launch week — they were tested and apparently deprioritized in favor of the ICE message.
+  </div>
+  <div class="ad-card reform">
+    <div class="ad-text">"Out-of-touch Washington politicians think they know what's good for New Mexico. Sam is running for Governor because we need real solutions, not DC politics."</div>
+    <a href="https://www.facebook.com/ads/library/?id=838857759030492" target="_blank" class="ad-link">View ad</a>
+  </div>
+  <div class="ad-card reform">
+    <div class="ad-text">"Politics as usual is holding New Mexico back, so I'm proposing a new way forward: A paid legislature with term limits..."</div>
+    <a href="https://www.facebook.com/ads/library/?id=833919626103559" target="_blank" class="ad-link">View ad</a>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="theme-card">
+    <div class="theme-header">
+      <div class="theme-dot" style="background: #b45309;"></div>
+      <div class="theme-name">Values & Fundraising</div>
+    </div>
+    <div class="theme-stats">15 ads · 20% of total · Feb 2–19</div>
+    <div class="theme-desc">
+      Donor acquisition ads that ran alongside ICE messaging. Two distinct value propositions — transparency ("I don't expect you to agree with everything I say") and democratic engagement ("I really believe in democracy") — plus direct momentum-based fundraising asks.
+    </div>
+    <div class="ad-card values">
+      <div class="ad-text">"We have momentum on our side. Now, we need to keep up the pressure. Will you chip in to my campaign right now?"</div>
+      <a href="https://www.facebook.com/ads/library/?id=1456834932759237" target="_blank" class="ad-link">View ad</a>
+    </div>
+  </div>
+
+  <div class="theme-card">
+    <div class="theme-header">
+      <div class="theme-dot" style="background: #7c3aed;"></div>
+      <div class="theme-name">Candidate Introduction</div>
+    </div>
+    <div class="theme-stats">12 ads · 16% of total · Dec 22–27</div>
+    <div class="theme-desc">
+      Launch-week bio ads introducing Bregman as a Democratic candidate for Governor. Includes "I'm ready to debate" challenge framing and "New Mexicans deserve a candidate with a plan" positioning. All ran exclusively during the December launch burst.
+    </div>
+    <div class="ad-card intro">
+      <div class="ad-text">"I'm Democrat Sam Bregman, and I'm running to be New Mexico's next Governor. Too many politicians are all talk and no action..."</div>
+      <a href="https://www.facebook.com/ads/library/?id=4163294297267310" target="_blank" class="ad-link">View ad</a>
+    </div>
+  </div>
+</div>
+
+<div class="theme-card" style="max-width: 540px;">
+  <div class="theme-header">
+    <div class="theme-dot" style="background: #16803c;"></div>
+    <div class="theme-name">New Mexico Land & Values</div>
+  </div>
+  <div class="theme-stats">5 ads · 7% of total · Dec 22–23</div>
+  <div class="theme-desc">
+    Preservation-focused messaging about protecting New Mexico's land and character. Part of the multi-theme launch testing, not revisited after December.
+  </div>
+  <div class="ad-card land">
+    <div class="ad-text">"What makes New Mexico so special is not just the people, but also our land. I'm running to preserve this great place for future generations."</div>
+    <a href="https://www.facebook.com/ads/library/?id=1206744751553369" target="_blank" class="ad-link">View ad</a>
+  </div>
+</div>
+
+<!-- AUDIENCE DEMOGRAPHICS -->
+<div class="section-title">Audience Reach</div>
+
+<div class="two-col">
+  <div class="chart-container">
+    <h3>Age Distribution</h3>
+    <div class="chart-subtitle">Average delivery percentage by age range across all ads</div>
+    <div style="position: relative; height: 220px;">
+      <canvas id="ageChart"></canvas>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 16px;">Gender & Geography</h3>
+
+    <div style="margin-bottom: 24px;">
+      <div class="stat-label" style="margin-bottom: 12px;">Gender Split (Delivery)</div>
+      <div class="demo-bar-group">
+        <div class="demo-bar-label"><span>Female</span><span>56%</span></div>
+        <div class="demo-bar-track">
+          <div class="demo-bar-fill" style="width: 56%; background: var(--purple);"></div>
+        </div>
+      </div>
+      <div class="demo-bar-group">
+        <div class="demo-bar-label"><span>Male</span><span>44%</span></div>
+        <div class="demo-bar-track">
+          <div class="demo-bar-fill" style="width: 44%; background: var(--blue);"></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="stat-label" style="margin-bottom: 12px;">Geographic Delivery</div>
+      <div class="demo-bar-group">
+        <div class="demo-bar-label"><span>New Mexico</span><span>~97%+</span></div>
+        <div class="demo-bar-track">
+          <div class="demo-bar-fill" style="width: 97%; background: var(--teal);"></div>
+        </div>
+      </div>
+      <div class="demo-bar-group">
+        <div class="demo-bar-label"><span>Other states</span><span>~3%</span></div>
+        <div class="demo-bar-track">
+          <div class="demo-bar-fill" style="width: 3%; background: var(--border);"></div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
+        Trace delivery in CA, TX, AZ, CO — likely NM expats or algorithmic spillover.
+      </div>
+    </div>
+
+    <div class="insight-box caution" style="margin-top: 20px;">
+      <strong>Delivery ≠ Targeting</strong>
+      All demographic and geographic data reflects who <em>saw</em> these ads, not who Bregman's campaign <em>targeted</em>. The older, female-leaning delivery profile is consistent with Democratic primary electorates and Facebook-heavy strategies, and may reflect algorithmic optimization rather than explicit demographic targeting.
+    </div>
+  </div>
+</div>
+
+<!-- STRATEGIC ANALYSIS -->
+<div class="section-title">Strategic Analysis</div>
+
+<div class="strategic-section">
+  <h3>Primary Positioning: DA-as-Credential</h3>
+  <p>Bregman's ad strategy is unusually focused for this stage of a gubernatorial primary. Rather than building a broad policy portfolio, the campaign has concentrated its firepower on a single differentiator: Bregman's current authority as District Attorney. The ICE messaging doesn't just promise future action — it claims action already taken. "I <em>have</em> put ICE on notice" is present-tense, authority-based language that no other gubernatorial candidate can credibly use.</p>
+  <p>This is a deliberate contrast with Deb Haaland, his primary opponent. Haaland's political identity is built on federal service — U.S. Representative, Secretary of the Interior. Bregman's counter-narrative is local vs. Washington, action vs. politics, DA vs. cabinet member. The "out-of-touch Washington politicians" messaging from the launch week made this implicit contrast explicit.</p>
+</div>
+
+<div class="strategic-section">
+  <h3>The ICE Messaging Gamble</h3>
+  <p>Going all-in on ICE enforcement is a high-risk, high-reward play. The upside: it's a viscerally clear message that taps into Democratic base anxiety about the Trump administration's immigration enforcement. It gives Bregman earned media coverage and positions him as a fighter — a valuable brand in a primary. The NM Political Report <a href="https://nmpoliticalreport.com/2026/02/19/before-pledging-to-prosecute-ice-bregman-was-a-go-to-defense-attorney-for-cops-accused-of-crimes/" target="_blank" style="color: var(--blue);">reported on February 19</a> that before pledging to prosecute ICE, Bregman was known as a defense attorney for police officers accused of crimes — a contrast the Haaland campaign or media will likely surface.</p>
+  <p>The risk: the campaign has not (yet) built a broader policy identity through Meta ads. If the ICE message loses salience — through policy changes, legal challenges, or voter fatigue — the campaign has no established fallback narrative in its paid media. The December launch tested 7+ messages; only ICE survived. Whether that reflects strategic clarity or tunnel vision depends on what happens next.</p>
+</div>
+
+<div class="strategic-section">
+  <h3>Spending Level: Early & Modest</h3>
+  <p>At $7,700–$15,500, Bregman's Meta spend is modest for a gubernatorial primary. For context, this is roughly equivalent to what a competitive state legislative candidate might spend on Facebook in a general election. The June 2026 primary is still three months away, so this may represent early testing before a larger media buy. The sharp drop in ad activity since mid-February — from 17 ads the week of February 2 to just 2 ads in the last two weeks — suggests the campaign may be conserving resources for a later push, or shifting spend to other channels (direct mail, broadcast, digital display).</p>
+</div>
+
+<div class="strategic-section">
+  <h3>What to Watch</h3>
+  <p><strong>New creative cycles:</strong> Does the campaign expand beyond ICE messaging as the primary approaches, or does it double down? The December testing showed the campaign has other messages in reserve (reform platform, land values, debate challenge). Whether those return will signal strategic direction.</p>
+  <p><strong>Spending ramp:</strong> A gubernatorial primary typically requires a significant spending increase in the final 6-8 weeks. Watch for a March–May ramp in Meta spend, and whether it includes new messaging or just more ICE ads at higher volume.</p>
+  <p><strong>Opposition response:</strong> Haaland's campaign or allied groups may respond to the ICE framing — either by contesting Bregman's record or by redirecting to other issues. Any counter-advertising will reshape the messaging landscape.</p>
+  <p><strong>Earned media feedback loop:</strong> The ICE stance generates news coverage, which generates engagement, which may justify continued ad spend on the topic. Watch whether earned media coverage remains positive or shifts toward scrutiny of the claim's legal basis or Bregman's prior record.</p>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="methodology">
+  <h3>Methodology & Limitations</h3>
+  <p>This analysis is based on data retrieved from the <strong>Meta Ad Library API</strong> on March 4, 2026, covering all political and issue ads from the "Sam Bregman" Facebook page (Page ID: 114720784962153) with delivery in the United States.</p>
+  <p>The analysis period covers December 22, 2025 through March 4, 2026 — the full active advertising period for the Bregman for NM campaign page. The user requested 2026 analysis; the December 2025 ads are included because they represent the campaign launch.</p>
+  <p><strong>Spend and impression figures are Meta-reported ranges, not exact amounts.</strong> Mid-range estimates used in charts represent the arithmetic mean of upper and lower bounds and should be treated as approximations. Theme-level spend estimates are calculated proportionally based on ad count share within each week and carry additional uncertainty.</p>
+  <p>Messaging theme categorization was performed manually based on ad creative text. Ads with no text content (2 ads, likely video) are categorized as "Other." Demographic and geographic data reflects <em>delivery</em> patterns (who saw the ads), not targeting inputs (what the advertiser selected). See the demographic section for a full explanation of this distinction.</p>
+  <p>This report covers Meta platform advertising only. The Bregman campaign may also be running ads on Google, YouTube, programmatic display, broadcast, print, direct mail, or other channels not captured here.</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    Data source: Meta Ad Library API<br>
+    Retrieved: March 4, 2026<br>
+    Page ID: 114720784962153<br><br>
+    Built by The Canter Company · <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a>
+  </div>
+  <div class="footer-right">
+    Analysis window: Dec 22, 2025 – Mar 4, 2026<br>
+    75 ads analyzed<br>
+    Spend range: $7,700 – $15,525
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// Color palette
+const colors = {
+  ice: '#2563eb',
+  reform: '#0d9488',
+  values: '#b45309',
+  intro: '#7c3aed',
+  land: '#16803c',
+  other: '#94a3b8',
+  spend: '#1c1917'
+};
+
+// Font defaults
+Chart.defaults.font.family = "'IBM Plex Sans', sans-serif";
+
+// ============================================================
+// CHART 1: Campaign Activity Timeline (Stacked Bar + Spend Line)
+// ============================================================
+const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+new Chart(timelineCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Dec 22', 'Dec 29', 'Jan 5', 'Jan 12', 'Jan 19', 'Jan 26', 'Feb 2', 'Feb 9', 'Feb 16', 'Feb 23', 'Mar 2'],
+    datasets: [
+      {
+        label: 'ICE Enforcement',
+        data: [0, 0, 0, 0, 0, 8, 7, 5, 6, 0, 0],
+        backgroundColor: colors.ice,
+        stack: 'ads',
+        order: 2
+      },
+      {
+        label: 'Reform Platform',
+        data: [15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        backgroundColor: colors.reform,
+        stack: 'ads',
+        order: 2
+      },
+      {
+        label: 'Values & Fundraising',
+        data: [0, 0, 0, 0, 0, 0, 10, 0, 5, 0, 0],
+        backgroundColor: colors.values,
+        stack: 'ads',
+        order: 2
+      },
+      {
+        label: 'Candidate Introduction',
+        data: [12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        backgroundColor: colors.intro,
+        stack: 'ads',
+        order: 2
+      },
+      {
+        label: 'NM Land & Values',
+        data: [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        backgroundColor: colors.land,
+        stack: 'ads',
+        order: 2
+      },
+      {
+        label: 'Other / Video',
+        data: [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        backgroundColor: colors.other,
+        stack: 'ads',
+        order: 2
+      },
+      {
+        label: 'Est. Spend ($)',
+        data: [3434, 0, 0, 0, 0, 2096, 4242, 948, 545, 250, 150],
+        type: 'line',
+        borderColor: colors.spend,
+        borderWidth: 2,
+        pointBackgroundColor: colors.spend,
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        tension: 0.3,
+        yAxisID: 'y1',
+        order: 1
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          usePointStyle: true,
+          pointStyle: 'rect',
+          font: { size: 10, family: "'IBM Plex Sans', sans-serif" },
+          padding: 12,
+          boxWidth: 10
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            if (context.dataset.yAxisID === 'y1') {
+              return 'Est. spend: $' + context.parsed.y.toLocaleString();
+            }
+            return context.dataset.label + ': ' + context.parsed.y + ' ads';
+          }
+        }
+      },
+      annotation: {
+        annotations: {
+          trumpLine: {
+            type: 'line',
+            xMin: 4.14,
+            xMax: 4.14,
+            borderColor: '#dc2626',
+            borderWidth: 1.5,
+            borderDash: [4, 4],
+            label: {
+              display: true,
+              content: 'Trump Inauguration (Jan 20)',
+              position: 'start',
+              backgroundColor: 'rgba(220, 38, 38, 0.08)',
+              color: '#dc2626',
+              font: { size: 9, family: "'IBM Plex Mono', monospace", weight: '600' },
+              padding: { top: 3, bottom: 3, left: 6, right: 6 }
+            }
+          },
+          iceLine: {
+            type: 'line',
+            xMin: 5,
+            xMax: 5,
+            borderColor: colors.ice,
+            borderWidth: 1.5,
+            borderDash: [4, 4],
+            label: {
+              display: true,
+              content: 'ICE Ads Debut',
+              position: 'start',
+              backgroundColor: 'rgba(37, 99, 235, 0.08)',
+              color: colors.ice,
+              font: { size: 9, family: "'IBM Plex Mono', monospace", weight: '600' },
+              padding: { top: 3, bottom: 3, left: 6, right: 6 },
+              yAdjust: 18
+            }
+          },
+          peakLine: {
+            type: 'line',
+            xMin: 6,
+            xMax: 6,
+            borderColor: colors.values,
+            borderWidth: 1.5,
+            borderDash: [4, 4],
+            label: {
+              display: true,
+              content: 'Peak Spend Week',
+              position: 'start',
+              backgroundColor: 'rgba(180, 83, 9, 0.08)',
+              color: colors.values,
+              font: { size: 9, family: "'IBM Plex Mono', monospace", weight: '600' },
+              padding: { top: 3, bottom: 3, left: 6, right: 6 },
+              yAdjust: 36
+            }
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { color: 'var(--border-light)', drawBorder: false },
+        ticks: {
+          font: { size: 9, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590'
+        }
+      },
+      y: {
+        position: 'left',
+        stacked: true,
+        title: {
+          display: true,
+          text: 'Ad Count',
+          font: { size: 10, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590'
+        },
+        grid: { color: '#ece9e2' },
+        ticks: {
+          font: { size: 9, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590'
+        }
+      },
+      y1: {
+        position: 'right',
+        title: {
+          display: true,
+          text: 'Est. Spend ($)',
+          font: { size: 10, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590'
+        },
+        grid: { drawOnChartArea: false },
+        ticks: {
+          font: { size: 9, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590',
+          callback: function(value) {
+            return '$' + (value / 1000).toFixed(1) + 'K';
+          }
+        }
+      }
+    }
+  }
+});
+
+// ============================================================
+// CHART 2: Theme Distribution Donut
+// ============================================================
+const donutCtx = document.getElementById('themeDonut').getContext('2d');
+new Chart(donutCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['ICE Enforcement', 'Reform Platform', 'Values & Fundraising', 'Candidate Intro', 'NM Land', 'Other'],
+    datasets: [{
+      data: [26, 15, 15, 12, 5, 2],
+      backgroundColor: [colors.ice, colors.reform, colors.values, colors.intro, colors.land, colors.other],
+      borderWidth: 2,
+      borderColor: '#ffffff'
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '55%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          usePointStyle: true,
+          pointStyle: 'circle',
+          font: { size: 10, family: "'IBM Plex Sans', sans-serif" },
+          padding: 10,
+          boxWidth: 8
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+            const pct = Math.round(context.parsed / total * 100);
+            return context.label + ': ' + context.parsed + ' ads (' + pct + '%)';
+          }
+        }
+      }
+    }
+  }
+});
+
+// ============================================================
+// CHART 3: Messaging by Week (Stacked Horizontal Bar)
+// ============================================================
+const weekCtx = document.getElementById('themeByWeek').getContext('2d');
+new Chart(weekCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Dec 22', 'Jan 26', 'Feb 2', 'Feb 9', 'Feb 16', 'Feb 23+'],
+    datasets: [
+      {
+        label: 'ICE',
+        data: [0, 8, 7, 5, 6, 0],
+        backgroundColor: colors.ice
+      },
+      {
+        label: 'Reform',
+        data: [15, 0, 0, 0, 0, 0],
+        backgroundColor: colors.reform
+      },
+      {
+        label: 'Values/Fund.',
+        data: [0, 0, 10, 0, 5, 0],
+        backgroundColor: colors.values
+      },
+      {
+        label: 'Intro',
+        data: [12, 0, 0, 0, 0, 0],
+        backgroundColor: colors.intro
+      },
+      {
+        label: 'NM Land',
+        data: [5, 0, 0, 0, 0, 0],
+        backgroundColor: colors.land
+      },
+      {
+        label: 'Other',
+        data: [1, 0, 0, 0, 0, 2],
+        backgroundColor: colors.other
+      }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.dataset.label + ': ' + context.parsed.x + ' ads';
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        stacked: true,
+        title: {
+          display: true,
+          text: 'Number of Ads',
+          font: { size: 10, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590'
+        },
+        grid: { color: '#ece9e2' },
+        ticks: {
+          font: { size: 9, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590'
+        }
+      },
+      y: {
+        stacked: true,
+        grid: { display: false },
+        ticks: {
+          font: { size: 10, family: "'IBM Plex Mono', monospace" },
+          color: '#6b6560'
+        }
+      }
+    }
+  }
+});
+
+// ============================================================
+// CHART 4: Age Distribution
+// ============================================================
+const ageCtx = document.getElementById('ageChart').getContext('2d');
+new Chart(ageCtx, {
+  type: 'bar',
+  data: {
+    labels: ['18–24', '25–34', '35–44', '45–54', '55–64', '65+'],
+    datasets: [{
+      label: 'Share of Delivery',
+      data: [1, 8, 10, 12, 20, 49],
+      backgroundColor: [
+        'rgba(37, 99, 235, 0.3)',
+        'rgba(37, 99, 235, 0.4)',
+        'rgba(37, 99, 235, 0.5)',
+        'rgba(37, 99, 235, 0.6)',
+        'rgba(37, 99, 235, 0.8)',
+        'rgba(37, 99, 235, 1.0)'
+      ],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.parsed.y + '% of delivery';
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: {
+          font: { size: 10, family: "'IBM Plex Mono', monospace" },
+          color: '#6b6560'
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: '% of Delivery',
+          font: { size: 10, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590'
+        },
+        grid: { color: '#ece9e2' },
+        ticks: {
+          font: { size: 9, family: "'IBM Plex Mono', monospace" },
+          color: '#9c9590',
+          callback: function(value) { return value + '%'; }
+        },
+        max: 55
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
