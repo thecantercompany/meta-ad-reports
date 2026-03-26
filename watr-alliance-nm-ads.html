@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WATR Alliance — Produced Water Reuse Advocacy in New Mexico</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+<style>
+:root {
+  --bg: #faf9f7;
+  --bg-card: #ffffff;
+  --bg-warm: #f5f3ef;
+  --bg-accent: #f0ece4;
+  --border: #e4e0d8;
+  --border-light: #ece9e2;
+  --text-primary: #1c1917;
+  --text-body: #3d3833;
+  --text-secondary: #6b6560;
+  --text-muted: #9c9590;
+  --navy: #1a2332;
+  --navy-mid: #2d3a4a;
+  --slate: #475569;
+  --stone: #78716c;
+  --blue-deep: #1e3a5f;
+  --blue: #2563eb;
+  --blue-light: #e8f0fe;
+  --teal-deep: #115e59;
+  --teal: #0d9488;
+  --teal-light: #f0fdfa;
+  --teal-dark: #0f766e;
+  --amber-deep: #92400e;
+  --amber: #b45309;
+  --amber-light: #fffbeb;
+  --purple-deep: #5b21b6;
+  --purple: #7c3aed;
+  --purple-light: #f5f3ff;
+  --green-deep: #1a5632;
+  --green: #16803c;
+  --green-light: #f0fdf4;
+  --red-deep: #9b1c1c;
+  --red: #c53030;
+  --red-light: #fef2f2;
+  --cyan-deep: #155e75;
+  --cyan: #0891b2;
+  --cyan-light: #ecfeff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-body);
+  line-height: 1.65;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 48px 32px 64px;
+}
+
+/* Header */
+.header {
+  border-bottom: 2px solid var(--navy);
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+}
+.header-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--slate);
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.header h1 span {
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--navy-mid);
+  margin-top: 4px;
+}
+.header-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+.header-meta span {
+  margin-right: 20px;
+}
+
+/* Top Stats */
+.top-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.stat-card {
+  background: var(--bg-card);
+  padding: 24px;
+  text-align: center;
+}
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.stat-value {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.stat-subtext {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Key Finding */
+.key-finding {
+  background: var(--navy);
+  color: #ffffff;
+  padding: 32px;
+  border-radius: 10px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+  font-size: 16px;
+}
+.key-finding strong { color: #ffffff; }
+.key-finding em {
+  color: #5eead4;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Section Title */
+.section-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--slate);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-top: 56px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy-mid);
+  margin-bottom: 10px;
+  margin-top: 28px;
+  line-height: 1.3;
+}
+
+p { margin-bottom: 14px; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Chart Container */
+.chart-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.chart-container h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+.chart-container .chart-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+/* Two Column */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Ad Cards */
+.ad-card {
+  background: var(--bg-warm);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 12px;
+  border-left: 3px solid var(--border);
+}
+.ad-card.phase1 { border-left-color: var(--teal); }
+.ad-card.phase2 { border-left-color: var(--teal-deep); }
+.ad-text {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.ad-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+.ad-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--blue);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-top: 8px;
+  transition: background 0.15s;
+}
+.ad-link:hover {
+  background: var(--blue-light);
+  border-color: var(--blue);
+}
+.ad-link::before { content: '\2197'; }
+
+/* Insight Box */
+.insight-box {
+  background: var(--bg-warm);
+  border-left: 3px solid var(--navy);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.insight-box strong {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--stone);
+  margin-bottom: 6px;
+}
+.insight-box.strategic { border-left-color: var(--blue-deep); }
+.insight-box.caution { border-left-color: var(--amber); }
+.insight-box.teal { border-left-color: var(--teal-deep); }
+
+/* Phase Comparison Cards */
+.phase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0;
+}
+.phase-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.phase-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+.phase-card.p1::before { background: var(--teal); }
+.phase-card.p2::before { background: var(--teal-deep); }
+.phase-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+.phase-card.p1 .phase-label { color: var(--teal); }
+.phase-card.p2 .phase-label { color: var(--teal-deep); }
+.phase-card h4 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.phase-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 13px;
+}
+.phase-stat:last-child { border-bottom: none; }
+.phase-stat-label { color: var(--text-secondary); }
+.phase-stat-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 12px;
+}
+
+/* Leadership List */
+.leadership-list {
+  margin: 16px 0;
+}
+.leadership-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.leadership-item:last-child { border-bottom: none; }
+.leadership-role {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--teal-deep);
+  min-width: 120px;
+  padding-top: 2px;
+}
+.leadership-name {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 14px;
+}
+.leadership-detail {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+/* Timeline Events */
+.timeline-events {
+  position: relative;
+  padding-left: 28px;
+  margin: 24px 0;
+}
+.timeline-events::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--border);
+}
+.timeline-event {
+  position: relative;
+  padding-bottom: 20px;
+}
+.timeline-event:last-child { padding-bottom: 0; }
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 2px solid var(--bg);
+}
+.timeline-event.highlight::before {
+  background: var(--teal);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+}
+.timeline-event.warning::before {
+  background: var(--amber);
+  box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.2);
+}
+.timeline-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+.timeline-label {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+/* Footnotes */
+.footnotes {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.footnotes h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+.footnote-list {
+  list-style: none;
+  padding: 0;
+}
+.footnote-list li {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding: 4px 0;
+  padding-left: 24px;
+  position: relative;
+}
+.footnote-list li .fn-num {
+  position: absolute;
+  left: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--teal-deep);
+}
+sup {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--teal-deep);
+  font-weight: 600;
+}
+
+/* Methodology */
+.methodology {
+  background: var(--bg-warm);
+  border-radius: 10px;
+  padding: 28px;
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.methodology h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+.footer-left, .footer-right {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .container { padding: 24px 16px 48px; }
+  .header h1 { font-size: 28px; }
+  .header h1 span { font-size: 18px; }
+  .top-stats { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .phase-grid { grid-template-columns: 1fr; }
+  .stat-value { font-size: 26px; }
+  .footer { flex-direction: column; gap: 12px; }
+  .leadership-item { flex-direction: column; gap: 4px; }
+  .leadership-role { min-width: unset; }
+}
+
+/* Print */
+@media print {
+  body { background: #fff; }
+  .key-finding, .chart-container, .card, .phase-card, .methodology { break-inside: avoid; }
+  .methodology { break-before: page; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-eyebrow">Meta Ad Library Intelligence Brief</div>
+  <h1>WATR Alliance
+    <span>Produced Water Reuse Advocacy in New Mexico</span>
+  </h1>
+  <div class="header-meta">
+    <span>Page: Watr Alliance (746865528506210)</span>
+    <span>Paid for by: WATR ALLIANCE</span>
+    <span>Period: Aug 4 &ndash; Oct 21, 2025</span>
+    <span>Geography: New Mexico</span>
+  </div>
+</header>
+
+<!-- TOP STATS -->
+<div class="top-stats">
+  <div class="stat-card">
+    <div class="stat-label">Total Spend</div>
+    <div class="stat-value">$5.1K&ndash;$6.5K</div>
+    <div class="stat-subtext">Meta-reported range</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Total Ads</div>
+    <div class="stat-value">6</div>
+    <div class="stat-subtext">across 2 campaign phases</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Impressions</div>
+    <div class="stat-value">749K&ndash;865K</div>
+    <div class="stat-subtext">estimated delivery</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Active Period</div>
+    <div class="stat-value">79 days</div>
+    <div class="stat-subtext">Aug 4 &ndash; Oct 21</div>
+  </div>
+</div>
+
+<!-- KEY FINDING -->
+<div class="key-finding">
+  <strong>Key Finding:</strong> WATR Alliance, a <em>501(c)(6) trade association</em> launched in December 2024 with board representation from Occidental Petroleum, ConocoPhillips, and Chevron, ran a focused Meta advertising campaign during a high-stakes regulatory battle over produced water reuse in New Mexico.<sup>1,12</sup> Their <em>$5,100&ndash;$6,500 campaign</em> generated nearly 865,000 impressions across Facebook and Instagram, driving petition signatures through ProtectWaterNM.com. The campaign was strategically timed to coincide with the organization's petition to the Water Quality Control Commission (WQCC 25-34),<sup>7</sup> and launched amid revelations that the Governor's office had coordinated cabinet secretaries to fast-track the petition.<sup>8</sup>
+</div>
+
+<!-- TWO PAGES, ONE ENTITY -->
+<div class="section-title">Two Pages, One Entity</div>
+
+<div class="card">
+  <p>WATR Alliance operates two Facebook profiles &mdash; one listed in Santa Fe, NM (profile ID: 61578637544878) and one in Albuquerque, NM (profile ID: 61575162185171). In the Meta Ad Library, all political/issue ad activity runs through a single entity: <strong>Watr Alliance</strong> (Page ID: 746865528506210), with the "Paid for by" disclaimer reading "WATR ALLIANCE."</p>
+  <p style="margin-bottom: 0;">This is a common practice: maintaining localized social media presences while running all paid advertising through a single page for consolidated campaign management and reporting.</p>
+</div>
+
+<!-- WHO IS WATR ALLIANCE -->
+<div class="section-title">Who Is WATR Alliance?</div>
+
+<p>The Water, Access, Treatment and Reuse (WATR) Alliance is a 501(c)(6) trade association headquartered in Santa Fe, New Mexico, launched in December 2024.<sup>1</sup> It advocates for produced water treatment and reuse across the Southwest.</p>
+
+<div class="card">
+  <h3 style="margin-top: 0;">Leadership</h3>
+  <div class="leadership-list">
+    <div class="leadership-item">
+      <div class="leadership-role">Executive Director</div>
+      <div>
+        <div class="leadership-name">Jennifer Bradfute</div>
+        <div class="leadership-detail">Former ExxonMobil Issues &amp; Advocacy team (Permian Basin); previously Senior Counsel at Marathon Oil. Spearheaded the 2019 NM Produced Water Act and represented the oil and gas industry on NM's Water Policy and Infrastructure Task Force (2022).<sup>2,3</sup></div>
+      </div>
+    </div>
+    <div class="leadership-item">
+      <div class="leadership-role">Board Chair</div>
+      <div>
+        <div class="leadership-name">Kelly Bennett</div>
+        <div class="leadership-detail">CEO of B3 Insight (natural resource data analytics). Previously built the energy desk at BENTEK Energy/Platts and co-founded Ponderosa Energy.</div>
+      </div>
+    </div>
+    <div class="leadership-item">
+      <div class="leadership-role">Treasurer</div>
+      <div>
+        <div class="leadership-name">Michael Dyson</div>
+        <div class="leadership-detail">CEO of Infinity Water Solutions, which recycles and reuses wastewater for oil and gas operators.</div>
+      </div>
+    </div>
+    <div class="leadership-item">
+      <div class="leadership-role">Board Members</div>
+      <div>
+        <div class="leadership-name">Occidental Petroleum, ConocoPhillips, Chevron</div>
+        <div class="leadership-detail">Executives from each company hold board seats.<sup>12</sup></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The organization is structured as a trade association &mdash; the same IRS classification as chambers of commerce &mdash; not a nonprofit advocacy group or charity. Critics, including environmental groups and Democratic state legislators, characterize WATR as a repackaged vehicle for the New Mexico Oil and Gas Association (NMOGA), noting overlapping membership and the organization's rapid launch-to-petition timeline: seven months from incorporation to WQCC petition filing.<sup>12</sup></p>
+
+<!-- THE REGULATORY BATTLE -->
+<div class="section-title">The Regulatory Battle</div>
+
+<h2>Produced Water Reuse in New Mexico: A Timeline</h2>
+
+<p>New Mexico's Permian Basin produces approximately 2.5 billion barrels of produced water annually<sup>13</sup> &mdash; contaminated water that surfaces alongside oil and gas extraction. The debate over whether this water can be safely treated and reused outside of oil fields has become one of the state's most contentious environmental and economic disputes.</p>
+
+<div class="timeline-events">
+  <div class="timeline-event">
+    <div class="timeline-date">2019</div>
+    <div class="timeline-label">NM Produced Water Act passes. Jennifer Bradfute championed the legislation as Marathon Oil counsel.<sup>3</sup></div>
+  </div>
+  <div class="timeline-event">
+    <div class="timeline-date">January 2024</div>
+    <div class="timeline-label">Gov. Lujan Grisham announces 50-Year Water Action Plan, including $500M produced water investment.<sup>4</sup></div>
+  </div>
+  <div class="timeline-event">
+    <div class="timeline-date">May 2024</div>
+    <div class="timeline-label">WQCC Phase 1 rulemaking hearing begins (18-month process).<sup>5</sup></div>
+  </div>
+  <div class="timeline-event">
+    <div class="timeline-date">May 2025</div>
+    <div class="timeline-label">WQCC prohibits produced water discharge outside oil fields for 5 years (WQCC 23-84).<sup>5</sup></div>
+  </div>
+  <div class="timeline-event">
+    <div class="timeline-date">June 2025</div>
+    <div class="timeline-label">NMOGA appeals the prohibition rule.<sup>6</sup></div>
+  </div>
+  <div class="timeline-event highlight">
+    <div class="timeline-date">July 2025</div>
+    <div class="timeline-label">WATR Alliance files petition (WQCC 25-34) proposing new reuse rules.<sup>7</sup></div>
+  </div>
+  <div class="timeline-event warning">
+    <div class="timeline-date">August 2025</div>
+    <div class="timeline-label"><strong>WATR ad campaign launches.</strong> Simultaneously, email scandal breaks: Governor's office coordinated cabinet secretaries to fast-track WATR petition; five cabinet secretaries appeared at WQCC meeting.<sup>8</sup></div>
+  </div>
+  <div class="timeline-event warning">
+    <div class="timeline-date">September 2025</div>
+    <div class="timeline-label">Environmental groups file disqualification motions against 7 WQCC members.<sup>9</sup></div>
+  </div>
+  <div class="timeline-event highlight">
+    <div class="timeline-date">October 2025</div>
+    <div class="timeline-label"><strong>WATR ad campaign ends.</strong></div>
+  </div>
+  <div class="timeline-event">
+    <div class="timeline-date">Late 2025</div>
+    <div class="timeline-label">WQCC votes 7-4 to vacate the controversial vote advancing WATR's petition.<sup>10</sup></div>
+  </div>
+  <div class="timeline-event">
+    <div class="timeline-date">February 2026</div>
+    <div class="timeline-label">HB 207 (requiring WQCC to adopt produced water reuse rules) tabled/killed 5-4 in committee.<sup>11</sup></div>
+  </div>
+</div>
+
+<!-- ANNOTATED SPEND TIMELINE CHART -->
+<div class="chart-container">
+  <h3>Monthly Ad Spend with Regulatory Events</h3>
+  <div class="chart-subtitle">Mid-range spend estimates (Aug&ndash;Oct 2025) &middot; Annotations mark key regulatory milestones</div>
+  <div style="position: relative; height: 320px;">
+    <canvas id="timelineChart"></canvas>
+  </div>
+</div>
+
+<!-- AD CAMPAIGN ANALYSIS -->
+<div class="section-title">Ad Campaign Analysis</div>
+
+<h2>Two Phases, One Objective</h2>
+
+<p>WATR Alliance's six ads break cleanly into two phases with distinct messaging strategies, both aimed at generating petition signatures to present as evidence of public support before the WQCC.</p>
+
+<!-- Phase Comparison Cards -->
+<div class="phase-grid">
+  <div class="phase-card p1">
+    <div class="phase-label">Phase 1: Awareness</div>
+    <h4>Aug 4 &ndash; Sep 19, 2025</h4>
+    <div class="phase-stat">
+      <span class="phase-stat-label">Ads</span>
+      <span class="phase-stat-value">4</span>
+    </div>
+    <div class="phase-stat">
+      <span class="phase-stat-label">Spend</span>
+      <span class="phase-stat-value">$4,400&ndash;$5,596</span>
+    </div>
+    <div class="phase-stat">
+      <span class="phase-stat-label">Messaging</span>
+      <span class="phase-stat-value">Generic water scarcity</span>
+    </div>
+    <div class="phase-stat">
+      <span class="phase-stat-label">CTA Domain</span>
+      <span class="phase-stat-value">ProtectWaterNM.com</span>
+    </div>
+    <div class="phase-stat">
+      <span class="phase-stat-label">Mentions Oil &amp; Gas?</span>
+      <span class="phase-stat-value" style="color: var(--red);">No</span>
+    </div>
+  </div>
+  <div class="phase-card p2">
+    <div class="phase-label">Phase 2: Refined Messaging</div>
+    <h4>Oct 3 &ndash; Oct 21, 2025</h4>
+    <div class="phase-stat">
+      <span class="phase-stat-label">Ads</span>
+      <span class="phase-stat-value">2</span>
+    </div>
+    <div class="phase-stat">
+      <span class="phase-stat-label">Spend</span>
+      <span class="phase-stat-value">$700&ndash;$898</span>
+    </div>
+    <div class="phase-stat">
+      <span class="phase-stat-label">Messaging</span>
+      <span class="phase-stat-value">Jobs, TX competition</span>
+    </div>
+    <div class="phase-stat">
+      <span class="phase-stat-label">CTA Domain</span>
+      <span class="phase-stat-value">protectwaternm.org</span>
+    </div>
+    <div class="phase-stat">
+      <span class="phase-stat-label">Mentions Produced Water?</span>
+      <span class="phase-stat-value" style="color: var(--green);">Yes</span>
+    </div>
+  </div>
+</div>
+
+<div class="insight-box teal">
+  <strong>Messaging Pivot</strong>
+  Phase 1 avoided any mention of produced water, oil and gas, or the WQCC petition &mdash; instead deploying a generic fear-based appeal about water scarcity. Phase 2 explicitly introduced "produced water" and "brackish water," added a union jobs angle, and framed the issue as interstate competition with Texas. This is a textbook issue-laundering progression: build public concern about a problem (water scarcity), then introduce the industry's preferred solution (produced water reuse).
+</div>
+
+<h3>Phase 1: Awareness Ads</h3>
+<p>All four Phase 1 ads used identical creative text, differing only in format (image vs. video) and distribution:</p>
+
+<div class="ad-card phase1">
+  <div class="ad-text">"Are you worried about New Mexico's water challenges? Our freshwater is at risk! Join the movement to reuse water safely and secure our future. Sign the petition today at ProtectWaterNM.com"</div>
+  <div class="ad-meta">Ran across all 4 Phase 1 ads &middot; Links to Change.org petition</div>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;">
+  <div style="background: var(--bg-warm); border-radius: 8px; padding: 12px 16px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Ad 1</div>
+    <div style="font-size: 13px; color: var(--text-body); margin-top: 4px;">Aug 4&ndash;6 &middot; $0&ndash;$99</div>
+    <a href="https://www.facebook.com/ads/library/?id=1414177056360161" target="_blank" class="ad-link">View in Ad Library</a>
+  </div>
+  <div style="background: var(--bg-warm); border-radius: 8px; padding: 12px 16px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Ad 2</div>
+    <div style="font-size: 13px; color: var(--text-body); margin-top: 4px;">Aug 5&ndash;12 &middot; $900&ndash;$999</div>
+    <a href="https://www.facebook.com/ads/library/?id=1425788508625460" target="_blank" class="ad-link">View in Ad Library</a>
+  </div>
+  <div style="background: var(--bg-warm); border-radius: 8px; padding: 12px 16px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Ad 3</div>
+    <div style="font-size: 13px; color: var(--text-body); margin-top: 4px;">Aug 18&ndash;Sep 1 &middot; $2,500&ndash;$2,999</div>
+    <a href="https://www.facebook.com/ads/library/?id=780682984498291" target="_blank" class="ad-link">View in Ad Library</a>
+  </div>
+  <div style="background: var(--bg-warm); border-radius: 8px; padding: 12px 16px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Ad 4</div>
+    <div style="font-size: 13px; color: var(--text-body); margin-top: 4px;">Sep 4&ndash;19 &middot; $1,000&ndash;$1,499</div>
+    <a href="https://www.facebook.com/ads/library/?id=1050212357184678" target="_blank" class="ad-link">View in Ad Library</a>
+  </div>
+</div>
+
+<h3>Phase 2: Refined Messaging Ads</h3>
+
+<div class="ad-card phase2">
+  <div class="ad-text">"Reuse Water. Create Jobs. Strengthen Communities."</div>
+  <div class="ad-meta">Oct 3&ndash;11 &middot; $400&ndash;$499 &middot; Introduced union jobs angle, linked to Roswell Record opinion editorial &middot; protectwaternm.org</div>
+  <a href="https://www.facebook.com/ads/library/?id=1309359210111527" target="_blank" class="ad-link">View in Ad Library</a>
+</div>
+
+<div class="ad-card phase2">
+  <div class="ad-text">"Don't Waste New Mexico's Water Future!!!"</div>
+  <div class="ad-meta">Oct 13&ndash;21 &middot; $300&ndash;$399 &middot; Added Texas competition framing, linked to Grant County Beat editorial</div>
+  <a href="https://www.facebook.com/ads/library/?id=1485109359196073" target="_blank" class="ad-link">View in Ad Library</a>
+</div>
+
+<!-- SPEND BY AD CHART -->
+<div class="chart-container" style="margin-top: 32px;">
+  <h3>Spend by Individual Ad</h3>
+  <div class="chart-subtitle">Mid-range estimates &middot; Color-coded by campaign phase</div>
+  <div style="position: relative; height: 280px;">
+    <canvas id="spendByAdChart"></canvas>
+  </div>
+</div>
+
+<!-- AUDIENCE DELIVERY -->
+<div class="section-title">Audience Delivery</div>
+
+<h2>100% New Mexico Delivery</h2>
+<p>All six ads delivered exclusively within New Mexico, with an approximately even male/female split across the campaign. Age distribution, however, skews heavily older &mdash; consistent with Meta's general user demographics and the nature of the issue.</p>
+
+<div class="two-col">
+  <div class="chart-container">
+    <h3>Age Distribution</h3>
+    <div class="chart-subtitle">Aggregated across all 6 ads</div>
+    <div style="position: relative; height: 260px;">
+      <canvas id="ageChart"></canvas>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top: 0;">Delivery Notes</h3>
+    <p style="font-size: 14px;">The 65+ cohort received <strong>37%</strong> of total delivery &mdash; the largest single age group by a significant margin. Combined, audiences 55 and older account for <strong>54%</strong> of all impressions.</p>
+    <p style="font-size: 14px;">The jobs/union messaging ad (<a href="https://www.facebook.com/ads/library/?id=1309359210111527" target="_blank">Ad 5</a>) delivered notably younger: <strong>35% to 18&ndash;24 year olds</strong>. This suggests the union jobs creative resonated with a different audience segment, or that Meta's algorithm identified younger users as more responsive to that message.</p>
+
+    <div class="insight-box caution" style="margin-top: 16px;">
+      <strong>Delivery vs. Targeting</strong>
+      All demographic and geographic data in the Ad Library reflects <em>delivery</em> patterns &mdash; who saw the ad &mdash; not targeting inputs. Age skews can result from first-party audience lists, algorithmic optimization, creative resonance, or platform composition, not just explicit demographic targeting.
+    </div>
+  </div>
+</div>
+
+<!-- STRATEGIC ASSESSMENT -->
+<div class="section-title">Strategic Assessment</div>
+
+<h2>Six Ads, One Regulatory Fight</h2>
+
+<h3>1. Strategic Timing</h3>
+<p>The ad campaign (August&ndash;October 2025) overlapped precisely with WATR Alliance's WQCC petition filed in July 2025<sup>7</sup> and the subsequent email scandal revealing the Governor's office coordination.<sup>8</sup> The campaign launched weeks after the petition filing and ended shortly before the WQCC voted 7-4 to vacate its advance of the petition.<sup>10</sup></p>
+
+<h3>2. Modest Spend, Maximum Visibility</h3>
+<p>At $5,100&ndash;$6,500, this is a small campaign by Meta advertising standards. But it generated nearly 865,000 impressions &mdash; substantial reach in a state of 2.1 million people. The spend was calibrated for a petition-signature campaign targeting an engaged audience, not a mass persuasion effort. On a cost-per-thousand-impressions basis, WATR achieved roughly $6&ndash;$8 CPMs, well within efficient ranges for issue advocacy.</p>
+
+<h3>3. Messaging Evolution Reveals Strategy</h3>
+<p>Phase 1's generic water-scarcity framing avoided any mention of oil and gas, produced water, or the regulatory petition. This is a recognized issue-laundering technique: build public concern about a problem (water scarcity) before introducing the industry's preferred solution (produced water reuse). Phase 2 made the pivot explicit, introducing "produced water" and "brackish water" terminology along with economic arguments about jobs and interstate competition with Texas.</p>
+
+<div class="insight-box strategic">
+  <strong>Strategic Takeaway</strong>
+  The two-phase messaging architecture &mdash; generic concern followed by specific policy advocacy &mdash; is designed to build a coalition before revealing the coalition's purpose. Petition signers recruited under "protect our freshwater" framing may not have understood they were supporting produced water reuse from oil and gas operations.
+</div>
+
+<h3>4. Multi-Channel Coordination</h3>
+<p>The October ads linked to opinion editorials in rural New Mexico newspapers (Grant County Beat, Roswell Record) authored by WATR allies. This indicates a coordinated earned/paid media strategy: place favorable op-eds in local outlets, then amplify them through paid Meta distribution to extend their reach beyond the publication's organic readership.</p>
+
+<h3>5. Petition as Organizing Tool</h3>
+<p>All ads drove to ProtectWaterNM.com or protectwaternm.org, which redirected to a Change.org petition. This likely served dual purposes: generating a signature count to present to regulators as evidence of public support for the WQCC petition, and building an email/contact list for future mobilization on water reuse issues.</p>
+
+<h3>6. Silence as Signal</h3>
+<p>No ads have run since October 2025. The campaign went dark coinciding with the WQCC's 7-4 vote to vacate the decision advancing WATR's petition.<sup>10</sup> The regulatory avenue stalled; the ad campaign stopped. When HB 207 &mdash; which would have required the WQCC to adopt produced water reuse rules &mdash; was killed in committee in February 2026,<sup>11</sup> there was no corresponding ad push. This correlation reinforces that the ads were purpose-built for the WQCC fight, not part of an ongoing public awareness effort.</p>
+
+<div class="insight-box strategic">
+  <strong>What to Watch</strong>
+  WATR Alliance's infrastructure &mdash; two Facebook profiles, a petition website, an email list, and established ad accounts &mdash; remains intact. If the regulatory or legislative landscape shifts (a new WQCC petition, gubernatorial support, or a revised legislative vehicle), expect this ad operation to reactivate with the same earned/paid media playbook. The organization's seven-month incorporation-to-advertising timeline in 2025 demonstrated rapid deployment capability.
+</div>
+
+<!-- METHODOLOGY -->
+<div class="methodology">
+  <h3>Methodology &amp; Limitations</h3>
+  <p>This analysis is based on data retrieved from the <strong>Meta Ad Library API</strong> on March 26, 2026, covering all political and issue ads from the Watr Alliance page (Page ID: 746865528506210) with delivery in the United States.</p>
+  <p>The analysis covers the full active advertising period: August 4 through October 21, 2025. No ads were found outside this window.</p>
+  <p><strong>Search method:</strong> Page-level search for Watr Alliance, supplemented by keyword searches for "produced water," "WATR Alliance," and "ProtectWaterNM" to confirm no additional advertising pages were missed.</p>
+  <p><strong>Spend and impression figures are Meta-reported ranges, not exact amounts.</strong> Mid-range estimates used in charts represent the arithmetic mean of upper and lower bounds and should be treated as approximations.</p>
+  <p>Demographic and geographic data reflects <em>delivery</em> patterns (who saw the ads), not targeting inputs (what the advertiser selected). The Ad Library does not capture organic posts, only paid political/issue advertising. ProtectWaterNM petition signature counts are not available through the Ad Library.</p>
+  <p>This report covers Meta platform advertising only. WATR Alliance may also conduct outreach through direct lobbying, earned media, events, direct mail, or other channels not captured here.</p>
+</div>
+
+<!-- FOOTNOTES -->
+<div class="footnotes">
+  <h3>Sources</h3>
+  <ol class="footnote-list">
+    <li><span class="fn-num">1</span>WATR Alliance launch announcement. BusinessWire, December 11, 2024.</li>
+    <li><span class="fn-num">2</span>Jennifer Bradfute background. LinkedIn profile; Bradfute Sayer firm website.</li>
+    <li><span class="fn-num">3</span>2019 NM Produced Water Act. NM Environment Department.</li>
+    <li><span class="fn-num">4</span>Gov. Lujan Grisham's 50-Year Water Action Plan. Governor's office, January 2024.</li>
+    <li><span class="fn-num">5</span>WQCC Phase 1 prohibition rule (WQCC 23-84). NM Water Quality Control Commission.</li>
+    <li><span class="fn-num">6</span>NMOGA appeal of prohibition rule. Source New Mexico reporting.</li>
+    <li><span class="fn-num">7</span>WATR Alliance WQCC petition (WQCC 25-34). NM WQCC docket.</li>
+    <li><span class="fn-num">8</span>Governor's office email coordination. New Energy Economy; Source NM; KANW reporting, July&ndash;August 2025.</li>
+    <li><span class="fn-num">9</span>Environmental group disqualification motions. Source NM, September 2025.</li>
+    <li><span class="fn-num">10</span>WQCC 7-4 vote to vacate. Source NM; Santa Fe New Mexican, late 2025.</li>
+    <li><span class="fn-num">11</span>HB 207 tabled 5-4 in committee. Source NM; Western Water reporting, February 2026.</li>
+    <li><span class="fn-num">12</span>WATR Alliance board composition and NMOGA overlap. ABQ Journal opinion; WildEarth Guardians factsheet.</li>
+    <li><span class="fn-num">13</span>NM produced water volume (2.5 billion barrels, 2024). NM Environment Department.</li>
+  </ol>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    Data source: Meta Ad Library API<br>
+    Retrieved: March 26, 2026<br>
+    Page ID: 746865528506210<br><br>
+    Built by The Canter Company &middot; <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank">LinkedIn</a>
+  </div>
+  <div class="footer-right">
+    Analysis window: Aug 4 &ndash; Oct 21, 2025<br>
+    6 ads analyzed<br>
+    Spend range: $5,100 &ndash; $6,494
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// Color palette
+const tealLight = '#5eead4';
+const teal = '#0d9488';
+const tealDark = '#0f766e';
+const tealDeep = '#115e59';
+const navy = '#1a2332';
+const stone = '#78716c';
+const amber = '#b45309';
+
+// =============================================
+// CHART 1: Annotated Spend Timeline
+// =============================================
+const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+new Chart(timelineCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Aug 2025', 'Sep 2025', 'Oct 2025'],
+    datasets: [{
+      label: 'Mid-range Spend ($)',
+      data: [3749, 1250, 799],
+      backgroundColor: [teal, teal, teal],
+      borderColor: [tealDeep, tealDeep, tealDeep],
+      borderWidth: 1,
+      borderRadius: 4,
+      barPercentage: 0.55
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 5500,
+        ticks: {
+          font: { family: "'IBM Plex Mono', monospace", size: 11 },
+          color: stone,
+          callback: v => '$' + v.toLocaleString()
+        },
+        grid: { color: '#ece9e2' }
+      },
+      x: {
+        ticks: {
+          font: { family: "'IBM Plex Mono', monospace", size: 11 },
+          color: stone
+        },
+        grid: { display: false }
+      }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: navy,
+        titleFont: { family: "'IBM Plex Mono', monospace", size: 12 },
+        bodyFont: { family: "'IBM Plex Sans', sans-serif", size: 13 },
+        callbacks: {
+          label: ctx => ' $' + ctx.parsed.y.toLocaleString() + ' (mid-range)'
+        }
+      },
+      annotation: {
+        annotations: {
+          petitionFiled: {
+            type: 'line',
+            xMin: -0.45,
+            xMax: -0.45,
+            borderColor: amber,
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            label: {
+              display: true,
+              content: 'WQCC petition filed (Jul)',
+              position: 'start',
+              backgroundColor: 'rgba(180, 83, 9, 0.85)',
+              color: '#fff',
+              font: { family: "'IBM Plex Mono', monospace", size: 9, weight: '600' },
+              padding: { x: 6, y: 3 },
+              borderRadius: 3
+            }
+          },
+          emailScandal: {
+            type: 'line',
+            xMin: 0.3,
+            xMax: 0.3,
+            borderColor: '#c53030',
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            label: {
+              display: true,
+              content: "Gov's office email scandal (Aug)",
+              position: 'start',
+              backgroundColor: 'rgba(197, 48, 48, 0.85)',
+              color: '#fff',
+              font: { family: "'IBM Plex Mono', monospace", size: 9, weight: '600' },
+              padding: { x: 6, y: 3 },
+              borderRadius: 3,
+              yAdjust: -20
+            }
+          },
+          disqualMotions: {
+            type: 'line',
+            xMin: 1.3,
+            xMax: 1.3,
+            borderColor: amber,
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            label: {
+              display: true,
+              content: 'Disqualification motions (Sep)',
+              position: 'start',
+              backgroundColor: 'rgba(180, 83, 9, 0.85)',
+              color: '#fff',
+              font: { family: "'IBM Plex Mono', monospace", size: 9, weight: '600' },
+              padding: { x: 6, y: 3 },
+              borderRadius: 3
+            }
+          },
+          vacateVote: {
+            type: 'line',
+            xMin: 2.45,
+            xMax: 2.45,
+            borderColor: '#6b6560',
+            borderWidth: 1.5,
+            borderDash: [4, 3],
+            label: {
+              display: true,
+              content: 'WQCC vacates vote (late 2025)',
+              position: 'start',
+              backgroundColor: 'rgba(107, 101, 96, 0.85)',
+              color: '#fff',
+              font: { family: "'IBM Plex Mono', monospace", size: 9, weight: '600' },
+              padding: { x: 6, y: 3 },
+              borderRadius: 3,
+              yAdjust: -20
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// =============================================
+// CHART 2: Spend by Individual Ad
+// =============================================
+const spendByAdCtx = document.getElementById('spendByAdChart').getContext('2d');
+new Chart(spendByAdCtx, {
+  type: 'bar',
+  data: {
+    labels: [
+      'Ad 1: Aug 4\u20136',
+      'Ad 2: Aug 5\u201312',
+      'Ad 3: Aug 18\u2013Sep 1',
+      'Ad 4: Sep 4\u201319',
+      'Ad 5: Oct 3\u201311',
+      'Ad 6: Oct 13\u201321'
+    ],
+    datasets: [{
+      label: 'Mid-range Spend ($)',
+      data: [50, 950, 2750, 1250, 450, 350],
+      backgroundColor: [teal, teal, teal, teal, tealDeep, tealDeep],
+      borderColor: [tealDark, tealDark, tealDark, tealDark, navy, navy],
+      borderWidth: 1,
+      borderRadius: 4,
+      barPercentage: 0.7
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          font: { family: "'IBM Plex Mono', monospace", size: 11 },
+          color: stone,
+          callback: v => '$' + v.toLocaleString()
+        },
+        grid: { color: '#ece9e2' }
+      },
+      y: {
+        ticks: {
+          font: { family: "'IBM Plex Mono', monospace", size: 11 },
+          color: stone
+        },
+        grid: { display: false }
+      }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: navy,
+        titleFont: { family: "'IBM Plex Mono', monospace", size: 12 },
+        bodyFont: { family: "'IBM Plex Sans', sans-serif", size: 13 },
+        callbacks: {
+          label: function(ctx) {
+            const ranges = [
+              '$0\u2013$99', '$900\u2013$999', '$2,500\u2013$2,999',
+              '$1,000\u2013$1,499', '$400\u2013$499', '$300\u2013$399'
+            ];
+            return ' ' + ranges[ctx.dataIndex] + ' (range)';
+          },
+          afterLabel: function(ctx) {
+            const phases = ['Phase 1', 'Phase 1', 'Phase 1', 'Phase 1', 'Phase 2', 'Phase 2'];
+            return phases[ctx.dataIndex];
+          }
+        }
+      }
+    }
+  },
+  plugins: [{
+    id: 'phaseLabels',
+    afterDraw(chart) {
+      const ctx = chart.ctx;
+      ctx.save();
+      ctx.font = "600 9px 'IBM Plex Mono', monospace";
+
+      // Phase 1 label
+      ctx.fillStyle = teal;
+      ctx.textAlign = 'left';
+      const meta = chart.getDatasetMeta(0);
+      if (meta.data[0]) {
+        const y1 = meta.data[0].y;
+        const y4 = meta.data[3].y;
+        const midY1 = (y1 + y4) / 2;
+        ctx.fillText('PHASE 1', chart.chartArea.right + 8, midY1 + 3);
+      }
+
+      // Phase 2 label
+      ctx.fillStyle = tealDeep;
+      if (meta.data[4]) {
+        const y5 = meta.data[4].y;
+        const y6 = meta.data[5].y;
+        const midY2 = (y5 + y6) / 2;
+        ctx.fillText('PHASE 2', chart.chartArea.right + 8, midY2 + 3);
+      }
+
+      ctx.restore();
+    }
+  }]
+});
+
+// =============================================
+// CHART 3: Age Distribution Donut
+// =============================================
+const ageCtx = document.getElementById('ageChart').getContext('2d');
+new Chart(ageCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['18\u201324', '25\u201334', '35\u201344', '45\u201354', '55\u201364', '65+'],
+    datasets: [{
+      data: [14, 12, 10, 10, 17, 37],
+      backgroundColor: [
+        '#99f6e4', // lightest teal
+        '#5eead4',
+        '#2dd4bf',
+        '#14b8a6',
+        '#0d9488',
+        '#115e59'  // deepest teal
+      ],
+      borderColor: '#ffffff',
+      borderWidth: 2,
+      hoverOffset: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '55%',
+    plugins: {
+      legend: {
+        position: 'right',
+        labels: {
+          font: { family: "'IBM Plex Mono', monospace", size: 11 },
+          color: stone,
+          padding: 12,
+          usePointStyle: true,
+          pointStyleWidth: 10,
+          generateLabels: function(chart) {
+            const data = chart.data;
+            return data.labels.map((label, i) => ({
+              text: label + '  ' + data.datasets[0].data[i] + '%',
+              fillStyle: data.datasets[0].backgroundColor[i],
+              strokeStyle: '#fff',
+              lineWidth: 1,
+              pointStyle: 'rectRounded',
+              index: i
+            }));
+          }
+        }
+      },
+      tooltip: {
+        backgroundColor: navy,
+        titleFont: { family: "'IBM Plex Mono', monospace", size: 12 },
+        bodyFont: { family: "'IBM Plex Sans', sans-serif", size: 13 },
+        callbacks: {
+          label: ctx => ' ' + ctx.label + ': ' + ctx.parsed + '%'
+        }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
