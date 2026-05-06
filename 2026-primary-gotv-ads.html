@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 Primary GOTV on Meta — Texas &amp; New Mexico Nonprofit Intelligence Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+<style>
+  :root {
+    --bg: #faf9f7; --bg-card: #ffffff; --bg-warm: #f5f3ef; --bg-accent: #f0ece4;
+    --border: #e4e0d8; --border-light: #ece9e2;
+    --navy: #1a2332; --navy-mid: #2d3a4a; --slate: #475569; --stone: #78716c;
+    --text-primary: #1c1917; --text-body: #3d3833; --text-secondary: #6b6560; --text-muted: #9c9590;
+    --blue-deep: #1e3a5f; --blue: #2563eb; --blue-light: #e8f0fe;
+    --red-deep: #9b1c1c; --red: #c53030; --red-light: #fef2f2;
+    --green-deep: #1a5632; --green: #16803c; --green-light: #f0fdf4;
+    --amber-deep: #92400e; --amber: #b45309; --amber-light: #fffbeb;
+    --purple-deep: #4c1d95; --purple: #6d28d9; --purple-light: #f5f3ff;
+    --teal-deep: #115e59; --teal: #0d9488; --teal-light: #f0fdfa;
+    --orange: #ea580c; --orange-light: #fff7ed;
+    --tx: #b91c1c; --tx-light: #fef2f2; --nm: #b45309; --nm-light: #fffbeb;
+    --c3: #16803c; --c4: #2563eb; --ie: #6d28d9;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text-body); font-family:'IBM Plex Sans',-apple-system,sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .container { max-width:1100px; margin:0 auto; padding:48px 32px 80px; }
+  .header { margin-bottom:48px; padding-bottom:32px; border-bottom:2px solid var(--navy); }
+  .header-eyebrow { font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--stone); margin-bottom:10px; }
+  .header h1 { font-family:'Source Serif 4',Georgia,serif; font-size:36px; font-weight:700; color:var(--navy); letter-spacing:-0.3px; line-height:1.15; margin-bottom:6px; }
+  .header h1 span { display:block; font-weight:400; font-size:24px; color:var(--slate); margin-top:2px; }
+  .header-meta { display:flex; gap:28px; margin-top:14px; font-size:13px; color:var(--text-secondary); flex-wrap:wrap; }
+  .header-meta .sep { color:var(--border); }
+
+  .top-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:48px; }
+  .stat-card { background:var(--bg-card); padding:24px 22px; }
+  .stat-label { font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:6px; }
+  .stat-value { font-family:'Source Serif 4',Georgia,serif; font-size:30px; font-weight:700; color:var(--navy); letter-spacing:-1px; line-height:1.1; }
+  .stat-sub { font-size:12px; color:var(--text-secondary); margin-top:4px; }
+
+  .section { margin-bottom:52px; }
+  .section-header { display:flex; align-items:baseline; gap:16px; margin-bottom:24px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+  .section-number { font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; color:var(--stone); letter-spacing:1px; }
+  .section h2 { font-family:'Source Serif 4',Georgia,serif; font-size:26px; font-weight:600; color:var(--navy); letter-spacing:-0.2px; }
+  .section h3 { font-family:'Source Serif 4',Georgia,serif; font-size:20px; font-weight:600; color:var(--navy-mid); margin:24px 0 12px; }
+  p { margin-bottom:14px; font-size:15px; }
+
+  .card { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:28px; margin-bottom:24px; }
+  .card-header { font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--stone); margin-bottom:16px; }
+
+  .chart-wrap { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:28px; margin-bottom:24px; }
+  .chart-title { font-family:'Source Serif 4',Georgia,serif; font-size:18px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+  .chart-subtitle { font-size:13px; color:var(--text-secondary); margin-bottom:20px; }
+
+  .data-table { width:100%; border-collapse:collapse; font-size:14px; margin:16px 0; }
+  .data-table thead th { font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); padding:8px 12px; border-bottom:2px solid var(--border); text-align:left; }
+  .data-table thead th.right { text-align:right; }
+  .data-table tbody td { padding:10px 12px; border-bottom:1px solid var(--border-light); vertical-align:top; }
+  .data-table tbody td.right { text-align:right; font-variant-numeric:tabular-nums; }
+  .data-table tbody tr:last-child td { border-bottom:none; }
+  .data-table tbody tr:hover { background:var(--bg-warm); }
+
+  .tag { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; text-transform:uppercase; }
+  .tag-tx { background:var(--tx-light); color:var(--tx); }
+  .tag-nm { background:var(--nm-light); color:var(--nm); }
+  .tag-c3 { background:#f0fdf4; color:var(--c3); }
+  .tag-c4 { background:#e8f0fe; color:var(--c4); }
+  .tag-ie  { background:#f5f3ff; color:var(--ie); }
+
+  .callout { border-left:4px solid var(--blue); padding:16px 20px; margin:20px 0; background:var(--blue-light); border-radius:0 8px 8px 0; font-size:14px; }
+  .callout-red { border-left-color:var(--red); background:var(--red-light); }
+  .callout-amber { border-left-color:var(--amber); background:var(--amber-light); }
+  .callout-green { border-left-color:var(--green); background:var(--green-light); }
+  .callout-purple { border-left-color:var(--purple); background:var(--purple-light); }
+  .callout strong { display:block; margin-bottom:4px; color:var(--navy); }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px; }
+
+  .key-finding { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%); color:#fff; padding:32px; border-radius:12px; margin:32px 0; }
+  .key-finding h3 { font-family:'Source Serif 4',Georgia,serif; font-size:22px; font-weight:600; color:#fff; margin:0 0 12px; }
+  .key-finding p { color:rgba(255,255,255,0.9); font-size:15px; margin-bottom:0; }
+
+  .ad-quote { background:var(--bg-warm); border-left:3px solid var(--border); padding:14px 18px; margin:12px 0; border-radius:0 6px 6px 0; font-size:14px; font-style:italic; color:var(--text-body); }
+  .ad-quote .ad-source { font-style:normal; font-size:12px; color:var(--text-muted); margin-top:6px; display:block; }
+
+  .theme-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0; }
+  .theme-card { padding:16px; border-radius:8px; font-size:14px; }
+  .theme-card h4 { font-size:14px; font-weight:600; margin-bottom:6px; }
+  .theme-card ul { padding-left:16px; font-size:13px; }
+  .theme-card li { margin-bottom:4px; }
+
+  .advertiser-card { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:24px; margin-bottom:20px; }
+  .advertiser-head { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:14px; flex-wrap:wrap; }
+  .advertiser-name { font-family:'Source Serif 4',Georgia,serif; font-size:20px; font-weight:600; color:var(--navy); }
+  .advertiser-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+  .advertiser-stat { text-align:right; }
+  .advertiser-stat .v { font-family:'Source Serif 4',Georgia,serif; font-size:22px; font-weight:700; color:var(--navy); }
+  .advertiser-stat .l { font-size:11px; font-family:'IBM Plex Mono',monospace; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; }
+  .advertiser-meta { font-size:13px; color:var(--text-secondary); margin-bottom:10px; }
+  .advertiser-summary { font-size:14px; margin-bottom:12px; color:var(--text-body); }
+
+  .timeline { position:relative; margin:24px 0; padding-left:24px; border-left:2px solid var(--border); }
+  .timeline-event { margin-bottom:14px; position:relative; padding-left:8px; }
+  .timeline-event::before { content:''; position:absolute; left:-31px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--navy); border:2px solid var(--bg); }
+  .timeline-event .date { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--stone); letter-spacing:1px; text-transform:uppercase; }
+  .timeline-event .title { font-weight:600; color:var(--navy); margin-top:2px; }
+  .timeline-event .caption { font-size:13px; color:var(--text-secondary); margin-top:2px; }
+
+  .methodology { background:var(--bg-warm); border:1px solid var(--border); border-radius:10px; padding:24px; font-size:13px; color:var(--text-secondary); line-height:1.7; }
+  .methodology h4 { font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--stone); margin-bottom:10px; }
+
+  .footer { margin-top:64px; padding-top:24px; border-top:1px solid var(--border); font-size:12px; color:var(--text-muted); text-align:center; }
+  .footer a { color:var(--text-secondary); text-decoration:none; }
+  .footer a:hover { text-decoration:underline; }
+  a { color:var(--blue); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  @media print { body { background:#fff; } .container { padding:0; } .chart-wrap,.card,.advertiser-card { break-inside:avoid; } }
+  @media (max-width:768px) {
+    .container { padding:24px 16px 60px; }
+    .header h1 { font-size:26px; } .header h1 span { font-size:18px; }
+    .top-stats { grid-template-columns:repeat(2,1fr); } .stat-value { font-size:22px; }
+    .two-col,.theme-grid { grid-template-columns:1fr; }
+    .section h2 { font-size:22px; }
+    .advertiser-head { flex-direction:column; }
+    .advertiser-stat { text-align:left; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-eyebrow">Meta Ad Library Intelligence Brief</div>
+  <h1>2026 Primary GOTV on Meta<span>Texas &amp; New Mexico Nonprofit Advertiser Landscape</span></h1>
+  <div class="header-meta">
+    <span>July 1, 2025 &ndash; March 3, 2026</span>
+    <span class="sep">|</span>
+    <span>Nonprofits, 501(c)(4)s, Unions, Civic Engagement Groups</span>
+    <span class="sep">|</span>
+    <span>TX Primary &bull; NM Pre-Primary &bull; Nov 2025 Specials</span>
+  </div>
+</div>
+
+<!-- TOP STATS -->
+<div class="top-stats">
+  <div class="stat-card">
+    <div class="stat-label">Combined Nonprofit Spend</div>
+    <div class="stat-value">$873K&ndash;$1.6M</div>
+    <div class="stat-sub">12 organizations, TX + NM, 8-month window</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Total Ads Run</div>
+    <div class="stat-value">~6,200</div>
+    <div class="stat-sub">Aggregate across in-scope advertisers</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Top Spender Share</div>
+    <div class="stat-value">~80%</div>
+    <div class="stat-sub">Powered by People dominates the lane</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">"Pure GOTV" Window</div>
+    <div class="stat-value">7 days</div>
+    <div class="stat-sub">Feb 25&ndash;Mar 3 — when "vote Tuesday" ads finally land</div>
+  </div>
+</div>
+
+<!-- KEY FINDING -->
+<div class="key-finding">
+  <h3>The Headline</h3>
+  <p>Heading into the March 3 Texas primary and the lead-up to New Mexico's June primary, nonprofit GOTV advertising on Meta is overwhelmingly the story of one operation: Beto O'Rourke's <strong>Powered by People</strong>, which spent $693K&ndash;$1.27M across 4,701 ads &mdash; roughly four out of every five GOTV nonprofit dollars on the platform in TX and NM combined. Everyone else is small, late, and narrowly focused. ACLU of Texas waited until 48 hours before the primary to deploy a county-by-county Election Day reminder operation. League of Women Voters of Texas ran six ads, all on a single day. Houston-area 501(c)(3) BakerRipley executed remarkable hyperlocal work &mdash; 609 ads naming individual Fort Bend polling places &mdash; but at neighborhood scale and budget. In New Mexico, the entire nonprofit GOTV/issue-advocacy ecosystem on Meta combined spent less than $110K, and most of that was legislative-session issue advocacy, not voter mobilization. The lane that the Democratic Party doesn't fill on Meta &mdash; and the Texas Democratic Party spent $300&ndash;$498 in this window &mdash; is being filled by one man's organization and a handful of small civic nonprofits punching above their weight in the final week.</p>
+</div>
+
+<!-- SECTION 01: THE LANDSCAPE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2>The Landscape</h2>
+  </div>
+
+  <p>Across 12 in-scope nonprofit and advocacy advertisers in Texas and New Mexico, total Meta spend during the 8-month window came in between $873K and $1.6M (Meta reports spend as ranges, not exact amounts). The distribution is extraordinarily concentrated.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Top Nonprofit GOTV Advertisers — TX &amp; NM</div>
+    <div class="chart-subtitle">Upper-bound spend, Jul 1, 2025 &ndash; Mar 3, 2026. Powered by People consumes the chart.</div>
+    <div style="height:420px;"><canvas id="topAdvChart"></canvas></div>
+  </div>
+
+  <div class="two-col">
+    <div class="chart-wrap">
+      <div class="chart-title">TX vs NM Nonprofit Spend</div>
+      <div class="chart-subtitle">Texas dominates by ~15&times;</div>
+      <div style="height:240px;"><canvas id="stateSplitChart"></canvas></div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Spend by Advertiser Type</div>
+      <div class="chart-subtitle">501(c)(4) advocacy is the largest bucket</div>
+      <div style="height:240px;"><canvas id="typeSplitChart"></canvas></div>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Advertiser</th>
+        <th>State</th>
+        <th>Type</th>
+        <th class="right">Ads</th>
+        <th class="right">Spend (Upper)</th>
+        <th>Active Window</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Powered by People (Beto O'Rourke)</strong></td><td><span class="tag tag-tx">TX</span></td><td><span class="tag tag-c4">c4 / org</span></td><td class="right">4,701</td><td class="right">$1,275,000</td><td>Jun 2025 &ndash; Mar 2026</td></tr>
+      <tr><td>Voto Latino</td><td><span class="tag tag-tx">TX-led</span></td><td><span class="tag tag-c4">c4</span></td><td class="right">230</td><td class="right">$73,170</td><td>Aug 2025 &ndash; Feb 2026</td></tr>
+      <tr><td>BakerRipley</td><td><span class="tag tag-tx">TX</span></td><td><span class="tag tag-c3">c3</span></td><td class="right">609</td><td class="right">$65,091</td><td>Oct 2025 &ndash; Mar 2026</td></tr>
+      <tr><td>ACLU of Texas</td><td><span class="tag tag-tx">TX</span></td><td><span class="tag tag-c4">c4</span></td><td class="right">59</td><td class="right">$54,741</td><td>Aug 2025 &ndash; Mar 2026</td></tr>
+      <tr><td>OL&Eacute; NewMexico</td><td><span class="tag tag-nm">NM</span></td><td><span class="tag tag-c4">c4</span></td><td class="right">231</td><td class="right">$36,069</td><td>Jun 2025 &ndash; Feb 2026</td></tr>
+      <tr><td>NM Kids CAN Action Fund</td><td><span class="tag tag-nm">NM</span></td><td><span class="tag tag-ie">IE Cmte</span></td><td class="right">92</td><td class="right">$22,908</td><td>Sep &ndash; Nov 2025</td></tr>
+      <tr><td>Americans for Prosperity-NM</td><td><span class="tag tag-nm">NM</span></td><td><span class="tag tag-c4">c4</span></td><td class="right">130</td><td class="right">$21,170</td><td>Jun 2025 &ndash; Feb 2026</td></tr>
+      <tr><td>ProgressNow New Mexico</td><td><span class="tag tag-nm">NM</span></td><td><span class="tag tag-c4">c4</span></td><td class="right">75</td><td class="right">$20,225</td><td>Jul 2025 &ndash; Feb 2026</td></tr>
+      <tr><td>Texas Organizing Project</td><td><span class="tag tag-tx">TX</span></td><td><span class="tag tag-c4">c4</span></td><td class="right">30</td><td class="right">$17,870</td><td>Dec 2025 &ndash; Feb 2026</td></tr>
+      <tr><td>League of Women Voters of Texas</td><td><span class="tag tag-tx">TX</span></td><td><span class="tag tag-c3">c3</span></td><td class="right">6</td><td class="right">$6,294</td><td>Feb 25, 2026</td></tr>
+      <tr><td>New Chapter New Mexico</td><td><span class="tag tag-nm">NM</span></td><td><span class="tag tag-c4">c4</span></td><td class="right">17</td><td class="right">$5,583</td><td>Oct &ndash; Nov 2025</td></tr>
+      <tr><td>Animal Protection Voters (NM)</td><td><span class="tag tag-nm">NM</span></td><td><span class="tag tag-c4">c4</span></td><td class="right">5</td><td class="right">$1,295</td><td>Feb 9, 2026</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-amber">
+    <strong>Reading the spend ranges</strong>
+    Meta reports spend as upper/lower bounds, not exact figures. Real spend is somewhere within each range. Throughout this report, "spend" without qualifier refers to the upper bound. Page-level totals reflect ALL political/issue ads from that page in the window — geography is U.S.-wide where applicable, with the regional breakdowns in §05 confirming TX/NM is the dominant target audience.
+  </div>
+</div>
+
+<!-- SECTION 02: ADVERTISERS DEEP DIVE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2>Advertiser Profiles</h2>
+  </div>
+
+  <p>Twelve organizations carried the bulk of nonprofit GOTV-adjacent activity on Meta during the window. Each one ran a meaningfully different play. The profiles below quote ad text verbatim from the Ad Library; messaging summaries describe what the organization is actually doing on the platform, not what they say they do elsewhere.</p>
+
+  <!-- Powered by People -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">Powered by People (Beto O'Rourke)</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-tx">Texas</span>
+          <span class="tag tag-c4">501(c)(4) / org</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$693K&ndash;$1.27M</div>
+        <div class="l">4,701 ads &middot; Jun 2025&ndash;Mar 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: Powered By People &middot; Top delivery state: Texas (0.6% avg reach, 1,133 ads reaching TX) &middot; Page is Beto O'Rourke's personal page, used as the vehicle for Powered by People's political/issue advertising.</div>
+    <div class="advertiser-summary">A multi-track operation that blends voter-rights issue advocacy, donor solicitation, and pre-primary turnout messaging across more than 4,700 ads. Spend front-loaded August 2025 ($294K&ndash;$424K) and rebuilt for the primary in February 2026 ($16K&ndash;$89K). Roughly four times larger than every other nonprofit GOTV operation in TX/NM combined. The October pulse ($121K&ndash;$194K) tracks the pre-November municipal cycle; the February surge tracks the Texas primary itself.</div>
+    <div class="ad-quote">"Republicans are doing everything they can to make it harder to vote in Texas. Texas doesn't have online, automatic, or same day voter registration. More than 700 polling places have closed in the fastest growing Black and Brown neighborhoods in the state."<span class="ad-source">— Powered by People, Dec 19, 2025 (voting-rights issue advocacy)</span></div>
+    <div class="ad-quote">"Our Powered by People volunteers are working every day to reach, register, and help turn out the voters who can make the difference in 2026."<span class="ad-source">— Powered by People, Dec 20, 2025 (registration + turnout + donor ask)</span></div>
+    <div class="ad-quote">"The ground in Texas is moving. In county after county, Democrats are stepping up early to ensure we have the strongest…"<span class="ad-source">— Powered by People, Mar 3, 2026 (primary-day turnout)</span></div>
+    <div class="ad-quote">"Something big is happening in Texas. Democrats are showing up at more than double the rate we saw at this point in 2022."<span class="ad-source">— Powered by People, Mar 3, 2026 (turnout / momentum)</span></div>
+  </div>
+
+  <!-- ACLU of Texas -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">ACLU of Texas</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-tx">Texas</span>
+          <span class="tag tag-c4">501(c)(4)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$42K&ndash;$54.7K</div>
+        <div class="l">59 ads &middot; Aug 2025&ndash;Mar 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: ACLU Foundation of Texas Inc &middot; Highest concentration of spend: Feb 2026 ($15K&ndash;$19.7K, 20 ads) and Mar 2026 ($8.6K&ndash;$11.7K, 20 ads).</div>
+    <div class="advertiser-summary">Pure voter-protection/voter-education GOTV at the county level. Forty of ACLU TX's 59 ads landed in the final 7 days before the primary, each one customized to a specific Texas county: Bexar, Harris, Fort Bend, El Paso, Brazoria. Single-purpose messaging: poll hours, election-day rights, hotline number. Zero candidate or party content.</div>
+    <div class="ad-quote">"Hey El Paso County! Election Day is March 3 and polls are open 7 a.m. – 7 p.m."<span class="ad-source">— ACLU of Texas, Mar 2, 2026 (county-targeted Election Day reminder)</span></div>
+    <div class="ad-quote">"Hey Fort Bend County! Do you have questions or concerns about voting on Election Day? Primary Election Day is March 3."<span class="ad-source">— ACLU of Texas, Mar 2, 2026 (voter rights / hotline pitch)</span></div>
+    <div class="ad-quote">"Hey Harris County! Election Day is March 3 and polls are open 7 a.m. – 7 p.m."<span class="ad-source">— ACLU of Texas, Mar 2, 2026 (highest single-ad spend: $1,000&ndash;$1,499)</span></div>
+  </div>
+
+  <!-- Voto Latino -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">Voto Latino</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-tx">Texas top market</span>
+          <span class="tag tag-c4">501(c)(4)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$42K&ndash;$73K</div>
+        <div class="l">230 ads &middot; Aug 2025&ndash;Feb 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: Voto Latino &middot; Multi-state operation but TX is the #1 delivery state in the period (0.2% avg reach, 162 of 230 ads reaching Texas, ahead of CA and AZ). Largest spend pulse: Dec 2025 ($5.9K&ndash;$18.8K, 122 ads).</div>
+    <div class="advertiser-summary">Issue-tied voter registration. Frames Trump-administration immigration policy as the reason to register. This is "register to vote" messaging, but the why-now hook is policy outrage rather than a specific election. Texas-led but national in delivery; bilingual creative present but not dominant in the sample.</div>
+    <div class="ad-quote">"Now more than ever, it's crucial to stand up for immigrant communities. Registering to vote is fast, simple, and one of…"<span class="ad-source">— Voto Latino, Feb 11, 2026 (issue-tied registration)</span></div>
+    <div class="ad-quote">"The Trump Administration's cruel immigration enforcement policies demand action. Make your voice count by registering to…"<span class="ad-source">— Voto Latino, Feb 11&ndash;12, 2026 (issue framing for registration)</span></div>
+    <div class="ad-quote">"You can't vote if you haven't registered, and every election counts. Take action now and make your voice heard…"<span class="ad-source">— Voto Latino, Feb 11, 2026 (highest single-ad spend in sample: $2,000&ndash;$2,499)</span></div>
+  </div>
+
+  <!-- BakerRipley -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">BakerRipley</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-tx">Texas (Fort Bend / Houston)</span>
+          <span class="tag tag-c3">501(c)(3)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$4.8K&ndash;$65K</div>
+        <div class="l">609 ads &middot; Oct 2025&ndash;Mar 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: BakerRipley (Houston-based 501(c)(3) community development organization) &middot; Two distinct waves: Oct 2025 (214 ads, $2.8K&ndash;$24K) for the November municipal cycle and Feb&ndash;Mar 2026 (348 ads, $1.6K&ndash;$36K) for the primary.</div>
+    <div class="advertiser-summary">The hyperlocal voter-information operation that almost no one is talking about. 609 ads, most at $0&ndash;$99 each, naming individual polling sites in Fort Bend County: George Memorial Library, Calvary Baptist Church, the Rosenberg Annex, Bellfort Church of Christ, the Richmond Water Maintenance Facility. Volume-driven, neighborhood-scale GOTV. Nonpartisan voter-info content from a community-development nonprofit, not an advocacy group — but doing what is functionally the largest pure-GOTV operation by ad count in Texas.</div>
+    <div class="ad-quote">"You can vote today at George Memorial Library. Polls are open 7am-7pm. This is the last day you can vote."<span class="ad-source">— BakerRipley, Mar 3, 2026 (location-specific Election Day)</span></div>
+    <div class="ad-quote">"You can vote today at the Rosenberg Annex. Polls are open 7am-7pm. This is the last day you can vote."<span class="ad-source">— BakerRipley, Mar 3, 2026</span></div>
+    <div class="ad-quote">"Don't know where to vote? Here are all the local polling places. Happy voting!"<span class="ad-source">— BakerRipley, Mar 3, 2026</span></div>
+    <div class="ad-quote">"IT'S ELECTION DAY …That means it's the last day to vote. Vote until 7pm!"<span class="ad-source">— BakerRipley, Mar 3, 2026</span></div>
+  </div>
+
+  <!-- LWV TX -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">League of Women Voters of Texas</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-tx">Texas</span>
+          <span class="tag tag-c3">501(c)(3)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$4.5K&ndash;$6.3K</div>
+        <div class="l">6 ads &middot; Feb 25, 2026 only</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: League of Women Voters of Texas &middot; All six ads ran on a single day, six days before the primary.</div>
+    <div class="advertiser-summary">Pure nonpartisan voter education in a single-day burst. Drives traffic to VOTE411.org/lwvtx, the LWV's voter-information platform. Three creative variants, two spend tiers ($0&ndash;$99 organic, $1,500&ndash;$1,999 boosted). Small budget, but the most concentrated voter-education message of the cycle.</div>
+    <div class="ad-quote">"Many people who don't vote say it's because they don't know enough about the candidates to make an informed decision."<span class="ad-source">— LWV Texas, Feb 25, 2026 (the why-VOTE411 framing)</span></div>
+    <div class="ad-quote">"Texas Primary Elections choose who will be on the November ballot. With political redistricting, most races are actually…"<span class="ad-source">— LWV Texas, Feb 25, 2026 (primary-importance framing)</span></div>
+    <div class="ad-quote">"Texas Primary Election FAQs: Not sure where to go to cast your vote? Visit VOTE411.org/lwvtx."<span class="ad-source">— LWV Texas, Feb 25, 2026 (logistics &middot; tool referral)</span></div>
+  </div>
+
+  <!-- TOP -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">Texas Organizing Project</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-tx">Texas</span>
+          <span class="tag tag-c4">501(c)(4) / PAC</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$12.5K&ndash;$17.9K</div>
+        <div class="l">30 ads &middot; Dec 2025&ndash;Feb 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: Texas Organizing Project &middot; A notable shift from 2024, when TOP ran county-level down-ballot GOTV. In 2025&ndash;2026 the page is running healthcare-equity issue advocacy, not classic GOTV.</div>
+    <div class="advertiser-summary">Healthcare-justice issue framing aimed at organizing list-build. Messaging is base-mobilization rather than election-specific. Recruits volunteers and supporters via "join our fight" and "join the movement" CTAs. Functions as long-cycle infrastructure rather than primary-day GOTV.</div>
+    <div class="ad-quote">"From the Rio Grande to the Red River — every Texan deserves affordable, quality healthcare, no matter race, income, or zip code."<span class="ad-source">— Texas Organizing Project, Dec 23, 2025</span></div>
+    <div class="ad-quote">"Click the link and join the fight for health equity! We're organizing Black, Latino &amp; working-class communities to…"<span class="ad-source">— Texas Organizing Project, Dec 12&ndash;19, 2025 ($800&ndash;$899 spend per top variant)</span></div>
+    <div class="ad-quote">"Become part of the movement rewriting Texas' future. Your story matters."<span class="ad-source">— Texas Organizing Project, Dec 12&ndash;19, 2025</span></div>
+  </div>
+
+  <!-- OLÉ NM -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">OL&Eacute; NewMexico</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-nm">New Mexico</span>
+          <span class="tag tag-c4">501(c)(4)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$12.4K&ndash;$36K</div>
+        <div class="l">231 ads &middot; Jun 2025&ndash;Feb 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: OLE Education Fund &middot; The largest progressive nonprofit on Meta in NM during the window.</div>
+    <div class="advertiser-summary">Issue advocacy aimed at the 2026 NM legislative session: childcare worker wages, corporate accountability for tax incentives, capping punitive damages reform. Not classic "go vote" content — long-cycle policy organizing. The "GOTV" angle is implicit: build list, build pressure, channel voters into legislative-session priorities ahead of the June primary.</div>
+    <div class="ad-quote">"Too many childcare providers earn poverty wages, even as they nurture our children every day. Parents can't pay more, and…"<span class="ad-source">— OLÉ NewMexico, Feb 11, 2026 (top spend variant: $300&ndash;$399)</span></div>
+    <div class="ad-quote">"When corporations get tax breaks, our community must benefit too. Commissioner Baca's resolution ties incentives to local…"<span class="ad-source">— OLÉ NewMexico, Feb 20, 2026</span></div>
+    <div class="ad-quote">"First healthcare companies, what comes next? Once corporate accountability erodes, it's gone for good!"<span class="ad-source">— OLÉ NewMexico, Feb 11, 2026 (anti-tort-reform framing)</span></div>
+  </div>
+
+  <!-- NM Kids CAN -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">NM Kids CAN Action Fund Independent Committee</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-nm">New Mexico (Albuquerque)</span>
+          <span class="tag tag-ie">IE Committee</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$13.4K&ndash;$22.9K</div>
+        <div class="l">92 ads &middot; Sep&ndash;Nov 2025</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: NewMexicoKidsCAN Action Fund Independent Committee &middot; Concentrated entirely on the November 2025 Albuquerque Public Schools (APS) Board of Education race.</div>
+    <div class="advertiser-summary">Real candidate-specific GOTV at the school-board level — both positive endorsements and oppo attacks. Compressed 6-week sprint Sep&ndash;Nov, then dark. Down-ballot at its most literal: a school board race fought on Meta. Education-focused IE committee with school-reform-aligned posture.</div>
+    <div class="ad-quote">"PTA President &amp; scientist for school board."<span class="ad-source">— NM Kids CAN, Nov 3&ndash;4, 2025 (positive endorsement)</span></div>
+    <div class="ad-quote">"Professional Politician Margaret 'Warigia' Bowman just moved to New Mexico. We can't trust her with our kids."<span class="ad-source">— NM Kids CAN, Oct 29, 2025 (carpetbagger oppo)</span></div>
+    <div class="ad-quote">"California liberal Kristin Wooid-Hegner just moved here from California. We can't trust her with our kids."<span class="ad-source">— NM Kids CAN, Oct 29, 2025 (carpetbagger oppo)</span></div>
+    <div class="ad-quote">"Betzen didn't vote in 25 elections - INCLUDING School Board! No-Show Rebecca Betzen can't be trusted to show up for our…"<span class="ad-source">— NM Kids CAN, Oct 29, 2025 (voting-record attack)</span></div>
+  </div>
+
+  <!-- AFP NM -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">Americans for Prosperity-New Mexico</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-nm">New Mexico</span>
+          <span class="tag tag-c4">501(c)(4)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$8.3K&ndash;$21.2K</div>
+        <div class="l">130 ads &middot; Jun 2025&ndash;Feb 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: Americans for Prosperity (national 501(c)(4)) &middot; The largest conservative-aligned nonprofit GOTV/advocacy presence in NM during the window.</div>
+    <div class="advertiser-summary">Legislative-session issue advocacy targeting specific bills, primarily anti-SB 18 (the Clear Horizons Act, the climate/environmental bill that was ultimately defeated 19&ndash;23) and anti-SB 151/SB 235. Frames opposition through jobs/economic-impact language rather than ideology. Also runs activist-recruitment programming (Pursuit of Happiness Workshop). The "vote NO" framing is the closest the conservative side gets to GOTV during the window.</div>
+    <div class="ad-quote">"SB 18 poses a real threat to New Mexico's economy, endangering jobs, shrinking state revenue, and undermining funding for…"<span class="ad-source">— AFP-NM, Feb 2, 2026 (top single-ad spend: $300&ndash;$399)</span></div>
+    <div class="ad-quote">"CITIZENS DEMAND MORE OPPORTUNITY! Vote NO on SB151 and SB235 - both bills could make New Mexico less competitive for…"<span class="ad-source">— AFP-NM, Feb 18, 2026</span></div>
+    <div class="ad-quote">"Take one small step toward becoming a grassroots activist! Join our Pursuit of Happiness Workshop…"<span class="ad-source">— AFP-NM, Feb 16, 2026 (list-build / activist pipeline)</span></div>
+  </div>
+
+  <!-- ProgressNow NM -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">ProgressNow New Mexico</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-nm">New Mexico</span>
+          <span class="tag tag-c4">501(c)(4)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$11.6K&ndash;$20.2K</div>
+        <div class="l">75 ads &middot; Jul 2025&ndash;Feb 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: ProgressNow New Mexico &middot; AFP-NM's progressive counterpart on legislative-session battles.</div>
+    <div class="advertiser-summary">Pro-SB 18 issue advocacy framing the climate bill through job-creation, water-protection, and Tribal/community lenses. Also data-privacy advocacy. Pure issue-advocacy mode rather than candidate or election GOTV.</div>
+    <div class="ad-quote">"Clean energy = good jobs + stable costs. SB18 supports New Mexico's leadership in renewable energy while protecting families…"<span class="ad-source">— ProgressNow New Mexico, Feb 10, 2026</span></div>
+    <div class="ad-quote">"Our water sustains life in New Mexico. Drought and pollution threaten our way of life. SB18 protects our precious water…"<span class="ad-source">— ProgressNow New Mexico, Feb 10, 2026</span></div>
+    <div class="ad-quote">"From Tribal communities to small businesses, from parents to healthcare workers - we all deserve clean air, land, and water."<span class="ad-source">— ProgressNow New Mexico, Feb 10, 2026</span></div>
+  </div>
+
+  <!-- New Chapter NM -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">New Chapter New Mexico</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-nm">New Mexico</span>
+          <span class="tag tag-c4">501(c)(4)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$3.9K&ndash;$5.6K</div>
+        <div class="l">17 ads &middot; Oct&ndash;Nov 2025</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: New Chapter New Mexico &middot; Single short burst ahead of November 2025 ABQ municipal elections, with a forward-looking civic-engagement frame.</div>
+    <div class="advertiser-summary">Pure civic-engagement awareness — page-follow CTAs that promise voter information assets. Functions as platform-build for a longer-horizon GOTV operation rather than direct mobilization on a specific election.</div>
+    <div class="ad-quote">"Be part of what's next for New Mexico. Follow for key dates, handy poll maps, and direct access to candidate information…"<span class="ad-source">— New Chapter New Mexico, Oct&ndash;Nov 2025</span></div>
+    <div class="ad-quote">"You show up for your family and your block, now it's time to show up for your city. Follow New Chapter New Mexico…"<span class="ad-source">— New Chapter New Mexico, Oct 29, 2025</span></div>
+  </div>
+
+  <!-- Animal Protection Voters -->
+  <div class="advertiser-card">
+    <div class="advertiser-head">
+      <div>
+        <div class="advertiser-name">Animal Protection Voters (NM)</div>
+        <div class="advertiser-tags">
+          <span class="tag tag-nm">New Mexico</span>
+          <span class="tag tag-c4">501(c)(4)</span>
+        </div>
+      </div>
+      <div class="advertiser-stat">
+        <div class="v">$800&ndash;$1.3K</div>
+        <div class="l">5 ads &middot; Feb 9, 2026</div>
+      </div>
+    </div>
+    <div class="advertiser-meta">Funded by: Animal Protection &middot; Single-day burst, the smallest in-scope advertiser by spend.</div>
+    <div class="advertiser-summary">Single-day legislative-session push. Included for completeness; minor share of the ecosystem.</div>
+  </div>
+</div>
+
+<!-- SECTION 03: MESSAGING THEMES -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2>Messaging Themes</h2>
+  </div>
+
+  <p>Across all 12 advertisers, GOTV messaging falls into four distinct buckets. The mix is heavily skewed toward issue advocacy and registration, with classic election-day turnout messaging compressed into the final week before the Texas primary.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Theme Mix by Advertiser</div>
+    <div class="chart-subtitle">Approximate share of ad volume per theme. Stacked horizontal bars.</div>
+    <div style="height:420px;"><canvas id="themeMixChart"></canvas></div>
+  </div>
+
+  <div class="theme-grid">
+    <div class="theme-card" style="background:var(--green-light);">
+      <h4>1. Voter Registration</h4>
+      <ul>
+        <li>Voto Latino: "Registering to vote is fast, simple, and one of the most important…"</li>
+        <li>Powered by People: "reach, register, and help turn out the voters who can make the difference"</li>
+      </ul>
+      <p style="font-size:12px; color:var(--text-secondary); margin-top:8px;">Concentrated in two operations. Voto Latino frames registration as a response to immigration policy, not as election prep.</p>
+    </div>
+    <div class="theme-card" style="background:var(--blue-light);">
+      <h4>2. Turnout / Election-Day</h4>
+      <ul>
+        <li>ACLU TX: "Election Day is March 3 and polls are open 7 a.m. – 7 p.m."</li>
+        <li>BakerRipley: "You can vote today at George Memorial Library."</li>
+        <li>Powered by People: "Democrats are showing up at more than double the rate we saw at this point in 2022"</li>
+      </ul>
+      <p style="font-size:12px; color:var(--text-secondary); margin-top:8px;">The classic GOTV bucket. Compressed into the final 7 days before the TX primary. Hyperlocal at BakerRipley; statewide-momentum at PbP; county-segmented at ACLU.</p>
+    </div>
+    <div class="theme-card" style="background:var(--amber-light);">
+      <h4>3. Voter Education / Info</h4>
+      <ul>
+        <li>LWV Texas: "Texas Primary Elections choose who will be on the November ballot. With political redistricting, most races are actually…"</li>
+        <li>BakerRipley: "Don't know where to vote? Here are all the local polling places."</li>
+        <li>New Chapter NM: "Follow for key dates, handy poll maps, and direct access to candidate information"</li>
+      </ul>
+      <p style="font-size:12px; color:var(--text-secondary); margin-top:8px;">Nonpartisan information. Drives to platforms (VOTE411) or organic page follows. Smallest bucket by dollars but the most clearly nonprofit-aligned.</p>
+    </div>
+    <div class="theme-card" style="background:var(--purple-light);">
+      <h4>4. Issue Advocacy Tied to the Vote</h4>
+      <ul>
+        <li>ProgressNow NM: "SB18 supports New Mexico's leadership in renewable energy"</li>
+        <li>AFP-NM: "Vote NO on SB151 and SB235"</li>
+        <li>OLÉ NM: corporate-accountability resolutions, childcare wages</li>
+        <li>TX Organizing Project: "join the fight for health equity"</li>
+        <li>NM Kids CAN: school-board candidate attacks &amp; endorsements</li>
+        <li>Powered by People: voting-rights / "Republicans are doing everything they can to make it harder to vote"</li>
+      </ul>
+      <p style="font-size:12px; color:var(--text-secondary); margin-top:8px;">By far the largest theme bucket by dollars. Most "GOTV" nonprofit spend in this window is functionally legislative-session and cycle-prep advocacy, not "vote on Tuesday" turnout.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-purple">
+    <strong>The pattern</strong>
+    Issue advocacy &gt; registration &gt; turnout &gt; voter info — that's the order by dollars. "Pure GOTV" content (vote-on-this-day, here's-your-polling-place) only spikes in the final week before each election. Most of the 8-month window is filled with legislative-priority advocacy, list-building, and voting-rights organizing — useful for building a turnout machine, but not the same thing as turning out the vote.
+  </div>
+</div>
+
+<!-- SECTION 04: SPEND TIMELINE -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2>Spend Timeline</h2>
+  </div>
+
+  <p>The temporal pattern is dominated by Powered by People's August 2025 ramp, with secondary peaks tied to the November 2025 special elections, the New Mexico legislative session in February 2026, and the Texas primary on March 3.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Monthly Ad Volume — Top 4 Advertisers</div>
+    <div class="chart-subtitle">Powered by People dominates the y-axis. Note ACLU TX surge in Feb–Mar 2026 (primary), BakerRipley's two-wave pattern (Oct + Feb), and Voto Latino's December pulse.</div>
+    <div style="height:380px;"><canvas id="timelineChart"></canvas></div>
+  </div>
+
+  <h3>Key dates correlated to ad activity</h3>
+  <div class="timeline">
+    <div class="timeline-event">
+      <div class="date">Jul&ndash;Aug 2025</div>
+      <div class="title">Powered by People organizing ramp ($427K&ndash;$650K combined)</div>
+      <div class="caption">Beto O'Rourke's organization opens its 2026 campaign on Meta with the largest single push of any nonprofit in the window. Front-loads cycle infrastructure.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="date">Oct 2025</div>
+      <div class="title">November special-election cycle</div>
+      <div class="caption">BakerRipley first wave (214 ads, Houston area). NM Kids CAN APS school-board sprint begins. New Chapter New Mexico launches civic-engagement push.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="date">Nov 4, 2025</div>
+      <div class="title">NM municipal elections / APS Board</div>
+      <div class="caption">NM Kids CAN concludes 6-week sprint. Final school-board GOTV ads land.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="date">Jan&ndash;Feb 2026</div>
+      <div class="title">NM legislative session opens (Jan 20 &ndash; Feb 19)</div>
+      <div class="caption">Pro/anti-SB 18 issue advocacy peaks: ProgressNow NM, AFP-NM, OLÉ NM all running their largest February pushes. Animal Protection Voters single-day burst Feb 9.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="date">Feb 2, 2026</div>
+      <div class="title">TX voter registration deadline</div>
+      <div class="caption">Voto Latino's pre-primary registration push lands in this window. Notable absence: no Spanish-language Powered by People surge tied directly to this date.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="date">Feb 17, 2026</div>
+      <div class="title">TX early voting begins</div>
+      <div class="caption">ACLU of Texas February surge (15K&ndash;19K, 20 ads) starts here. BakerRipley second wave (348 ads). LWV Texas single-day burst follows on Feb 25.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="date">Mar 3, 2026</div>
+      <div class="title">TX Primary Election Day</div>
+      <div class="caption">Final 48-hour ACLU of Texas county-by-county Election Day reminders. BakerRipley names individual Fort Bend polling sites. Powered by People primary-day turnout creative goes live.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="date">Jun 2, 2026</div>
+      <div class="title">NM Primary (out of window)</div>
+      <div class="caption">Activity ramping toward NM primary not yet visible — most NM nonprofit ads still focused on legislative-session priorities at the close of this report period.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 05: GEOGRAPHIC -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2>Geographic Concentration</h2>
+  </div>
+
+  <p>Regional delivery data confirms the in-scope advertisers are correctly classified as TX/NM operations rather than incidental national activity. The three multi-state organizations — Voto Latino, the Voter Participation Center, and Color the Vote (Poder Latinx) — are split as follows:</p>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Multi-state Advertiser</th><th>Top Delivery State</th><th>TX Reach</th><th>NM Reach</th><th>In-Scope?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Voto Latino</td><td>Texas (162 / 230 ads reach TX)</td><td>0.2% avg</td><td>0.0% (128 ads)</td><td>✅ TX-led</td></tr>
+      <tr><td>The Voter Participation Center</td><td>New Jersey (358 / 537 ads)</td><td>0.0% (81 ads)</td><td>0.0% (79 ads)</td><td>❌ NJ/VA-focused</td></tr>
+      <tr><td>Color the Vote (Poder Latinx)</td><td>Pennsylvania &amp; Georgia (per ad copy)</td><td>n/a</td><td>n/a</td><td>❌ PA/GA-focused</td></tr>
+      <tr><td>Powered by People</td><td>Texas (1,133 / 2,000 ads sample)</td><td>0.6% avg</td><td>0.0% (871 ads)</td><td>✅ TX-led</td></tr>
+      <tr><td>Students for Voting Justice</td><td>Virginia only</td><td>n/a</td><td>n/a</td><td>❌ VA-focused</td></tr>
+    </tbody>
+  </table>
+
+  <p>The TX-side advertisers are heavily concentrated in the major-metro counties: Harris, Bexar, Fort Bend, El Paso, Dallas, Travis. ACLU of Texas explicitly named Bexar, Harris, Fort Bend, El Paso, and Brazoria counties in its primary-week ad creative. BakerRipley operates almost entirely in Fort Bend County, naming specific polling sites within Richmond and Rosenberg. The NM-side concentration is Albuquerque (NM Kids CAN's APS school-board fight) and statewide legislative-session coverage (OLÉ, ProgressNow, AFP).</p>
+
+  <div class="callout callout-green">
+    <strong>What's not happening geographically</strong>
+    No detected nonprofit GOTV operation focused on the Rio Grande Valley, the Permian Basin, or rural East Texas during the window — the markets where Latino and rural-Democratic turnout has historically been most volatile and where Republicans made gains in 2024. The geographic concentration of nonprofit GOTV on Meta tracks the urban Democratic base rather than the persuasion/turnout battlefield.
+  </div>
+</div>
+
+<!-- SECTION 06: NOTABLE ABSENCES / CONTEXT -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2>Notable Absences &amp; Party-Committee Context</h2>
+  </div>
+
+  <p>The user-defined scope of this report is nonprofits, 501(c)(4)s, and unions — but the absences are part of the story.</p>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-header">Party committees: barely present</div>
+      <p style="font-size:14px;"><strong>Texas Democratic Party:</strong> $300&ndash;$498 across 2 ads in the entire 8-month window. Effectively zero presence on Meta.</p>
+      <p style="font-size:14px;"><strong>Republican Party of Texas:</strong> Did not surface in top-50 spender queries for primary, registration, or turnout terms. Meta is not where the state parties are operating.</p>
+      <p style="font-size:14px; color:var(--text-secondary);">Implication: when a nonprofit like Powered by People spends $1M+ on Meta GOTV, it is not supplementing a robust party-committee presence — it is substituting for one.</p>
+    </div>
+    <div class="card">
+      <div class="card-header">Conservative-aligned nonprofits in TX</div>
+      <p style="font-size:14px;">No major conservative 501(c)(4) ran a sustained TX GOTV operation in the window — Texas Public Policy Foundation, Texas Scorecard ($1.1K&ndash;$1.9K), and Truth &amp; Liberty did not approach the scale of the progressive advertisers profiled above.</p>
+      <p style="font-size:14px;">In New Mexico, AFP-NM is the conservative analog at $8.3K&ndash;$21.2K, but that is roughly half the Animal Protection Voters / OLÉ / ProgressNow combined progressive total.</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-header">Unions: largely off-platform</div>
+      <p style="font-size:14px;">No major TX or NM union surfaced in top-spender queries during the window for GOTV-relevant search terms. Texas AFT, AFL-CIO, AFSCME, NEA-NM, and the NM Federation of Labor were not detectable as top-50 nonprofit GOTV advertisers on Meta.</p>
+      <p style="font-size:14px; color:var(--text-secondary);">Possible reasons: union political/issue work happens through endorsed candidate pages, dedicated PACs, or off-Meta channels (mail, field, member email).</p>
+    </div>
+    <div class="card">
+      <div class="card-header">National 501(c)(3)s with TX/NM exposure</div>
+      <p style="font-size:14px;"><strong>The Voter Participation Center</strong> spent $114K&ndash;$181K nationally on registration, but only ~15% of ads reached TX/NM. New Jersey and Virginia 2025 elections absorbed the bulk of effort.</p>
+      <p style="font-size:14px;"><strong>Color the Vote / Poder Latinx</strong> ($232K&ndash;$305K) targeted Pennsylvania and Georgia registration deadlines, not TX/NM.</p>
+      <p style="font-size:14px;"><strong>Students for Voting Justice (Center for Common Ground)</strong> ran ~$25K&ndash;$39K but Virginia-only.</p>
+    </div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="methodology">
+  <h4>Methodology</h4>
+  <p>Source: Meta Ad Library API (political &amp; issue ads), country filter <code>US</code>, delivery date range <code>2025-07-01</code> through <code>2026-03-03</code>. Discovery via state-level <code>get_top_spenders</code> queries scoped to TX and NM with GOTV-related search terms (registration, primary, early voting, vote, voter ID, polling place) plus seed-name lookups for known nonprofit GOTV operations from the 2024 cycle. Per-page totals via <code>get_page_spend_summary</code>; geographic verification via <code>analyze_spend_by_region</code>; ad copy via <code>get_page_ads</code> and <code>search_political_ads</code>.</p>
+  <p>Spend reported as upper-bound dollar figures from Meta's spend ranges. Ad counts are total political/issue ads from the page in the window, not filtered to GOTV-only — most in-scope advertisers run only a small mix of non-GOTV political content, so totals are reasonable proxies. Verbatim ad excerpts are quoted under the report's copyright rules: maximum ~15 words per quote, attributed to the funded-by entity and delivery date. Longer creative is paraphrased.</p>
+  <p>Inclusion criteria: 501(c)(3) civic-engagement nonprofits, 501(c)(4) advocacy organizations, labor unions, and other nonprofit/advocacy entities whose Meta activity in the window includes any of: voter registration, turnout/mobilization, voter education, or issue advocacy tied to voting. Excluded from headline analysis: candidate-affiliated PACs, party committees (TDP, RPT, NM Dem/GOP), candidate campaigns, and government election offices (TX SoS, Harris County Elections, Dallas County Elections, etc.). Multi-state operations were retained only when TX or NM was a top delivery state.</p>
+  <p>Date as of report generation: 2026-05-05. Spend ranges and ad counts will continue to update as Meta backfills late-reported data.</p>
+</div>
+
+<div class="footer">
+  Built by The Canter Company &middot; <a href="https://www.linkedin.com/in/joshuacanter/" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+
+</div>
+
+<script>
+const fontFamily = "'IBM Plex Sans',sans-serif";
+const navy = '#1a2332', stone = '#78716c', border = '#e4e0d8';
+const tx = '#b91c1c', nm = '#b45309';
+const c3 = '#16803c', c4 = '#2563eb', ie = '#6d28d9';
+
+Chart.defaults.font.family = fontFamily;
+Chart.defaults.color = '#3d3833';
+
+// 01a — top advertisers ranked
+new Chart(document.getElementById('topAdvChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Powered by People (Beto)','Voto Latino','BakerRipley','ACLU of Texas',
+      'OLÉ NewMexico','NM Kids CAN','Americans for Prosperity-NM','ProgressNow NM',
+      'Texas Organizing Project','LWV Texas','New Chapter NM','Animal Protection Voters'
+    ],
+    datasets: [{
+      label: 'Spend (upper bound)',
+      data: [1275000, 73170, 65091, 54741, 36069, 22908, 21170, 20225, 17870, 6294, 5583, 1295],
+      backgroundColor: [tx, tx, tx, tx, nm, nm, nm, nm, tx, tx, nm, nm],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => '$' + c.parsed.x.toLocaleString() } } },
+    scales: {
+      x: { ticks: { callback: v => '$' + (v >= 1000000 ? (v/1000000).toFixed(1) + 'M' : (v/1000) + 'K') }, grid: { color: border } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// 01b — TX vs NM
+new Chart(document.getElementById('stateSplitChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Texas', 'New Mexico'],
+    datasets: [{ data: [1492866, 107250], backgroundColor: [tx, nm], borderColor: '#fff', borderWidth: 3 }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom' },
+      tooltip: { callbacks: { label: c => c.label + ': $' + c.parsed.toLocaleString() } }
+    }
+  }
+});
+
+// 01c — type split
+new Chart(document.getElementById('typeSplitChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['501(c)(4) advocacy','501(c)(3) civic','IE Committee'],
+    datasets: [{ data: [1483541, 71385, 22908], backgroundColor: [c4, c3, ie], borderColor: '#fff', borderWidth: 3 }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom' },
+      tooltip: { callbacks: { label: c => c.label + ': $' + c.parsed.toLocaleString() } }
+    }
+  }
+});
+
+// 03 — theme mix per advertiser (approximate ad-volume share)
+new Chart(document.getElementById('themeMixChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Powered by People','Voto Latino','BakerRipley','ACLU of Texas',
+      'OLÉ NewMexico','NM Kids CAN','AFP-NM','ProgressNow NM',
+      'TX Organizing Project','LWV Texas','New Chapter NM'
+    ],
+    datasets: [
+      { label: 'Registration', data: [25, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0], backgroundColor: '#16803c' },
+      { label: 'Turnout / Election Day', data: [25, 5, 95, 95, 0, 5, 0, 0, 0, 30, 10], backgroundColor: '#2563eb' },
+      { label: 'Voter Education / Info', data: [5, 0, 5, 5, 0, 0, 5, 0, 0, 70, 70], backgroundColor: '#b45309' },
+      { label: 'Issue Advocacy Tied to Vote', data: [45, 0, 0, 0, 100, 95, 95, 100, 100, 0, 20], backgroundColor: '#6d28d9' }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => c.dataset.label + ': ~' + c.parsed.x + '%' } } },
+    scales: {
+      x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: border } },
+      y: { stacked: true, grid: { display: false } }
+    }
+  }
+});
+
+// 04 — monthly volume timeline (top 4)
+new Chart(document.getElementById('timelineChart'), {
+  type: 'line',
+  data: {
+    labels: ['Jul \'25','Aug \'25','Sep \'25','Oct \'25','Nov \'25','Dec \'25','Jan \'26','Feb \'26','Mar \'26'],
+    datasets: [
+      { label: 'Powered by People', data: [752, 785, 592, 504, 328, 468, 402, 717, 111], borderColor: tx, backgroundColor: tx + '22', tension: 0.3, fill: false, pointRadius: 4 },
+      { label: 'BakerRipley', data: [0, 0, 0, 214, 24, 0, 0, 348, 23], borderColor: '#0d9488', backgroundColor: '#0d948822', tension: 0.3, fill: false, pointRadius: 4 },
+      { label: 'Voto Latino', data: [0, 39, 24, 8, 7, 122, 3, 27, 0], borderColor: '#6d28d9', backgroundColor: '#6d28d922', tension: 0.3, fill: false, pointRadius: 4 },
+      { label: 'ACLU of Texas', data: [0, 1, 2, 5, 8, 2, 1, 20, 20], borderColor: '#16803c', backgroundColor: '#16803c22', tension: 0.3, fill: false, pointRadius: 4 }
+    ]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom' },
+      annotation: {
+        annotations: {
+          regDeadline: { type: 'line', xMin: 7, xMax: 7, borderColor: stone, borderWidth: 1, borderDash: [4,4], label: { display: true, content: 'TX Reg Deadline (Feb 2)', position: 'start', font: { size: 10 }, backgroundColor: 'rgba(255,255,255,0.9)', color: stone } },
+          primary: { type: 'line', xMin: 8, xMax: 8, borderColor: tx, borderWidth: 1, borderDash: [4,4], label: { display: true, content: 'TX Primary (Mar 3)', position: 'end', font: { size: 10 }, backgroundColor: 'rgba(255,255,255,0.9)', color: tx } }
+        }
+      }
+    },
+    scales: {
+      y: { title: { display: true, text: 'Ads per month' }, grid: { color: border } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>
